@@ -4,3 +4,5 @@ This repo contains a few tools to analyze the survey results for the IMPRS sport
 
 Allows to create some plots and somewhat balanced teams based on a random way
 of finding them that is good enough for our purposes, albeit I admit it isn't really optimized.
+
+Most stuff can be found in `analyze_sportsweek_data.ipynb` for now, might change later.
