@@ -10,7 +10,7 @@ from .util import sort_dict_by_values
 
 def create_institute_plot(df: pd.DataFrame):
     ax = plt.gca()
-    plot_pie_chart(df["institute"].tolist(), ax, "Institute distribution")
+    return plot_pie_chart(df["institute"].tolist(), ax, "Institute distribution")
 
 
 def create_sports_num_plot(

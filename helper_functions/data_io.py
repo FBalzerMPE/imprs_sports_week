@@ -24,7 +24,8 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
     """
     backup_fpath = DATAPATH.joinpath("sanitized_responses.csv")
     if backup_fpath.exists() and not rerun:
-        return pd.read_csv(backup_fpath)
+        df = pd.read_csv(backup_fpath)
+        return df
     fpath = DATAPATH.joinpath("hidden/form_responses_2024_03_28.csv")
     cols = [
         "response_timestamp",
@@ -68,12 +69,14 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
     df["num_sports"] = df[SPORTS_DF["name"].tolist()].sum(axis=1).astype(int)
     for day in ["monday", "tuesday", "thursday", "friday"]:
         df["avail_" + day] = df.time_available.fillna("").str.contains(day, case=False)
+    df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-03-31 12:00:00")
     deletable_cols = [
         "name",
         "phd_or_postdoc",
         "is_phd",
         "events_interested_in",
         "time_available",
+        "response_timestamp",
     ]
     df = df[[col for col in df.columns if col not in deletable_cols]]
     df.insert(0, "nickname", generate_anonymous_names(len(df)))
