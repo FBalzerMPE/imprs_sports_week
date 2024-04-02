@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 import numpy as np
 import pandas as pd
 
-from .constants import DATAPATH, SPORTS_DF
+from .constants import DATAPATH, SPORTS_LIST
 from .plotting import create_sports_num_plot
 
 if TYPE_CHECKING:
@@ -22,10 +22,10 @@ class Team:
     """The index of the team."""
 
     color: str = field(init=False)
-    """The color of the team in plots."""
+    """The hex color of the team in plots."""
 
     sports_fulfill_nums: dict = field(
-        default_factory=lambda: {sport: 0 for sport in SPORTS_DF["name"]}
+        default_factory=lambda: {sport: 0 for sport in SPORTS_LIST}
     )
     """Rough estimate for how well this team fulfills the requirements for each of the sports."""
 
@@ -33,7 +33,7 @@ class Team:
     """The list of players in the team."""
 
     def __post_init__(self):
-        colors = ["red", "blue", "green", "yellow", "purple"]
+        colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
         self.color = colors[self.team_index - 1 % len(colors)]
 
     @classmethod
@@ -64,7 +64,11 @@ class Team:
 
     @property
     def current_sports_stats(self) -> dict[str, int]:
-        return {sport: self.sports_fulfill_nums[sport] for sport in SPORTS_DF["name"]}
+        return {sport: self.sports_fulfill_nums[sport] for sport in SPORTS_LIST}
+
+    @property
+    def rgb_colors(self) -> tuple[int, ...]:
+        return tuple(int(self.color.lstrip("#")[i : i + 2], 16) for i in (0, 2, 4))
 
     def __str__(self):
         return f"{self.name} ({self.player_num} players): {self.sports_fulfill_nums}"
@@ -74,31 +78,34 @@ class Team:
 
     def add_player(self, player: pd.Series):
         self._players.append(player)
-        for sport in SPORTS_DF["name"]:
+        for sport in SPORTS_LIST:
             if player[sport]:
                 self.sports_fulfill_nums[sport] += 1
 
     def remove_player(self, player: pd.Series):
         self._players.remove(player)
-        for sport in SPORTS_DF["name"]:
+        for sport in SPORTS_LIST:
             if player[sport]:
                 self.sports_fulfill_nums[sport] -= 1
 
     def set_players(self, players: pd.DataFrame):
         self._players = players.to_dict(orient="records")
         self.sports_fulfill_nums = {
-            sport: np.sum(self.player_df[sport]) for sport in SPORTS_DF["name"]
+            sport: np.sum(self.player_df[sport]) for sport in SPORTS_LIST
         }
 
-    def get_necessity_index(self, player: pd.Series) -> int:
+    def get_necessity_index(
+        self, player: pd.Series, sports_events: list[SportEvent]
+    ) -> int:
         """Calculate an index that represents how much the team needs the player.
         The index is calculated as the sum of the difference between the minimum number of players
         required for each sport and the number of players currently in the team for that sport.
         """
         index = 0
-        for sport, val in SPORTS_DF[["name", "min_val"]].itertuples(index=False):
+        for event in sports_events:
+            sport = event.sanitized_name
             if player[sport]:
-                index += min(val - self.sports_fulfill_nums[sport], 0)
+                index += min(event.min_player_val - self.sports_fulfill_nums[sport], 0)
         index += 30 - self.player_num
         return index
 
@@ -132,20 +139,29 @@ class Team:
         return avail[avail[sport_day_keys].any(axis=1)]
 
     def get_subteams_for_sport(
-        self, sport: SportEvent, num_subteams: int, size_subteams: int, seed: int = 42
+        self,
+        sport: SportEvent,
+        num_subteams: int | None = None,
+        num_players_pers_subteam: int | None = None,
+        seed: int = 42,
     ) -> dict[str, pd.DataFrame]:
         """Get a dictionary of subteams for a specific sport."""
-        assert (
-            num_subteams * size_subteams <= self.sports_fulfill_nums[sport.df_key]
-        ), "Not enough players in the team to create the requested number of subteams."
-        assert num_subteams <= 8, "We only support up to 8 subteams."
+        if num_subteams is None:
+            num_subteams = sport.num_subteams
+        if num_players_pers_subteam is None:
+            num_players_pers_subteam = sport.num_players_per_subteam
         avail_players = self.get_all_players_for_sport(
-            sport.df_key, [f"avail_{day.lower()}" for day in sport.days]
+            sport.sanitized_name, [f"avail_{day.lower()}" for day in sport.days]
         )
+        req_player_num = num_subteams * num_players_pers_subteam
+        assert req_player_num <= len(
+            avail_players
+        ), f"Not enough players (only {len(avail_players)}) in the team to create the requested number of subteams (at least {req_player_num} expected)."
+        assert num_subteams <= 8, "We only support up to 8 subteams."
         subteams = {}
         for i in range(num_subteams):
             subteam = avail_players.sample(
-                size_subteams, replace=False, random_state=seed + i
+                num_players_pers_subteam, replace=False, random_state=seed + i
             )
             avail_players = avail_players.drop(subteam.index)
             subteams["ABCDEFGH"[i]] = subteam

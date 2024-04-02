@@ -1,3 +1,3 @@
 import helper_functions as hf
 
-hf.SPORTS_EVENTS["Volleyball"].write_streamlit_rep()
+hf.SPORTS_EVENTS["volleyball"].write_streamlit_rep()

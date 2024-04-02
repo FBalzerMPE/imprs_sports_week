@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib.axes import Axes
 from matplotlib.ticker import MaxNLocator
 
-from .constants import SPORTS_DF
+from .constants import SPORTS_LIST
 from .plot_util import annotate_barh_values, plot_pie_chart
 from .util import sort_dict_by_values
 
@@ -21,12 +21,11 @@ def create_sports_num_plot(
     y_offset: float = 0,
     **kwargs,
 ):
-    sports = SPORTS_DF["name"].tolist()
-    sport_totals: dict[str, int] = {flag: df[flag].sum() for flag in sports}
+    sport_totals: dict[str, int] = {flag: df[flag].sum() for flag in SPORTS_LIST}
     if sort_bars:
         sport_totals = sort_dict_by_values(sport_totals)
     values = list(sport_totals.values())
-    y_positions = [i + y_offset for i in range(len(sports))]
+    y_positions = [i + y_offset for i in range(len(SPORTS_LIST))]
     ax: Axes = plt.gca()
     containers = ax.barh(
         y_positions, values, color=color, edgecolor="black", linewidth=1.5, **kwargs

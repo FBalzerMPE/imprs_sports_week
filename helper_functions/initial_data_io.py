@@ -1,6 +1,7 @@
 import pandas as pd
 
-from .constants import DATAPATH, SPORTS_DF
+from .constants import DATAPATH
+from .sport_event_registry import SPORTS_EVENTS
 
 
 def generate_anonymous_names(number: int) -> list[str]:
@@ -62,11 +63,11 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
     }
     df["institute"] = df.institute.replace(proper_institute_map).str.upper().str.strip()
 
-    for _, (sport, prop_name) in SPORTS_DF[["name", "proper_name"]].iterrows():
-        df[sport] = df.events_interested_in.fillna("").str.contains(
-            prop_name, case=False
+    for event in SPORTS_EVENTS.values():
+        df[event.sanitized_name] = df.events_interested_in.fillna("").str.contains(
+            event.name, case=False
         )
-    df["num_sports"] = df[SPORTS_DF["name"].tolist()].sum(axis=1).astype(int)
+    df["num_sports"] = df[SPORTS_EVENTS.keys()].sum(axis=1).astype(int)
     for day in ["monday", "tuesday", "thursday", "friday"]:
         df["avail_" + day] = df.time_available.fillna("").str.contains(day, case=False)
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-03-31 12:00:00")
