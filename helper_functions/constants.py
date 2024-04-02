@@ -2,17 +2,18 @@ from pathlib import Path
 
 # The path to the data folder
 DATAPATH = Path(__file__).parent.parent / "data"
+PAGESPATH = Path(__file__).parent.parent / "pages"
 
 SPORTS_LIST = [
     "basketball",
-    "beer_pong",
-    "capture_the_flag",
-    "chess",
-    "fooseball",
-    "football",
-    "ping_pong",
     "running_sprints",
-    "spikeball",
-    "tennis",
     "volleyball",
+    "chess",
+    "football",
+    "tennis",
+    "capture_the_flag",
+    "spikeball",
+    "beer_pong",
+    "fooseball",
+    "ping_pong",
 ]

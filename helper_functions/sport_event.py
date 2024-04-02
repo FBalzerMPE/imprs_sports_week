@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime, time, timedelta
 
 import numpy as np
 import pandas as pd
@@ -10,6 +10,23 @@ from .streamlit_util import st_disply_team_highlighted_table
 from .util import read_event_desc
 
 
+def generate_round_robin_list(
+    teams: list[str], max_match_number=2
+) -> list[tuple[str, str]]:
+    """Generate a round-robin list of matches between the teams."""
+    matches = []
+    for team_1 in teams:
+        for team_2 in teams:
+            if team_1.split()[0] == team_2.split()[0]:
+                continue
+            match = (team_1, team_2)
+            num_t1 = np.sum([team_1 in match for match in matches])
+            num_t2 = np.sum([team_2 in match for match in matches])
+            if (num_t1 < max_match_number) and (num_t2 < max_match_number):
+                matches.append(match)
+    return matches
+
+
 def schedule_matches(teams: list[str], num_subteams: int, max_match_number=2):
     """Schedule matches between the teams.
     Do this in a round-robin fashion, where each team plays
@@ -17,15 +34,9 @@ def schedule_matches(teams: list[str], num_subteams: int, max_match_number=2):
     matches = []
     for subteam_key in "ABCDEFGH"[:num_subteams]:
         subteams = [team for team in teams if subteam_key in team]
-        for team_1 in subteams:
-            for team_2 in subteams:
-                if team_1.split()[0] == team_2.split()[0]:
-                    continue
-                match = (team_1, team_2)
-                num_t1 = np.sum([team_1 in match for match in matches])
-                num_t2 = np.sum([team_2 in match for match in matches])
-                if (num_t1 < max_match_number) and (num_t2 < max_match_number):
-                    matches.append(match)
+        matches += generate_round_robin_list(subteams, max_match_number)
+    if len(matches) == 0:
+        matches = generate_round_robin_list(teams, max_match_number)
     return pd.DataFrame(matches, columns=["Team 1", "Team 2"])
 
 
@@ -90,7 +101,8 @@ class SportEvent:
         ), f"The {self.name} event is too short for the number of matches and sub-teams."
         self.desc = read_event_desc(self.sanitized_name)
         self.days = [
-            day.strftime("%A") for day in pd.date_range(self.start, self.end).date
+            day.strftime("%A").lower()
+            for day in pd.date_range(self.start, self.end).date
         ]
         try:
             from .team_registry import ALL_TEAMS
@@ -106,18 +118,39 @@ class SportEvent:
         return self.name.replace(" ", "_").replace("/", "_").lower()
 
     @property
-    def calendar_entry(self) -> dict[str, str]:
+    def calendar_entry(self) -> dict[str, str | dict]:
         title = f"{self.name} (Contact: {', '.join(self.organizer_names)})"
         return {
             "title": title,
             "start": self.start.isoformat(),
             "end": self.end.isoformat(),  # "2024-04-29T21:00:00",
             "resourceId": self.name,
+            "extendedProps": {"url": "/" + self.sanitized_name},
         }
 
     @property
+    def match_calendar_entries(self) -> list[dict[str, str | dict]]:
+        """Get the calendar entries for the matches."""
+        matches = self.matches()
+        entries = []
+        for i, match_ in matches.iterrows():
+            title = f"{match_['Team 1']} vs {match_['Team 2']}"
+            time = datetime.strptime(match_["Time"], "%H:%M").time()
+            start = datetime.combine(self.start.date(), time)
+            entries.append(
+                {
+                    "title": title,
+                    "start": start.isoformat(),
+                    "end": (start + self.match_duration).isoformat(),
+                    "resourceId": self.name,
+                    "color": "green",
+                }
+            )
+        return entries
+
+    @property
     def short_info_text(self) -> str:
-        text = f"""# {self.name} {self.icon}
+        text = f"""
 - **Location:** {self.loc.titledName}
 - **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{self.start.strftime('%A, %B %d')}**
 - **Organizers:** {', '.join(self.organizer_names)}"""
@@ -130,9 +163,14 @@ class SportEvent:
             for team_key, val in self.sub_teams.items()
             for subteam_key, subteam in val.items()
         }
+        if not any("B" in team for team in team_dict.keys()):
+            team_dict = {k.replace(" A", " "): v for k, v in team_dict.items()}
+
         rows = [[team_key] + players for team_key, players in team_dict.items()]
         subteams = pd.DataFrame(
-            rows, columns=["Team"] + [f"Player {i+1}" for i in range(4)]
+            rows,
+            columns=["Team"]
+            + [f"Player {i+1}" for i in range(self.num_players_per_subteam)],
         )
         return subteams
 

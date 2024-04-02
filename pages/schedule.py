@@ -2,6 +2,8 @@ import helper_functions as hf
 import streamlit as st
 from streamlit_calendar import calendar
 
+hf.st_set_up_header_and_sidebar()
+
 sports_resources = [
     {"id": event.name, "title": event.name, "loc": str(event.loc.titledName)}
     for event in hf.SPORTS_EVENTS.values()
@@ -23,16 +25,12 @@ calendar_options = {
     "resourceGroupField": "loc",
     "resources": sports_resources,
 }
-# calendar_events = [
-#     {
-#         "title": "Volleyball (Contact: Fabi)",
-#         "start": "2024-04-29T17:30:00",
-#         "end": "2024-04-29T20:00:00",
-#         "resourceId": "Volleyball",
-#         "extendedProps": {"description": "This is a description of the event."},
-#     },
-# ]
 calendar_events = [event.calendar_entry for event in hf.SPORTS_EVENTS.values()]
+calendar_events += [
+    entry
+    for event in hf.SPORTS_EVENTS.values()
+    for entry in event.match_calendar_entries
+]
 custom_css = """
     .fc-event-past {
         opacity: 0.8;
@@ -48,7 +46,12 @@ custom_css = """
     }
 """
 
-calendar = calendar(
-    events=calendar_events, options=calendar_options, custom_css=custom_css
+my_calendar = calendar(
+    events=calendar_events,
+    options=calendar_options,
+    custom_css=custom_css,
+    callbacks=["eventClick"],
 )
-st.write(calendar)
+if "eventClick" in my_calendar:
+    url = my_calendar["eventClick"]["event"]["extendedProps"]["url"]
+    st.switch_page("pages/events" + url + ".py")

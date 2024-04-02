@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from .constants import DATAPATH
+from .constants import DATAPATH, SPORTS_LIST
 from .sport_event_registry import SPORTS_EVENTS
 from .team import Team
 from .team_registry import get_backup_teams
@@ -10,7 +10,7 @@ from .team_registry import get_backup_teams
 def create_teams(
     player_data: pd.DataFrame,
     num_teams: int = 3,
-    seed=34,
+    seed=72,
     from_backup=False,
     create_backup=False,
 ) -> list[Team]:
@@ -41,7 +41,9 @@ def find_optimal_team_seed(
     player_data: pd.DataFrame, num_teams: int = 3, num_tries: int = 100
 ) -> int:
     """Find the seed that gives the most balanced teams."""
-    assert num_tries < 200, "This function is not optimized for a high number of tries."
+    assert (
+        num_tries < 1000
+    ), "This function is not optimized for a high number of tries."
     seeds = {
         seed: calculate_team_balance(create_teams(player_data, num_teams, seed=seed))
         for seed in range(num_tries)
@@ -51,13 +53,11 @@ def find_optimal_team_seed(
 
 def calculate_team_balance(teams: list[Team]) -> float:
     """Calculate the balance of the teams based on the number of players in each team."""
-    from .sport_event_registry import SPORTS_EVENTS
-
     team_sizes = [team.player_num for team in teams]
     equality_num: float = 0.0  # perfectly equal
-    if not any(x != team_sizes[-1] for x in team_sizes):
+    if any(x != team_sizes[-1] for x in team_sizes):
         return 100  # Not even same sizes
-    for sport in SPORTS_EVENTS:
+    for sport in SPORTS_LIST:
         sports_stats = [team.current_sports_stats[sport] for team in teams]
         equality_num += np.std(sports_stats, axis=0) / np.mean(sports_stats)
     return equality_num

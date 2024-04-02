@@ -3,6 +3,7 @@ from .initial_data_io import *
 from .plot_util import *
 from .plotting import *
 from .sport_event_registry import *
+from .streamlit_util import *
 from .team import Team
 from .team_creation import *
 from .team_registry import *
@@ -22,5 +23,7 @@ __all__ = [
     "DATAPATH",
     "SPORTS_EVENTS",
     "SPORTS_LIST",
+    "generate_sports_page_files",
+    "st_set_up_header_and_sidebar",
     "ALL_TEAMS",
 ]

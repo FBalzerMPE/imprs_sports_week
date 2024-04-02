@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 from .constants import DATAPATH
@@ -27,7 +28,7 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
     if backup_fpath.exists() and not rerun:
         df = pd.read_csv(backup_fpath)
         return df
-    fpath = DATAPATH.joinpath("hidden/form_responses_2024_03_28.csv")
+    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_02.csv")
     cols = [
         "response_timestamp",
         "name",
@@ -63,13 +64,22 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
     }
     df["institute"] = df.institute.replace(proper_institute_map).str.upper().str.strip()
 
-    for event in SPORTS_EVENTS.values():
-        df[event.sanitized_name] = df.events_interested_in.fillna("").str.contains(
-            event.name, case=False
-        )
-    df["num_sports"] = df[SPORTS_EVENTS.keys()].sum(axis=1).astype(int)
     for day in ["monday", "tuesday", "thursday", "friday"]:
         df["avail_" + day] = df.time_available.fillna("").str.contains(day, case=False)
+    print("Interested in the following sports, but not available:")
+    for event in SPORTS_EVENTS.values():
+        is_interested = df.events_interested_in.fillna("").str.contains(
+            event.name, case=False
+        )
+        is_avail = pd.DataFrame([df["avail_" + day] for day in event.days]).any(axis=0)
+        df["wants_" + event.sanitized_name] = is_interested
+        df[event.sanitized_name] = is_interested & is_avail
+        print(event.name, np.sum(~is_avail & is_interested))
+    df["num_sports"] = df[SPORTS_EVENTS.keys()].sum(axis=1).astype(int)
+    df["num_sports_not_avail"] = (
+        df[["wants_" + key for key in SPORTS_EVENTS.keys()]].sum(axis=1).astype(int)
+        - df["num_sports"]
+    )
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-03-31 12:00:00")
     deletable_cols = [
         "name",

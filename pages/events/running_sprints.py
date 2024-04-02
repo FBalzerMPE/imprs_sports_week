@@ -5,5 +5,5 @@ Re-Generate them via the 'generate_sports_page_files' function in 'streamlit_uti
 import helper_functions as hf
 
 hf.st_set_up_header_and_sidebar()
-hf.SPORTS_EVENTS["volleyball"].write_streamlit_rep()
+hf.SPORTS_EVENTS["running_sprints"].write_streamlit_rep()
     
