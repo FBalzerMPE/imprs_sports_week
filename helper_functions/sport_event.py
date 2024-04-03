@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 
 from .sport_location import SportLocation
-from .streamlit_util import st_disply_team_highlighted_table
+from .streamlit_util import st_display_team_highlighted_table
 from .util import read_event_desc
 
 
@@ -80,6 +80,8 @@ class SportEvent:
     num_matches_per_subteam: int = 2
     """The number of matches each sub-team will play."""
 
+    conflicting_sports: list[str] = field(default_factory=list)
+
     sub_teams: dict[int, dict[str, pd.DataFrame]] = field(
         default_factory=dict, repr=False
     )
@@ -149,11 +151,18 @@ class SportEvent:
         return entries
 
     @property
+    def html_url(self) -> str:
+        return f'<span style="white-space:nowrap;">{self.icon} <a href="/{self.name}" target="_self">{self.name}</a></span>'
+
+    @property
     def short_info_text(self) -> str:
+        contact_link = (
+            f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
+        )
         text = f"""
 - **Location:** {self.loc.titledName}
 - **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{self.start.strftime('%A, %B %d')}**
-- **Organizers:** {', '.join(self.organizer_names)}"""
+- **Organizers:** {contact_link}"""
         return text
 
     @property
@@ -203,10 +212,10 @@ class SportEvent:
         return schedule
 
     def write_streamlit_rep(self):
-        st.write(self.short_info_text)
+        st.write(self.short_info_text, unsafe_allow_html=True)
         st.write(self.desc)
         st.write(f"## Schedule\n")
-        st_disply_team_highlighted_table(self.matches())
+        st_display_team_highlighted_table(self.matches())
 
         st.write(f"## Sub-teams\n")
-        st_disply_team_highlighted_table(self.sub_team_df, full_row=True)
+        st_display_team_highlighted_table(self.sub_team_df, full_row=True)

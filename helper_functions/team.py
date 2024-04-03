@@ -6,12 +6,23 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 import pandas as pd
+import streamlit as st
 
 from .constants import DATAPATH, SPORTS_LIST
 from .plotting import create_sports_num_plot
 
 if TYPE_CHECKING:
     from .sport_event import SportEvent
+
+
+def _get_val_color(val: str, rgb_colors: tuple[int, ...]) -> str:
+    if val == "":
+        return "background-color: rgba(0, 0, 0, 0.0)"
+    if val == "R":
+        return "background-color: rgba(100, 100, 100, 0.3)"
+    if str(val) in "ABCDEF":
+        return f"background-color: rgba({rgb_colors[0]}, {rgb_colors[1]}, {rgb_colors[2]}, 0.3)"
+    return "background-color: rgba(0, 0, 255, 0.5)"
 
 
 @dataclass
@@ -186,7 +197,38 @@ class Team:
                 for k, team in subteams.items()
                 if player["nickname"] in team["nickname"].tolist()
             }
-            # print(team_key)
             key = "" if len(team_key) == 0 else team_key.pop()
+            if player["nickname"] in nonprio_sample["nickname"].tolist():
+                key = "R"
             player[f"subteam_{sport.sanitized_name}"] = key
         return subteams
+
+    def write_streamlit_rep(self):
+        st.write(f"## {self.name}")
+        df = self.player_df[
+            [
+                col
+                for col in self.player_df.columns
+                if "subteam_" in col or col == "nickname"
+            ]
+        ]
+        from .sport_event_registry import SPORTS_EVENTS
+
+        col_dict = {
+            f"subteam_{event.sanitized_name}": event.icon
+            for event in SPORTS_EVENTS.values()
+        }
+        column_configs = {
+            f"subteam_{event.sanitized_name}": st.column_config.Column(
+                label=event.icon, help=event.name, disabled=True
+            )
+            for event in SPORTS_EVENTS.values()
+        }
+        df = df.set_index("nickname")
+        st.dataframe(
+            df.style.apply(
+                lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
+                axis=1,
+            ),
+            column_config=column_configs,
+        )

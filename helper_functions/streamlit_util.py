@@ -23,7 +23,7 @@ def st_set_up_header_and_sidebar():
                 Page(f"pages/events/{sport.sanitized_name}.py", sport.name, sport.icon)
                 for sport in SPORTS_EVENTS.values()
             ],
-            Section(name="Meet the organizers", icon=":smile:"),
+            Page("pages/contact.py", "Contact", ":speech_balloon:", in_section=False),
         ]
     )
     add_indentation()
@@ -39,7 +39,7 @@ def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
     return "background-color: none"
 
 
-def st_disply_team_highlighted_table(df: pd.DataFrame, full_row=False):
+def st_display_team_highlighted_table(df: pd.DataFrame, full_row=False):
     """Display a DataFrame with the team colors highlighted.
 
     Parameters
@@ -58,6 +58,30 @@ def st_disply_team_highlighted_table(df: pd.DataFrame, full_row=False):
     else:
         style = style.apply(lambda row: [_get_row_color(val) for val in row], axis=1)
     style.hide()
+    st.write(style.to_html(), unsafe_allow_html=True)
+
+
+def _get_val_color(val: str) -> str:
+    if str(val) != "" and str(val) in "ABCDEF":
+        return f"background-color: rgba(0, 0, 255, 0.5)"
+    return "background-color: none"
+
+
+def st_display_single_team_table(df: pd.DataFrame, container=None):
+    """Display a DataFrame with the team colors highlighted.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The DataFrame to display.
+    """
+    # We need to hide the index column, this only works if we convert to HTML
+    style = df.style
+    style = style.apply(lambda row: [_get_val_color(val) for val in row], axis=1)
+    style.hide()
+    if container is not None:
+        container.write(style.to_html(), unsafe_allow_html=True)
+        return
     st.write(style.to_html(), unsafe_allow_html=True)
 
 
