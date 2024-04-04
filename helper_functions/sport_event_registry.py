@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 
 import streamlit as st
 
-from .sport_event import SportEvent
-from .sport_location import SportLocation
+from .classes.sport_event import SportEvent
+from .classes.sport_location import SportLocation
 
 SPORTS_EVENTS = {
     # Monday events

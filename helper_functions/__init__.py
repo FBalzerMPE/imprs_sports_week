@@ -4,7 +4,7 @@ from .plotting import *
 from .sport_event_registry import *
 from .sport_organizer_registry import *
 from .streamlit_util import *
-from .team import Team
+from .classes.team import Team
 from .team_registry import *
 from .util import *
 

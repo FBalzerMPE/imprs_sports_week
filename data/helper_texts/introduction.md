@@ -1,6 +1,6 @@
 Hello you!\
 If you came here searching for further information concerning the first **Inter-Institute Sports Week**, you're certainly on the right track.\
-What was this week about again? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines, having mixed teams consisting of PhDs and PostDocs from all Munich astro institutes (USM, MPE, MPA, ESO), as well as our neighbors from IPP and MPP.
+What was this week about again? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines, having mixed teams consisting of PhDs and PostDocs from all Munich astro institutes (USM, MPE, MPA, ESO), as well as our neighbors from IPP.
 
 Every day after work from around **5:30 - 8:30 pm** you will be offered to take part in a variety of sports in order to win points and ultimately be crowned winners! However, the main goal is to get some movement into our lives (not just sitting at the desk all day!), try something new, have fun in a team and meet new people!
 
@@ -30,7 +30,11 @@ on the final day.
 
 You can find the three main teams' participants <a href="Teams" target="_self">here</a>.\
 These teams are composed having an equal number of players for each sport in mind, while also mixing up the institutes quite a bit.\
-Unfortunately, this means that you might not be in a team with your best buddy 
+Unfortunately, this means that you might not be in a team with your best buddy, but on the bright side, that means that you might be able to face them in competition!
+
+### Scheduling process and statistics
+
+For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
 
 ## Questions?
 

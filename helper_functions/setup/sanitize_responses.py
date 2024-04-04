@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from ..constants import DATAPATH
+from ..constants import DATAPATH, FpathRegistry
 from ..sport_event_registry import SPORTS_EVENTS
 
 
@@ -20,12 +20,12 @@ def generate_anonymous_names(number: int) -> list[str]:
     return [f"{adj.capitalize()} {animal}" for adj, animal in zip(adjs, animals_)]
 
 
-def sanitize_and_anonymize_data(rerun=False, verbose: bool = True) -> pd.DataFrame:
+def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.DataFrame:
     """
     Sanitizes and anonymizes the data by removing all columns that are not needed for the analysis.
     """
-    backup_fpath = DATAPATH.joinpath("sanitized_responses.csv")
-    if backup_fpath.exists() and not rerun:
+    backup_fpath = FpathRegistry.all_responses
+    if backup_fpath.exists() and not overwrite:
         df = pd.read_csv(backup_fpath)
         return df
     fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_02.csv")

@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from pathlib import Path
 
 # The path to the data folder
@@ -17,3 +18,10 @@ SPORTS_LIST = [
     "fooseball",
     "ping_pong",
 ]
+
+
+@dataclass
+class FpathRegistry:
+    """Paths to some commonly used files."""
+
+    all_responses = DATAPATH.joinpath("sanitized_responses.csv")

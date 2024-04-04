@@ -6,8 +6,8 @@ import pandas as pd
 import streamlit as st
 
 from .sport_location import SportLocation
-from .streamlit_util import st_display_team_highlighted_table
-from .util import read_event_desc
+from ..streamlit_util import st_display_team_highlighted_table
+from ..util import read_event_desc
 
 
 def generate_round_robin_list(

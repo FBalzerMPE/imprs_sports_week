@@ -34,7 +34,7 @@ def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
     from .team_registry import ALL_TEAMS
 
     for team in ALL_TEAMS:
-        if str(team.team_index) in row_val and " " in row_val:
+        if team.team_letter in row_val and " " in row_val:
             rgb = team.rgb_colors
             return f"background-color: rgba({rgb[0]}, {rgb[1]}, {rgb[2]}, {alpha})"
     return "background-color: none"

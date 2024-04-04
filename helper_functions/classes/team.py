@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from functools import reduce
 from pathlib import Path
 from typing import TYPE_CHECKING
-from functools import reduce
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-from .constants import DATAPATH, SPORTS_LIST
-from .plotting import create_sports_num_plot
+from ..constants import DATAPATH, SPORTS_LIST
+from ..plotting import create_sports_num_plot
 
 if TYPE_CHECKING:
     from .sport_event import SportEvent
@@ -60,7 +60,8 @@ class Team:
 
     @staticmethod
     def backup_path(team_index) -> Path:
-        return DATAPATH.joinpath(f"teams/team_{team_index}.csv")
+        team_letter = "ABC"[team_index]
+        return DATAPATH.joinpath(f"teams/team_{team_letter}.csv")
 
     @property
     def player_num(self) -> int:
@@ -68,7 +69,11 @@ class Team:
 
     @property
     def name(self) -> str:
-        return f"Team {self.team_index}"
+        return f"Team {self.team_letter}"
+
+    @property
+    def team_letter(self) -> str:
+        return "ABC"[self.team_index]
 
     @property
     def player_df(self) -> pd.DataFrame:
@@ -125,28 +130,12 @@ class Team:
             sport: np.sum(self.player_df[sport]) for sport in SPORTS_LIST
         }
 
-    def get_necessity_index(
-        self, player: pd.Series, sports_events: list[SportEvent]
-    ) -> int:
-        """Calculate an index that represents how much the team needs the player.
-        The index is calculated as the sum of the difference between the minimum number of players
-        required for each sport and the number of players currently in the team for that sport.
-        """
-        index = 0
-        for event in sports_events:
-            sport = event.sanitized_name
-            if player[sport]:
-                index += min(event.min_player_val - self.sports_fulfill_nums[sport], 0)
-        index += 30 - self.player_num
-        return index
-
     def plot_sports_num(self):
         label = f"{self.name} ({self.player_num} players)"
         create_sports_num_plot(
             self.player_df,
             color=self.get_rgb_with_alpha(0.3),
             label=label,
-            # alpha=0.3,
             annotate_numbers=False,
             height=0.2,
             y_offset=-self.team_index * 0.2 + 0.2,
@@ -178,7 +167,7 @@ class Team:
                 if "subteam_" in col or col == "nickname"
             ]
         ]
-        from .sport_event_registry import SPORTS_EVENTS
+        from ..sport_event_registry import SPORTS_EVENTS
 
         col_dict = {
             f"subteam_{event.sanitized_name}": event.icon

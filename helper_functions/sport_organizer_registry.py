@@ -1,4 +1,4 @@
-from .sports_organizer import SportsOrganizer
+from .classes.sports_organizer import SportsOrganizer
 
 SPORTS_ORGANIZERS = {
     "Benny": SportsOrganizer(

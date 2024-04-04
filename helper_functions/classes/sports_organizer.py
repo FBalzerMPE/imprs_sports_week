@@ -3,8 +3,8 @@ from pathlib import Path
 
 import streamlit as st
 
-from .constants import DATAPATH
-from .sport_event_registry import SPORTS_EVENTS
+from ..constants import DATAPATH
+from ..sport_event_registry import SPORTS_EVENTS
 
 
 @dataclass
