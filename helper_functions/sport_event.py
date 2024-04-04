@@ -108,15 +108,15 @@ class SportEvent:
             for day in pd.date_range(self.start, self.end).date
             if day.strftime("%A").lower() != "wednesday"
         ]
-        print(self.days)
-        try:
-            from .team_registry import ALL_TEAMS
+        # print(self.days)
+        # try:
+        #     from .team_registry import ALL_TEAMS
 
-            for team in ALL_TEAMS:
-                self.sub_teams[team.team_index] = team.get_subteams_for_sport(self)
-        except (KeyError, FileNotFoundError, ValueError, AssertionError):
-            # print("No sub-teams initialized.")
-            pass
+        #     for team in ALL_TEAMS:
+        #         self.sub_teams[team.team_index] = team.get_subteams_for_sport(self)
+        # except (KeyError, FileNotFoundError, ValueError, AssertionError):
+        #     # print("No sub-teams initialized.")
+        #     pass
 
     @property
     def sanitized_name(self) -> str:

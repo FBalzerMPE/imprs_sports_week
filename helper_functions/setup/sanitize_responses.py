@@ -20,7 +20,7 @@ def generate_anonymous_names(number: int) -> list[str]:
     return [f"{adj.capitalize()} {animal}" for adj, animal in zip(adjs, animals_)]
 
 
-def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
+def sanitize_and_anonymize_data(rerun=False, verbose: bool = True) -> pd.DataFrame:
     """
     Sanitizes and anonymizes the data by removing all columns that are not needed for the analysis.
     """
@@ -66,7 +66,8 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
 
     for day in ["monday", "tuesday", "thursday", "friday"]:
         df["avail_" + day] = df.time_available.fillna("").str.contains(day, case=False)
-    print("Interested in the following sports, but not available:")
+    if verbose:
+        print("Interested in the following sports, but not available:")
     for event in SPORTS_EVENTS.values():
         is_interested = df.events_interested_in.fillna("").str.contains(
             event.name, case=False
@@ -74,7 +75,8 @@ def sanitize_and_anonymize_data(rerun=False) -> pd.DataFrame:
         is_avail = pd.DataFrame([df["avail_" + day] for day in event.days]).any(axis=0)
         df["wants_" + event.sanitized_name] = is_interested
         df[event.sanitized_name] = is_interested & is_avail
-        print(event.name, np.sum(~is_avail & is_interested))
+        if verbose:
+            print(event.name, np.sum(~is_avail & is_interested))
     df["num_sports"] = df[SPORTS_EVENTS.keys()].sum(axis=1).astype(int)
     df["num_sports_not_avail"] = (
         df[["wants_" + key for key in SPORTS_EVENTS.keys()]].sum(axis=1).astype(int)
