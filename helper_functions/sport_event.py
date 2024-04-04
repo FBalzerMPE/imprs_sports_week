@@ -81,6 +81,7 @@ class SportEvent:
     """The number of matches each sub-team will play."""
 
     conflicting_sports: list[str] = field(default_factory=list)
+    """The other sports overlapping with this one."""
 
     sub_teams: dict[int, dict[str, pd.DataFrame]] = field(
         default_factory=dict, repr=False
@@ -105,7 +106,9 @@ class SportEvent:
         self.days = [
             day.strftime("%A").lower()
             for day in pd.date_range(self.start, self.end).date
+            if day.strftime("%A").lower() != "wednesday"
         ]
+        print(self.days)
         try:
             from .team_registry import ALL_TEAMS
 

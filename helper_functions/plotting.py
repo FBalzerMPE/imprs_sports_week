@@ -17,7 +17,7 @@ def create_sports_num_plot(
     df: pd.DataFrame,
     annotate_numbers=True,
     sort_bars=False,
-    color: str = "gold",
+    color: str | tuple = "gold",
     y_offset: float = 0,
     **kwargs,
 ):
@@ -28,7 +28,7 @@ def create_sports_num_plot(
     y_positions = [i + y_offset for i in range(len(SPORTS_LIST))]
     ax: Axes = plt.gca()
     containers = ax.barh(
-        y_positions, values, color=color, edgecolor="black", linewidth=1.5, **kwargs
+        y_positions, values, color=color, edgecolor="black", linewidth=1, **kwargs
     )
 
     plt.yticks(range(len(sport_totals)), list(sport_totals.keys()))

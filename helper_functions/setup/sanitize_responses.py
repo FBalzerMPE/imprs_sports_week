@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from .constants import DATAPATH
-from .sport_event_registry import SPORTS_EVENTS
+from ..constants import DATAPATH
+from ..sport_event_registry import SPORTS_EVENTS
 
 
 def generate_anonymous_names(number: int) -> list[str]:

@@ -53,5 +53,8 @@ my_calendar = calendar(
     callbacks=["eventClick"],
 )
 if "eventClick" in my_calendar:
-    url = my_calendar["eventClick"]["event"]["extendedProps"]["url"]
-    st.switch_page("pages/events" + url + ".py")
+    try:
+        url = my_calendar["eventClick"]["event"]["extendedProps"]["url"]
+        st.switch_page("pages/events" + url + ".py")
+    except KeyError:
+        pass

@@ -28,7 +28,9 @@ on the final day.
 
 ## The teams
 
-A detailed description
+You can find the three main teams' participants <a href="Teams" target="_self">here</a>.\
+These teams are composed having an equal number of players for each sport in mind, while also mixing up the institutes quite a bit.\
+Unfortunately, this means that you might not be in a team with your best buddy 
 
 ## Questions?
 

@@ -18,6 +18,7 @@ def st_set_up_header_and_sidebar():
             Page("streamlit_app.py", "Welcome", "🏠"),
             Page("pages/schedule.py", "Schedule", ":calendar:"),
             Page("pages/teams.py", "Teams", ":family:"),
+            Page("pages/statistics.py", "Statistics", ":bar_chart:"),
             Section(name="Sports", icon=":eyes:"),
             *[
                 Page(f"pages/events/{sport.sanitized_name}.py", sport.name, sport.icon)
@@ -53,7 +54,7 @@ def st_display_team_highlighted_table(df: pd.DataFrame, full_row=False):
     style = df.style
     if full_row:
         style = style.apply(
-            lambda row: [_get_row_color(row["Team"])] * len(row), axis=1
+            lambda row: [_get_row_color(row["Team"])] * len(row), axis=1  # type: ignore
         )
     else:
         style = style.apply(lambda row: [_get_row_color(val) for val in row], axis=1)

@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING
+from functools import reduce
 
 import numpy as np
 import pandas as pd
@@ -84,6 +85,22 @@ class Team:
     def __str__(self):
         return f"{self.name} ({self.player_num} players): {self.sports_fulfill_nums}"
 
+    def get_new_stats_with_player(self, player: pd.Series) -> dict[str, int]:
+        stats = self.sports_fulfill_nums.copy()
+        for sport in SPORTS_LIST:
+            if player[sport]:
+                stats[sport] += 1
+        return stats
+
+    def transfer_player(self, player_name: str, other: Team):
+        """Move a player from this team to another team."""
+        player = self.player_df[self.player_df["nickname"] == player_name].iloc[0]
+        self.remove_player(player)
+        other.add_player(player)
+
+    def get_rgb_with_alpha(self, alpha: float = 0.5) -> tuple[int | float, ...]:
+        return *(val / 255 for val in self.rgb_colors), alpha
+
     def create_backup(self):
         self.player_df.to_csv(Team.backup_path(self.team_index), index=False)
 
@@ -94,7 +111,10 @@ class Team:
                 self.sports_fulfill_nums[sport] += 1
 
     def remove_player(self, player: pd.Series):
-        self._players.remove(player)
+        player_index = [player["nickname"] for player in self._players].index(
+            player["nickname"]
+        )
+        self._players.pop(player_index)
         for sport in SPORTS_LIST:
             if player[sport]:
                 self.sports_fulfill_nums[sport] -= 1
@@ -124,12 +144,12 @@ class Team:
         label = f"{self.name} ({self.player_num} players)"
         create_sports_num_plot(
             self.player_df,
-            color=self.color,
+            color=self.get_rgb_with_alpha(0.3),
             label=label,
-            alpha=0.3,
+            # alpha=0.3,
             annotate_numbers=False,
             height=0.2,
-            y_offset=self.team_index * 0.2 - 0.2,
+            y_offset=-self.team_index * 0.2 + 0.2,
         )
 
     def get_all_players_for_sport(
@@ -169,28 +189,46 @@ class Team:
             avail_players
         ), f"Not enough players (only {len(avail_players)}) in the team to create the requested number of subteams (at least {req_player_num} expected)."
         assert num_subteams <= 8, "We only support up to 8 subteams."
-        is_priority = avail_players["num_sports"] == 1
-        prio_sample = avail_players[is_priority]
-        nonprio_sample = avail_players[~is_priority]
+
+        is_in_collision = reduce(
+            lambda a, b: a & b,
+            [avail_players[other_sport] for other_sport in sport.conflicting_sports],
+        )
+        avail_players["weights"] = 2 / avail_players["num_sports"] + 5 * (
+            ~is_in_collision
+        )
+        # is_priority = avail_players["num_sports"] == 1
+        # prio_sample = avail_players[is_priority]
+        # is_in_collision = reduce(
+        #     lambda a, b: a & b,
+        #     [avail_players[other_sport] for other_sport in sport.conflicting_sports],
+        # )
+        # midprio_sample = avail_players[~is_priority & ~is_in_collision]
+        # nonprio_sample = avail_players[~is_priority & is_in_collision]
         subteams = {}
         for i in range(num_subteams):
-            # First, sample as many players from the prio sample.
-            if len(prio_sample) < num_players_per_subteam:
-                subteam = prio_sample
-                prio_sample = prio_sample.drop(subteam.index)
-            else:
-                subteam = prio_sample.sample(
-                    num_players_per_subteam, replace=False, random_state=seed + i
-                )
-                prio_sample = prio_sample.drop(subteam.index)
-            # Then, fill up with non-priority players.
-            num_remaining = num_players_per_subteam - len(subteam)
-
-            fill_players = nonprio_sample.sample(
-                num_remaining, replace=False, random_state=seed + i
+            subteam = avail_players.sample(
+                num_players_per_subteam,
+                random_state=seed + i,
+                weights=avail_players["weights"],
             )
-            nonprio_sample = nonprio_sample.drop(fill_players.index)
-            subteams["ABCDEFGH"[i]] = pd.concat([subteam, fill_players])
+            avail_players = avail_players.drop(subteam.index)
+            # First, sample as many players from the prio sample.
+            # if len(prio_sample) < num_players_per_subteam:
+            #     subteam = prio_sample
+            #     prio_sample = prio_sample.drop(subteam.index)
+            # else:
+            #     subteam = prio_sample.sample(
+            #         num_players_per_subteam, replace=False, random_state=seed + i
+            #     )
+            #     prio_sample = prio_sample.drop(subteam.index)
+            # # Then, fill up with non-priority players.
+            # num_remaining = num_players_per_subteam - len(subteam)
+            # fill_players = nonprio_sample.sample(
+            #     num_remaining, replace=False, random_state=seed + i
+            # )
+            # nonprio_sample = nonprio_sample.drop(fill_players.index)
+            subteams["ABCDEFGH"[i]] = subteam  # pd.concat([subteam, fill_players])
         for player in self._players:
             team_key = {
                 k
@@ -198,7 +236,7 @@ class Team:
                 if player["nickname"] in team["nickname"].tolist()
             }
             key = "" if len(team_key) == 0 else team_key.pop()
-            if player["nickname"] in nonprio_sample["nickname"].tolist():
+            if player["nickname"] in avail_players["nickname"].tolist():
                 key = "R"
             player[f"subteam_{sport.sanitized_name}"] = key
         return subteams
