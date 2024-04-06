@@ -7,6 +7,7 @@ from .streamlit_util import *
 from .classes.team import Team
 from .team_registry import *
 from .util import *
+from .classes.subteam import Subteam
 
 __all__ = [
     "create_institute_plot",
@@ -15,6 +16,7 @@ __all__ = [
     "plot_pie_chart",
     "sort_dict_by_values",
     "Team",
+    "Subteam",
     "DATAPATH",
     "SPORTS_EVENTS",
     "SPORTS_LIST",

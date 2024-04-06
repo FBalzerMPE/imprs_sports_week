@@ -1,9 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from functools import reduce
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 import numpy as np
 import pandas as pd
@@ -11,9 +9,7 @@ import streamlit as st
 
 from ..constants import DATAPATH, SPORTS_LIST
 from ..plotting import create_sports_num_plot
-
-if TYPE_CHECKING:
-    from .sport_event import SportEvent
+from .subteam import Subteam
 
 
 def _get_val_color(val: str, rgb_colors: tuple[int, ...]) -> str:
@@ -46,7 +42,7 @@ class Team:
 
     def __post_init__(self):
         colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
-        self.color = colors[self.team_index - 1 % len(colors)]
+        self.color = colors[self.team_index % len(colors)]
 
     @classmethod
     def from_backup(cls, team_index: int) -> Team:
@@ -187,3 +183,23 @@ class Team:
             ),
             column_config=column_configs,
         )
+
+    def add_subteam_keys(self, subteams: list[Subteam]):
+        player_df = self.player_df
+        for sport in SPORTS_LIST:
+            subteams_sport = [subteam for subteam in subteams if subteam.sport == sport]
+            key_map = {
+                player: subteam.sub_key
+                for subteam in subteams_sport
+                for player in subteam.players
+            }
+            player_df[f"subteam_{sport}"] = player_df["nickname"].apply(
+                lambda name: key_map.get(name, "")
+            )
+        player_df["num_sports_attending"] = player_df[
+            [f"subteam_{sport}" for sport in SPORTS_LIST]
+        ].apply(lambda row: len([val for val in row if val not in ["", "R"]]), axis=1)
+        player_df["attendance_ratio"] = (
+            player_df["num_sports_attending"] / player_df["num_sports"]
+        )
+        self.set_players(player_df)

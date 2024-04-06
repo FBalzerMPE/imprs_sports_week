@@ -1,6 +1,6 @@
 Hello you!\
 If you came here searching for further information concerning the first **Inter-Institute Sports Week**, you're certainly on the right track.\
-What was this week about again? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines, having mixed teams consisting of PhDs and PostDocs from all Munich astro institutes (USM, MPE, MPA, ESO), as well as our neighbors from IPP.
+What was this week about again? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines, having mixed teams consisting of PhDs and PostDocs from Munich institutes (USM, MPE, MPA, ESO, and IPP).
 
 Every day after work from around **5:30 - 8:30 pm** you will be offered to take part in a variety of sports in order to win points and ultimately be crowned winners! However, the main goal is to get some movement into our lives (not just sitting at the desk all day!), try something new, have fun in a team and meet new people!
 

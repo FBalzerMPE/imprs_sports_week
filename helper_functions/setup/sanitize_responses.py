@@ -20,7 +20,9 @@ def generate_anonymous_names(number: int) -> list[str]:
     return [f"{adj.capitalize()} {animal}" for adj, animal in zip(adjs, animals_)]
 
 
-def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.DataFrame:
+def sanitize_and_anonymize_data(
+    overwrite=False, anonymize=True, verbose: bool = True
+) -> pd.DataFrame:
     """
     Sanitizes and anonymizes the data by removing all columns that are not needed for the analysis.
     """
@@ -28,7 +30,7 @@ def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.Dat
     if backup_fpath.exists() and not overwrite:
         df = pd.read_csv(backup_fpath)
         return df
-    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_02.csv")
+    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_05.csv")
     cols = [
         "response_timestamp",
         "name",
@@ -36,6 +38,7 @@ def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.Dat
         "phd_or_postdoc",
         "time_available",
         "events_interested_in",
+        "email",
     ]
     df = pd.read_csv(fpath, names=list(cols), skiprows=1, dtype=str)
     df["is_phd"] = df.phd_or_postdoc.fillna("").apply(lambda x: "phd" in x.lower())
@@ -61,6 +64,7 @@ def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.Dat
         "The Max Planck Institute for Astrophysics": "MPA",
         "University Observatory Ludwig-Maximilians University of Munich": "USM",
         "HM": "USM",
+        "MPI for plasma physics": "IPP",
     }
     df["institute"] = df.institute.replace(proper_institute_map).str.upper().str.strip()
 
@@ -90,8 +94,11 @@ def sanitize_and_anonymize_data(overwrite=False, verbose: bool = True) -> pd.Dat
         "events_interested_in",
         "time_available",
         "response_timestamp",
+        "email",
     ]
-    df = df[[col for col in df.columns if col not in deletable_cols]]
     df.insert(0, "nickname", generate_anonymous_names(len(df)))
-    df.to_csv(backup_fpath, index=False)
+    anon_df = df[[col for col in df.columns if col not in deletable_cols]]
+    anon_df.to_csv(backup_fpath, index=False)
+    if anonymize:
+        return anon_df
     return df

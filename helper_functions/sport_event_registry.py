@@ -146,8 +146,8 @@ SPORTS_EVENTS = {
         organizer_names=["Fabi", "Zsofi"],
         icon="⚪",  # ":white_circle:",
         min_player_val=4,
-        num_players_per_subteam=2,
-        num_subteams=4,
+        num_players_per_subteam=1,
+        num_subteams=16,
     ),
 }
 # for event in SPORTS_EVENTS.values():

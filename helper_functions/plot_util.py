@@ -1,7 +1,10 @@
+from typing import Optional
+
+import numpy as np
+from matplotlib import cm
 from matplotlib.axes import Axes
 from matplotlib.container import BarContainer
-from typing import Optional
-import numpy as np
+
 from .util import sort_dict_by_values
 
 
@@ -37,11 +40,17 @@ def annotate_barh_values(
         ax.text(x, y, text, verticalalignment="center", bbox=bbox, **kwargs)
 
 
-def plot_pie_chart(data: list[str], ax: Axes, title: str = ""):
+def plot_pie_chart(
+    data: list[str], ax: Axes, title: str = "", is_institute_chart=False
+):
     num_dict = {
         class_: count for class_, count in zip(*np.unique(data, return_counts=True))
     }
     num_dict = sort_dict_by_values(num_dict)
+    colors = "none"
+    if is_institute_chart:
+        inst_dict = {"MPE": 0, "MPA": 1, "USM": 2, "ESO": 3, "IPP": 4}
+        colors = [cm.tab10.colors[inst_dict[key]] for key in num_dict]  # type: ignore
 
     labels = [f"{class_} ({count})" for class_, count in num_dict.items()]
     title = f"{title}\n({len(data)})" if title != "" else f"{len(data)} points"
@@ -55,7 +64,8 @@ def plot_pie_chart(data: list[str], ax: Axes, title: str = ""):
         textprops={"size": "smaller"},
         autopct="%.0f%%",
         pctdistance=0.8,
-        wedgeprops=dict(width=0.4),
+        wedgeprops=dict(width=0.4, ec="k"),
+        colors=colors,
     )
     # Add title in the centre
     ax.text(0, 0, title, ha="center", va="center", fontsize="small")
