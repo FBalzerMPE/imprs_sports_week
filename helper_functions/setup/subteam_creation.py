@@ -27,7 +27,7 @@ def _generate_subteams_for_sport(
     req_player_num = num_subteams * num_players_per_subteam
     assert req_player_num <= len(
         avail_players
-    ), f"Not enough players (only {len(avail_players)}) in the team to create the requested number of subteams (at least {req_player_num} expected)."
+    ), f"{sport.name}: Not enough players (only {len(avail_players)}) in the team to create the requested number of subteams (at least {req_player_num} expected)."
     conf_sports = sport.conflicting_sports
     is_in_collision = (
         reduce(

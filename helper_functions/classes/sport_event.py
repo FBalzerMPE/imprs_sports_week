@@ -1,43 +1,15 @@
 from dataclasses import dataclass, field
-from datetime import datetime, time, timedelta
+from datetime import datetime, timedelta
 
-import numpy as np
 import pandas as pd
 import streamlit as st
 
-from .sport_location import SportLocation
 from ..streamlit_util import st_display_team_highlighted_table
-from ..util import read_event_desc
-
-
-def generate_round_robin_list(
-    teams: list[str], max_match_number=2
-) -> list[tuple[str, str]]:
-    """Generate a round-robin list of matches between the teams."""
-    matches = []
-    for team_1 in teams:
-        for team_2 in teams:
-            if team_1.split()[0] == team_2.split()[0]:
-                continue
-            match = (team_1, team_2)
-            num_t1 = np.sum([team_1 in match for match in matches])
-            num_t2 = np.sum([team_2 in match for match in matches])
-            if (num_t1 < max_match_number) and (num_t2 < max_match_number):
-                matches.append(match)
-    return matches
-
-
-def schedule_matches(teams: list[str], num_subteams: int, max_match_number=2):
-    """Schedule matches between the teams.
-    Do this in a round-robin fashion, where each team plays
-    against each other team in the same sub-team-pool."""
-    matches = []
-    for subteam_key in "ABCDEFGH"[:num_subteams]:
-        subteams = [team for team in teams if subteam_key in team]
-        matches += generate_round_robin_list(subteams, max_match_number)
-    if len(matches) == 0:
-        matches = generate_round_robin_list(teams, max_match_number)
-    return pd.DataFrame(matches, columns=["Team 1", "Team 2"])
+from ..team_registry import ALL_SUBTEAMS
+from ..util import read_event_desc, turn_series_list_to_dataframe
+from .match import Match
+from .sport_location import SportLocation
+from .subteam import Subteam
 
 
 @dataclass
@@ -83,10 +55,11 @@ class SportEvent:
     conflicting_sports: list[str] = field(default_factory=list)
     """The other sports overlapping with this one."""
 
-    sub_teams: dict[int, dict[str, pd.DataFrame]] = field(
-        default_factory=dict, repr=False
-    )
-    """The sub-teams for this sport, mapping the team key to the sub-team keys with respective players."""
+    subteams: list[Subteam] = field(default_factory=list, repr=False)
+    """The sub-teams for this sport."""
+
+    matches: list[Match] = field(default_factory=list, repr=False)
+    """All matches scheduled for this sport."""
 
     desc: str = field(init=False, repr=False)
     """A description of what's going on during this event, in markdown format, including the rules."""
@@ -108,15 +81,10 @@ class SportEvent:
             for day in pd.date_range(self.start, self.end).date
             if day.strftime("%A").lower() != "wednesday"
         ]
-        # print(self.days)
-        # try:
-        #     from .team_registry import ALL_TEAMS
-
-        #     for team in ALL_TEAMS:
-        #         self.sub_teams[team.team_index] = team.get_subteams_for_sport(self)
-        # except (KeyError, FileNotFoundError, ValueError, AssertionError):
-        #     # print("No sub-teams initialized.")
-        #     pass
+        self.subteams = [
+            subteam for subteam in ALL_SUBTEAMS if subteam.sport == self.sanitized_name
+        ]
+        # TODO: Load matches and subteams!
 
     @property
     def sanitized_name(self) -> str:
@@ -134,24 +102,9 @@ class SportEvent:
         }
 
     @property
-    def match_calendar_entries(self) -> list[dict[str, str | dict]]:
+    def match_calendar_entries(self) -> list[dict[str, str]]:
         """Get the calendar entries for the matches."""
-        matches = self.matches()
-        entries = []
-        for i, match_ in matches.iterrows():
-            title = f"{match_['Team 1']} vs {match_['Team 2']}"
-            time = datetime.strptime(match_["Time"], "%H:%M").time()
-            start = datetime.combine(self.start.date(), time)
-            entries.append(
-                {
-                    "title": title,
-                    "start": start.isoformat(),
-                    "end": (start + self.match_duration).isoformat(),
-                    "resourceId": self.name,
-                    "color": "green",
-                }
-            )
-        return entries
+        return [match_.get_calendar_entry() for match_ in self.matches]
 
     @property
     def html_url(self) -> str:
@@ -170,55 +123,16 @@ class SportEvent:
 
     @property
     def sub_team_df(self) -> pd.DataFrame:
-        team_dict = {
-            str(team_key) + " " + subteam_key: sorted(subteam["nickname"])
-            for team_key, val in self.sub_teams.items()
-            for subteam_key, subteam in val.items()
-        }
-        if not any("B" in team for team in team_dict.keys()):
-            team_dict = {k.replace(" A", " "): v for k, v in team_dict.items()}
-
-        rows = [[team_key] + players for team_key, players in team_dict.items()]
-        subteams = pd.DataFrame(
-            rows,
-            columns=["Team"]
-            + [f"Player {i+1}" for i in range(self.num_players_per_subteam)],
-        )
-        return subteams
+        return turn_series_list_to_dataframe([team.as_series for team in self.subteams])
 
     def get_attending_players(self, df: pd.DataFrame) -> pd.DataFrame:
         return df[df[self.sanitized_name]]
-
-    def matches(self) -> pd.DataFrame:
-        teams = self.sub_team_df["Team"].tolist()
-
-        # Generate the schedule
-        schedule = schedule_matches(teams, self.num_subteams)
-        courts = [
-            str(i + 1)
-            for _ in range(len(schedule) // self.num_pitches)
-            for i in range(self.num_pitches)
-        ]
-        date_range = pd.date_range(
-            start=self.start,
-            periods=len(schedule),
-            freq=self.match_duration,
-        )
-        dates = [
-            date.strftime("%H:%M")
-            for date in date_range
-            for _ in range(self.num_pitches)
-        ]
-        schedule.insert(0, "Time", dates[: len(schedule)])
-        schedule.insert(1, "Court", courts)
-
-        return schedule
 
     def write_streamlit_rep(self):
         st.write(self.short_info_text, unsafe_allow_html=True)
         st.write(self.desc)
         st.write(f"## Schedule\n")
-        st_display_team_highlighted_table(self.matches())
+        st_display_team_highlighted_table(self.matches)
 
         st.write(f"## Sub-teams\n")
         st_display_team_highlighted_table(self.sub_team_df, full_row=True)

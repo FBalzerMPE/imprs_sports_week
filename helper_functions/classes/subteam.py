@@ -23,8 +23,29 @@ class Subteam:
     """The nicknames of the players belonging to this sub-team."""
 
     @property
+    def as_series(self) -> pd.Series:
+        series_dict = {
+            "sport": self.sport,
+            "team_key": self.main_team_letter,
+            "sub_key": self.sub_key,
+            "full_key": self.full_key,
+            "players": self.players,
+        }
+        return pd.Series(series_dict)
+
+    @property
     def full_key(self) -> str:
-        return f"{self.main_team_letter}_{self.sub_key}"
+        return f"{self.main_team_letter}: {self.sub_key}"
+
+    @property
+    def key_or_single(self) -> str:
+        """This subteam's full key or player name if the
+        team only consists of one player."""
+        return (
+            self.full_key
+            if len(self.players) > 1
+            else f"{self.main_team_letter}: {self.players[0]}"
+        )
 
     @property
     def is_reserve(self) -> bool:

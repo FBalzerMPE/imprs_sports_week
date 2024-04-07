@@ -50,6 +50,16 @@ class Team:
         if not fpath.exists():
             raise FileNotFoundError(f"No backup found for team {team_index}.")
         players = pd.read_csv(fpath)
+        for subteam_col in [col for col in players.columns if "subteam" in col]:
+            players[subteam_col] = (
+                players[subteam_col]
+                .apply(
+                    lambda x: (
+                        str(int(x)) if isinstance(x, float) and not np.isnan(x) else x
+                    )
+                )
+                .astype("object")
+            )
         team = cls(team_index=team_index)
         team.set_players(players)
         return team

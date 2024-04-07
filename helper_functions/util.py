@@ -1,6 +1,7 @@
 import functools
 import inspect
 import warnings
+import pandas as pd
 
 _string_types = (type(b""), type(""))
 
@@ -30,6 +31,18 @@ def read_event_desc(event_name: str) -> str:
         return "NO DESCRIPTION FOUND"
     with fpath.open("r") as f:
         return f.read()
+
+
+def all_equal(lst: list) -> bool:
+    """Check whether all objects in a list are equal."""
+    return all(x == lst[0] for x in lst)
+
+
+def turn_series_list_to_dataframe(series_list: list[pd.Series]) -> pd.DataFrame:
+    """Turns a given list of series objects to a pandas dataframe,
+    assuming they all have the same structure.
+    """
+    return pd.concat(series_list, axis=1).T
 
 
 # Taken from https://stackoverflow.com/questions/2536307/decorators-in-the-python-standard-lib-deprecated-specifically
