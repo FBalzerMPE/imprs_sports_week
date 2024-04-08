@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from pandas.io.formats.style import Styler
 from st_pages import Page, Section, add_indentation, add_page_title, show_pages
 
 from .constants import PAGESPATH, SPORTS_LIST
@@ -31,16 +32,19 @@ def st_set_up_header_and_sidebar():
 
 
 def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
-    from .team_registry import ALL_TEAMS
+    from .data_registry import ALL_TEAMS
+
+    if not isinstance(row_val, str):
+        return ""
 
     for team in ALL_TEAMS:
-        if team.team_letter in row_val and ": " in row_val:
+        if f"{team.team_letter}: " in row_val:
             rgb = team.rgb_colors
             return f"background-color: rgba({rgb[0]}, {rgb[1]}, {rgb[2]}, {alpha})"
-    return "background-color: none"
+    return ""
 
 
-def st_display_team_highlighted_table(df: pd.DataFrame, full_row=False):
+def st_style_df_with_team_vals(df: pd.DataFrame, full_row=False) -> Styler:
     """Display a DataFrame with the team colors highlighted.
 
     Parameters
@@ -58,8 +62,7 @@ def st_display_team_highlighted_table(df: pd.DataFrame, full_row=False):
         )
     else:
         style = style.apply(lambda row: [_get_row_color(val) for val in row], axis=1)
-    style.hide()
-    st.write(style.to_html(), unsafe_allow_html=True)
+    return style
 
 
 def _get_val_color(val: str) -> str:

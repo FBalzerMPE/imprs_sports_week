@@ -42,6 +42,8 @@ def turn_series_list_to_dataframe(series_list: list[pd.Series]) -> pd.DataFrame:
     """Turns a given list of series objects to a pandas dataframe,
     assuming they all have the same structure.
     """
+    if len(series_list) == 0:
+        return pd.DataFrame()
     return pd.concat(series_list, axis=1).T
 
 

@@ -30,6 +30,7 @@ class Subteam:
             "sub_key": self.sub_key,
             "full_key": self.full_key,
             "players": self.players,
+            "is_reserve": self.is_reserve,
         }
         return pd.Series(series_dict)
 

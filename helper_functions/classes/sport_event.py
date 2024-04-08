@@ -1,11 +1,13 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
+import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..streamlit_util import st_display_team_highlighted_table
-from ..team_registry import ALL_SUBTEAMS
+from ..constants import FpathRegistry
+from ..data_registry import ALL_MATCHES, ALL_SUBTEAMS
+from ..streamlit_util import st_style_df_with_team_vals
 from ..util import read_event_desc, turn_series_list_to_dataframe
 from .match import Match
 from .sport_location import SportLocation
@@ -84,7 +86,7 @@ class SportEvent:
         self.subteams = [
             subteam for subteam in ALL_SUBTEAMS if subteam.sport == self.sanitized_name
         ]
-        # TODO: Load matches and subteams!
+        self.matches = [m for m in ALL_MATCHES if m.sport == self.sanitized_name]
 
     @property
     def sanitized_name(self) -> str:
@@ -125,14 +127,62 @@ class SportEvent:
     def sub_team_df(self) -> pd.DataFrame:
         return turn_series_list_to_dataframe([team.as_series for team in self.subteams])
 
+    @property
+    def match_df(self) -> pd.DataFrame:
+        return turn_series_list_to_dataframe([m.as_series for m in self.matches])
+
     def get_attending_players(self, df: pd.DataFrame) -> pd.DataFrame:
         return df[df[self.sanitized_name]]
+
+    def _st_display_matches(self):
+        df = self.match_df.fillna("")
+        for col in ["location", "day"]:
+            if len(np.unique(df[col])) == 1:
+                df = df.drop(columns=col)
+
+        column_configs = {}
+        column_configs["time"] = st.column_config.Column("Time")
+        column_configs["team_a"] = st.column_config.TextColumn("Team a", width="small")
+        column_configs["team_b"] = st.column_config.TextColumn("Team b", width="small")
+        column_configs["result"] = st.column_config.Column("Result", width="small")
+        column_configs["winner"] = st.column_config.Column("Winner", width="small")
+        style = st_style_df_with_team_vals(df)
+        st.dataframe(
+            style,
+            hide_index=True,
+            column_config=column_configs,
+            column_order=[
+                "day",
+                "time",
+                "location",
+                "team_a",
+                "team_b",
+                "result",
+                "winner",
+            ],
+        )
+
+    def _st_display_subteams(self):
+        df = self.sub_team_df
+        df = df.sort_values(["is_reserve", "full_key"], ascending=[True, True])
+        column_configs = {"full_key": st.column_config.Column("Subteam", width="small")}
+        for i in range(max(df["players"].apply(len))):
+            df[f"avatar_{i}"] = df["players"].apply(
+                lambda x: FpathRegistry.get_animal_pic_path(x[i]) if i < len(x) else ""
+            )
+            column_configs[f"avatar_{i}"] = st.column_config.ImageColumn("")
+        st.dataframe(
+            st_style_df_with_team_vals(df, full_row=True),
+            hide_index=True,
+            column_config=column_configs,
+            column_order=[*column_configs, "players"],
+        )
 
     def write_streamlit_rep(self):
         st.write(self.short_info_text, unsafe_allow_html=True)
         st.write(self.desc)
         st.write(f"## Schedule\n")
-        st_display_team_highlighted_table(self.matches)
+        self._st_display_matches()
 
         st.write(f"## Sub-teams\n")
-        st_display_team_highlighted_table(self.sub_team_df, full_row=True)
+        self._st_display_subteams()

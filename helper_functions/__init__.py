@@ -6,7 +6,7 @@ from .plotting import *
 from .sport_event_registry import *
 from .sport_organizer_registry import *
 from .streamlit_util import *
-from .team_registry import *
+from .data_registry import *
 from .util import *
 
 __all__ = [

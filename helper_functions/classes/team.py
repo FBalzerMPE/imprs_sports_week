@@ -7,19 +7,19 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..constants import DATAPATH, SPORTS_LIST
+from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
 from ..plotting import create_sports_num_plot
 from .subteam import Subteam
 
 
 def _get_val_color(val: str, rgb_colors: tuple[int, ...]) -> str:
-    if val == "":
-        return "background-color: rgba(0, 0, 0, 0.0)"
     if val == "R":
         return "background-color: rgba(100, 100, 100, 0.3)"
-    if str(val) in "ABCDEF":
+    try:
+        int(val)
         return f"background-color: rgba({rgb_colors[0]}, {rgb_colors[1]}, {rgb_colors[2]}, 0.3)"
-    return "background-color: rgba(0, 0, 255, 0.5)"
+    except ValueError:
+        return "background-color: rgba(0, 0, 0, 0.0)"
 
 
 @dataclass
@@ -173,25 +173,30 @@ class Team:
                 if "subteam_" in col or col == "nickname"
             ]
         ]
+        df.insert(0, "impath", df["nickname"].apply(FpathRegistry.get_animal_pic_path))
+
+        df = df.fillna("").sort_values("nickname")
+        df["nickname"] = df["nickname"].apply(
+            lambda x: x[:14] + "..." if len(x) > 14 else x
+        )
+
         from ..sport_event_registry import SPORTS_EVENTS
 
-        col_dict = {
-            f"subteam_{event.sanitized_name}": event.icon
-            for event in SPORTS_EVENTS.values()
-        }
         column_configs = {
             f"subteam_{event.sanitized_name}": st.column_config.Column(
                 label=event.icon, help=event.name, disabled=True
             )
             for event in SPORTS_EVENTS.values()
         }
-        df = df.set_index("nickname")
+        column_configs["impath"] = st.column_config.ImageColumn("Avatar")
+        column_configs["nickname"] = st.column_config.TextColumn("Nickname")
         st.dataframe(
             df.style.apply(
                 lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
                 axis=1,
             ),
             column_config=column_configs,
+            hide_index=True,
         )
 
     def add_subteam_keys(self, subteams: list[Subteam]):
