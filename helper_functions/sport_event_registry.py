@@ -80,7 +80,7 @@ SPORTS_EVENTS = {
         name="Tennis",
         start=datetime(2024, 4, 30, 17, 45),
         end=datetime(2024, 4, 30, 21, 00),
-        match_duration=timedelta(minutes=30),
+        match_duration=timedelta(minutes=45),
         loc=SportLocation.ipp_courts,
         pitch_type_name="Court",
         organizer_names=["Matteo B"],
@@ -88,7 +88,7 @@ SPORTS_EVENTS = {
         min_player_val=4,
         num_players_per_subteam=1,
         num_subteams=3,
-        num_pitches=2,
+        num_pitches=3,
         conflicting_sports=["football"],
     ),
     # Thursday events

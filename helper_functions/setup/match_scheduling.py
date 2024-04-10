@@ -110,7 +110,6 @@ def determine_rotated_matchups_for_sport(
         ]
         for letter in "ABC"
     ]
-
     return create_combinations(*teams_subteams)
 
 
