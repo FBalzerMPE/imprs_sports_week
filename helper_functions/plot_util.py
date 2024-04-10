@@ -41,31 +41,44 @@ def annotate_barh_values(
 
 
 def plot_pie_chart(
-    data: list[str], ax: Axes, title: str = "", is_institute_chart=False
+    data: list[str],
+    ax: Axes,
+    title: str = "",
+    is_institute_chart=False,
+    add_text=True,
+    **kwargs,
 ):
     num_dict = {
-        class_: count for class_, count in zip(*np.unique(data, return_counts=True))
+        class_: count for class_, count in zip(*np.unique(data, return_counts=True))  # type: ignore
     }
     num_dict = sort_dict_by_values(num_dict)
-    colors = "none"
+    colors = kwargs.get("colors", ["none"])
     if is_institute_chart:
         inst_dict = {"MPE": 0, "MPA": 1, "USM": 2, "ESO": 3, "IPP": 4}
         colors = [cm.tab10.colors[inst_dict[key]] for key in num_dict]  # type: ignore
 
-    labels = [f"{class_} ({count})" for class_, count in num_dict.items()]
+    labels = (
+        [f"{class_} ({count})" for class_, count in num_dict.items()]
+        if add_text
+        else None
+    )
     title = f"{title}\n({len(data)})" if title != "" else f"{len(data)} points"
     ax.axis("equal")
+    radius = kwargs.get("radius", 0.9)
+    width = kwargs.get("width", 0.4)
+    pctdistance = kwargs.get("pctdistance", radius - 0.1)
     ax.pie(
         list(num_dict.values()),
         startangle=90,
-        radius=0.9,
+        radius=radius,
         labels=labels,
         labeldistance=1.04,
         textprops={"size": "smaller"},
         autopct="%.0f%%",
-        pctdistance=0.8,
-        wedgeprops=dict(width=0.4, ec="k"),
+        pctdistance=pctdistance,
+        wedgeprops=dict(width=width, ec="k"),
         colors=colors,
     )
-    # Add title in the centre
-    ax.text(0, 0, title, ha="center", va="center", fontsize="small")
+    if add_text:
+        # Add title in the centre
+        ax.text(0, 0, title, ha="center", va="center", fontsize="small")
