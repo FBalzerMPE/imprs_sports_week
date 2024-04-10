@@ -9,6 +9,12 @@ from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
 from ..util import deprecated
 
 
+def swap_rows(df, i, j):
+    a, b = df.loc[i].copy(), df.loc[j].copy()
+    df.loc[i], df.loc[j] = b, a
+    return df
+
+
 def create_teams() -> list[Team]:
     """Create teams based on the player data.
     If a seed is given, the players are randomly shuffled before being appointed.
@@ -19,6 +25,8 @@ def create_teams() -> list[Team]:
         "num_sports",
         ascending=False,
     )
+    # Some RNG manipulation for better results
+    player_data = swap_rows(player_data, 10, 15)
     teams = [Team(i) for i in range(3)]
     # I'm aware that this is not the most efficient way to do this, but it's the most readable
     # and luckily the speed requirements are not that high.
@@ -26,18 +34,9 @@ def create_teams() -> list[Team]:
         best_team_to_join = find_best_team_to_join(teams, player)
         teams[best_team_to_join].add_player(player)
     # If this player is moved, we are pretty golden
-    teams[0].transfer_player("Red Eel", teams[2])
-    # if not write_backup:
-    #     return teams
-    # for team in teams:
-    #     fpath = DATAPATH.joinpath(f"teams/team_{team.team_index}.csv")
-    #     df = team.player_df
-    #     good_cols = [
-    #         col
-    #         for col in df.columns
-    #         if not "wants_" in col and col not in ["num_sports_not_avail", "late_entry"]
-    #     ]
-    #     df[good_cols].to_csv(fpath, index=False)
+    teams[1].transfer_player("Alarmed Bird", teams[2])
+    teams[1].transfer_player("Earnest Snail", teams[2])
+    teams[0].transfer_player("Lone Rhinoceros", teams[1])
     return teams
 
 

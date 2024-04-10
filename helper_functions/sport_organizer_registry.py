@@ -23,11 +23,16 @@ SPORTS_ORGANIZERS = {
         email="jespejo@1...",
         sport_keys=["basketball"],
     ),
-    "Matteo": SportsOrganizer(
-        name="Matteo",
+    "Matteo G": SportsOrganizer(
+        name="Matteo G",
         email="matteani@2...",
         sport_keys=["football", "fooseball"],
         is_committee_member=True,
+    ),
+    "Matteo B": SportsOrganizer(
+        name="Matteo B",
+        email="mbordoni@1...",
+        sport_keys=["tennis"],
     ),
     "William": SportsOrganizer(
         name="William",
@@ -40,10 +45,5 @@ SPORTS_ORGANIZERS = {
         email="zigo@1...",
         sport_keys=["running_sprints", "capture_the_flag", "ping_pong"],
         is_committee_member=True,
-    ),
-    "???": SportsOrganizer(
-        name="???",
-        email="",
-        sport_keys=["tennis"],
     ),
 }

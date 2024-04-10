@@ -11,6 +11,7 @@ If you know your team and nickname, you can look up the sports you've been assig
 **Hint:** You can sort each table by any of the sports if you want to have an overview of the players.
 """
 )
-
-for team in hf.ALL_TEAMS:
-    team.write_streamlit_rep()
+tabs = st.tabs([team.name for team in hf.ALL_TEAMS])
+for tab, team in zip(tabs, hf.ALL_TEAMS):
+    with tab:
+        team.write_streamlit_rep()

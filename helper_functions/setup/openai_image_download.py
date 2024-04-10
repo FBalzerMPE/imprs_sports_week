@@ -119,7 +119,9 @@ def save_resized_animal_images(new_size: int = 150):
     for full_path in base_dir.iterdir():
         if full_path.is_dir():
             continue
-        new_path = full_path.parent.parent.joinpath("small_size") / full_path.name
+        new_path = (
+            DATAPATH.parent.joinpath("static/animal_pics/small_size/") / full_path.name
+        )
         with open(full_path, "rb") as f:
             img = Image.open(f)
             img = img.resize((new_size, new_size))

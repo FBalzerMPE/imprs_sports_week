@@ -8,7 +8,6 @@ import pandas as pd
 import streamlit as st
 
 from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
-from ..plotting import create_sports_num_plot
 from .subteam import Subteam
 
 
@@ -19,7 +18,7 @@ def _get_val_color(val: str, rgb_colors: tuple[int, ...]) -> str:
         int(val)
         return f"background-color: rgba({rgb_colors[0]}, {rgb_colors[1]}, {rgb_colors[2]}, 0.3)"
     except ValueError:
-        return "background-color: rgba(0, 0, 0, 0.0)"
+        return ""
 
 
 @dataclass
@@ -43,6 +42,9 @@ class Team:
     def __post_init__(self):
         colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
         self.color = colors[self.team_index % len(colors)]
+
+    def __len__(self):
+        return len(self._players)
 
     @classmethod
     def from_backup(cls, team_index: int) -> Team:
@@ -83,7 +85,10 @@ class Team:
 
     @property
     def player_df(self) -> pd.DataFrame:
-        return pd.DataFrame(self._players)
+        df = pd.DataFrame(self._players)
+        # Do not use fillna("") here as this will break things!
+        df["Team"] = self.name
+        return df
 
     @property
     def current_sports_stats(self) -> dict[str, int]:
@@ -137,6 +142,8 @@ class Team:
         }
 
     def plot_sports_num(self):
+        from ..plotting import create_sports_num_plot
+
         label = f"{self.name} ({self.player_num} players)"
         create_sports_num_plot(
             self.player_df,
@@ -190,11 +197,12 @@ class Team:
         }
         column_configs["impath"] = st.column_config.ImageColumn("Avatar")
         column_configs["nickname"] = st.column_config.TextColumn("Nickname")
+        style = df.style.apply(
+            lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
+            axis=1,
+        )
         st.dataframe(
-            df.style.apply(
-                lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
-                axis=1,
-            ),
+            style,
             column_config=column_configs,
             hide_index=True,
         )

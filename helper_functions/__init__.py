@@ -1,12 +1,12 @@
 from .classes.subteam import Subteam
 from .classes.team import Team
 from .constants import *
+from .data_registry import *
 from .plot_util import *
 from .plotting import *
 from .sport_event_registry import *
 from .sport_organizer_registry import *
 from .streamlit_util import *
-from .data_registry import *
 from .util import *
 
 __all__ = [
@@ -17,6 +17,7 @@ __all__ = [
     "sort_dict_by_values",
     "Team",
     "Subteam",
+    "get_players",
     "DATAPATH",
     "SPORTS_EVENTS",
     "SPORTS_LIST",

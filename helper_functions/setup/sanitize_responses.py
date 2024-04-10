@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 
 from ..constants import DATAPATH, FpathRegistry
-from ..sport_event_registry import SPORTS_EVENTS
 
 
 def generate_anonymous_names(number: int) -> list[str]:
@@ -26,11 +25,13 @@ def sanitize_and_anonymize_data(
     """
     Sanitizes and anonymizes the data by removing all columns that are not needed for the analysis.
     """
+    from ..sport_event_registry import SPORTS_EVENTS
+
     backup_fpath = FpathRegistry.all_responses
     if backup_fpath.exists() and not overwrite:
         df = pd.read_csv(backup_fpath)
         return df
-    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_05.csv")
+    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_09.csv")
     cols = [
         "response_timestamp",
         "name",
@@ -65,6 +66,7 @@ def sanitize_and_anonymize_data(
         "University Observatory Ludwig-Maximilians University of Munich": "USM",
         "HM": "USM",
         "MPI for plasma physics": "IPP",
+        "Max Planck Institute for Extraterrestrial Physics": "MPE",
     }
     df["institute"] = df.institute.replace(proper_institute_map).str.upper().str.strip()
 
@@ -97,6 +99,7 @@ def sanitize_and_anonymize_data(
         "email",
     ]
     df.insert(0, "nickname", generate_anonymous_names(len(df)))
+    df[["nickname", "name"]].to_csv(DATAPATH.joinpath("hidden/nickname_to_name.csv"))
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
     if anonymize:

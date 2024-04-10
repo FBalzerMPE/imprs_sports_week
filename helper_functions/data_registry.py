@@ -1,8 +1,6 @@
 """Module where we load the data necessary for the module to operate."""
 
-import numpy as np
 import pandas as pd
-import streamlit as st
 
 from .classes.match import Match
 from .classes.subteam import Subteam
@@ -25,9 +23,16 @@ def get_teams(num_teams: int = 3) -> list[Team]:
 ALL_TEAMS = get_teams()
 
 
+def get_players(from_teams: bool = True) -> pd.DataFrame:
+    """Loads a dataframe of all players."""
+    if from_teams:
+        return pd.concat([team.player_df for team in ALL_TEAMS])
+    return pd.read_csv(FpathRegistry.all_responses)
+
+
 # @st.cache_data
-def get_subteams() -> list[Subteam]:
-    all_subteams = []
+def get_subteams() -> dict[str, Subteam]:
+    all_subteams = {}
     for team in ALL_TEAMS:
         df = team.player_df
         for sport in SPORTS_LIST:
@@ -40,7 +45,7 @@ def get_subteams() -> list[Subteam]:
                     sub_key=team_key,
                     players=players,
                 )
-                all_subteams.append(subteam)
+                all_subteams[sport + "_" + subteam.full_key] = subteam
 
     return all_subteams
 
@@ -54,8 +59,12 @@ def get_matches() -> list[Match]:
         return []
     match_df = pd.read_csv(fpath)
     match_df["start"] = pd.to_datetime(match_df["start"])
-    return [Match.from_dataframe_entry(m, ALL_SUBTEAMS) for _, m in match_df.iterrows()]
+    try:
+        return [
+            Match.from_dataframe_entry(m, ALL_SUBTEAMS) for _, m in match_df.iterrows()
+        ]
+    except KeyError:
+        return []
 
 
 ALL_MATCHES = get_matches()
-print(ALL_MATCHES)

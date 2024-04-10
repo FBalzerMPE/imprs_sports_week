@@ -3,11 +3,10 @@ from typing import TypeVar
 import numpy as np
 import pandas as pd
 
-
-from ..classes.subteam import Subteam
 from ..classes.match import Match
+from ..classes.subteam import Subteam
 from ..constants import FpathRegistry
-from ..util import turn_series_list_to_dataframe
+from ..util import deprecated, turn_series_list_to_dataframe
 
 T = TypeVar("T")
 
@@ -29,6 +28,7 @@ def generate_round_robin_list(
     return matches
 
 
+@deprecated("We've settled on the other method to determine the matchups.")
 def determine_matchups_for_sport(
     all_subteams: list[Subteam], sport: str, max_match_number=2
 ) -> list[tuple[Subteam, Subteam]]:
@@ -88,24 +88,26 @@ def create_combinations(
 
 
 def determine_rotated_matchups_for_sport(
-    all_subteams: list[Subteam], sport: str
+    all_subteams: dict[str, Subteam], sport: str
 ) -> list[tuple[Subteam, Subteam]]:
     """Determine matchups between the teams.
 
     Do this in a rotating round-robin fashion, where each team plays
     against each other team in the same subteam-pool.
     """
-    all_subteams = [
-        subteam
-        for subteam in all_subteams
-        if subteam.sport == sport and not subteam.is_reserve
-    ]
+    all_subteams = {
+        k: team for k, team in all_subteams.items() if sport in k and "R" not in k
+    }
     num_teams = len(all_subteams)
     assert (
         num_teams % 3 == 0
     ), f"{sport}: Please provide equal amount of subteams for each team, found {num_teams}"
     teams_subteams = [
-        [subteam for subteam in all_subteams if subteam.main_team_letter == letter]
+        [
+            subteam
+            for subteam in all_subteams.values()
+            if subteam.main_team_letter == letter
+        ]
         for letter in "ABC"
     ]
 

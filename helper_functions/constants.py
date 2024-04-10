@@ -22,6 +22,9 @@ SPORTS_LIST = [
 ]
 
 
+ALL_DAYS = ["monday", "tuesday", "thursday", "friday"]
+
+
 @dataclass
 class FpathRegistry:
     """Paths to some commonly used files."""

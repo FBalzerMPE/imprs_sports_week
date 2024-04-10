@@ -7,6 +7,7 @@ MAIL_DICT = {
     "4": "eso.org",
     "5": "physik.lmu.de",
     "6": "hm.edu",
+    "7": "ipp.mpg.de",
 }
 
 

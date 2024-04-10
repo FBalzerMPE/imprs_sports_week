@@ -34,7 +34,7 @@ class SportsOrganizer:
 
     @property
     def pic_path(self) -> Path:
-        return DATAPATH.joinpath(f"assets/organizer_pics/{self.name.lower()}.png")
+        return DATAPATH.joinpath(f"assets/organizer_pics/{self.name.lower().replace(" ", "_")}.png")
 
     def write_streamlit_rep(self):
         """Write the organizer's information to the Streamlit app."""

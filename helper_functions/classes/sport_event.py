@@ -33,6 +33,9 @@ class SportEvent:
     loc: SportLocation
     """The location where this sport is taking place."""
 
+    pitch_type_name: str
+    """How a pitch is called for this sport (important for displaying location)"""
+
     organizer_names: list[str]
     """The name of the person responsible for organizing this event."""
 
@@ -70,12 +73,12 @@ class SportEvent:
 
     def __post_init__(self):
         assert self.start < self.end, "The start time must be before the end time."
-        assert (
+        assert (self.sanitized_name == "running_sprints") or (
             self.num_matches_per_subteam
             * self.num_subteams
             / self.num_pitches
             * self.match_duration
-            < self.end - self.start
+            <= self.end - self.start
         ), f"The {self.name} event is too short for the number of matches and sub-teams."
         self.desc = read_event_desc(self.sanitized_name)
         self.days = [
@@ -84,7 +87,9 @@ class SportEvent:
             if day.strftime("%A").lower() != "wednesday"
         ]
         self.subteams = [
-            subteam for subteam in ALL_SUBTEAMS if subteam.sport == self.sanitized_name
+            subteam
+            for subteam in ALL_SUBTEAMS.values()
+            if subteam.sport == self.sanitized_name
         ]
         self.matches = [m for m in ALL_MATCHES if m.sport == self.sanitized_name]
 
@@ -135,15 +140,29 @@ class SportEvent:
         return df[df[self.sanitized_name]]
 
     def _st_display_matches(self):
+        if len(self.matches) == 0:
+            return
         df = self.match_df.fillna("")
         for col in ["location", "day"]:
             if len(np.unique(df[col])) == 1:
                 df = df.drop(columns=col)
 
+        name = "Player" if self.num_players_per_subteam == 1 else "Team"
+        width = None if self.num_players_per_subteam == 1 else "small"
         column_configs = {}
         column_configs["time"] = st.column_config.Column("Time")
-        column_configs["team_a"] = st.column_config.TextColumn("Team a", width="small")
-        column_configs["team_b"] = st.column_config.TextColumn("Team b", width="small")
+        column_configs["location"] = st.column_config.Column(self.pitch_type_name)
+        column_configs["team_a"] = st.column_config.TextColumn(f"{name} a", width=width)
+        column_configs["team_b"] = st.column_config.TextColumn(f"{name} b", width=width)
+        if self.num_players_per_subteam == 1:
+            df["team_a_av"] = df["team_a"].apply(
+                lambda x: FpathRegistry.get_animal_pic_path(x[3:])
+            )
+            df["team_b_av"] = df["team_b"].apply(
+                lambda x: FpathRegistry.get_animal_pic_path(x[3:])
+            )
+            column_configs["team_a_av"] = st.column_config.ImageColumn("Avatar a")
+            column_configs["team_b_av"] = st.column_config.ImageColumn("Avatar b")
         column_configs["result"] = st.column_config.Column("Result", width="small")
         column_configs["winner"] = st.column_config.Column("Winner", width="small")
         style = st_style_df_with_team_vals(df)
@@ -155,8 +174,10 @@ class SportEvent:
                 "day",
                 "time",
                 "location",
+                "team_a_av",
                 "team_a",
                 "team_b",
+                "team_b_av",
                 "result",
                 "winner",
             ],

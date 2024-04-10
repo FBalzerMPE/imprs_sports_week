@@ -1,12 +1,15 @@
+from __future__ import annotations
 import random
 from functools import reduce
+from typing import TYPE_CHECKING
 
 import numpy as np
 
-from ..classes.sport_event import SportEvent
 from ..classes.subteam import Subteam
 from ..classes.team import Team
-from ..sport_event_registry import SPORTS_EVENTS
+
+if TYPE_CHECKING:
+    from ..classes.sport_event import SportEvent
 
 
 def _generate_subteams_for_sport(
@@ -49,11 +52,14 @@ def _generate_subteams_for_sport(
             weights=avail_players["weights"],
         )
         avail_players = avail_players.drop(subteam.index)
+        subteam_key = (
+            str(i + 1) if sport.sanitized_name != "ping_pong" else f"{i+1:0>2}"
+        )
         subteams.append(
             Subteam(
                 sport=sport.sanitized_name,
                 main_team_letter=team.team_letter,
-                sub_key=str(i + 1),
+                sub_key=subteam_key,
                 players=subteam["nickname"].tolist(),
             )
         )
@@ -146,6 +152,8 @@ def generate_all_subteams(team: Team, verbose=True, seed=42) -> list[Subteam]:
 
     Try to solve conflicts for players being doubly subscribed.
     """
+    from ..sport_event_registry import SPORTS_EVENTS
+
     random.seed(seed)
     all_subteams: list[Subteam] = []
     for sport in SPORTS_EVENTS.values():
@@ -159,3 +167,20 @@ def generate_all_subteams(team: Team, verbose=True, seed=42) -> list[Subteam]:
     ]:
         _resolve_subteams_conflict(all_subteams, *colliding_pairs, verbose=verbose)
     return all_subteams
+
+
+def try_switch_players(
+    name_1: str, name_2: str, sport: str, all_subteams: list[Subteam]
+):
+    subteams = [
+        subteam
+        for subteam in all_subteams
+        if subteam.sport == sport
+        and (name_1 in subteam.players or name_2 in subteam.players)
+    ]
+
+    if len(subteams) < 2:
+        return
+    subteam_1 = [subteam for subteam in subteams if name_1 in subteam.players][0]
+    subteam_2 = [subteam for subteam in subteams if name_2 in subteam.players][0]
+    subteam_1.switch_player_with_other(name_1, name_2, subteam_2, verbose=True)
