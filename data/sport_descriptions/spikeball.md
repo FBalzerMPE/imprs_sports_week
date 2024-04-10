@@ -21,8 +21,11 @@ See below for some advanced rules.
 ## Format
 
 - Matches will be played on one of the three nets we provide for the IPP court pitch.
-- Each main team will send out a few subteams, with **two** players on each subteam.
+- Each main team will send out a few subteams, with **2** players on each subteam. The reserve players might be called in if a player becomes unavailable.
 - Each subteam will play two matches, one against a different main team's subteam.
+- 3 points are awarded to each winning team, and 0 for a loss. At the end, all points a main team's subteams have achieved are summed and normalized to determine the contribution to the main team's score.
+- We trust the teams to count and announce the scores by themselves, but Fabi will be around if any questions arise, and people that are taking a break may volunteer to referee games.
+- You do not need to bring any special equipment, but make sure to not forget your water bottle!
 
 Get ready to dive, spike, and rally your way to victory in Spikeball. Good luck to all participating teams!
 
@@ -35,7 +38,7 @@ SCHEDULE_INPUT
 The following should clarify most edge cases. Note that we do not strictly follow the official rules, so please read carefully.
 
 1. **Initial Serve**: The first serve of a game is determined via a so-called *Sprungdie*, which means that the ball is initially thrown in, starting a rally where each player putting the ball onto the net has to have their feet in the air. You may also agree upon a different variant to determine the first serve. The team winning the rally (after it has been returned at least once) gets to decide which team can perform the initial serve. For the sets following the first one, the starting serve is alternated.
-2. During a serve, the serving player must first announce the score, then 'first serve' or 'second serve', and may then only perform a single step before throwing the ball up and spiking it onto the net. After they touch the ball, they have to stand steady in their position, and both feet need to be outside the 2-m-radius.
+2. During a serve, the serving player must first announce the score, then 'first serve' or 'second serve', and may then only perform a single step before throwing the ball up and spiking it onto the net. After they touch the ball, both feet need to be outside the 2-m-circle, and they have to stand steady in their position (they may not fall into the 2-m-circle).
 3. A serve may only be received by the player across the serving player.
 4. **Blocking**: If you receive the ball after it has touched the net while it is still moving upward, and propel it upward even further, this is considered a *block*. After blocking, you may touch the ball a second time yourself, and your partner will have to put it onto the net afterwards (i.e. you may not put it onto the net yourself with the second touch, and you are still limited by the three total touches). An exception is right after receiving a serve; here, you may only touch the ball once.
 5. **Hinder**: If a player is blocked from reaching the ball due to a player of the opposing team being in the way, the point is repeated.
@@ -43,3 +46,5 @@ The following should clarify most edge cases. Note that we do not strictly follo
 7. "Guiding" the ball (i.e. any touch longer than a brief bounce) is considered to be a fault.
 8. The ball may be touched with any part of the body, although we recommend using the front part of your flat hand.
 9. Touching the net at any point during a rally is considered to be a fault.
+
+Feel free to ask Fabi if there's anything unclear.
