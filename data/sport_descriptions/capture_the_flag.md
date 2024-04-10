@@ -6,7 +6,7 @@ Are you ready to test your agility and teamwork in this ancient game? Here's eve
 
 1. Each match will consist of best-of-three rounds.
 2. A team wins a round by successfully capturing the opponent's flag from the neutral zone and returning it to their territory without being tagged.
-3. Players tagged by opponents in the enemy part of the field will be temporarily immobilized (“frozen”) and cannot actively participate in the game.
+3. Players tagged by opponents in the enemy part of the field will be temporarily immobilized ("frozen") and cannot actively participate in the game.
 4. To free a frozen teammate, a member of their team must touch them to allow them to resume play.
 5. A round ends when one of the teams successfully captures the opponent's flag and brings it back to their part of the field, or when the designated time for the round expires.
 

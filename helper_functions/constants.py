@@ -17,7 +17,7 @@ SPORTS_LIST = [
     "capture_the_flag",
     "spikeball",
     "beer_pong",
-    "fooseball",
+    "foosball",
     "ping_pong",
 ]
 

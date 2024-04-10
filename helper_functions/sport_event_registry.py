@@ -67,7 +67,7 @@ SPORTS_EVENTS = {
         name="Football",
         start=datetime(2024, 4, 30, 17, 45),
         end=datetime(2024, 4, 30, 21, 00),
-        match_duration=timedelta(minutes=30),
+        match_duration=timedelta(minutes=45),
         loc=SportLocation.ipp_courts,
         pitch_type_name="Pitch",
         organizer_names=["Matteo G"],
@@ -134,10 +134,10 @@ SPORTS_EVENTS = {
         min_player_val=6,
         num_players_per_subteam=3,
         num_subteams=3,
-        conflicting_sports=["fooseball"],
+        conflicting_sports=["foosball"],
     ),
-    "fooseball": SportEvent(
-        name="Fooseball",
+    "foosball": SportEvent(
+        name="Foosball",
         start=datetime(2024, 5, 3, 17, 30),
         end=datetime(2024, 5, 3, 21, 00),
         loc=SportLocation.mpa_common_room,

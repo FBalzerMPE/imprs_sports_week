@@ -72,7 +72,7 @@ class Player:
             text += f"**{event.icon} {event.name} ({days}):**\\\n"
             if subteam.is_reserve:
                 text += "You are scheduled to be a reserve player. "
-                if sport in ["spikeball", "tennis", "table_tennis", "fooseball"]:
+                if sport in ["spikeball", "tennis", "table_tennis", "foosball"]:
                     text += "This means that you might receive a late call to join if one of your teammates cannot make it."
                 else:
                     if event.num_subteams > 1:

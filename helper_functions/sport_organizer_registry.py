@@ -26,7 +26,7 @@ SPORTS_ORGANIZERS = {
     "Matteo G": SportsOrganizer(
         name="Matteo G",
         email="matteani@2...",
-        sport_keys=["football", "fooseball"],
+        sport_keys=["football", "foosball"],
         is_committee_member=True,
     ),
     "Matteo B": SportsOrganizer(
