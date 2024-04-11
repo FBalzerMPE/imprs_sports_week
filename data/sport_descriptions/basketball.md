@@ -5,7 +5,7 @@ Welcome to the heart-pounding, high-flying world of basketball in our Sports Wee
 1. A match is won by the team who scores the most points.
 2. Each match will last 30 minutes: Two halves of 15 minutes with 5 minute half-time break.
 3. The games will be played in one half of the court, aiming for the same basket (as the second rim is unfortunately broken).
-4. **Change of possession**: Upon scoring, the team that is offence can continue playing offence. They must go beyond the 3-point line and "check the ball" i.e. they must give the ball to the defending team and then receive the ball again so they can start playing again. When the ball goes out of bounds or one commits a foul while the player is not shooting, the opposing team gains possession and they must also "check" the ball.
+4. **Change of possession**: Upon scoring, the team that is offence can continue playing offence. They must go beyond the 3-point line and "check the ball", i.e. they must give the ball to the defending team and then receive the ball again so they can start playing again. When the ball goes out of bounds or one commits a foul while the player is not shooting, the opposing team gains possession and they must also "check" the ball.
 5. **Scoring**: Points are scored by shooting the basketball through the hoop. A field goal counts as two points unless shot from beyond the 3-point line, which counts as three points. Free throws count as one point each.
 6. **Starting play**: The game begins with a free-throw shootout between two players that represent their team. Each player can shoot a free throw and whoever scores first (and if the other one misses) gets the ball at the start.
 7. **Dribbling**: Players must dribble the basketball while moving, bouncing it on the floor with one hand at a time. If a player stops dribbling, they must either pass the ball to a teammate or shoot.
@@ -23,6 +23,6 @@ Welcome to the heart-pounding, high-flying world of basketball in our Sports Wee
 - 3 points are awarded to each winning team, 1 in the case of a tie and 0 for a loss. At the end, they are summed and normalized to determine the contribution to the main team's score.
 - You do not need to bring any special equipment, but make sure to not forget your water bottle!
 
-SCHEDULE_INPUT
-
 Feel free to ask Juan if there's anything unclear.
+
+SCHEDULE_INPUT

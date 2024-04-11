@@ -18,7 +18,7 @@ def _st_display_match_df(
     df: pd.DataFrame, only_one_player_per_team: bool, pitch_name: str
 ):
     """Style the match dataframe and display it properly."""
-    df = df.fillna("")
+    df = df.infer_objects(copy=False).fillna("")  # type: ignore
     for col in ["location", "day"]:
         if len(np.unique(df[col])) == 1:
             df = df.drop(columns=col)
@@ -61,6 +61,23 @@ def _st_display_match_df(
             "result",
             "winner",
         ],
+    )
+
+
+def _st_display_subteam_df(df: pd.DataFrame):
+    df = df.sort_values(["is_reserve", "full_key"], ascending=[True, True])
+    column_configs = {"full_key": st.column_config.Column("Subteam", width="small")}
+    for i in range(max(df["players"].apply(len))):
+        df[f"avatar_{i}"] = df["players"].apply(
+            lambda x: FpathRegistry.get_animal_pic_path(x[i]) if i < len(x) else ""
+        )
+        column_configs[f"avatar_{i}"] = st.column_config.ImageColumn("")
+    column_configs["players"] = st.column_config.ListColumn("Players")
+    st.dataframe(
+        st_style_df_with_team_vals(df, full_row=True),
+        hide_index=True,
+        column_config=column_configs,
+        column_order=[*column_configs],
     )
 
 
@@ -145,7 +162,7 @@ class SportEvent:
 
     @property
     def sanitized_name(self) -> str:
-        return self.name.replace(" ", "_").replace("/", "_").lower()
+        return self.name.replace(" and ", "_").replace(" ", "_").lower()
 
     @property
     def calendar_entry(self) -> dict[str, str | dict]:
@@ -206,25 +223,33 @@ class SportEvent:
 
     def _st_display_subteams(self):
         df = self.sub_team_df
-        df = df.sort_values(["is_reserve", "full_key"], ascending=[True, True])
-        column_configs = {"full_key": st.column_config.Column("Subteam", width="small")}
-        for i in range(max(df["players"].apply(len))):
-            df[f"avatar_{i}"] = df["players"].apply(
-                lambda x: FpathRegistry.get_animal_pic_path(x[i]) if i < len(x) else ""
+        reserve_mask = df["is_reserve"].astype(bool)
+        if self.num_players_per_subteam == 1:
+            if np.sum(reserve_mask) > 0:
+                st.write(
+                    "Showing only the reserve players that may jump in if players cannot make it."
+                )
+                _st_display_subteam_df(df[reserve_mask])
+            else:
+                st.write(
+                    "There's currently noone that signed up as a reserve player here."
+                )
+        else:
+            st.write("The subteams above consist of the following players:")
+            _st_display_subteam_df(df[~reserve_mask])
+            st.write(
+                "#### Reserve\nThe following players may join as substitute players:"
             )
-            column_configs[f"avatar_{i}"] = st.column_config.ImageColumn("")
-        st.dataframe(
-            st_style_df_with_team_vals(df, full_row=True),
-            hide_index=True,
-            column_config=column_configs,
-            column_order=[*column_configs, "players"],
-        )
+            _st_display_subteam_df(df[reserve_mask])
 
     def write_streamlit_rep(self):
         st.write(self.short_info_text, unsafe_allow_html=True)
-        st.write(self.desc)
-        st.write(f"## Schedule\n")
+        descs = self.desc.split("SCHEDULE_INPUT")
+        st.write(descs[0])
+        st.write(f"### Schedule\n")
         self._st_display_matches()
 
-        st.write(f"## Sub-teams\n")
+        st.write(f"### Subteams\n")
         self._st_display_subteams()
+        if len(descs) > 1:
+            st.write(descs[1])

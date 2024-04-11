@@ -21,7 +21,7 @@ SPORTS_EVENTS = {
         conflicting_sports=["volleyball"],
     ),
     "running_sprints": SportEvent(
-        name="Running/Sprints",
+        name="Running and Sprints",
         start=datetime(2024, 4, 29, 17, 30),
         end=datetime(2024, 4, 29, 18, 30),
         match_duration=timedelta(minutes=60),
