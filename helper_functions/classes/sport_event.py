@@ -19,10 +19,10 @@ def _st_display_match_df(
 ):
     """Style the match dataframe and display it properly."""
     df = df.infer_objects(copy=False).fillna("")  # type: ignore
+    df = df.sort_values(["time", "location"])
     for col in ["location", "day"]:
         if len(np.unique(df[col])) == 1:
             df = df.drop(columns=col)
-
     name = "Player" if only_one_player_per_team else "Team"
     p_display_width = None if only_one_player_per_team else "small"
     column_configs = {}

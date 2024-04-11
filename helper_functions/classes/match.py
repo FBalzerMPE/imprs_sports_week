@@ -87,7 +87,7 @@ class Match:
     @property
     def match_key(self):
         return (
-            self.sport + "_" + self.subteam_a.full_key + "_" + self.subteam_b.full_key
+            self.sport + self.subteam_a.full_key + self.subteam_b.full_key
         )
     
     @property
