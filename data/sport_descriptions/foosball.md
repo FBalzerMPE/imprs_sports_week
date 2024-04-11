@@ -13,6 +13,12 @@ You can finally relax your weary legs and cleanse your palate with a sip of your
 3. The first team that reaches 10 goals with minimum difference of 2 goals wins the game.
 4. After 10 goals the minimum difference of 2 still applies unless time runs out, in which case if the teams are tied the first team that scores wins.
 
+## Format and location
+
+- The games will take place at the Foosball table in the MPA common room.
+- 3 points are awarded to each winning team, 1 for a tie, and 0 for a loss. At the end, all points a main team's subteams have achieved are summed and normalized to determine the contribution to the main team's score.
+- We trust the teams to count and announce the scores by themselves, but Matteo will be around if any questions arise, and people that are taking a break may voice their opinions over any disputes.
+
 SCHEDULE_INPUT
 
 Feel free to ask Matteo G if there's anything unclear.

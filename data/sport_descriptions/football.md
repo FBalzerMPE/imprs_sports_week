@@ -21,6 +21,11 @@ Garching FZ, are you ready to witness some joga bonito? The stage is set, the ba
 7. Throw-ins are played with the hands (the ball must be thrown with both hands from behind and over the head).
 8. After a goal is scored, the match is restarted with a kickoff from midfield by the team that conceded the goal.
 
+## Format
+
+- 3 points are awarded to each winning team. At the end, all points the teams have achieved are summed and normalized to determine the contribution to the total main team's score.
+- Matteo will be around if any questions arise, and people that are taking a break may volunteer to referee the games.
+
 We're looking forward to having some unforgettable, fun and fair matches!
 
 SCHEDULE_INPUT

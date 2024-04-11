@@ -17,3 +17,6 @@ Team up with friends or colleagues for relay races that combine speed and coordi
 ### 4. Endurance Challenge: 10-Minute Run
 
 Participate in a 10-minute continuous run to test your endurance. See how far you can push yourself within the time limit? Get those lungs pumping.
+
+
+TODO: Put schedule here!
