@@ -41,9 +41,9 @@ spikeball,B: 1,C: 2,2,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 1,C: 2,spikeb
 spikeball,B: 4,C: 3,2,Thursday,17:45,,,2024-05-02 17:45:00,1800,B: 4,C: 3,spikeballB: 4C: 3
 spikeball,B: 3,C: 1,1,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 3,C: 1,spikeballB: 3C: 1
 spikeball,C: 4,A: 4,2,Thursday,19:45,,,2024-05-02 19:45:00,1800,C: 4,A: 4,spikeballC: 4A: 4
-spikeball,C: 2,A: 3,1,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 2,A: 3,spikeballC: 2A: 3
-spikeball,C: 3,A: 2,2,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 3,A: 2,spikeballC: 3A: 2
-spikeball,C: 1,A: 1,3,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 1,A: 1,spikeballC: 1A: 1
+spikeball,C: 2,A: 3,2,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 2,A: 3,spikeballC: 2A: 3
+spikeball,C: 3,A: 2,3,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 3,A: 2,spikeballC: 3A: 2
+spikeball,C: 1,A: 1,1,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 1,A: 1,spikeballC: 1A: 1
 beer_pong,A: 3,B: 2,1,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 3,B: 2,beer_pongA: 3B: 2
 beer_pong,A: 2,B: 1,2,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 2,B: 1,beer_pongA: 2B: 1
 beer_pong,A: 1,B: 3,1,Friday,17:50,,,2024-05-03 17:50:00,1200,A: 1,B: 3,beer_pongA: 1B: 3
