@@ -70,7 +70,7 @@ class Match:
             "winner": self.winner,
             "start": self.start,
             "duration": self.duration.seconds,
-            # "full_key": self.match_key,
+            "full_key": self.match_key,
             "team_a_key": self.subteam_a.full_key,
             "team_b_key": self.subteam_b.full_key,
         }

@@ -53,16 +53,20 @@ def get_subteams() -> dict[str, Subteam]:
 ALL_SUBTEAMS = get_subteams()
 
 
-def get_matches() -> list[Match]:
+def get_match_df() -> pd.DataFrame:
     fpath = FpathRegistry.all_matches
     if not fpath.exists():
-        return []
+        return pd.DataFrame()
     match_df = pd.read_csv(fpath)
     match_df["start"] = pd.to_datetime(match_df["start"])
+    return match_df
+
+
+def get_matches() -> list[Match]:
+    match_df = get_match_df()
+    subteams = get_subteams()
     try:
-        return [
-            Match.from_dataframe_entry(m, ALL_SUBTEAMS) for _, m in match_df.iterrows()
-        ]
+        return [Match.from_dataframe_entry(m, subteams) for _, m in match_df.iterrows()]
     except KeyError:
         return []
 

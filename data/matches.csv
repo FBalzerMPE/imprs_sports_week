@@ -1,118 +1,118 @@
-,sport,team_a,team_b,location,day,time,result,winner,start,duration,team_a_key,team_b_key
-0,basketball,A: 1,B: 1,1,Monday,17:30,,,2024-04-29 17:30:00,2700,A: 1,B: 1
-1,basketball,B: 1,C: 1,1,Monday,18:15,,,2024-04-29 18:15:00,2700,B: 1,C: 1
-2,basketball,C: 1,A: 1,1,Monday,19:00,,,2024-04-29 19:00:00,2700,C: 1,A: 1
-3,volleyball,A: 2,B: 1,1,Monday,17:45,,,2024-04-29 17:45:00,2700,A: 2,B: 1
-4,volleyball,A: 1,B: 2,2,Monday,17:45,,,2024-04-29 17:45:00,2700,A: 1,B: 2
-5,volleyball,B: 1,C: 2,1,Monday,18:30,,,2024-04-29 18:30:00,2700,B: 1,C: 2
-6,volleyball,B: 2,C: 1,2,Monday,18:30,,,2024-04-29 18:30:00,2700,B: 2,C: 1
-7,volleyball,C: 2,A: 1,1,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 2,A: 1
-8,volleyball,C: 1,A: 2,2,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 1,A: 2
-9,chess,A: Cool Weasel,B: Awkward Cichlid,1,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 2,B: 1
-10,chess,A: Trifling Tarpon,B: Ornate Cockatoo,2,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 1,B: 3
-11,chess,A: Pleasing Mongrel,B: Trivial Uguisu,3,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 3,B: 2
-12,chess,B: Awkward Cichlid,C: Reckless Swan,1,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 1,C: 3
-13,chess,B: Ornate Cockatoo,C: Excited Rabbit,2,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 3,C: 2
-14,chess,B: Trivial Uguisu,C: Clever Wombat,3,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 2,C: 1
-15,chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 3,A: 2
-16,chess,C: Excited Rabbit,A: Trifling Tarpon,2,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 2,A: 1
-17,chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 1,A: 3
-18,football,A: 1,B: 1,1,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 1,B: 1
-19,football,B: 1,C: 1,1,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 1,C: 1
-20,football,C: 1,A: 1,1,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 1,A: 1
-21,tennis,A: Motherly Woodpecker,B: Striped Himalayan,1,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 2,B: 1
-22,tennis,A: Pricey Collie,B: Faint Gorilla,2,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 1,B: 3
-23,tennis,A: Fickle Gecko,B: Animated Yak,3,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 3,B: 2
-24,tennis,B: Striped Himalayan,C: Well-documented Dodo,1,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 1,C: 3
-25,tennis,B: Faint Gorilla,C: Unwritten Saiga,2,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 3,C: 1
-26,tennis,B: Animated Yak,C: Neglected Harrier,3,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 2,C: 2
-27,tennis,C: Well-documented Dodo,A: Motherly Woodpecker,1,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 3,A: 2
-28,tennis,C: Unwritten Saiga,A: Pricey Collie,2,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 1,A: 1
-29,tennis,C: Neglected Harrier,A: Fickle Gecko,3,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 2,A: 3
-30,capture_the_flag,A: 1,B: 1,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,A: 1,B: 1
-31,capture_the_flag,B: 1,C: 1,1,Thursday,18:15,,,2024-05-02 18:15:00,1800,B: 1,C: 1
-32,capture_the_flag,C: 1,A: 1,1,Thursday,18:45,,,2024-05-02 18:45:00,1800,C: 1,A: 1
-33,spikeball,A: 3,B: 2,2,Thursday,18:15,,,2024-05-02 18:15:00,1800,A: 3,B: 2
-34,spikeball,A: 2,B: 1,3,Thursday,19:45,,,2024-05-02 19:45:00,1800,A: 2,B: 1
-35,spikeball,A: 1,B: 4,1,Thursday,19:45,,,2024-05-02 19:45:00,1800,A: 1,B: 4
-36,spikeball,A: 4,B: 3,1,Thursday,18:15,,,2024-05-02 18:15:00,1800,A: 4,B: 3
-37,spikeball,B: 2,C: 4,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,B: 2,C: 4
-38,spikeball,B: 1,C: 2,1,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 1,C: 2
-39,spikeball,B: 4,C: 3,2,Thursday,17:45,,,2024-05-02 17:45:00,1800,B: 4,C: 3
-40,spikeball,B: 3,C: 1,2,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 3,C: 1
-41,spikeball,C: 4,A: 4,2,Thursday,19:45,,,2024-05-02 19:45:00,1800,C: 4,A: 4
-42,spikeball,C: 2,A: 3,1,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 2,A: 3
-43,spikeball,C: 3,A: 2,2,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 3,A: 2
-44,spikeball,C: 1,A: 1,3,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 1,A: 1
-45,beer_pong,A: 3,B: 2,1,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 3,B: 2
-46,beer_pong,A: 2,B: 1,2,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 2,B: 1
-47,beer_pong,A: 1,B: 3,1,Friday,17:50,,,2024-05-03 17:50:00,1200,A: 1,B: 3
-48,beer_pong,B: 2,C: 1,2,Friday,17:50,,,2024-05-03 17:50:00,1200,B: 2,C: 1
-49,beer_pong,B: 1,C: 3,1,Friday,18:10,,,2024-05-03 18:10:00,1200,B: 1,C: 3
-50,beer_pong,B: 3,C: 2,2,Friday,18:10,,,2024-05-03 18:10:00,1200,B: 3,C: 2
-51,beer_pong,C: 1,A: 3,1,Friday,18:30,,,2024-05-03 18:30:00,1200,C: 1,A: 3
-52,beer_pong,C: 3,A: 2,2,Friday,18:30,,,2024-05-03 18:30:00,1200,C: 3,A: 2
-53,beer_pong,C: 2,A: 1,1,Friday,18:50,,,2024-05-03 18:50:00,1200,C: 2,A: 1
-54,foosball,A: 4,B: 4,1,Friday,18:15,,,2024-05-03 18:15:00,900,A: 4,B: 4
-55,foosball,A: 2,B: 2,1,Friday,17:45,,,2024-05-03 17:45:00,900,A: 2,B: 2
-56,foosball,A: 3,B: 1,1,Friday,18:00,,,2024-05-03 18:00:00,900,A: 3,B: 1
-57,foosball,A: 1,B: 3,1,Friday,17:30,,,2024-05-03 17:30:00,900,A: 1,B: 3
-58,foosball,B: 4,C: 4,1,Friday,18:30,,,2024-05-03 18:30:00,900,B: 4,C: 4
-59,foosball,B: 2,C: 1,1,Friday,18:45,,,2024-05-03 18:45:00,900,B: 2,C: 1
-60,foosball,B: 1,C: 2,1,Friday,19:00,,,2024-05-03 19:00:00,900,B: 1,C: 2
-61,foosball,B: 3,C: 3,1,Friday,19:15,,,2024-05-03 19:15:00,900,B: 3,C: 3
-62,foosball,C: 4,A: 1,1,Friday,19:30,,,2024-05-03 19:30:00,900,C: 4,A: 1
-63,foosball,C: 1,A: 4,1,Friday,19:45,,,2024-05-03 19:45:00,900,C: 1,A: 4
-64,foosball,C: 2,A: 2,1,Friday,20:00,,,2024-05-03 20:00:00,900,C: 2,A: 2
-65,foosball,C: 3,A: 3,1,Friday,20:15,,,2024-05-03 20:15:00,900,C: 3,A: 3
-66,running_sprints,A: 1,B: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,A: 1,B: 1
-67,running_sprints,A: 1,C: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,A: 1,C: 1
-68,running_sprints,B: 1,C: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,B: 1,C: 1
-69,ping_pong,A: Honorable Pangolin,B: Hasty Emu,1,Monday,17:45,,,2024-04-29 17:45:00,1800,A: 12,B: 04
-70,ping_pong,A: Anchored Panther,B: Flamboyant Lungfish,2,Monday,17:45,,,2024-04-29 17:45:00,1800,A: 10,B: 05
-71,ping_pong,B: Hasty Emu,C: Minty Possum,1,Monday,19:15,,,2024-04-29 19:15:00,1800,B: 04,C: 07
-72,ping_pong,A: Magnificent Barracuda,B: Thankful Kakapo,2,Monday,19:15,,,2024-04-29 19:15:00,1800,A: 07,B: 06
-73,ping_pong,A: Damaged Fly,B: Radiant Booby,1,Monday,19:45,,,2024-04-29 19:45:00,1800,A: 02,B: 02
-74,ping_pong,C: Reflecting Pug,A: Shameless Pufferfish,1,Monday,20:15,,,2024-04-29 20:15:00,1800,C: 09,A: 15
-75,ping_pong,A: Nutty Sheep,B: Ill-fated Meerkat,2,Monday,20:15,,,2024-04-29 20:15:00,1800,A: 16,B: 13
-76,ping_pong,A: Cool Weasel,B: Animated Yak,3,Monday,20:15,,,2024-04-29 20:15:00,1800,A: 06,B: 14
-77,ping_pong,C: Failing Muskrat,A: Cool Weasel,1,Monday,20:45,,,2024-04-29 20:45:00,1800,C: 06,A: 06
-78,ping_pong,C: Minty Possum,A: Damaged Fly,2,Monday,20:45,,,2024-04-29 20:45:00,1800,C: 07,A: 02
-79,ping_pong,B: Thankful Kakapo,C: Gargantuan Okapi,3,Monday,20:45,,,2024-04-29 20:45:00,1800,B: 06,C: 02
-80,ping_pong,B: Radiant Booby,C: Qualified Buffalo,1,Tuesday,17:45,,,2024-04-30 17:45:00,1800,B: 02,C: 14
-81,ping_pong,B: Tan Crane,C: Well-documented Dodo,2,Tuesday,17:45,,,2024-04-30 17:45:00,1800,B: 09,C: 10
-82,ping_pong,C: Gargantuan Okapi,A: Motherly Woodpecker,1,Tuesday,18:45,,,2024-04-30 18:45:00,1800,C: 02,A: 14
-83,ping_pong,B: Real Mouse,C: Clever Wombat,1,Tuesday,19:45,,,2024-04-30 19:45:00,1800,B: 01,C: 13
-84,ping_pong,A: Trifling Tarpon,B: Tan Crane,2,Tuesday,19:45,,,2024-04-30 19:45:00,1800,A: 08,B: 09
-85,ping_pong,B: Nice Albatross,C: Neglected Harrier,1,Tuesday,20:15,,,2024-04-30 20:15:00,1800,B: 16,C: 08
-86,ping_pong,C: Clever Wombat,A: Pricey Collie,2,Tuesday,20:15,,,2024-04-30 20:15:00,1800,C: 13,A: 09
-87,ping_pong,A: Dishonest Fangtooth,B: Real Mouse,3,Tuesday,20:15,,,2024-04-30 20:15:00,1800,A: 13,B: 01
-88,ping_pong,A: Horrible Lobster,B: Trivial Uguisu,1,Tuesday,20:45,,,2024-04-30 20:45:00,1800,A: 04,B: 07
-89,ping_pong,C: Pushy Bulldog,A: Dishonest Fangtooth,2,Tuesday,20:45,,,2024-04-30 20:45:00,1800,C: 16,A: 13
-90,ping_pong,A: Motherly Woodpecker,B: Nice Albatross,3,Tuesday,20:45,,,2024-04-30 20:45:00,1800,A: 14,B: 16
-91,ping_pong,C: Surprised Tetra,A: Honorable Pangolin,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,C: 03,A: 12
-92,ping_pong,C: Well-documented Dodo,A: Anchored Panther,2,Thursday,17:45,,,2024-05-02 17:45:00,1800,C: 10,A: 10
-93,ping_pong,C: Qualified Buffalo,A: Nutty Sheep,1,Thursday,19:45,,,2024-05-02 19:45:00,1800,C: 14,A: 16
-94,ping_pong,B: Trivial Uguisu,C: Failing Muskrat,2,Thursday,19:45,,,2024-05-02 19:45:00,1800,B: 07,C: 06
-95,ping_pong,B: Jumpy Catfish,C: Surprised Tetra,1,Thursday,20:15,,,2024-05-02 20:15:00,1800,B: 11,C: 03
-96,ping_pong,B: Animated Yak,C: Pushy Bulldog,2,Thursday,20:15,,,2024-05-02 20:15:00,1800,B: 14,C: 16
-97,ping_pong,A: Lovely Heron,B: Striped Himalayan,1,Thursday,20:45,,,2024-05-02 20:45:00,1800,A: 01,B: 08
-98,ping_pong,C: Kindly Clownfish,A: Trifling Tarpon,2,Thursday,20:45,,,2024-05-02 20:45:00,1800,C: 01,A: 08
-99,ping_pong,B: Ill-fated Meerkat,C: Kindly Clownfish,1,Friday,17:45,,,2024-05-03 17:45:00,1800,B: 13,C: 01
-100,ping_pong,B: Extra-small Coyote,C: Vivacious Axolotl,2,Friday,17:30,,,2024-05-03 17:30:00,1800,B: 10,C: 12
-101,ping_pong,C: Damp Fossa,A: Revolving Coelacanth,3,Friday,17:30,,,2024-05-03 17:30:00,1800,C: 11,A: 03
-102,ping_pong,A: Pricey Collie,B: Frightening Avocet,1,Friday,18:15,,,2024-05-03 18:15:00,1800,A: 09,B: 15
-103,ping_pong,A: Shameless Pufferfish,B: Extra-small Coyote,2,Friday,18:15,,,2024-05-03 18:15:00,1800,A: 15,B: 10
-104,ping_pong,C: Red Eel,A: Horrible Lobster,3,Friday,18:15,,,2024-05-03 18:15:00,1800,C: 15,A: 04
-105,ping_pong,A: Revolving Coelacanth,B: Noted Hippopotamus,1,Friday,18:45,,,2024-05-03 18:45:00,1800,A: 03,B: 12
-106,ping_pong,B: Striped Himalayan,C: Reflecting Pug,1,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 08,C: 09
-107,ping_pong,B: Flamboyant Lungfish,C: Damp Fossa,2,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 05,C: 11
-108,ping_pong,B: Noted Hippopotamus,C: Unlucky Hare,3,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 12,C: 04
-109,ping_pong,C: Neglected Harrier,A: Lovely Heron,1,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 08,A: 01
-110,ping_pong,C: Vivacious Axolotl,A: Ignorant Lemur,2,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 12,A: 11
-111,ping_pong,A: Awesome Wolverine,B: Jumpy Catfish,3,Friday,19:45,,,2024-05-03 19:45:00,1800,A: 05,B: 11
-112,ping_pong,B: Frightening Avocet,C: Quixotic Zebu,1,Friday,20:15,,,2024-05-03 20:15:00,1800,B: 15,C: 05
-113,ping_pong,A: Ignorant Lemur,B: Glass Wildebeest,2,Friday,20:15,,,2024-05-03 20:15:00,1800,A: 11,B: 03
-114,ping_pong,C: Unlucky Hare,A: Magnificent Barracuda,3,Friday,20:15,,,2024-05-03 20:15:00,1800,C: 04,A: 07
-115,ping_pong,C: Quixotic Zebu,A: Awesome Wolverine,1,Friday,20:45,,,2024-05-03 20:45:00,1800,C: 05,A: 05
-116,ping_pong,B: Glass Wildebeest,C: Red Eel,2,Friday,20:45,,,2024-05-03 20:45:00,1800,B: 03,C: 15
+sport,team_a,team_b,location,day,time,result,winner,start,duration,team_a_key,team_b_key,full_key.1,full_key
+basketball,A: 1,B: 1,1,Monday,17:45,,,2024-04-29 17:45:00,2700,A: 1,B: 1,basketballA: 1B: 1,basketballA: 1B: 1
+basketball,B: 1,C: 1,1,Monday,18:30,,,2024-04-29 18:30:00,2700,B: 1,C: 1,basketballB: 1C: 1,basketballB: 1C: 1
+basketball,C: 1,A: 1,1,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 1,A: 1,basketballC: 1A: 1,basketballC: 1A: 1
+volleyball,A: 2,B: 1,1,Monday,17:45,,,2024-04-29 17:45:00,2700,A: 2,B: 1,volleyballA: 2B: 1,volleyballA: 2B: 1
+volleyball,A: 1,B: 2,2,Monday,17:45,,,2024-04-29 17:45:00,2700,A: 1,B: 2,volleyballA: 1B: 2,volleyballA: 1B: 2
+volleyball,B: 1,C: 2,1,Monday,18:30,,,2024-04-29 18:30:00,2700,B: 1,C: 2,volleyballB: 1C: 2,volleyballB: 1C: 2
+volleyball,B: 2,C: 1,2,Monday,18:30,,,2024-04-29 18:30:00,2700,B: 2,C: 1,volleyballB: 2C: 1,volleyballB: 2C: 1
+volleyball,C: 2,A: 1,1,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 2,A: 1,volleyballC: 2A: 1,volleyballC: 2A: 1
+volleyball,C: 1,A: 2,2,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 1,A: 2,volleyballC: 1A: 2,volleyballC: 1A: 2
+chess,A: Cool Weasel,B: Awkward Cichlid,1,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 2,B: 1,chessA: 2B: 1,chessA: 2B: 1
+chess,A: Trifling Tarpon,B: Ornate Cockatoo,2,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 1,B: 3,chessA: 1B: 3,chessA: 1B: 3
+chess,A: Pleasing Mongrel,B: Trivial Uguisu,3,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 3,B: 2,chessA: 3B: 2,chessA: 3B: 2
+chess,B: Awkward Cichlid,C: Reckless Swan,1,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 1,C: 3,chessB: 1C: 3,chessB: 1C: 3
+chess,B: Ornate Cockatoo,C: Excited Rabbit,2,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 3,C: 2,chessB: 3C: 2,chessB: 3C: 2
+chess,B: Trivial Uguisu,C: Clever Wombat,3,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 2,C: 1,chessB: 2C: 1,chessB: 2C: 1
+chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 3,A: 2,chessC: 3A: 2,chessC: 3A: 2
+chess,C: Excited Rabbit,A: Trifling Tarpon,2,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 2,A: 1,chessC: 2A: 1,chessC: 2A: 1
+chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 1,A: 3,chessC: 1A: 3,chessC: 1A: 3
+football,A: 1,B: 1,1,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 1,B: 1,footballA: 1B: 1,footballA: 1B: 1
+football,B: 1,C: 1,1,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 1,C: 1,footballB: 1C: 1,footballB: 1C: 1
+football,C: 1,A: 1,1,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 1,A: 1,footballC: 1A: 1,footballC: 1A: 1
+tennis,A: Motherly Woodpecker,B: Striped Himalayan,1,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 2,B: 1,tennisA: 2B: 1,tennisA: 2B: 1
+tennis,A: Pricey Collie,B: Faint Gorilla,2,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 1,B: 3,tennisA: 1B: 3,tennisA: 1B: 3
+tennis,A: Fickle Gecko,B: Animated Yak,3,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 3,B: 2,tennisA: 3B: 2,tennisA: 3B: 2
+tennis,B: Striped Himalayan,C: Well-documented Dodo,1,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 1,C: 3,tennisB: 1C: 3,tennisB: 1C: 3
+tennis,B: Faint Gorilla,C: Unwritten Saiga,2,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 3,C: 1,tennisB: 3C: 1,tennisB: 3C: 1
+tennis,B: Animated Yak,C: Neglected Harrier,3,Tuesday,18:30,,,2024-04-30 18:30:00,2700,B: 2,C: 2,tennisB: 2C: 2,tennisB: 2C: 2
+tennis,C: Well-documented Dodo,A: Motherly Woodpecker,1,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 3,A: 2,tennisC: 3A: 2,tennisC: 3A: 2
+tennis,C: Unwritten Saiga,A: Pricey Collie,2,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 1,A: 1,tennisC: 1A: 1,tennisC: 1A: 1
+tennis,C: Neglected Harrier,A: Fickle Gecko,3,Tuesday,19:15,,,2024-04-30 19:15:00,2700,C: 2,A: 3,tennisC: 2A: 3,tennisC: 2A: 3
+capture_the_flag,A: 1,B: 1,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,A: 1,B: 1,capture_the_flagA: 1B: 1,capture_the_flagA: 1B: 1
+capture_the_flag,B: 1,C: 1,1,Thursday,18:15,,,2024-05-02 18:15:00,1800,B: 1,C: 1,capture_the_flagB: 1C: 1,capture_the_flagB: 1C: 1
+capture_the_flag,C: 1,A: 1,1,Thursday,18:45,,,2024-05-02 18:45:00,1800,C: 1,A: 1,capture_the_flagC: 1A: 1,capture_the_flagC: 1A: 1
+spikeball,A: 3,B: 2,2,Thursday,18:15,,,2024-05-02 18:15:00,1800,A: 3,B: 2,spikeballA: 3B: 2,spikeballA: 3B: 2
+spikeball,A: 2,B: 1,3,Thursday,19:45,,,2024-05-02 19:45:00,1800,A: 2,B: 1,spikeballA: 2B: 1,spikeballA: 2B: 1
+spikeball,A: 1,B: 4,1,Thursday,19:45,,,2024-05-02 19:45:00,1800,A: 1,B: 4,spikeballA: 1B: 4,spikeballA: 1B: 4
+spikeball,A: 4,B: 3,1,Thursday,18:15,,,2024-05-02 18:15:00,1800,A: 4,B: 3,spikeballA: 4B: 3,spikeballA: 4B: 3
+spikeball,B: 2,C: 4,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,B: 2,C: 4,spikeballB: 2C: 4,spikeballB: 2C: 4
+spikeball,B: 1,C: 2,1,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 1,C: 2,spikeballB: 1C: 2,spikeballB: 1C: 2
+spikeball,B: 4,C: 3,2,Thursday,17:45,,,2024-05-02 17:45:00,1800,B: 4,C: 3,spikeballB: 4C: 3,spikeballB: 4C: 3
+spikeball,B: 3,C: 1,2,Thursday,18:45,,,2024-05-02 18:45:00,1800,B: 3,C: 1,spikeballB: 3C: 1,spikeballB: 3C: 1
+spikeball,C: 4,A: 4,2,Thursday,19:45,,,2024-05-02 19:45:00,1800,C: 4,A: 4,spikeballC: 4A: 4,spikeballC: 4A: 4
+spikeball,C: 2,A: 3,1,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 2,A: 3,spikeballC: 2A: 3,spikeballC: 2A: 3
+spikeball,C: 3,A: 2,2,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 3,A: 2,spikeballC: 3A: 2,spikeballC: 3A: 2
+spikeball,C: 1,A: 1,3,Thursday,19:15,,,2024-05-02 19:15:00,1800,C: 1,A: 1,spikeballC: 1A: 1,spikeballC: 1A: 1
+beer_pong,A: 3,B: 2,1,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 3,B: 2,beer_pongA: 3B: 2,beer_pongA: 3B: 2
+beer_pong,A: 2,B: 1,2,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 2,B: 1,beer_pongA: 2B: 1,beer_pongA: 2B: 1
+beer_pong,A: 1,B: 3,1,Friday,17:50,,,2024-05-03 17:50:00,1200,A: 1,B: 3,beer_pongA: 1B: 3,beer_pongA: 1B: 3
+beer_pong,B: 2,C: 1,2,Friday,17:50,,,2024-05-03 17:50:00,1200,B: 2,C: 1,beer_pongB: 2C: 1,beer_pongB: 2C: 1
+beer_pong,B: 1,C: 3,1,Friday,18:10,,,2024-05-03 18:10:00,1200,B: 1,C: 3,beer_pongB: 1C: 3,beer_pongB: 1C: 3
+beer_pong,B: 3,C: 2,2,Friday,18:10,,,2024-05-03 18:10:00,1200,B: 3,C: 2,beer_pongB: 3C: 2,beer_pongB: 3C: 2
+beer_pong,C: 1,A: 3,1,Friday,18:30,,,2024-05-03 18:30:00,1200,C: 1,A: 3,beer_pongC: 1A: 3,beer_pongC: 1A: 3
+beer_pong,C: 3,A: 2,2,Friday,18:30,,,2024-05-03 18:30:00,1200,C: 3,A: 2,beer_pongC: 3A: 2,beer_pongC: 3A: 2
+beer_pong,C: 2,A: 1,1,Friday,18:50,,,2024-05-03 18:50:00,1200,C: 2,A: 1,beer_pongC: 2A: 1,beer_pongC: 2A: 1
+foosball,A: 4,B: 4,1,Friday,18:15,,,2024-05-03 18:15:00,900,A: 4,B: 4,foosballA: 4B: 4,foosballA: 4B: 4
+foosball,A: 2,B: 2,1,Friday,17:45,,,2024-05-03 17:45:00,900,A: 2,B: 2,foosballA: 2B: 2,foosballA: 2B: 2
+foosball,A: 3,B: 1,1,Friday,18:00,,,2024-05-03 18:00:00,900,A: 3,B: 1,foosballA: 3B: 1,foosballA: 3B: 1
+foosball,A: 1,B: 3,1,Friday,17:30,,,2024-05-03 17:30:00,900,A: 1,B: 3,foosballA: 1B: 3,foosballA: 1B: 3
+foosball,B: 4,C: 4,1,Friday,18:30,,,2024-05-03 18:30:00,900,B: 4,C: 4,foosballB: 4C: 4,foosballB: 4C: 4
+foosball,B: 2,C: 1,1,Friday,18:45,,,2024-05-03 18:45:00,900,B: 2,C: 1,foosballB: 2C: 1,foosballB: 2C: 1
+foosball,B: 1,C: 2,1,Friday,19:00,,,2024-05-03 19:00:00,900,B: 1,C: 2,foosballB: 1C: 2,foosballB: 1C: 2
+foosball,B: 3,C: 3,1,Friday,19:15,,,2024-05-03 19:15:00,900,B: 3,C: 3,foosballB: 3C: 3,foosballB: 3C: 3
+foosball,C: 4,A: 1,1,Friday,19:30,,,2024-05-03 19:30:00,900,C: 4,A: 1,foosballC: 4A: 1,foosballC: 4A: 1
+foosball,C: 1,A: 4,1,Friday,19:45,,,2024-05-03 19:45:00,900,C: 1,A: 4,foosballC: 1A: 4,foosballC: 1A: 4
+foosball,C: 2,A: 2,1,Friday,20:00,,,2024-05-03 20:00:00,900,C: 2,A: 2,foosballC: 2A: 2,foosballC: 2A: 2
+foosball,C: 3,A: 3,1,Friday,20:15,,,2024-05-03 20:15:00,900,C: 3,A: 3,foosballC: 3A: 3,foosballC: 3A: 3
+running_sprints,A: 1,B: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,A: 1,B: 1,running_sprintsA: 1B: 1,running_sprintsA: 1B: 1
+running_sprints,A: 1,C: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,A: 1,C: 1,running_sprintsA: 1C: 1,running_sprintsA: 1C: 1
+running_sprints,B: 1,C: 1,Main pitch,Monday,17:30,,,2024-04-29 17:30:00,4500,B: 1,C: 1,running_sprintsB: 1C: 1,running_sprintsB: 1C: 1
+ping_pong,A: Honorable Pangolin,B: Hasty Emu,1,Monday,17:45,,,2024-04-29 17:45:00,1800,A: 12,B: 04,ping_pongA: 12B: 04,ping_pongA: 12B: 04
+ping_pong,A: Anchored Panther,B: Flamboyant Lungfish,2,Monday,17:45,,,2024-04-29 17:45:00,1800,A: 10,B: 05,ping_pongA: 10B: 05,ping_pongA: 10B: 05
+ping_pong,B: Hasty Emu,C: Minty Possum,1,Monday,19:15,,,2024-04-29 19:15:00,1800,B: 04,C: 07,ping_pongB: 04C: 07,ping_pongB: 04C: 07
+ping_pong,A: Magnificent Barracuda,B: Thankful Kakapo,2,Monday,19:15,,,2024-04-29 19:15:00,1800,A: 07,B: 06,ping_pongA: 07B: 06,ping_pongA: 07B: 06
+ping_pong,A: Damaged Fly,B: Radiant Booby,1,Monday,19:45,,,2024-04-29 19:45:00,1800,A: 02,B: 02,ping_pongA: 02B: 02,ping_pongA: 02B: 02
+ping_pong,C: Reflecting Pug,A: Shameless Pufferfish,1,Monday,20:15,,,2024-04-29 20:15:00,1800,C: 09,A: 15,ping_pongC: 09A: 15,ping_pongC: 09A: 15
+ping_pong,A: Nutty Sheep,B: Ill-fated Meerkat,2,Monday,20:15,,,2024-04-29 20:15:00,1800,A: 16,B: 13,ping_pongA: 16B: 13,ping_pongA: 16B: 13
+ping_pong,A: Cool Weasel,B: Animated Yak,3,Monday,20:15,,,2024-04-29 20:15:00,1800,A: 06,B: 14,ping_pongA: 06B: 14,ping_pongA: 06B: 14
+ping_pong,C: Failing Muskrat,A: Cool Weasel,1,Monday,20:45,,,2024-04-29 20:45:00,1800,C: 06,A: 06,ping_pongC: 06A: 06,ping_pongC: 06A: 06
+ping_pong,C: Minty Possum,A: Damaged Fly,2,Monday,20:45,,,2024-04-29 20:45:00,1800,C: 07,A: 02,ping_pongC: 07A: 02,ping_pongC: 07A: 02
+ping_pong,B: Thankful Kakapo,C: Gargantuan Okapi,3,Monday,20:45,,,2024-04-29 20:45:00,1800,B: 06,C: 02,ping_pongB: 06C: 02,ping_pongB: 06C: 02
+ping_pong,B: Radiant Booby,C: Qualified Buffalo,1,Tuesday,17:45,,,2024-04-30 17:45:00,1800,B: 02,C: 14,ping_pongB: 02C: 14,ping_pongB: 02C: 14
+ping_pong,B: Tan Crane,C: Well-documented Dodo,2,Tuesday,17:45,,,2024-04-30 17:45:00,1800,B: 09,C: 10,ping_pongB: 09C: 10,ping_pongB: 09C: 10
+ping_pong,C: Gargantuan Okapi,A: Motherly Woodpecker,1,Tuesday,18:45,,,2024-04-30 18:45:00,1800,C: 02,A: 14,ping_pongC: 02A: 14,ping_pongC: 02A: 14
+ping_pong,B: Real Mouse,C: Clever Wombat,1,Tuesday,19:45,,,2024-04-30 19:45:00,1800,B: 01,C: 13,ping_pongB: 01C: 13,ping_pongB: 01C: 13
+ping_pong,A: Trifling Tarpon,B: Tan Crane,2,Tuesday,19:45,,,2024-04-30 19:45:00,1800,A: 08,B: 09,ping_pongA: 08B: 09,ping_pongA: 08B: 09
+ping_pong,B: Nice Albatross,C: Neglected Harrier,1,Tuesday,20:15,,,2024-04-30 20:15:00,1800,B: 16,C: 08,ping_pongB: 16C: 08,ping_pongB: 16C: 08
+ping_pong,C: Clever Wombat,A: Pricey Collie,2,Tuesday,20:15,,,2024-04-30 20:15:00,1800,C: 13,A: 09,ping_pongC: 13A: 09,ping_pongC: 13A: 09
+ping_pong,A: Dishonest Fangtooth,B: Real Mouse,3,Tuesday,20:15,,,2024-04-30 20:15:00,1800,A: 13,B: 01,ping_pongA: 13B: 01,ping_pongA: 13B: 01
+ping_pong,A: Horrible Lobster,B: Trivial Uguisu,1,Tuesday,20:45,,,2024-04-30 20:45:00,1800,A: 04,B: 07,ping_pongA: 04B: 07,ping_pongA: 04B: 07
+ping_pong,C: Pushy Bulldog,A: Dishonest Fangtooth,2,Tuesday,20:45,,,2024-04-30 20:45:00,1800,C: 16,A: 13,ping_pongC: 16A: 13,ping_pongC: 16A: 13
+ping_pong,A: Motherly Woodpecker,B: Nice Albatross,3,Tuesday,20:45,,,2024-04-30 20:45:00,1800,A: 14,B: 16,ping_pongA: 14B: 16,ping_pongA: 14B: 16
+ping_pong,C: Surprised Tetra,A: Honorable Pangolin,1,Thursday,17:45,,,2024-05-02 17:45:00,1800,C: 03,A: 12,ping_pongC: 03A: 12,ping_pongC: 03A: 12
+ping_pong,C: Well-documented Dodo,A: Anchored Panther,2,Thursday,17:45,,,2024-05-02 17:45:00,1800,C: 10,A: 10,ping_pongC: 10A: 10,ping_pongC: 10A: 10
+ping_pong,C: Qualified Buffalo,A: Nutty Sheep,1,Thursday,19:45,,,2024-05-02 19:45:00,1800,C: 14,A: 16,ping_pongC: 14A: 16,ping_pongC: 14A: 16
+ping_pong,B: Trivial Uguisu,C: Failing Muskrat,2,Thursday,19:45,,,2024-05-02 19:45:00,1800,B: 07,C: 06,ping_pongB: 07C: 06,ping_pongB: 07C: 06
+ping_pong,B: Jumpy Catfish,C: Surprised Tetra,1,Thursday,20:15,,,2024-05-02 20:15:00,1800,B: 11,C: 03,ping_pongB: 11C: 03,ping_pongB: 11C: 03
+ping_pong,B: Animated Yak,C: Pushy Bulldog,2,Thursday,20:15,,,2024-05-02 20:15:00,1800,B: 14,C: 16,ping_pongB: 14C: 16,ping_pongB: 14C: 16
+ping_pong,A: Lovely Heron,B: Striped Himalayan,1,Thursday,20:45,,,2024-05-02 20:45:00,1800,A: 01,B: 08,ping_pongA: 01B: 08,ping_pongA: 01B: 08
+ping_pong,C: Kindly Clownfish,A: Trifling Tarpon,2,Thursday,20:45,,,2024-05-02 20:45:00,1800,C: 01,A: 08,ping_pongC: 01A: 08,ping_pongC: 01A: 08
+ping_pong,B: Ill-fated Meerkat,C: Kindly Clownfish,1,Friday,17:45,,,2024-05-03 17:45:00,1800,B: 13,C: 01,ping_pongB: 13C: 01,ping_pongB: 13C: 01
+ping_pong,B: Extra-small Coyote,C: Vivacious Axolotl,2,Friday,17:30,,,2024-05-03 17:30:00,1800,B: 10,C: 12,ping_pongB: 10C: 12,ping_pongB: 10C: 12
+ping_pong,C: Damp Fossa,A: Revolving Coelacanth,3,Friday,17:30,,,2024-05-03 17:30:00,1800,C: 11,A: 03,ping_pongC: 11A: 03,ping_pongC: 11A: 03
+ping_pong,A: Pricey Collie,B: Frightening Avocet,1,Friday,18:15,,,2024-05-03 18:15:00,1800,A: 09,B: 15,ping_pongA: 09B: 15,ping_pongA: 09B: 15
+ping_pong,A: Shameless Pufferfish,B: Extra-small Coyote,2,Friday,18:15,,,2024-05-03 18:15:00,1800,A: 15,B: 10,ping_pongA: 15B: 10,ping_pongA: 15B: 10
+ping_pong,C: Red Eel,A: Horrible Lobster,3,Friday,18:15,,,2024-05-03 18:15:00,1800,C: 15,A: 04,ping_pongC: 15A: 04,ping_pongC: 15A: 04
+ping_pong,A: Revolving Coelacanth,B: Noted Hippopotamus,1,Friday,18:45,,,2024-05-03 18:45:00,1800,A: 03,B: 12,ping_pongA: 03B: 12,ping_pongA: 03B: 12
+ping_pong,B: Striped Himalayan,C: Reflecting Pug,1,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 08,C: 09,ping_pongB: 08C: 09,ping_pongB: 08C: 09
+ping_pong,B: Flamboyant Lungfish,C: Damp Fossa,2,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 05,C: 11,ping_pongB: 05C: 11,ping_pongB: 05C: 11
+ping_pong,B: Noted Hippopotamus,C: Unlucky Hare,3,Friday,19:15,,,2024-05-03 19:15:00,1800,B: 12,C: 04,ping_pongB: 12C: 04,ping_pongB: 12C: 04
+ping_pong,C: Neglected Harrier,A: Lovely Heron,1,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 08,A: 01,ping_pongC: 08A: 01,ping_pongC: 08A: 01
+ping_pong,C: Vivacious Axolotl,A: Ignorant Lemur,2,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 12,A: 11,ping_pongC: 12A: 11,ping_pongC: 12A: 11
+ping_pong,A: Awesome Wolverine,B: Jumpy Catfish,3,Friday,19:45,,,2024-05-03 19:45:00,1800,A: 05,B: 11,ping_pongA: 05B: 11,ping_pongA: 05B: 11
+ping_pong,B: Frightening Avocet,C: Quixotic Zebu,1,Friday,20:15,,,2024-05-03 20:15:00,1800,B: 15,C: 05,ping_pongB: 15C: 05,ping_pongB: 15C: 05
+ping_pong,A: Ignorant Lemur,B: Glass Wildebeest,2,Friday,20:15,,,2024-05-03 20:15:00,1800,A: 11,B: 03,ping_pongA: 11B: 03,ping_pongA: 11B: 03
+ping_pong,C: Unlucky Hare,A: Magnificent Barracuda,3,Friday,20:15,,,2024-05-03 20:15:00,1800,C: 04,A: 07,ping_pongC: 04A: 07,ping_pongC: 04A: 07
+ping_pong,C: Quixotic Zebu,A: Awesome Wolverine,1,Friday,20:45,,,2024-05-03 20:45:00,1800,C: 05,A: 05,ping_pongC: 05A: 05,ping_pongC: 05A: 05
+ping_pong,B: Glass Wildebeest,C: Red Eel,2,Friday,20:45,,,2024-05-03 20:45:00,1800,B: 03,C: 15,ping_pongB: 03C: 15,ping_pongB: 03C: 15

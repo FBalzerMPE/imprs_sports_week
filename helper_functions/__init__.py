@@ -14,6 +14,7 @@ __all__ = [
     "create_sports_num_plot",
     "annotate_barh_values",
     "plot_pie_chart",
+    "get_match_df",
     "sort_dict_by_values",
     "Team",
     "Subteam",

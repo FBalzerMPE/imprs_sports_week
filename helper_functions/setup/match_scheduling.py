@@ -113,11 +113,16 @@ def determine_rotated_matchups_for_sport(
     return create_combinations(*teams_subteams)
 
 
-def write_match_backup(matches: list[Match], overwrite=False):
+def write_match_backup_from_df(df: pd.DataFrame, overwrite=False):
     """Write a backup for the matches that were determined."""
-    df = turn_series_list_to_dataframe([m.as_series for m in matches])
     fpath = FpathRegistry.all_matches
     if fpath.exists() and not overwrite:
         print("Skipped overwriting matches")
         return
-    df.to_csv(fpath)
+    df.to_csv(fpath, index=False)
+
+
+def write_match_backup(matches: list[Match], overwrite=False):
+    """Write a backup for the matches that were determined."""
+    df = turn_series_list_to_dataframe([m.as_series for m in matches])
+    write_match_backup_from_df(df, overwrite=overwrite)
