@@ -61,17 +61,19 @@ class Subteam:
         df.loc[np.in1d(df["nickname"].tolist(), self.players), colname] = self.sub_key
         return df
 
+    def move_player_to_other(self, player: str, other: Subteam, verbose: bool = True):
+        """Move `player_a` from `self` to `other`."""
+        assert player in self.players and player not in other.players
+        assert self.sport == other.sport
+        self.players.remove(player)
+        other.players.append(player)
+
     def switch_player_with_other(
         self, player_a: str, player_b: str, other: Subteam, verbose: bool = False
     ):
         """Move `player_a` from `self` to `other` and replace them with `player_b`."""
-        assert player_a in self.players and player_a not in other.players
-        assert player_b in other.players and player_b
-        assert self.sport == other.sport
-        self.players.remove(player_a)
-        other.players.append(player_a)
-        other.players.remove(player_b)
-        self.players.append(player_b)
+        self.move_player_to_other(player_a, other, verbose)
+        other.move_player_to_other(player_b, self, verbose)
         if verbose:
             print(
                 f"{self.sport}: Switched out {player_a} with {player_b} from {self.full_key} to {other.full_key}"

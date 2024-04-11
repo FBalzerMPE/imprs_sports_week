@@ -26,7 +26,7 @@ ALL_TEAMS = get_teams()
 def get_players(from_teams: bool = True) -> pd.DataFrame:
     """Loads a dataframe of all players."""
     if from_teams:
-        return pd.concat([team.player_df for team in ALL_TEAMS])
+        return pd.concat([team.player_df for team in get_teams()])
     return pd.read_csv(FpathRegistry.all_responses)
 
 

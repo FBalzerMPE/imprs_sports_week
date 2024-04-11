@@ -95,6 +95,7 @@ def generate_all_images(animal_names: list[str], verbose=True):
         img_name = animal_name.replace(" ", "_") + ".png"
         full_path = DATAPATH.joinpath(f"assets/animal_pics/full_size/{img_name}")
         if full_path.exists():
+            continue
             for i in range(10):
                 full_path = Path(str(full_path).replace(".png", f"{i}.png"))
                 if not full_path.exists():

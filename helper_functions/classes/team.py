@@ -67,9 +67,13 @@ class Team:
         return team
 
     @staticmethod
-    def backup_path(team_index) -> Path:
+    def backup_path(team_index: int) -> Path:
         team_letter = "ABC"[team_index]
-        return DATAPATH.joinpath(f"teams/team_{team_letter}.csv")
+        return Team.backup_path_from_letter(team_letter)
+
+    @staticmethod
+    def backup_path_from_letter(letter: str) -> Path:
+        return DATAPATH.joinpath(f"teams/team_{letter}.csv")
 
     @property
     def player_num(self) -> int:
