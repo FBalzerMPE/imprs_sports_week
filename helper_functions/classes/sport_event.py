@@ -14,6 +14,56 @@ from .sport_location import SportLocation
 from .subteam import Subteam
 
 
+def _st_display_match_df(
+    df: pd.DataFrame, only_one_player_per_team: bool, pitch_name: str
+):
+    """Style the match dataframe and display it properly."""
+    df = df.fillna("")
+    for col in ["location", "day"]:
+        if len(np.unique(df[col])) == 1:
+            df = df.drop(columns=col)
+
+    name = "Player" if only_one_player_per_team else "Team"
+    p_display_width = None if only_one_player_per_team else "small"
+    column_configs = {}
+    column_configs["time"] = st.column_config.Column("Time")
+    column_configs["location"] = st.column_config.Column(pitch_name)
+    column_configs["team_a"] = st.column_config.TextColumn(
+        f"{name} a", width=p_display_width
+    )
+    column_configs["team_b"] = st.column_config.TextColumn(
+        f"{name} b", width=p_display_width
+    )
+    if only_one_player_per_team:
+        df["team_a_av"] = df["team_a"].apply(
+            lambda x: FpathRegistry.get_animal_pic_path(x[3:])
+        )
+        df["team_b_av"] = df["team_b"].apply(
+            lambda x: FpathRegistry.get_animal_pic_path(x[3:])
+        )
+        column_configs["team_a_av"] = st.column_config.ImageColumn("Avatar a")
+        column_configs["team_b_av"] = st.column_config.ImageColumn("Avatar b")
+    column_configs["result"] = st.column_config.Column("Result", width="small")
+    column_configs["winner"] = st.column_config.Column("Winner", width="small")
+    style = st_style_df_with_team_vals(df)
+    st.dataframe(
+        style,
+        hide_index=True,
+        column_config=column_configs,
+        column_order=[
+            "day",
+            "time",
+            "location",
+            "team_a_av",
+            "team_a",
+            "team_b",
+            "team_b_av",
+            "result",
+            "winner",
+        ],
+    )
+
+
 @dataclass
 class SportEvent:
     """Class representing the different types of sports events we are offering."""
@@ -142,46 +192,17 @@ class SportEvent:
     def _st_display_matches(self):
         if len(self.matches) == 0:
             return
-        df = self.match_df.fillna("")
-        for col in ["location", "day"]:
-            if len(np.unique(df[col])) == 1:
-                df = df.drop(columns=col)
-
-        name = "Player" if self.num_players_per_subteam == 1 else "Team"
-        width = None if self.num_players_per_subteam == 1 else "small"
-        column_configs = {}
-        column_configs["time"] = st.column_config.Column("Time")
-        column_configs["location"] = st.column_config.Column(self.pitch_type_name)
-        column_configs["team_a"] = st.column_config.TextColumn(f"{name} a", width=width)
-        column_configs["team_b"] = st.column_config.TextColumn(f"{name} b", width=width)
-        if self.num_players_per_subteam == 1:
-            df["team_a_av"] = df["team_a"].apply(
-                lambda x: FpathRegistry.get_animal_pic_path(x[3:])
-            )
-            df["team_b_av"] = df["team_b"].apply(
-                lambda x: FpathRegistry.get_animal_pic_path(x[3:])
-            )
-            column_configs["team_a_av"] = st.column_config.ImageColumn("Avatar a")
-            column_configs["team_b_av"] = st.column_config.ImageColumn("Avatar b")
-        column_configs["result"] = st.column_config.Column("Result", width="small")
-        column_configs["winner"] = st.column_config.Column("Winner", width="small")
-        style = st_style_df_with_team_vals(df)
-        st.dataframe(
-            style,
-            hide_index=True,
-            column_config=column_configs,
-            column_order=[
-                "day",
-                "time",
-                "location",
-                "team_a_av",
-                "team_a",
-                "team_b",
-                "team_b_av",
-                "result",
-                "winner",
-            ],
-        )
+        is_single = self.num_players_per_subteam == 1
+        df = self.match_df
+        if self.sanitized_name != "ping_pong":
+            _st_display_match_df(df, is_single, self.pitch_type_name)
+            return
+        days = ["Monday", "Tuesday", "Thursday", "Friday"]
+        tabs = st.tabs(days)
+        for tab, day in zip(tabs, days):
+            with tab:
+                sub_df = df[df["day"] == day]
+                _st_display_match_df(sub_df, True, self.pitch_type_name)
 
     def _st_display_subteams(self):
         df = self.sub_team_df

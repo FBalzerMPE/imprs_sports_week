@@ -9,7 +9,7 @@ You can finally relax your weary legs and cleanse your palate with a sip of your
 ## Rules
 
 1. No spinning.
-2. After each goal the kickoff is from the center, performed by the team that conceded the goal.
+2. After each goal the kickoff is from the center, performed by the team that scored the goal.
 3. The first team that reaches 10 goals with minimum difference of 2 goals wins the game.
 4. After 10 goals the minimum difference of 2 still applies unless time runs out, in which case if the teams are tied the first team that scores wins.
 
