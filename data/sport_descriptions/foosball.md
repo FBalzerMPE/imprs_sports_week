@@ -13,4 +13,6 @@ You can finally relax your weary legs and cleanse your palate with a sip of your
 3. The first team that reaches 10 goals with minimum difference of 2 goals wins the game.
 4. After 10 goals the minimum difference of 2 still applies unless time runs out, in which case if the teams are tied the first team that scores wins.
 
+SCHEDULE_INPUT
+
 Feel free to ask Matteo G if there's anything unclear.

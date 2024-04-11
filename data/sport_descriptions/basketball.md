@@ -23,6 +23,6 @@ Welcome to the heart-pounding, high-flying world of basketball in our Sports Wee
 - 3 points are awarded to each winning team, 1 in the case of a tie and 0 for a loss. At the end, they are summed and normalized to determine the contribution to the main team's score.
 - You do not need to bring any special equipment, but make sure to not forget your water bottle!
 
-Feel free to ask Juan if there's anything unclear.
-
 SCHEDULE_INPUT
+
+Feel free to ask Juan if there's anything unclear.

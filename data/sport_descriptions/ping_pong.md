@@ -24,7 +24,11 @@ Ping Pong, also known as Table Tennis, is a fast-paced and exhilarating sport pl
 
 Get ready to showcase your agility, precision, and tactical prowess on the ping pong table. Good luck to all participating players and teams!
 
+SCHEDULE_INPUT
+
 ## Advanced rules
 
 1. **Initial Serve**: The first serve of a game is determined via a so-called *Sprungdie*, which means that the ball is initially thrown in, the player's feet need to be in the air every time their racket touches the ball. The player winning this rally (after it has been returned at least once) gets to decide who can perform the initial serve. For the sets following the first one, the starting serve is alternated.
 2. **Serving**: A serve must first bounce on the server's side of the table, then on the other side; the quarter of the table doesn't matter (i.e. serves do not have to be diagonal). For a serve, the server has to first announce the score. Then, the ball needs to be tossed up before being hit by one's racket.
+
+Feel free to ask Fabi or Zsofi if there's anything unclear.

@@ -29,8 +29,6 @@ See below for some advanced rules.
 
 Get ready to dive, spike, and rally your way to victory in Spikeball. Good luck to all participating teams!
 
-## Schedule
-
 SCHEDULE_INPUT
 
 ### Advanced rules

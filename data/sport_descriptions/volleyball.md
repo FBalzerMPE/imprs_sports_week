@@ -27,8 +27,6 @@ See below for some advanced rules.
 
 Get ready to showcase your skills and teamwork on the volleyball court. Good luck to all participating teams!
 
-## Schedule
-
 SCHEDULE_INPUT
 
 ### Advanced rules

@@ -15,8 +15,6 @@ We will follow the standard FIDE ruleset you can read [here](https://www.fide.co
 - Points will be awarded as explained in the FIDE ruleset: 1 points for a win, 1/2 point for a draw, 0 points for a loss, and then normalized to contribute to the main team's scores.
 - During the tournament David will be present for questions and arbitrate.
 
-## Schedule
-
 SCHEDULE_INPUT
 
 Feel free to ask David if there's anything unclear.

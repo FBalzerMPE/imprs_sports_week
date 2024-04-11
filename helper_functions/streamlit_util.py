@@ -17,15 +17,15 @@ def st_set_up_header_and_sidebar():
     show_pages(
         [
             Page("streamlit_app.py", "Welcome", "🏠"),
-            Page("pages/schedule.py", "Schedule", ":calendar:"),
-            Page("pages/teams.py", "Teams", ":family:"),
-            Page("pages/statistics.py", "Statistics", ":bar_chart:"),
+            Page("pages/Schedule.py", "Schedule", ":calendar:"),
+            Page("pages/Teams.py", "Teams", ":family:"),
+            Page("pages/Statistics.py", "Statistics", ":bar_chart:"),
             Section(name="Sports", icon=":eyes:"),
             *[
                 Page(f"pages/events/{sport.sanitized_name}.py", sport.name, sport.icon)
                 for sport in SPORTS_EVENTS.values()
             ],
-            Page("pages/contact.py", "Contact", ":speech_balloon:", in_section=False),
+            Page("pages/Contact.py", "Contact", ":speech_balloon:", in_section=False),
         ]
     )
     add_indentation()

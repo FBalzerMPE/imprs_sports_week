@@ -23,4 +23,6 @@ Garching FZ, are you ready to witness some joga bonito? The stage is set, the ba
 
 We're looking forward to having some unforgettable, fun and fair matches!
 
+SCHEDULE_INPUT
+
 Feel free to ask Matteo G if there's anything unclear.
