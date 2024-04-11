@@ -25,6 +25,9 @@ def create_teams() -> list[Team]:
         "num_sports",
         ascending=False,
     )
+    late_players = player_data[player_data["late_entry"]]
+    player_data = player_data[~player_data["late_entry"]]
+    # print(player_data)
     # Some RNG manipulation for better results
     player_data = swap_rows(player_data, 10, 15)
     teams = [Team(i) for i in range(3)]
@@ -34,9 +37,9 @@ def create_teams() -> list[Team]:
         best_team_to_join = find_best_team_to_join(teams, player)
         teams[best_team_to_join].add_player(player)
     # If this player is moved, we are pretty golden
-    teams[1].transfer_player("Alarmed Bird", teams[2])
-    teams[1].transfer_player("Earnest Snail", teams[2])
-    teams[0].transfer_player("Lone Rhinoceros", teams[1])
+    # teams[1].transfer_player("Alarmed Bird", teams[2])
+    # teams[1].transfer_player("Earnest Snail", teams[2])
+    # teams[0].transfer_player("Lone Rhinoceros", teams[1])
     return teams
 
 

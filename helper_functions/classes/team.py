@@ -101,6 +101,9 @@ class Team:
     def __str__(self):
         return f"{self.name} ({self.player_num} players): {self.sports_fulfill_nums}"
 
+    def contains_player(self, player_name: str):
+        return player_name in self.player_df["nickname"].tolist()
+
     def get_new_stats_with_player(self, player: pd.Series) -> dict[str, int]:
         stats = self.sports_fulfill_nums.copy()
         for sport in SPORTS_LIST:
@@ -120,11 +123,30 @@ class Team:
     def create_backup(self):
         self.player_df.to_csv(Team.backup_path(self.team_index), index=False)
 
-    def add_player(self, player: pd.Series):
+    def add_player(self, player: pd.Series, register_as_reserve=False):
         self._players.append(player)
         for sport in SPORTS_LIST:
             if player[sport]:
                 self.sports_fulfill_nums[sport] += 1
+        if not register_as_reserve:
+            return
+        from ..data_registry import get_subteams
+
+        current_subteams = get_subteams()
+        for sport in SPORTS_LIST:
+            if not player[sport]:
+                continue
+            subset = [
+                subteam
+                for subteam in current_subteams.values()
+                if subteam.sport == sport
+                and subteam.is_reserve
+                and subteam.main_team_letter == self.team_letter
+            ]
+            for subteam in subset:
+                subteam.players.append(player["nickname"])
+        self.add_subteam_keys(list(current_subteams.values()))
+        self.create_backup()
 
     def remove_player(self, player: pd.Series):
         player_index = [player["nickname"] for player in self._players].index(

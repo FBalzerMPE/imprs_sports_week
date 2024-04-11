@@ -7,6 +7,20 @@ from .classes.sport_location import SportLocation
 
 SPORTS_EVENTS = {
     # Monday events
+    "ping_pong": SportEvent(
+        name="Ping Pong",
+        start=datetime(2024, 4, 29, 17, 30),
+        end=datetime(2024, 5, 3, 21, 00),
+        loc=SportLocation.tum_courts,
+        pitch_type_name="Table",
+        match_duration=timedelta(minutes=15),
+        organizer_names=["Fabi", "Zsofi"],
+        icon="⚪",  # ":white_circle:",
+        min_player_val=4,
+        num_pitches=2,
+        num_players_per_subteam=1,
+        num_subteams=16,
+    ),
     "basketball": SportEvent(
         name="Basketball",
         start=datetime(2024, 4, 29, 17, 30),
@@ -23,7 +37,7 @@ SPORTS_EVENTS = {
     "running_sprints": SportEvent(
         name="Running and Sprints",
         start=datetime(2024, 4, 29, 17, 30),
-        end=datetime(2024, 4, 29, 18, 30),
+        end=datetime(2024, 4, 29, 19, 00),
         match_duration=timedelta(minutes=60),
         loc=SportLocation.ipp_courts,
         pitch_type_name="Court",
@@ -35,7 +49,7 @@ SPORTS_EVENTS = {
     ),
     "volleyball": SportEvent(
         name="Volleyball",
-        start=datetime(2024, 4, 29, 17, 45),
+        start=datetime(2024, 4, 29, 17, 00),
         end=datetime(2024, 4, 29, 21, 00),
         match_duration=timedelta(minutes=45),
         loc=SportLocation.tum_courts,
@@ -65,7 +79,7 @@ SPORTS_EVENTS = {
     ),
     "football": SportEvent(
         name="Football",
-        start=datetime(2024, 4, 30, 17, 45),
+        start=datetime(2024, 4, 30, 17, 30),
         end=datetime(2024, 4, 30, 21, 00),
         match_duration=timedelta(minutes=45),
         loc=SportLocation.ipp_courts,
@@ -78,7 +92,7 @@ SPORTS_EVENTS = {
     ),
     "tennis": SportEvent(
         name="Tennis",
-        start=datetime(2024, 4, 30, 17, 45),
+        start=datetime(2024, 4, 30, 17, 30),
         end=datetime(2024, 4, 30, 21, 00),
         match_duration=timedelta(minutes=45),
         loc=SportLocation.ipp_courts,
@@ -94,8 +108,8 @@ SPORTS_EVENTS = {
     # Thursday events
     "capture_the_flag": SportEvent(
         name="Capture the flag",
-        start=datetime(2024, 5, 2, 17, 45),
-        end=datetime(2024, 5, 2, 18, 45),
+        start=datetime(2024, 5, 2, 17, 30),
+        end=datetime(2024, 5, 2, 19, 00),
         match_duration=timedelta(minutes=30),
         loc=SportLocation.ipp_courts,
         pitch_type_name="Court",
@@ -108,7 +122,7 @@ SPORTS_EVENTS = {
     ),
     "spikeball": SportEvent(
         name="Spikeball",
-        start=datetime(2024, 5, 2, 17, 45),
+        start=datetime(2024, 5, 2, 17, 30),
         end=datetime(2024, 5, 2, 21, 00),
         match_duration=timedelta(minutes=30),
         loc=SportLocation.ipp_courts,
@@ -149,20 +163,6 @@ SPORTS_EVENTS = {
         num_players_per_subteam=2,
         num_subteams=4,
         conflicting_sports=["beer_pong"],
-    ),
-    "ping_pong": SportEvent(
-        name="Ping Pong",
-        start=datetime(2024, 4, 29, 17, 30),
-        end=datetime(2024, 5, 3, 21, 00),
-        loc=SportLocation.tum_courts,
-        pitch_type_name="Table",
-        match_duration=timedelta(minutes=15),
-        organizer_names=["Fabi", "Zsofi"],
-        icon="⚪",  # ":white_circle:",
-        min_player_val=4,
-        num_pitches=2,
-        num_players_per_subteam=1,
-        num_subteams=16,
     ),
 }
 # for event in SPORTS_EVENTS.values():

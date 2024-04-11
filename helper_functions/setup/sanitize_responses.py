@@ -31,7 +31,7 @@ def sanitize_and_anonymize_data(
     if backup_fpath.exists() and not overwrite:
         df = pd.read_csv(backup_fpath)
         return df
-    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_09.csv")
+    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_11.csv")
     cols = [
         "response_timestamp",
         "name",
@@ -88,7 +88,7 @@ def sanitize_and_anonymize_data(
         df[["wants_" + key for key in SPORTS_EVENTS.keys()]].sum(axis=1).astype(int)
         - df["num_sports"]
     )
-    df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-03-31 12:00:00")
+    df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-04-10 12:00:00")
     deletable_cols = [
         "name",
         "phd_or_postdoc",

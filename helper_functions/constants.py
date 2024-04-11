@@ -8,6 +8,7 @@ DATAPATH = Path(__file__).parent.parent / "data"
 PAGESPATH = Path(__file__).parent.parent / "pages"
 
 SPORTS_LIST = [
+    "ping_pong",
     "basketball",
     "running_sprints",
     "volleyball",
@@ -18,7 +19,6 @@ SPORTS_LIST = [
     "spikeball",
     "beer_pong",
     "foosball",
-    "ping_pong",
 ]
 
 

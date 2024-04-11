@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timedelta, time
-
-from ..setup.setup_util import get_real_player_name
+from datetime import datetime, time, timedelta
 
 import pandas as pd
 
+from ..setup.setup_util import get_real_player_name
 from .subteam import Subteam
 
 
@@ -106,15 +105,21 @@ class Match:
         """Whether this match contains the given player (nickname expected)"""
         return player_name in self.involved_players
 
-    def get_calendar_entry(self) -> dict[str, str]:
+    def get_calendar_entry(self, identity: str) -> dict[str, str]:
         """Generate a calendar entry"""
-        title = f"{self.subteam_a.full_key} vs {self.subteam_b.full_key}"
+        try:
+            index = int(self.location) - 1
+        except ValueError:
+            index = 0
+        title = f"{index + 1}::  {self.subteam_a.full_key} vs {self.subteam_b.full_key}".replace(": ", "")
+        color = ["#8B0000", "#00008B", "#B8860B"][index]
         return {
             "title": title,
             "start": self.start.isoformat(),
             "end": (self.start + self.duration).isoformat(),
-            "resourceId": self.sport,
-            "color": "green",
+            "resourceId": identity,
+            "color": color,
+            "borderColor": "black",
         }
 
     def has_hard_collision(self, other: Match, verbose=False) -> bool:

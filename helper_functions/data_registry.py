@@ -33,7 +33,7 @@ def get_players(from_teams: bool = True) -> pd.DataFrame:
 # @st.cache_data
 def get_subteams() -> dict[str, Subteam]:
     all_subteams = {}
-    for team in ALL_TEAMS:
+    for team in get_teams():
         df = team.player_df
         for sport in SPORTS_LIST:
             column = df[f"subteam_{sport}"]

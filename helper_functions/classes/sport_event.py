@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..constants import FpathRegistry
+from ..constants import SPORTS_LIST, FpathRegistry
 from ..data_registry import ALL_MATCHES, ALL_SUBTEAMS
 from ..streamlit_util import st_style_df_with_team_vals
 from ..util import read_event_desc, turn_series_list_to_dataframe
@@ -165,20 +165,37 @@ class SportEvent:
         return self.name.replace(" and ", "_").replace(" ", "_").lower()
 
     @property
-    def calendar_entry(self) -> dict[str, str | dict]:
+    def identity_name(self) -> str:
+        return f"{SPORTS_LIST.index(self.sanitized_name):0>2}"
+
+    @property
+    def calendar_entries(self) -> list[dict[str, str | dict]]:
         title = f"{self.name} (Contact: {', '.join(self.organizer_names)})"
-        return {
+        base_dict = {
             "title": title,
             "start": self.start.isoformat(),
             "end": self.end.isoformat(),  # "2024-04-29T21:00:00",
-            "resourceId": self.name,
+            "resourceId": self.identity_name,
             "extendedProps": {"url": "/" + self.sanitized_name},
         }
+        if self.sanitized_name != "ping_pong":
+            return [base_dict]
+        entries = []
+        for day in [(4, 29), (4, 30), (5, 2), (5, 3)]:
+            start = datetime(2024, day[0], day[1], 17, 30)
+            end = datetime(2024, day[0], day[1], 21, 00)
+            new_entry = base_dict.copy()
+            new_entry["start"] = start.isoformat()
+            new_entry["end"] = end.isoformat()
+            entries.append(new_entry)
+        return entries
 
     @property
     def match_calendar_entries(self) -> list[dict[str, str]]:
         """Get the calendar entries for the matches."""
-        return [match_.get_calendar_entry() for match_ in self.matches]
+        return [
+            match_.get_calendar_entry(self.identity_name) for match_ in self.matches
+        ]
 
     @property
     def html_url(self) -> str:
