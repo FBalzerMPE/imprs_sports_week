@@ -19,7 +19,7 @@ You can find your schedule at the bottom of this mail.
 ### Nickname
 
 To ensure anonymity, we have provided a nickname consisiting of *adjective + animal* for each player; your nickname is\
-    **{nickname}**, we've attached your high-resolution avatar (Note that the attachment doesn't seem to be shown for all email programs, so let us know if we should resend it; roundcube seems to be a provider where it works).
+    **{nickname}**, we've attached your high-resolution avatar (Note that the attachment doesn't seem to be shown for all email programs, so let us know if we should resend it; roundcube and outlook seem to be programs where it works).
 
 This will allow you to review all of the details on the website as long as you remember the nickname or avatar.
 
