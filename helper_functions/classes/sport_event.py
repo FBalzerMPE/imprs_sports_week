@@ -84,6 +84,32 @@ def _st_display_subteam_df(df: pd.DataFrame):
 
 
 @dataclass
+class RunningEvent:
+    name: str
+    start: datetime
+    end: datetime
+
+    @property
+    def as_series(self):
+        return pd.Series(
+            {
+                "Name": self.name,
+                "Start": self.start.strftime("%H:%M"),
+            }
+        )
+
+    def get_calendar_entry(self, sport_id: str) -> dict[str, str]:
+        return {
+            "title": self.name,
+            "start": self.start.isoformat(),
+            "end": self.end.isoformat(),
+            "resourceId": sport_id,
+            "color": "#006400",
+            "borderColor": "black",
+        }
+
+
+@dataclass
 class SportEvent:
     """Class representing the different types of sports events we are offering."""
 
@@ -191,6 +217,12 @@ class SportEvent:
     @property
     def match_calendar_entries(self) -> list[dict[str, str]]:
         """Get the calendar entries for the matches."""
+        if self.sanitized_name == "running_sprints":
+            from ..sport_event_registry import RUNNING_EVENTS
+
+            return [
+                event.get_calendar_entry(self.identity_name) for event in RUNNING_EVENTS
+            ]
         return [
             match_.get_calendar_entry(self.identity_name) for match_ in self.matches
         ]
@@ -232,6 +264,12 @@ class SportEvent:
         return df[df[self.sanitized_name]]
 
     def _st_display_matches(self):
+        if self.sanitized_name == "running_sprints":
+            from ..sport_event_registry import RUNNING_EVENTS
+
+            df = pd.DataFrame([event.as_series for event in RUNNING_EVENTS])
+            st.dataframe(df, hide_index=True)
+            return
         if len(self.matches) == 0:
             return
         is_single = self.num_players_per_subteam == 1

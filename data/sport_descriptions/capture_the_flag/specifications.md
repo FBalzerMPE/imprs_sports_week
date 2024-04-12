@@ -14,7 +14,6 @@
 
 We trust the teams to count and announce the scores by themselves, but Benny and Zsofi will be around if any questions arise, and people that are taking a break may volunteer to referee games.
 
-
 ### What to bring
 
 You do not need to bring any special equipment, but make sure to not forget your water bottle!

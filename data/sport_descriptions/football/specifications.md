@@ -12,7 +12,7 @@ Each match slot is structured as follows:
 - 2x15 minutes with a 5 minute break in between
 - 5 minutes of break between successive games
 
-### Point Scheme
+### Point scheme
 
 3 points are awarded to each winning team. At the end, all points the teams have achieved are summed and normalized to determine the contribution to the total main team's score.
 

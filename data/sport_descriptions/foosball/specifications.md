@@ -1,6 +1,6 @@
 ### General
 
-- The games will take place at the Foosball table in the MPA common room.
+The games will take place at the Foosball table in the MPA common room.
 
 ### Point scheme
 

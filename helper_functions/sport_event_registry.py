@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from .classes.sport_event import SportEvent
+from .classes.sport_event import SportEvent, RunningEvent
 from .classes.sport_location import SportLocation
 
 ALL_LOCATIONS = {
@@ -221,3 +221,20 @@ SPORTS_EVENTS = {
 #     fpath = DATAPATH.joinpath(f"sport_descriptions/{event.sanitized_name}.md")
 #     if not fpath.exists():
 #         fpath.write_text("NO DESCRIPTION YET\n## Rules\n\n## Format")
+
+
+RUNNING_EVENTS = [
+    RunningEvent(
+        "Warm up", datetime(2024, 4, 29, 17, 30), datetime(2024, 4, 29, 17, 45)
+    ),
+    RunningEvent(
+        "Sprints", datetime(2024, 4, 29, 17, 45), datetime(2024, 4, 29, 18, 5)
+    ),
+    RunningEvent("Relay", datetime(2024, 4, 29, 18, 5), datetime(2024, 4, 29, 18, 20)),
+    RunningEvent(
+        "Reaction Games", datetime(2024, 4, 29, 18, 20), datetime(2024, 4, 29, 18, 45)
+    ),
+    RunningEvent(
+        "10-minute run", datetime(2024, 4, 29, 18, 45), datetime(2024, 4, 29, 19, 0)
+    ),
+]

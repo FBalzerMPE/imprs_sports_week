@@ -25,6 +25,7 @@ def st_set_up_header_and_sidebar():
                 for sport in SPORTS_EVENTS.values()
             ],
             Page("pages/Statistics.py", "Statistics", ":bar_chart:", in_section=False),
+            Page("pages/FAQ.py", "FAQ", ":question:"),
             Page("pages/Contact.py", "Contact", ":speech_balloon:", in_section=False),
         ]
     )
