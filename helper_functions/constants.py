@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 from PIL import Image
 
@@ -38,3 +39,10 @@ class FpathRegistry:
         """Retrieves the animal pic path relative to the top level path."""
         name = animal_name.lower().replace(" ", "_")
         return str(f"app/static/animal_pics/small_size/{name}.png")
+
+    @staticmethod
+    def get_sport_info_path(
+        sport: str,
+        info_type: Literal["introduction", "rules", "specifications", "advanced_rules"],
+    ) -> Path:
+        return DATAPATH.joinpath(f"sport_descriptions/{sport}/{info_type}.md")

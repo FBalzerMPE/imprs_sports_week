@@ -1,9 +1,3 @@
-Welcome to the Spikeball event of our Sports Week!\
-Spikeball, also known as Roundnet, is a dynamic and exciting sport played with a small ball and a circular net placed at ankle level. Teams of two players compete to spike the ball off the net in such a way that the opposing team cannot return it. It's a game of agility, quick reflexes, and strategic positioning.\
-Get ready to spike your way to victory on the green grass of the IPP courts.\
-Here's everything you need to know:
-
-## Rules
 
 1. Each match will consist of best-of-three sets.
 2. A set is won by the team first achieving 15 points, unless there is a tie at 14 points, in which case the team first having a 2-point-lead or achieving a score of 20 will win.
@@ -18,19 +12,6 @@ Here's everything you need to know:
 
 See below for some advanced rules.
 
-## Format
-
-- Matches will be played on one of the three nets we provide for the IPP court pitch.
-- Each main team will send out a few subteams, with **2** players on each subteam. The reserve players might be called in if a player becomes unavailable.
-- Each subteam will play two matches, one against a different main team's subteam.
-- 3 points are awarded to each winning team, and 0 for a loss. At the end, all points a main team's subteams have achieved are summed and normalized to determine the contribution to the main team's score.
-- We trust the teams to count and announce the scores by themselves, but Fabi will be around if any questions arise, and people that are taking a break may volunteer to referee games.
-- You do not need to bring any special equipment, but make sure to not forget your water bottle!
-
-Get ready to dive, spike, and rally your way to victory in Spikeball. Good luck to all participating teams!
-
-SCHEDULE_INPUT
-
 ### Advanced rules
 
 The following should clarify most edge cases. Note that we do not strictly follow the official rules, so please read carefully.
@@ -44,5 +25,3 @@ The following should clarify most edge cases. Note that we do not strictly follo
 7. "Guiding" the ball (i.e. any touch longer than a brief bounce) is considered to be a fault.
 8. The ball may be touched with any part of the body, although we recommend using the front part of your flat hand.
 9. Touching the net at any point during a rally is considered to be a fault.
-
-Feel free to ask Fabi if there's anything unclear.

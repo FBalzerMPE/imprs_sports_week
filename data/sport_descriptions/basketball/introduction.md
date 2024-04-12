@@ -1,0 +1,1 @@
+Welcome to the heart-pounding, high-flying world of basketball in our Sports Week extravaganza! Prepare to dribble, shoot, and slam dunk your way to victory on the glorious one-half of the TUM courts (as one of the rims is broken). Whether you're a seasoned baller or just getting started, basketball promises excitement, teamwork, and unforgettable moments. Let the games begin!

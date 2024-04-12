@@ -3,6 +3,7 @@
 import pandas as pd
 
 from .classes.match import Match
+from .classes.sport_location import SportLocation
 from .classes.subteam import Subteam
 from .classes.team import Team
 from .constants import SPORTS_LIST, FpathRegistry

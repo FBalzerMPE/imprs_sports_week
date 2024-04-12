@@ -1,15 +1,40 @@
-from enum import Enum
+from dataclasses import dataclass
+
+import pandas as pd
 
 
-class SportLocation(Enum):
+@dataclass
+class SportLocation:
     """The locations possible."""
 
-    tum_courts = 1
+    key: str
+    """The name of this location."""
 
-    ipp_courts = 2
+    latitude: float
+    """The latitude of this location."""
 
-    mpa_common_room = 3
+    longitude: float
+    """The longitude of this location."""
+
+    display_name: str
+    """How this location should be displayed on the map."""
+
+    desc: str = ""
+    """The description of this location."""
 
     @property
-    def titledName(self) -> str:
-        return self.name.replace("_", " ").title()
+    def titled_name(self) -> str:
+        return self.key.replace("_", " ").title()
+
+    @property
+    def as_series(self) -> pd.Series:
+        return pd.Series(
+            {
+                "latitude": self.latitude,
+                "longitude": self.longitude,
+                "size": 3,
+                "name": self.titled_name,
+                "display_name": self.display_name,
+                "desc": self.desc,
+            }
+        )

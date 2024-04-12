@@ -1,0 +1,1 @@
+Welcome to this exciting Sports Week event focused on running, sprints, and testing your reactions! Get ready to participate in a series of thrilling mini-games and relays designed to challenge your speed, agility, and endurance.

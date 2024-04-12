@@ -1,15 +1,13 @@
-Ah, the majestic sport of beer pong — a sacred game that combines the elegance of Olympic sports, such as the accuracy of an archer, with the, uh, delightful consumption of adult beverages. A fierce battle wherein friendships are forged, tested, and sometimes broken, all in the name of friendly competition of course. Your mission? To sink shots like a pro and outwit your opponents with dazzling trick shots as victory tastes sweet and defeat... well, also tastes kind of sweet because, hey, you're still drinking beer. However, amidst the laughter and noble tradition of trash-talking with flair, there exist rules — yes, rules — to ensure fairness and a reasonable level of chaos.
+### Rule System for Embracing the Pong
 
-## Rule System for Embracing the Pong
-
-### 1: Set Up Your Battlefield
+#### 1: Set Up Your Battlefield
 
 - Table: Suitable tables will be available in the MPA common room.
 - Cup Formation: Per team, arrange ten cups in pyramid shape (4,3,2,1) and align them with the pyramid tip towards the center of the table pointing away from you. Each cup should be filled to ~1/4 with water.  
 - Balls: 2 ping pong balls are required.
 - Beer: Every player requires a full 0.5L bottle of beer.
 
-### 2: BASICS (SHORT VERSION)
+#### 2: BASICS (SHORT VERSION)
 
 - Every player on a team throws one ball per round
 - Hit cups must be drunk in form of chugging a single cup contents worth of beer from a bottle
@@ -21,20 +19,11 @@ Ah, the majestic sport of beer pong — a sacred game that combines the elegance
 - If both players hit the same cup, 3 cups are put away ("Bomb")
 - If a player announces a stand-alone cup, 2 cups are put away ("Island")
 
-### 3: Slaying the Cup
+#### 3: Slaying the Cup
 
 Both team members try to throw a ball into the opposing team's cups per round. If a cup is hit, its eqivalent must be drunk *after* both balls have been thrown. Balls must always be removed from the cups immediately. The team that hits all of the opposing team's cups first wins.
 
 Make sure to check the advanced rules down below.
-
-## Format and location
-
-- As stated above, we'll aim for two tables at the MPA common room.
-- Each subteam consists of 3 players, there are 3 subteams per main team.
-- 3 points are awarded to each winning team, and 0 for a loss. At the end, all points a main team's subteams have achieved are summed and normalized to determine the contribution to the main team's score.
-- We trust the teams to keep things civil by themselves, but Benny and William will be around if any questions arise, and people that are taking a break may volunteer to referee games.
-
-SCHEDULE_INPUT
 
 ### Advanced rules
 

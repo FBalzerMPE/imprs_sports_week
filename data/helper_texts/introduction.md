@@ -7,7 +7,7 @@ Every day after work from around **5:30 - 8:30 pm** you will be offered to take 
 ## How does it work?
 
 A few weeks ago, we asked you to fill out a survey with the sports you're interested in.\
-While we do enjoy gathering data just for fun, this survey allowed us to group all of you into **three main teams** that are roughly equal-sized with respect to every sport.\
+While we do enjoy gathering data just for fun, this survey allowed us to group all of you into **three main teams** that are roughly equal-sized with respect to every sport - there were more than 90 sign-ups!\
 The idea is that these main teams send out their **Champions** (sometimes grouped into smaller sub-teams) for each of the sports, in which they can achieve glory and points for the main team.\
 At the end of the week, we are going to celebrate the winners (and all participants) in a big party.
 
@@ -24,7 +24,8 @@ on Tuesday,\
 THURSDAY_LINKS
 on Thursday (we skip Wednesday to have a well-dserved day to rest a bit), and\
 FRIDAY_LINKS
-on the final day.
+on the final day.\
+Since there were a whopping 52 people interested in PING_PONG_LINK, we decided to have matches for this throughout the whole week.
 
 ## The teams
 

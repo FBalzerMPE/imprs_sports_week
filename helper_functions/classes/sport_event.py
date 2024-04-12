@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -7,8 +8,9 @@ import streamlit as st
 
 from ..constants import SPORTS_LIST, FpathRegistry
 from ..data_registry import ALL_MATCHES, ALL_SUBTEAMS
+from ..streamlit_map_plot import create_map_plot
 from ..streamlit_util import st_style_df_with_team_vals
-from ..util import read_event_desc, turn_series_list_to_dataframe
+from ..util import turn_series_list_to_dataframe
 from .match import Match
 from .sport_location import SportLocation
 from .subteam import Subteam
@@ -133,9 +135,6 @@ class SportEvent:
     matches: list[Match] = field(default_factory=list, repr=False)
     """All matches scheduled for this sport."""
 
-    desc: str = field(init=False, repr=False)
-    """A description of what's going on during this event, in markdown format, including the rules."""
-
     days: list[str] = field(init=False)
 
     def __post_init__(self):
@@ -147,7 +146,6 @@ class SportEvent:
             * self.match_duration
             <= self.end - self.start
         ), f"The {self.name} event is too short for the number of matches and sub-teams."
-        self.desc = read_event_desc(self.sanitized_name)
         self.days = [
             day.strftime("%A").lower()
             for day in pd.date_range(self.start, self.end).date
@@ -170,7 +168,7 @@ class SportEvent:
 
     @property
     def calendar_entries(self) -> list[dict[str, str | dict]]:
-        title = f"{self.name} (Contact: {', '.join(self.organizer_names)})"
+        title = f"{self.icon} {self.name} (Contact: {', '.join(self.organizer_names)})"
         base_dict = {
             "title": title,
             "start": self.start.isoformat(),
@@ -206,10 +204,20 @@ class SportEvent:
         contact_link = (
             f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
+        loc_name = (
+            self.loc.titled_name
+            if self.sanitized_name != "ping_pong"
+            else "Various tables"
+        )
+        days = (
+            self.start.strftime("%A, %B %d")
+            if self.sanitized_name != "ping_pong"
+            else "Monday, Tuesday, Thursday, Friday"
+        )
         text = f"""
-- **Location:** {self.loc.titledName}
-- **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{self.start.strftime('%A, %B %d')}**
-- **Organizers:** {contact_link}"""
+- **Location:** {loc_name} (see also location tab)
+- **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{days}**
+- **Organizers:** {contact_link} (see also contact tab)"""
         return text
 
     @property
@@ -231,6 +239,9 @@ class SportEvent:
         if self.sanitized_name != "ping_pong":
             _st_display_match_df(df, is_single, self.pitch_type_name)
             return
+        df["location"] = df["location"].apply(
+            {"1": "MPE table", "2": "IPP table 1", "3": "IPP table 2"}.get
+        )
         days = ["Monday", "Tuesday", "Thursday", "Friday"]
         tabs = st.tabs(days)
         for tab, day in zip(tabs, days):
@@ -242,9 +253,10 @@ class SportEvent:
         df = self.sub_team_df
         reserve_mask = df["is_reserve"].astype(bool)
         if self.num_players_per_subteam == 1:
+            st.write(f"### Reserve players\n")
             if np.sum(reserve_mask) > 0:
                 st.write(
-                    "Showing only the reserve players that may jump in if players cannot make it."
+                    "The following are the reserve players that may jump in if players cannot make it."
                 )
                 _st_display_subteam_df(df[reserve_mask])
             else:
@@ -252,21 +264,77 @@ class SportEvent:
                     "There's currently noone that signed up as a reserve player here."
                 )
         else:
+            st.write(f"### Subteams\n")
             st.write("The subteams above consist of the following players:")
             _st_display_subteam_df(df[~reserve_mask])
             st.write(
-                "#### Reserve\nThe following players may join as substitute players:"
+                "#### Reserve players\nThe following players may join as substitute players:"
             )
             _st_display_subteam_df(df[reserve_mask])
 
     def write_streamlit_rep(self):
-        st.write(self.short_info_text, unsafe_allow_html=True)
-        descs = self.desc.split("SCHEDULE_INPUT")
-        st.write(descs[0])
-        st.write(f"### Schedule\n")
-        self._st_display_matches()
+        from ..sport_organizer_registry import SPORTS_ORGANIZERS
 
-        st.write(f"### Subteams\n")
-        self._st_display_subteams()
-        if len(descs) > 1:
-            st.write(descs[1])
+        st.write(self.short_info_text, unsafe_allow_html=True)
+        st.write(
+            FpathRegistry.get_sport_info_path(
+                self.sanitized_name, "introduction"
+            ).read_text(encoding="utf-8")
+        )
+        rules = FpathRegistry.get_sport_info_path(
+            self.sanitized_name, "rules"
+        ).read_text(encoding="utf-8")
+        specifications = FpathRegistry.get_sport_info_path(
+            self.sanitized_name, "specifications"
+        ).read_text(encoding="utf-8")
+        loc_tab_name = "Location" if self.sanitized_name != "ping_pong" else "Locations"
+        tab_names = ["Rules", "Format", "Schedule and teams", loc_tab_name, "Contact"]
+        tabs = st.tabs(tab_names)
+        with tabs[0]:
+            st.write(rules)
+        with tabs[1]:
+            st.write(specifications)
+        with tabs[2]:
+            extra_str = (
+                "" if self.num_players_per_subteam == 1 else "subteam compositions and "
+            )
+            st.write(f"Scroll down to see the {extra_str}reserve players.")
+            st.write(f"### Schedule\n")
+            self._st_display_matches()
+
+            self._st_display_subteams()
+        with tabs[3]:
+            locs = [self.loc.titled_name]
+            if self.sanitized_name == "ping_pong":
+                st.write(
+                    f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details."
+                )
+                from ..sport_event_registry import ALL_LOCATIONS
+
+                locs = [
+                    loc.titled_name
+                    for key, loc in ALL_LOCATIONS.items()
+                    if "ping_pong" in key
+                ]
+            else:
+                "The location for this event is marked in red, hover over its name to find more information."
+            create_map_plot(locs)
+        with tabs[4]:
+            text = r"""
+Here you can find the contact information for the organizers of this event - don't be shy to write them an email or signal message if you have any questions or need help!\
+For spam prevention, the email addresses do not contain anything beyond the "@" symbol.
+The correct address endings are as follows:
+
+- @1... $\rightarrow$ mpe.mpg.de
+- @2... $\rightarrow$ mpa-garching.mpg.de"""
+            st.write(text)
+            col1, col2 = st.columns(2)
+
+            for i, name in enumerate(self.organizer_names):
+                sports_organizer = SPORTS_ORGANIZERS[name]
+                if i % 2 == 0:
+                    with col1:
+                        sports_organizer.write_streamlit_rep()
+                else:
+                    with col2:
+                        sports_organizer.write_streamlit_rep()

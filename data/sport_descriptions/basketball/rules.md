@@ -1,7 +1,3 @@
-Welcome to the heart-pounding, high-flying world of basketball in our Sports Week extravaganza! Prepare to dribble, shoot, and slam dunk your way to victory on the glorious one-half of the TUM courts (as one of the rims is broken). Whether you're a seasoned baller or just getting started, basketball promises excitement, teamwork, and unforgettable moments. Let the games begin!
-
-## Rules
-
 1. A match is won by the team who scores the most points.
 2. Each match will last 30 minutes: Two halves of 15 minutes with 5 minute half-time break.
 3. The games will be played in one half of the court, aiming for the same basket (as the second rim is unfortunately broken).
@@ -13,16 +9,3 @@ Welcome to the heart-pounding, high-flying world of basketball in our Sports Wee
 9. **Fouls**: Players are not allowed to make physical contact with opponents in a way that impedes their progress (foul). Common fouls include pushing, holding, and charging. Fouls result in free throws (if the foul is made while the fouled player is shooting) or possession of the ball for the opposing team (if the foul happens without a shot attempt).
 10. **Free Throws**: If a player is fouled when taking a shot, they get to shoot free throws from the free-throw line, unopposed except for defenders. If the shot was attempted inside the 3-point line, the player may take one shot. If the foul is commited when the player was taking a 3-point shot, they are awarded two free throws. Each successful free throw earns one point.
 11. **Substitutions**: The team can substitute players freely during stoppages in play, ensuring that all players on the team get playing time.
-
-## Format
-
-- The matches are taking place on the TUM pitch, one match at a time.
-- Each main team provides one subteam consisting of 4 players, along with some reserve players.
-- Thus, each subteam will have two matches in total.
-- During play, 4 players per main team are allowed to be on the court.
-- 3 points are awarded to each winning team, 1 in the case of a tie and 0 for a loss. At the end, they are summed and normalized to determine the contribution to the main team's score.
-- You do not need to bring any special equipment, but make sure to not forget your water bottle!
-
-SCHEDULE_INPUT
-
-Feel free to ask Juan if there's anything unclear.

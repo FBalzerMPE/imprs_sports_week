@@ -1,6 +1,4 @@
-Welcome to this exciting Sports Week event focused on running, sprints, and testing your reactions! Get ready to participate in a series of thrilling mini-games and relays designed to challenge your speed, agility, and endurance.
-
-## Activities
+We'll have different activities for this event:
 
 ### 1. Short Sprints
 
@@ -17,6 +15,3 @@ Team up with friends or colleagues for relay races that combine speed and coordi
 ### 4. Endurance Challenge: 10-Minute Run
 
 Participate in a 10-minute continuous run to test your endurance. See how far you can push yourself within the time limit? Get those lungs pumping.
-
-
-TODO: Put schedule here!
