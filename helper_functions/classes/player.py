@@ -27,6 +27,9 @@ class Player:
     matches: list[Match] = field(repr=False)
     """The matches this player is part of."""
 
+    is_late_signup: bool = False
+    """Whether this player is a late signup."""
+
     @classmethod
     def from_series(cls, series: pd.Series, all_matches: list[Match]) -> Player:
         name = series["nickname"]
@@ -45,16 +48,21 @@ class Player:
             main_team_letter=team,
             subteams=subteams,
             matches=matches,
+            is_late_signup=series["late_entry"],
         )
 
     def match_times(self) -> list[tuple[datetime, datetime]]:
         return [(match_.start, match_.end) for match_ in self.matches]
 
-    def get_schedule(self) -> str:
+    def get_schedule_for_mail(self) -> str:
         from ..data_registry import ALL_SUBTEAMS
         from ..sport_event_registry import SPORTS_EVENTS
 
-        text = ""
+        text = (
+            ""
+            if not self.is_late_signup
+            else "Since you signed up late, you are for now only scheduled as reserve for the events you signed up for.\n\n"
+        )
 
         for sport, subteam_key in self.subteams.items():
             event = SPORTS_EVENTS[sport]
