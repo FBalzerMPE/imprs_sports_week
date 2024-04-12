@@ -11,6 +11,15 @@ MAIL_DICT = {
 }
 
 
+def get_email_address(email: str) -> str:
+    """Return the email address with the correct domain."""
+    email_key = email.split("@")[1]
+    if email_key in MAIL_DICT:
+        suffix = MAIL_DICT[email_key]
+        email = email.replace(email_key, suffix)
+    return email
+
+
 def get_schedule_for_player(player: pd.Series) -> str:
     """Write a schedule for the given player."""
     # TODO: Link this up with the matches

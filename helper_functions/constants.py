@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
-
-from PIL import Image
+import pandas as pd
 
 # The path to the data folder
 DATAPATH = Path(__file__).parent.parent / "data"
@@ -30,6 +29,8 @@ ALL_DAYS = ["monday", "tuesday", "thursday", "friday"]
 class FpathRegistry:
     """Paths to some commonly used files."""
 
+    processed_responses = DATAPATH.joinpath("hidden/processed_responses.csv")
+
     all_responses = DATAPATH.joinpath("sanitized_responses.csv")
 
     all_matches = DATAPATH.joinpath("matches.csv")
@@ -46,3 +47,8 @@ class FpathRegistry:
         info_type: Literal["introduction", "rules", "specifications", "advanced_rules"],
     ) -> Path:
         return DATAPATH.joinpath(f"sport_descriptions/{sport}/{info_type}.md")
+
+    @staticmethod
+    def get_hidden_responses() -> pd.DataFrame:
+        """Reads the hidden responses from the file."""
+        return pd.read_csv(FpathRegistry.processed_responses)

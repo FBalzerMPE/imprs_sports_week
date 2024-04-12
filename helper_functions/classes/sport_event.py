@@ -288,12 +288,12 @@ class SportEvent:
             self.sanitized_name, "specifications"
         ).read_text(encoding="utf-8")
         loc_tab_name = "Location" if self.sanitized_name != "ping_pong" else "Locations"
-        tab_names = ["Rules", "Format", "Schedule and teams", loc_tab_name, "Contact"]
+        tab_names = ["Format", "Rules", "Schedule and teams", loc_tab_name, "Contact"]
         tabs = st.tabs(tab_names)
         with tabs[0]:
-            st.write(rules)
-        with tabs[1]:
             st.write(specifications)
+        with tabs[1]:
+            st.write(rules)
         with tabs[2]:
             extra_str = (
                 "" if self.num_players_per_subteam == 1 else "subteam compositions and "

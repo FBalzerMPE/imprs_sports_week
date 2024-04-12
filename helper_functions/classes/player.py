@@ -54,7 +54,7 @@ class Player:
         from ..data_registry import ALL_SUBTEAMS
         from ..sport_event_registry import SPORTS_EVENTS
 
-        text = "Schedule:\n\n"
+        text = ""
 
         for sport, subteam_key in self.subteams.items():
             event = SPORTS_EVENTS[sport]

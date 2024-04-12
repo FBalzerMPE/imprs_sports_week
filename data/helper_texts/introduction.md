@@ -18,13 +18,13 @@ To track the results of the events publicly without exposing your names, we deci
 You can find a general schedule <a href="Schedule" target="_self">here</a>, while a detailed one including more information (especially locations and **rules**) on each of the sports can be found on their respective sites.
 
 In short, we offer\
-MONDAY_LINKS on Monday,\
+MONDAY_LINKS on *Monday*,\
 TUESDAY_LINKS
-on Tuesday,\
+on *Tuesday*,\
 THURSDAY_LINKS
-on Thursday (we skip Wednesday to have a well-dserved day to rest a bit), and\
+on *Thursday* (we skip Wednesday to have a well-deserved day to rest a bit), and\
 FRIDAY_LINKS
-on the final day.\
+on the final *Friday*.\
 Since there were a whopping 52 people interested in PING_PONG_LINK, we decided to have matches for this throughout the whole week.
 
 ## The teams
@@ -44,5 +44,5 @@ See <a href="Contact" target="_self">here</a> for an overview of the responsible
 
 We're anticipating loads of sore muscles and fun memories!
 
-The organizing committee
+The organizing committee\
 Zsofi, Benny, Fabi, Matteo and William

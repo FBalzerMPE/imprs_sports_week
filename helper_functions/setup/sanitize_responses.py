@@ -89,6 +89,8 @@ def sanitize_and_anonymize_data(
         - df["num_sports"]
     )
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-04-10 12:00:00")
+    df.insert(0, "nickname", generate_anonymous_names(len(df)))
+    df.to_csv(FpathRegistry.processed_responses, index=False)
     deletable_cols = [
         "name",
         "phd_or_postdoc",
@@ -98,7 +100,6 @@ def sanitize_and_anonymize_data(
         "response_timestamp",
         "email",
     ]
-    df.insert(0, "nickname", generate_anonymous_names(len(df)))
     df[["nickname", "name"]].to_csv(DATAPATH.joinpath("hidden/nickname_to_name.csv"))
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
