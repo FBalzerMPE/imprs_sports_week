@@ -5,6 +5,7 @@ from datetime import datetime, time, timedelta
 
 import pandas as pd
 
+from ..constants import DATAPATH
 from ..setup.setup_util import get_real_player_name
 from .subteam import Subteam
 
@@ -83,9 +84,15 @@ class Match:
     @property
     def end(self):
         return self.start + self.duration
+    
+    @property
+    def weekday(self) -> str:
+        """The weekday this match takes part on."""
+        return self.start.strftime("%A").lower()
 
     @property
     def match_key(self):
+        """The unique match key for this match, including sport and subteam keys."""
         return (
             self.sport + self.subteam_a.full_key + self.subteam_b.full_key
         )
@@ -96,9 +103,11 @@ class Match:
             return "various events against all other players between *17:30* and *18:30*"
         text =  f"*{self.start.strftime("%H:%M")}*: **{self.subteam_a.key_or_single} vs. {self.subteam_b.key_or_single}**"
         if self.sport == "ping_pong":
+            text = self.start.strftime("%A") + f", {text}"
+            if not DATAPATH.joinpath("hidden").exists():
+                return text
             name_a, name_b = [get_real_player_name(player) for player in self.involved_players]
             text = text.replace(" vs.", f" **({name_a})** vs.") + f" ({name_b})"
-            text = self.start.strftime("%A") + f": {text}"
         return text
 
     def contains_player(self, player_name: str) -> bool:

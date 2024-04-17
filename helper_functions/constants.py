@@ -36,10 +36,13 @@ class FpathRegistry:
     all_matches = DATAPATH.joinpath("matches.csv")
 
     @staticmethod
-    def get_animal_pic_path(animal_name: str) -> str:
+    def get_animal_pic_path(animal_name: str, from_static: bool = True) -> str:
         """Retrieves the animal pic path relative to the top level path."""
         name = animal_name.lower().replace(" ", "_")
-        return str(f"app/static/animal_pics/small_size/{name}.png")
+        static_path = f"static/animal_pics/small_size/{name}.png"
+        if from_static:
+            return str(f"app/{static_path}")
+        return str(DATAPATH.parent.joinpath(static_path))
 
     @staticmethod
     def get_sport_info_path(

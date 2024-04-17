@@ -28,7 +28,7 @@ def sanitize_and_anonymize_data(
     from ..sport_event_registry import SPORTS_EVENTS
 
     backup_fpath = FpathRegistry.all_responses
-    if backup_fpath.exists() and not overwrite:
+    if backup_fpath.exists() and not overwrite and anonymize:
         df = pd.read_csv(backup_fpath)
         return df
     fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_11.csv")
@@ -90,7 +90,8 @@ def sanitize_and_anonymize_data(
     )
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2024-04-10 12:00:00")
     df.insert(0, "nickname", generate_anonymous_names(len(df)))
-    df.to_csv(FpathRegistry.processed_responses, index=False)
+    if overwrite:
+        df.to_csv(FpathRegistry.processed_responses, index=False)
     deletable_cols = [
         "name",
         "phd_or_postdoc",

@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -237,7 +236,7 @@ class SportEvent:
             f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
         loc_name = (
-            self.loc.titled_name
+            self.loc.display_name
             if self.sanitized_name != "ping_pong"
             else "Various tables"
         )
@@ -342,7 +341,7 @@ class SportEvent:
 
             self._st_display_subteams()
         with tabs[3]:
-            locs = [self.loc.titled_name]
+            locs = [self.loc.display_name]
             if self.sanitized_name == "ping_pong":
                 st.write(
                     f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details."
@@ -350,7 +349,7 @@ class SportEvent:
                 from ..sport_event_registry import ALL_LOCATIONS
 
                 locs = [
-                    loc.titled_name
+                    loc.display_name
                     for key, loc in ALL_LOCATIONS.items()
                     if "ping_pong" in key
                 ]
