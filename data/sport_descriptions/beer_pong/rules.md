@@ -3,9 +3,9 @@
 #### 1: Set Up Your Battlefield
 
 - Table: Suitable tables will be available in the MPA common room.
-- Cup Formation: Per team, arrange ten cups in pyramid shape (4,3,2,1) and align them with the pyramid tip towards the center of the table pointing away from you. Each cup should be filled to ~1/4 with water.  
+- Cup Formation: Per team, arrange ten cups in pyramid shape (4,3,2,1) and align them with the pyramid tip towards the center of the table pointing away from you. Each cup should be filled to $\sim 1/4$ with water.  
 - Balls: 2 ping pong balls are required.
-- Beer: Every player requires a full 0.5L bottle of beer.
+- Beer: Every player requires a full 0.5 l bottle of beer (or an alternative, you aren't required to consume alcohol to attend!).
 
 #### 2: BASICS (SHORT VERSION)
 
@@ -37,11 +37,11 @@ During the course of the game, players may request that the opposing team rearra
 
 #### PICK UP / BLOW AWAY
 
-If a player throws the ball with a bouncer on the table top, the opposing team must drink two cups. In order to avoid landing, the ball may be knocked away or caught *after* the first contact with the table. If a ball is still circling around in a mug and has not yet touched the water, it can be blown out
+If a player throws the ball with a bouncer on the table top, the opposing team must drink two cups. In order to avoid landing, the ball may be knocked away or caught *after* the first contact with the table. If a ball is still circling around in a mug and has not yet touched the water, it can be blown out.
 
 #### TRICKSHOT
 
-If a player throws the ball and it rolls back over the table to their own side and is caught (without touching the ground), it is the thrower's turn again. The throw has to be a trick shot. Means: close your eyes / with your left / behind your back / etc
+If a player throws the ball and it rolls back over the table to their own side and is caught (without touching the ground), it is the thrower's turn again. The throw has to be a trick shot. Means: close your eyes / with your left / behind your back / etc.
 
 #### BOMB
 
