@@ -23,17 +23,13 @@ class SportLocation:
     """The description of this location."""
 
     @property
-    def titled_name(self) -> str:
-        return self.key.replace("_", " ").title()
-
-    @property
     def as_series(self) -> pd.Series:
         return pd.Series(
             {
                 "latitude": self.latitude,
                 "longitude": self.longitude,
                 "size": 3,
-                "name": self.titled_name,
+                "name": self.key,
                 "display_name": self.display_name,
                 "desc": self.desc,
             }
