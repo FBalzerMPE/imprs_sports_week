@@ -102,6 +102,10 @@ class Team:
     def rgb_colors(self) -> tuple[int, ...]:
         return tuple(int(self.color.lstrip("#")[i : i + 2], 16) for i in (0, 2, 4))
 
+    @property
+    def cloth_color(self) -> str:
+        return {"A": "dark", "B": "white", "C": "colorful"}[self.team_letter]
+
     def __str__(self):
         return f"{self.name} ({self.player_num} players): {self.sports_fulfill_nums}"
 
@@ -226,6 +230,9 @@ class Team:
         style = df.style.apply(
             lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
             axis=1,
+        )
+        st.write(
+            f"If you're a member of team {self.team_letter}, it'd be great if you could wear *{self.cloth_color} clothing* when participating in the team events."
         )
         st.dataframe(
             style,

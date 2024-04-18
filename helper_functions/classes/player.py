@@ -35,6 +35,9 @@ class Player:
     is_late_signup: bool = False
     """Whether this player is a late signup."""
 
+    confirmation_status: str = ""
+    """The confirmation status; has this player replied to the schedule email?"""
+
     @classmethod
     def from_series(cls, series: pd.Series, all_matches: list[Match]) -> Player:
         name = series["nickname"]
@@ -63,7 +66,11 @@ class Player:
         text = f"### Team {self.main_team_letter}: {self.nickname}\n\n"
         text += "**Sports:**\\\n"
         text += ", ".join([SPORTS_EVENTS[sport].html_url for sport in self.subteams])
-        text += "\n"
+        text += "\\\n"
+        confirmation_str = {"": "No reply yet", "Yes": "Confirmed"}.get(
+            self.confirmation_status, "No reply yet"
+        )
+        text += f"Confirmation status: **{confirmation_str}**"
         return text
 
     @property
