@@ -75,8 +75,13 @@ def sanitize_and_anonymize_data(
     if verbose:
         print("Interested in the following sports, but not available:")
     for event in SPORTS_EVENTS.values():
+        event_name = (
+            "Running/Sprints"
+            if event.sanitized_name == "running_sprints"
+            else event.name
+        )
         is_interested = df.events_interested_in.fillna("").str.contains(
-            event.name, case=False
+            event_name, case=False
         )
         is_avail = pd.DataFrame([df["avail_" + day] for day in event.days]).any(axis=0)
         df["wants_" + event.sanitized_name] = is_interested
