@@ -1,25 +1,47 @@
 # Log file of any subteam changes that were requested due to players dropping out.
 # Put a + sign in front of the line if the changes have been communicated and replaced with other players (not necessary for 'R' change)
-+ Moving 'Unwritten Saiga' (Team C) from '1' to '' in tennis.
 + Moving 'Unwritten Saiga' (Team C) from 'R' to '' in spikeball.
 + Moving 'Unwritten Saiga' (Team C) from 'R' to '' in beer_pong.
+
++ Moving 'Unwritten Saiga' (Team C) from '1' to '' in tennis.
 + Moving 'Pushy Bulldog' (Team C) from '' to '1' in tennis.
+
 + Moving 'Pushy Bulldog' (Team C) from '1' to 'R' in football.
 + Moving 'Loving Bichir' (Team C) from 'R' to '1' in football.
++ Moving 'Qualified Buffalo' (Team C) from '1' to '' in football.
++ Moving 'Thorny Warthog' (Team C) from 'R' to '1' in football.
+
++ Moving 'Marvelous Opossum' (Team A) from '1' to '' in football.
++ Moving 'Realistic Coral' from 'Team B' to 'Team A'. This affects the subteams {'football': '1'}
++ Moving 'Defenseless Insect' (Team B) from 'R' to '1' in football.
+
 + Moving 'Lone Rhinoceros' (Team B) from '' to 'R' in football.
 + Moving 'Extra-small Coyote' (Team B) from 'R' to '' in tennis.
 + Moving 'Extra-small Coyote' (Team B) from 'R' to '' in football.
 + Moving 'Marvelous Opossum' (Team A) from 'R' to '' in foosball.
-Moving 'Marvelous Opossum' (Team A) from '1' to '' in football.
-Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
+
++ Moving 'Another Macaw' (Team A) from '1' to '' in football.
++ Moving 'Spanish Ferret' (Team A) from 'R' to '1' in football.
+
 + Moving 'Nutty Sheep' (Team A) from '2' to '' in volleyball.
 + Moving 'Limp Monkey' (Team A) from 'R' to '2' in volleyball.
-Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
+
 + Moving 'Fine Oyster' (Team B) from 'R' to '' in beer_pong.
-Moving 'Red Eel' (Team C) from '1' to 'R' in running_sprints.
-Moving 'Animated Yak' (Team B) from '2' to '' in volleyball.
-Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
+
++ Moving 'Trivial Uguisu' (Team B) from 'R' to '1' in basketball. (cover up for Soumya leaving early)
+
++ Moving 'Red Eel' (Team C) from '1' to 'R' in running_sprints.
++ Moving 'Thorny Warthog' (Team C) from 'R' to '1' in running_sprints.
+
+
 Moving 'Animated Yak' (Team B) from '2' to '' in tennis.
-Moving 'Qualified Buffalo' (Team C) from '1' to '' in football.
+
+Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
 Moving 'Kindly Clownfish' (Team C) from '1' to '' in foosball.
-Moving 'Another Macaw' (Team A) from '1' to '' in football.
+
+Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
+
+Moving 'Animated Yak' (Team B) from '2' to '' in volleyball.
+
+Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
+

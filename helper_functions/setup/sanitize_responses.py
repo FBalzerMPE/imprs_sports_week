@@ -110,7 +110,10 @@ def sanitize_and_anonymize_data(
         "response_timestamp",
         "email",
     ]
-    df[["nickname", "name"]].to_csv(DATAPATH.joinpath("hidden/nickname_to_name.csv"))
+    df[["nickname", "name"]].sort_values("nickname").to_csv(
+        DATAPATH.joinpath("hidden/nickname_to_name.csv")
+    )
+
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
     if anonymize:
