@@ -1,6 +1,9 @@
-import helper_functions as hf
+from datetime import datetime
+
 import streamlit as st
 from streamlit_calendar import calendar
+
+import helper_functions as hf
 
 hf.st_set_up_header_and_sidebar()
 
@@ -8,6 +11,7 @@ sports_resources = [
     {"id": event.identity_name, "title": event.icon}
     for event in hf.SPORTS_EVENTS.values()
 ]
+sports_resources.append({"id": "awards", "title": "🏆"})
 
 calendar_options = {
     "editable": "false",
@@ -20,7 +24,7 @@ calendar_options = {
     "initialDate": "2024-04-29",
     "validRange": {"start": "2024-04-29", "end": "2024-05-04"},
     "slotMinTime": "17:30:00",
-    "slotMaxTime": "21:00:00",
+    "slotMaxTime": "21:30:00",
     "initialView": "resourceTimeline",
     "resources": sports_resources,
     "resourceAreaWidth": "10%",
@@ -31,6 +35,15 @@ calendar_options = {
 calendar_events = [
     entry for event in hf.SPORTS_EVENTS.values() for entry in event.calendar_entries
 ]
+
+award_event = {
+    "title": "🏆 Award Ceremony (more info will follow)",
+    "start": datetime(2024, 5, 3, 21).isoformat(),
+    "end": datetime(2024, 5, 3, 21, 30).isoformat(),
+    "resourceId": "awards",
+    "color": "green",
+}
+calendar_events.append(award_event)  # type: ignore
 
 calendar_events += [
     entry
