@@ -114,10 +114,21 @@ def sanitize_and_anonymize_data(
         "response_timestamp",
         "email",
     ]
-    df[["nickname", "name"]].sort_values("nickname").to_csv(
-        DATAPATH.joinpath("hidden/nickname_to_name.csv")
+    nick_cols = ["nickname", "name", "institute", "confirmation_status"]
+    col_map = {col: f"{col.replace("_", " ").capitalize():25s}" for col in nick_cols}
+    col_map["confirmation_status"] = "Has replied"
+    nickname_df: pd.DataFrame = (df[
+        nick_cols
+    ].sort_values("nickname")
+    .map(lambda x: str(x).ljust(25, " "))
+    .rename(columns=col_map))
+    nickname_df.to_csv(
+        DATAPATH.joinpath("hidden/nickname_to_name.txt"), index=False, sep="\t"
     )
-
+    try:
+        nickname_df.to_excel(DATAPATH.joinpath("hidden/nickname_to_name.xlsx"), index=False)
+    except ModuleNotFoundError:
+        print("Didn't write to excel as openpyxl was missing.")
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
     if anonymize:
