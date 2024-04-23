@@ -2,7 +2,7 @@ nickname,institute,is_postdoc,avail_monday,avail_tuesday,avail_thursday,avail_fr
 Trivial Uguisu,ESO,False,True,True,True,True,True,True,True,True,True,True,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,8,0,False,Team B,R,1,R,2,,,1,,3,R,07,5,0.625
 Thankful Kakapo,MPE,False,True,True,True,True,False,False,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,True,True,True,True,7,0,False,Team B,,1,,,1,,1,R,3,3,06,6,0.8571428571428571
 Radiant Booby,MPA,True,True,True,True,True,False,False,False,False,True,True,False,False,True,True,True,True,False,False,True,True,True,True,False,False,True,True,6,0,False,Team B,,,2,,R,R,,3,2,,02,4,0.6666666666666666
-Animated Yak,MPE,False,True,True,True,True,False,False,False,False,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,True,True,6,0,False,Team B,,,2,,,2,,2,2,R,14,5,0.8333333333333334
+Animated Yak,MPE,False,True,True,True,True,False,False,False,False,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,True,True,6,0,False,Team B,,,,,,,,,2,R,14,2,0.3333333333333333
 Graceful Llama,USM,False,True,True,True,True,False,False,False,False,True,True,False,False,True,True,False,False,True,True,True,True,True,True,False,False,False,False,5,0,False,Team B,,,2,,1,,R,1,1,,,4,0.8
 Nice Albatross,MPE,False,False,True,True,True,True,False,False,False,True,False,False,False,True,True,False,False,True,True,True,True,True,True,False,False,True,True,5,2,False,Team B,,,,,1,,1,R,2,,16,4,0.8
 Ill-fated Meerkat,MPE,False,True,False,False,True,True,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,True,True,True,True,True,True,5,0,False,Team B,1,R,,,,,,,R,4,13,3,0.6
@@ -33,3 +33,4 @@ Both Caracal,USM,True,True,True,True,True,False,False,False,False,False,False,Fa
 Lone Rhinoceros,MPE,True,True,False,False,False,False,False,True,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,1,1,True,Team B,,1,,,R,,,,,,,1,1.0
 Defenseless Insect,USM,False,False,True,False,False,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,1,0,True,Team B,,,,,R,,,,,,,0,0.0
 Querulous Piranha,USM,False,False,True,False,False,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,1,0,True,Team B,,,,,R,,,,,,,0,0.0
+Euphoric Vulture,MPE,True,True,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True,1,0,True,Team B,,,,,,,,,,,R,0,0.0

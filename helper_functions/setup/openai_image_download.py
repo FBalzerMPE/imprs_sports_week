@@ -87,23 +87,23 @@ def generate_image_with_dall_e(
     )
 
 
-def generate_all_images(animal_names: list[str], verbose=True):
+def generate_all_images(animal_names: list[str], verbose=True, redo_anyways=False):
     """Generate an image for each animal in animal names."""
     prompt_base = "Create an avatar showing a {} with a white background."
     for animal_name in animal_names:
         prompt = prompt_base.format(animal_name)
         img_name = animal_name.replace(" ", "_") + ".png"
         full_path = DATAPATH.joinpath(f"assets/animal_pics/full_size/{img_name}")
-        if full_path.exists():
+        if full_path.exists() and not redo_anyways:
             continue
-            for i in range(10):
-                full_path = Path(str(full_path).replace(".png", f"{i}.png"))
-                if not full_path.exists():
-                    if verbose:
-                        print(
-                            f"Initial path for {animal_name} already existed, writing to {full_path} instead."
-                        )
-                    break
+        for i in range(10):
+            full_path = Path(str(full_path).replace(".png", f"{i}.png"))
+            if not full_path.exists():
+                if verbose:
+                    print(
+                        f"Initial path for {animal_name} already existed, writing to {full_path} instead."
+                    )
+                break
         if verbose:
             print(prompt)
         img = generate_image_with_dall_e(prompt)

@@ -31,7 +31,7 @@ def sanitize_and_anonymize_data(
     if backup_fpath.exists() and not overwrite and anonymize:
         df = pd.read_csv(backup_fpath)
         return df
-    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_11.csv")
+    fpath = DATAPATH.joinpath("hidden/form_responses_2024_04_23.csv")
     cols = [
         "response_timestamp",
         "name",
@@ -41,7 +41,11 @@ def sanitize_and_anonymize_data(
         "events_interested_in",
         "email",
     ]
-    df = pd.read_csv(fpath, names=list(cols), skiprows=1, dtype=str)
+    # Do this in case there are additional columns we don't need:
+    num_cols = len(pd.read_csv(fpath, dtype=str).columns)
+    cols = [cols[i] if i < len(cols) else str(i) for i in range(num_cols)]
+    # Load the df:
+    df = pd.read_csv(fpath, names=cols, usecols=cols[:7], skiprows=1, dtype=str)
     df["is_phd"] = df.phd_or_postdoc.fillna("").apply(lambda x: "phd" in x.lower())
     df["is_postdoc"] = df.phd_or_postdoc.fillna("").apply(
         lambda x: "postdoc" in x.lower()
