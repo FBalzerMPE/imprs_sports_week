@@ -1,6 +1,6 @@
 Dear {first_name},
 
-thank you for filling out our survey concerning the inter-institute sports week, we're super excited to have you on board!
+thank you for expressing interest in the inter-institute sports week, we're super excited to have you on board!
 Please read the following carefully.
 
 ### General idea

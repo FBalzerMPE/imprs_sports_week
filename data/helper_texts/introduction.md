@@ -38,9 +38,11 @@ Unfortunately, this means that you might not be in a team with your best buddy, 
 
 For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
 
-### What to compete for
+### What to compete for 🏆
 
-Don't miss the award ceremony on Friday, 21:00 at the MPA seminar room! More information will follow, most likely via the Signal group chat.
+Most importantly, we want to encourage fun competitions.
+The team with the best performance across all of the sports might receive something else, so make sure to stay tuned for the award ceremony on **Friday, 21:00** at the **MPA seminar room**!\
+More information on that might follow, most likely via the Signal group chat.
 
 ## Late sign-ups
 

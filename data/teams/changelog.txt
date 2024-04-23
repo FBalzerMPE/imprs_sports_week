@@ -43,9 +43,11 @@
 + Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
 + Moving 'Staid Hornbill' (Team B) from 'R' to '2' in beer_pong.
 
++ Moving 'Kindly Clownfish' (Team C) from '1' to '' in foosball.
++ Moving 'Illiterate Caterpillar' (Team C) from '' to '1' in foosball.
+
 
 Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
-Moving 'Kindly Clownfish' (Team C) from '1' to '' in foosball.
 
 Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
 

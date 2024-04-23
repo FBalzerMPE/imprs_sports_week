@@ -48,7 +48,7 @@ Alarmed Bird,MPE,True,True,True,True,True,False,False,False,True,True,True,True,
 Dramatic Hyena,USM,True,True,True,True,True,True,False,False,False,False,True,True,True,True,False,False,True,True,False,False,True,True,False,False,False,False,False,False,4,0,False
 Ignorant Lemur,MPE,True,False,True,False,False,True,True,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True,False,False,3,0,False
 Delirious Robin,IPP,True,True,False,True,True,True,False,False,False,False,False,False,False,False,False,False,True,True,False,False,True,True,False,False,True,True,False,False,3,0,False
-Frail Skunk,IPP,False,True,True,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,1,0,False
+Frail Skunk,IPP,True,True,True,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,1,0,False
 Motherly Woodpecker,MPE,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,True,True,True,True,True,True,True,True,False,False,False,False,6,0,False
 Questionable Drever,USM,False,False,False,True,False,True,False,False,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,True,True,False,False,2,0,False
 Graceful Llama,USM,True,False,True,True,True,True,False,False,False,False,False,False,True,True,False,False,True,True,False,False,True,True,True,True,True,True,False,False,5,0,False
@@ -99,3 +99,4 @@ Defenseless Insect,USM,True,False,False,True,False,False,False,False,False,False
 Querulous Piranha,USM,True,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,1,0,True
 Spanish Ferret,USM,True,False,True,True,True,False,False,False,False,False,False,False,False,False,True,True,True,True,False,False,False,False,False,False,False,False,False,False,2,0,True
 Staid Hornbill,IPP,True,False,True,True,True,True,False,False,True,True,False,False,False,False,False,False,False,False,False,False,True,True,False,False,True,True,False,False,3,0,True
+Illiterate Caterpillar,MPE,True,False,False,False,False,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True,False,False,1,0,True
