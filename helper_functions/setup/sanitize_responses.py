@@ -40,17 +40,21 @@ def sanitize_and_anonymize_data(
         "time_available",
         "events_interested_in",
         "email",
+        "confirmation_status",
     ]
     # Do this in case there are additional columns we don't need:
     num_cols = len(pd.read_csv(fpath, dtype=str).columns)
     cols = [cols[i] if i < len(cols) else str(i) for i in range(num_cols)]
     # Load the df:
-    df = pd.read_csv(fpath, names=cols, usecols=cols[:7], skiprows=1, dtype=str)
+    df = pd.read_csv(fpath, names=cols, usecols=cols[:8], skiprows=1, dtype=str)
     df["is_phd"] = df.phd_or_postdoc.fillna("").apply(lambda x: "phd" in x.lower())
     df["is_postdoc"] = df.phd_or_postdoc.fillna("").apply(
         lambda x: "postdoc" in x.lower()
     )
     assert all(df["is_phd"] == ~df["is_postdoc"]), "Some rows have bad phd/postdoc data"
+    df["confirmation_status"] = df.confirmation_status.fillna("").apply(
+        lambda x: "yes" in x.lower()
+    )
     df["response_timestamp"] = pd.to_datetime(
         df["response_timestamp"], format="%d/%m/%Y %H:%M:%S"
     )

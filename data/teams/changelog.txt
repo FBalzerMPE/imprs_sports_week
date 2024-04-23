@@ -6,6 +6,7 @@
 + Moving 'Extra-small Coyote' (Team B) from 'R' to '' in tennis.
 + Moving 'Extra-small Coyote' (Team B) from 'R' to '' in football.
 + Moving 'Marvelous Opossum' (Team A) from 'R' to '' in foosball.
++ Moving 'Gargantuan Okapi' (Team C) from 'R' to '' in capture_the_flag.
 
 + Moving 'Unwritten Saiga' (Team C) from '1' to '' in tennis.
 + Moving 'Pushy Bulldog' (Team C) from '' to '1' in tennis.
@@ -36,13 +37,16 @@
 + Moving 'Animated Yak' (Team B) from '2' to '' in tennis.
 + Moving 'Radiant Booby' (Team B) from 'R' to '2' in tennis.
 
++ Moving 'Animated Yak' (Team B) from '2' to '' in volleyball.
++ Moving 'Flamboyant Lungfish' (Team B) from 'R' to '2' in volleyball.
+
++ Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
++ Moving 'Staid Hornbill' (Team B) from 'R' to '2' in beer_pong.
+
 
 Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
 Moving 'Kindly Clownfish' (Team C) from '1' to '' in foosball.
 
-Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
-
-Moving 'Animated Yak' (Team B) from '2' to '' in volleyball.
-
 Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
 
+Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.

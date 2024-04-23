@@ -57,6 +57,7 @@ class Player:
             subteams=subteams,
             matches=matches,
             is_late_signup=series["late_entry"],
+            confirmation_status=series["confirmation_status"],
         )
 
     @property
