@@ -38,6 +38,10 @@ Unfortunately, this means that you might not be in a team with your best buddy, 
 
 For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
 
+### What to compete for
+
+Don't miss the award ceremony on Friday, 21:00 at the MPA seminar room! More information will follow, most likely via the Signal group chat.
+
 ## Late sign-ups
 
 If you are interested in joining but missed the deadline, simply write a mail to Fabi or any of the other organizing committee members, stating the sports you'd like to participate in, and the days you're available.\
