@@ -270,6 +270,7 @@ class SportEvent:
             st.dataframe(df, hide_index=True)
             return
         if len(self.matches) == 0:
+            print(f"No matches found for {self.sanitized_name}")
             return
         is_single = self.num_players_per_subteam == 1
         df = self.match_df

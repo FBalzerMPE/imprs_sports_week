@@ -47,7 +47,6 @@ def get_subteams() -> dict[str, Subteam]:
                     players=players,
                 )
                 all_subteams[sport + "_" + subteam.full_key] = subteam
-
     return all_subteams
 
 
@@ -66,10 +65,14 @@ def get_match_df() -> pd.DataFrame:
 def get_matches() -> list[Match]:
     match_df = get_match_df()
     subteams = get_subteams()
-    try:
-        return [Match.from_dataframe_entry(m, subteams) for _, m in match_df.iterrows()]
-    except KeyError:
-        return []
+    match_list = []
+    for _, match_ in match_df.iterrows():
+        try:
+            match_list.append(Match.from_dataframe_entry(match_, subteams))
+        except KeyError:
+            print(f"Couldn't load {match_["full_key"]}.")
+
+    return match_list
 
 
 ALL_MATCHES = get_matches()
