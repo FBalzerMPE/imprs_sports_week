@@ -24,7 +24,7 @@ Animated Yak,MPE,True,False,True,True,True,True,True,True,False,False,False,Fals
 Quixotic Zebu,MPA,True,False,False,False,False,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True,False,False,2,0,False
 Limp Monkey,ESO,True,False,True,True,True,True,True,True,False,False,False,False,True,True,False,False,True,True,False,False,False,False,False,False,True,True,False,False,4,0,False
 Horrible Lobster,MPE,True,False,False,True,False,True,True,True,False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False,2,0,False
-Damaged Fly,MPE,False,False,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,False,False,True,True,True,True,True,True,False,False,6,0,False
+Damaged Fly,MPE,True,False,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,False,False,True,True,True,True,True,True,False,False,6,0,False
 Nutty Sheep,MPE,True,False,True,False,True,True,True,True,False,False,True,True,True,True,False,False,False,False,False,False,True,True,True,True,False,False,False,False,5,0,False
 Well-documented Dodo,ESO,True,True,True,True,True,True,True,True,False,False,False,False,True,True,False,False,False,False,True,True,False,False,False,False,False,False,False,False,3,0,False
 Real Mouse,USM,True,False,True,True,True,True,True,True,True,True,False,False,False,False,False,False,True,True,False,False,True,True,True,True,False,False,False,False,5,0,False
