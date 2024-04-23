@@ -35,7 +35,7 @@ class Player:
     is_late_signup: bool = False
     """Whether this player is a late signup."""
 
-    confirmation_status: str = ""
+    confirmation_status: bool = False
     """The confirmation status; has this player replied to the schedule email?"""
 
     @classmethod
@@ -67,11 +67,11 @@ class Player:
         text = f"### Team {self.main_team_letter}: {self.nickname}\n\n"
         text += "**Sports:**\\\n"
         text += ", ".join([SPORTS_EVENTS[sport].html_url for sport in self.subteams])
+        if len(self.subteams) == 0:
+            text += "Player unfortunately dropped out."
         text += "\\\n"
-        confirmation_str = {"": "No reply yet", "Yes": "Confirmed"}.get(
-            self.confirmation_status, "No reply yet"
-        )
-        text += f"Confirmation status: **{confirmation_str}**"
+        confirmation_str = "Confirmed" if self.confirmation_status else "No reply yet"
+        text += f"Reply status: **{confirmation_str}**"
         return text
 
     @property
@@ -95,6 +95,8 @@ class Player:
     @property
     def website_schedule(self) -> str:
         text = f"### Team {self.main_team_letter}: {self.nickname}\n\n"
+        if len(self.subteams) == 0:
+            text += "Player unfortunately dropped out."
         for day, sports in self.sports_days.items():
             text += f"#### {day.capitalize()}\n\n"
             for event in sports:

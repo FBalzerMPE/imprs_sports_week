@@ -11,3 +11,5 @@ This approach worked well, although we did a random adjustment in the sorting th
 ## Some plots
 
 The following plots provide an overview of some attributes of the more than 90 participants of the sports week.
+
+Note that these plots contain updated values; Due to latecomers and drop-outs, the teams aren't as evenly distributed as initially (but it's still pretty alright).

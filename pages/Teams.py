@@ -1,5 +1,6 @@
-import helper_functions as hf
 import streamlit as st
+
+import helper_functions as hf
 from helper_functions.classes.player import Player
 
 hf.st_set_up_header_and_sidebar()
@@ -9,8 +10,9 @@ st.write(
 This site provides an overview on all of the competing main teams.\\
 If you know your team and nickname, you can look up the sports you've been assigned to.
 
-**Hint:** You can sort each table by any of the sports if you want to have an overview of the players.\
-You can also double-click on the Avatars to see a slightly bigger version of them :)
+**Hints:** You can sort each table by any of the sports if you want to have an overview of the players.\\
+You can also double-click on the Avatars to see a slightly bigger version of them :)\\
+Scroll down to see the individual schedules for each player on a team!
 """
 )
 

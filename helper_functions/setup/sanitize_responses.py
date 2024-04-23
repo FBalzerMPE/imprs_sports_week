@@ -119,11 +119,14 @@ def sanitize_and_anonymize_data(
     col_map["confirmation_status"] = "Has replied"
     nickname_df: pd.DataFrame = (df[
         nick_cols
-    ].sort_values("nickname")
-    .map(lambda x: str(x).ljust(25, " "))
-    .rename(columns=col_map))
-    nickname_df.to_csv(
+    ].sort_values("nickname"))
+    (nickname_df    .map(lambda x: str(x).ljust(25, " "))
+    .rename(columns=col_map)
+    .to_csv(
         DATAPATH.joinpath("hidden/nickname_to_name.txt"), index=False, sep="\t"
+    ))
+    nickname_df.to_csv(
+        DATAPATH.joinpath("hidden/nickname_to_name.csv"), index=False
     )
     try:
         nickname_df.to_excel(DATAPATH.joinpath("hidden/nickname_to_name.xlsx"), index=False)
