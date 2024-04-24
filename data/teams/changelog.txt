@@ -7,6 +7,8 @@
 + Moving 'Extra-small Coyote' (Team B) from 'R' to '' in football.
 + Moving 'Marvelous Opossum' (Team A) from 'R' to '' in foosball.
 + Moving 'Gargantuan Okapi' (Team C) from 'R' to '' in capture_the_flag.
++ Moving 'Earnest Snail' (Team C) from '' to 'R' in basketball.
+Moving 'Rewarding Ermine' (Team C) from 'R' to '' in capture_the_flag.
 
 + Moving 'Unwritten Saiga' (Team C) from '1' to '' in tennis.
 + Moving 'Pushy Bulldog' (Team C) from '' to '1' in tennis.
@@ -19,7 +21,6 @@
 + Moving 'Marvelous Opossum' (Team A) from '1' to '' in football.
 + Moving 'Realistic Coral' from 'Team B' to 'Team A'. This affects the subteams {'football': '1'}
 + Moving 'Defenseless Insect' (Team B) from 'R' to '1' in football.
-
 
 + Moving 'Another Macaw' (Team A) from '1' to '' in football.
 + Moving 'Spanish Ferret' (Team A) from 'R' to '1' in football.
@@ -42,9 +43,19 @@
 
 + Moving 'Marvelous Opossum' (Team A) from '2' to '' in beer_pong.
 + Moving 'Staid Hornbill' (Team B) from 'R' to '2' in beer_pong.
++ Moving 'Staid Hornbill' from 'Team B' to 'Team A'. This affects the subteams {'capture_the_flag': 'R', 'beer_pong': '2'}
 
 + Moving 'Kindly Clownfish' (Team C) from '1' to '' in foosball.
 + Moving 'Illiterate Caterpillar' (Team C) from '' to '1' in foosball.
+
++ Moving 'Earnest Snail' (Team C) from '1' to '' in beer_pong.
++ Moving 'Illiterate Caterpillar' (Team C) from 'R' to '1' in beer_pong.
+
++ Moving 'Rewarding Ermine' (Team C) from '1' to '' in volleyball.
++ Moving 'Probable Herring' (Team C) from 'R' to '1' in volleyball.
+
++ Moving 'Fickle Gecko' (Team A) from '3' to '' in tennis.
++ Moving 'Magnificent Barracuda' (Team A) from 'R' to '3' in tennis.
 
 
 Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
@@ -52,3 +63,7 @@ Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
 Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
 
 Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
+
+Moving 'Rewarding Ermine' (Team C) from '2' to '' in spikeball.
+
+Moving 'Magnificent Barracuda' (Team A) from '1' to 'R' in football.
