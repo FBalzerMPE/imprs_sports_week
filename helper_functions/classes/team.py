@@ -2,13 +2,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
 from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
-from .subteam import Subteam
+
+if TYPE_CHECKING:
+    from .subteam import Subteam
 
 
 def _get_val_color(val: str, rgb_colors: tuple[int, ...]) -> str:
@@ -232,7 +235,8 @@ class Team:
             axis=1,
         )
         st.write(
-            f"If you're a member of team {self.team_letter}, it'd be great if you could wear *{self.cloth_color} clothing* when participating in the team events."
+            f"If you're a member of team {self.team_letter}, it'd be great <span style='background-color:darkred; color:white;'>**if you could wear *{self.cloth_color} clothing***</span> when participating in the big team events.",
+            unsafe_allow_html=True,
         )
         st.dataframe(
             style,

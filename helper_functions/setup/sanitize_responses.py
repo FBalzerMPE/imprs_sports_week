@@ -89,7 +89,7 @@ def sanitize_and_anonymize_data(
             else event.name
         )
         is_interested = df.events_interested_in.fillna("").str.contains(
-            event_name, case=False
+            event_name.replace("Foos", "Foose"), case=False
         )
         is_avail = pd.DataFrame([df["avail_" + day] for day in event.days]).any(axis=0)
         df["wants_" + event.sanitized_name] = is_interested

@@ -9,6 +9,10 @@
 + Moving 'Gargantuan Okapi' (Team C) from 'R' to '' in capture_the_flag.
 + Moving 'Earnest Snail' (Team C) from '' to 'R' in basketball.
 Moving 'Rewarding Ermine' (Team C) from 'R' to '' in capture_the_flag.
++ Moving 'Magnificent Barracuda' (Team A) from '1' to 'R' in football.
++ Moving 'Magnificent Barracuda' (Team A) from 'R' to '1' in football.
++ Moving 'Hasty Emu' (Team B) from '' to 'R' in chess.
+
 
 + Moving 'Unwritten Saiga' (Team C) from '1' to '' in tennis.
 + Moving 'Pushy Bulldog' (Team C) from '' to '1' in tennis.
@@ -57,13 +61,22 @@ Moving 'Rewarding Ermine' (Team C) from 'R' to '' in capture_the_flag.
 + Moving 'Fickle Gecko' (Team A) from '3' to '' in tennis.
 + Moving 'Magnificent Barracuda' (Team A) from 'R' to '3' in tennis.
 
++ Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
++ Moving 'Worthy Aurochs' (Team B) from 'R' to '1' in foosball.
 
-Moving 'Fine Oyster' (Team B) from '4' to '' in foosball.
++ Moving 'Clever Wombat' (Team C) from '1' to '' in volleyball.
++ Moving 'Infamous Sawfish' (Team C) from 'R' to '1' in volleyball.
 
-Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
++ Moving 'Animated Yak' (Team B) from '2' to '' in spikeball.
++ Moving 'Gripping Penguin' (Team B) from 'R' to '2' in spikeball.
+
++ Moving 'Gripping Penguin' (Team B) from '' to '1' in running_sprints.
 
 Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
 
 Moving 'Rewarding Ermine' (Team C) from '2' to '' in spikeball.
 
-Moving 'Magnificent Barracuda' (Team A) from '1' to 'R' in football.
++ Moving 'Miserable Alligator' (Team A) from 'R' to '17' in ping_pong.
++ Moving 'Euphoric Vulture' from 'Team B' to 'Team C'. This affects the subteams {'ping_pong': 'R'}
++ Moving 'Euphoric Vulture' (Team C) from 'R' to '17' in ping_pong.
++ Moving 'Awkward Cichlid' (Team B) from 'R' to '17' in ping_pong.

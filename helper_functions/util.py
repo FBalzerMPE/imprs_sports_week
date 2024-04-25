@@ -1,6 +1,7 @@
 import functools
 import inspect
 import warnings
+
 import pandas as pd
 
 _string_types = (type(b""), type(""))
@@ -29,7 +30,7 @@ def read_event_desc(event_name: str) -> str:
     if not fpath.exists():
         print("File not found:", fpath)
         return "NO DESCRIPTION FOUND"
-    with fpath.open("r") as f:
+    with fpath.open("r", encoding="utf-8") as f:
         return f.read()
 
 

@@ -5,7 +5,10 @@ from ..constants import DATAPATH
 
 def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
     """Try to retrieve this player's real name from the hidden data."""
-    clear_names = pd.read_csv(DATAPATH.joinpath("hidden/nickname_to_name.csv"))
+    fpath = DATAPATH.joinpath("hidden/nickname_to_name.csv")
+    if not fpath.exists():
+        return nickname
+    clear_names = pd.read_csv(fpath)
     name = clear_names.set_index("nickname")["name"].to_dict().get(nickname, "")
     if not first_name_only:
         return name

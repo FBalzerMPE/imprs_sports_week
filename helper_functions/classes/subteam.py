@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
+from ..setup.setup_util import get_real_player_name
 
 
 @dataclass
@@ -33,6 +34,11 @@ class Subteam:
             "is_reserve": self.is_reserve,
         }
         return pd.Series(series_dict)
+
+    @property
+    def real_names(self) -> list[str]:
+        """The clear names for each player, if the mapping is available."""
+        return [get_real_player_name(player, False) for player in self.players]
 
     @property
     def full_key(self) -> str:

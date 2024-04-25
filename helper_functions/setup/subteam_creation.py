@@ -5,11 +5,11 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 
-from ..classes.subteam import Subteam
 from ..classes.team import Team
 
 if TYPE_CHECKING:
     from ..classes.sport_event import SportEvent
+    from ..classes.subteam import Subteam
 
 
 def _generate_subteams_for_sport(
@@ -20,6 +20,8 @@ def _generate_subteams_for_sport(
     seed: int = 42,
 ) -> list[Subteam]:
     """Get a dictionary of subteams for a specific sport."""
+    from ..classes.subteam import Subteam
+
     avail_players = team.get_all_players_for_sport(
         sport.sanitized_name, [f"avail_{day.lower()}" for day in sport.days]
     )

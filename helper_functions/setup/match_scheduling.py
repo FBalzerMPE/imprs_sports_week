@@ -124,5 +124,11 @@ def write_match_backup_from_df(df: pd.DataFrame, overwrite=False):
 
 def write_match_backup(matches: list[Match], overwrite=False):
     """Write a backup for the matches that were determined."""
-    df = turn_series_list_to_dataframe([m.as_series for m in matches])
+    df = turn_series_list_to_dataframe([m.as_series for m in matches]).set_index(
+        "full_key", drop=False
+    )
+    cols = "sport,team_a,team_b,location,day,time,result,winner,start,duration,team_a_key,team_b_key,full_key".split(
+        ","
+    )
+    df = df[cols]
     write_match_backup_from_df(df, overwrite=overwrite)

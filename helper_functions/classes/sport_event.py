@@ -89,13 +89,17 @@ class RunningEvent:
     end: datetime
 
     @property
-    def as_series(self):
+    def as_series(self) -> pd.Series:
         return pd.Series(
             {
                 "Name": self.name,
                 "Start": self.start.strftime("%H:%M"),
             }
         )
+    
+    @property
+    def description(self) -> str:
+        return f"{self.start.strftime("%H:%M")}: **{self.name}**"
 
     def get_calendar_entry(self, sport_id: str) -> dict[str, str]:
         return {
@@ -151,6 +155,10 @@ class SportEvent:
     num_matches_per_subteam: int = 2
     """The number of matches each sub-team will play."""
 
+    point_weight_factor: float = 1.0
+    """The amount by which points achieved for this sport are weighted.
+    This roughly depends on the number of players that are actually playing for this sport."""
+
     conflicting_sports: list[str] = field(default_factory=list)
     """The other sports overlapping with this one."""
 
@@ -161,6 +169,7 @@ class SportEvent:
     """All matches scheduled for this sport."""
 
     days: list[str] = field(init=False)
+    """The days this sport takes place on."""
 
     def __post_init__(self):
         assert self.start < self.end, "The start time must be before the end time."
@@ -181,7 +190,8 @@ class SportEvent:
             for subteam in ALL_SUBTEAMS.values()
             if subteam.sport == self.sanitized_name
         ]
-        self.matches = [m for m in ALL_MATCHES if m.sport == self.sanitized_name]
+        matches = [m for m in ALL_MATCHES if m.sport == self.sanitized_name]
+        self.matches = sorted(matches, key=lambda m: m.start)
 
     @property
     def sanitized_name(self) -> str:
@@ -189,10 +199,13 @@ class SportEvent:
 
     @property
     def identity_name(self) -> str:
+        """The identity name, which is basically the index used for
+        sorting the sports by appearance."""
         return f"{SPORTS_LIST.index(self.sanitized_name):0>2}"
 
     @property
     def calendar_entries(self) -> list[dict[str, str | dict]]:
+        """The calendar entries with the general timeline for this sport."""
         title = f"{self.icon} {self.name} (Contact: {', '.join(self.organizer_names)})"
         base_dict = {
             "title": title,
@@ -228,6 +241,9 @@ class SportEvent:
 
     @property
     def html_url(self) -> str:
+        """The way this sport can be reached while staying on the same webpage.
+        It's a little clunky but seems to be the only way that works with streamlit.
+        Also set to not wrap so icon and name aren't separated."""
         return f'<span style="white-space:nowrap;">{self.icon} <a href="/{self.name}" target="_self">{self.name}</a></span>'
 
     @property
@@ -248,7 +264,8 @@ class SportEvent:
         text = f"""
 - **Location:** {loc_name} (see also location tab)
 - **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{days}**
-- **Organizers:** {contact_link} (see also contact tab)"""
+- **Organizers:** {contact_link} (see also contact tab)
+- **Point weight factor:** {self.point_weight_factor:.1f} (due to {self.num_players_per_subteam*self.num_subteams*3} attending players, see statistics tab for more info)"""
         return text
 
     @property
@@ -258,6 +275,29 @@ class SportEvent:
     @property
     def match_df(self) -> pd.DataFrame:
         return turn_series_list_to_dataframe([m.as_series for m in self.matches])
+
+    def get_clear_name_schedule(self) -> str:
+        text = f"## {self.name}\n\n### Subteams\n\n"
+        sep = "\n\n" if self.sanitized_name != "ping_pong" else ";\\\n"
+        text += sep.join(
+            [
+                f"**{subteam.full_key}**: " + ", ".join(subteam.real_names) + "\\\n*" + ", ".join(subteam.players) +"*"
+                for subteam in (sorted(self.subteams, key=lambda s: s.full_key))
+            ]
+        )
+        text += "\n\n### Matches\n\n"
+        if self.sanitized_name == "ping_pong":
+            for loc in "123":
+                text += f"#### Location {loc}\n\n"
+                text += "\n\n".join([m.description for m in self.matches if m.location == loc])
+                text += "\n\n"
+        elif self.sanitized_name != "running_sprints":
+            text += "\n\n".join([m.description for m in self.matches])
+        else:
+            from ..sport_event_registry import RUNNING_EVENTS
+
+            text += "\n\n".join([event.description for event in RUNNING_EVENTS])
+        return text
 
     def get_attending_players(self, df: pd.DataFrame) -> pd.DataFrame:
         return df[df[self.sanitized_name]]

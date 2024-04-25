@@ -10,7 +10,7 @@ ALL_LOCATIONS = {
         "tum_pitches",
         48.263479,
         11.668083,
-        "TUM Pitches",
+        "TUM Volley- and Basketball pitches",
         "The TUM pitches used for Volleyball and Basketball",
     ),
     "ipp_tennis_courts": SportLocation(
@@ -20,13 +20,13 @@ ALL_LOCATIONS = {
         "IPP Courts",
         "The SV Plasma tennis courts, kindly provided to us to realize the tennis games.",
     ),
-    "ipp_big_field": SportLocation(
-        "ipp_big_field",
-        48.262174,
-        11.676849,
-        "Big IPP field (preliminary, to be confirmed!)",
-        "Big grass football field used for Running/Sprints, Football, Capture the Flag, and Spikeball.",
-    ),
+    # "ipp_big_field": SportLocation(
+    #     "ipp_big_field",
+    #     48.262174,
+    #     11.676849,
+    #     "Big IPP field (preliminary, to be confirmed!)",
+    #     "Big grass football field used for Running/Sprints, Football, Capture the Flag, and Spikeball.",
+    # ),
     "tum_big_field": SportLocation(
         "tum_big_field",
         48.263839,
@@ -79,6 +79,7 @@ SPORTS_EVENTS = {
         num_pitches=2,
         num_players_per_subteam=1,
         num_subteams=16,
+        point_weight_factor=2,
     ),
     "basketball": SportEvent(
         name="Basketball",
@@ -120,6 +121,7 @@ SPORTS_EVENTS = {
         num_subteams=2,
         num_pitches=2,
         conflicting_sports=["basketball"],
+        point_weight_factor=1.5,
     ),
     # Tuesday events
     "chess": SportEvent(
@@ -148,6 +150,7 @@ SPORTS_EVENTS = {
         min_player_val=11,
         num_players_per_subteam=8,
         conflicting_sports=["tennis"],
+        point_weight_factor=1.5,
     ),
     "tennis": SportEvent(
         name="Tennis",
@@ -178,6 +181,7 @@ SPORTS_EVENTS = {
         num_players_per_subteam=8,
         num_pitches=1,
         num_matches_per_subteam=1,
+        point_weight_factor=1.5,
     ),
     "spikeball": SportEvent(
         name="Spikeball",
@@ -192,6 +196,7 @@ SPORTS_EVENTS = {
         num_players_per_subteam=2,
         num_subteams=4,
         num_pitches=3,
+        point_weight_factor=1.5,
     ),
     # Friday events
     "beer_pong": SportEvent(
@@ -208,6 +213,7 @@ SPORTS_EVENTS = {
         num_players_per_subteam=3,
         num_subteams=3,
         conflicting_sports=["foosball"],
+        point_weight_factor=1.5,
     ),
     "foosball": SportEvent(
         name="Foosball",
@@ -222,6 +228,7 @@ SPORTS_EVENTS = {
         num_players_per_subteam=2,
         num_subteams=4,
         conflicting_sports=["beer_pong"],
+        point_weight_factor=1.5,
     ),
 }
 # for event in SPORTS_EVENTS.values():

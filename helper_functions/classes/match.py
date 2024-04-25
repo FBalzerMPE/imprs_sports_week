@@ -109,6 +109,14 @@ class Match:
             name_a, name_b = [get_real_player_name(player) for player in self.involved_players]
             text = text.replace(" vs.", f" **({name_a})** vs.") + f" ({name_b})"
         return text
+    
+    def get_desc_with_real_names(self) -> str:
+        """Retrieve the description, typing out the full teams' attendances."""
+        text =  f"*{self.start.strftime("%H:%M")}*: "
+        text += f"**{self.subteam_a.full_key} ({self.subteam_a.real_names})\\\n"
+        text += f"vs. {self.subteam_b.full_key} ({self.subteam_b.real_names})**"
+        return text
+
 
     def contains_player(self, player_name: str) -> bool:
         """Whether this match contains the given player (nickname expected)"""
