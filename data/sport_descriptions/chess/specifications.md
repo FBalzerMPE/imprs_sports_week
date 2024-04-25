@@ -7,7 +7,8 @@
 
 ### Point scheme
 
-Points will be awarded as explained in the FIDE ruleset: 1 points for a win, 1/2 point for a draw, 0 points for a loss, and then at the end the sum of points achieved by players of a main team will be normalized to contribute to the main team's total scores.
+Points will be awarded as explained in the FIDE ruleset: 1 points for a win, 1/2 point for a draw, 0 points for a loss.\
+At the end, these are summed, normalized and weighted by a factor of **1** to determine the contribution to the main team's score.
 
 ### Refereeing
 

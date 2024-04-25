@@ -7,8 +7,8 @@
 
 ### Point scheme
 
-3 points are awarded to each winning team, 1 in the case of a tie and 0 for a loss.\
-At the end, these are summed and normalized to determine the contribution to the main team's score.
+1 point is awarded to each winning team, 0.5 for each team in the case of a tie, and 0 for a loss.\
+At the end, these are summed, normalized and weighted by a factor of **1** to determine the contribution to the main team's score.
 
 ### What to bring
 

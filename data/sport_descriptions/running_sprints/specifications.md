@@ -10,6 +10,8 @@
 - For the sprints and the 10-minute run, we award points based on your placement, i.e. the first player will receive $N$ points, the second $N-1$, and so on (where $N$ is the number of participants).
 - For the relay, it's the same, but team-based.
 
+At the end, all points a main team's players have achieved are summed, normalized and weighted by a factor of **1** to determine the contribution to the main team's score.
+
 ### Refereeing
 
 Zsofi and William are going to be around to structure everything.

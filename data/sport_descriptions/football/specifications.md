@@ -14,7 +14,8 @@ Each match slot is structured as follows:
 
 ### Point scheme
 
-3 points are awarded to each winning team. At the end, all points the teams have achieved are summed and normalized to determine the contribution to the total main team's score.
+1 point is awarded to each winning team, 0.5 for each team in the case of a tie, and 0 for a loss.\
+At the end, these are summed, normalized and weighted by a factor of **1.5** to determine the contribution to the main team's score.
 
 ### Refereeing
 
