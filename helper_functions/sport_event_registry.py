@@ -252,3 +252,5 @@ RUNNING_EVENTS = [
         "10-minute run", datetime(2024, 4, 29, 18, 45), datetime(2024, 4, 29, 19, 0)
     ),
 ]
+
+results = {"B": 35, "C": 34, "A": 31}
