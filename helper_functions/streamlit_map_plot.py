@@ -18,8 +18,6 @@ def create_map_plot(highlighted_locations: list[str]):
     )
 
     highlight_df = df[df["name"].isin(highlighted_locations)]
-    print(highlighted_locations)
-    print(df["name"])
 
     # Define a tooltip for the layers
     tooltip = {
