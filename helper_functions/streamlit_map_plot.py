@@ -18,6 +18,8 @@ def create_map_plot(highlighted_locations: list[str]):
     )
 
     highlight_df = df[df["name"].isin(highlighted_locations)]
+    print(highlighted_locations)
+    print(df["name"])
 
     # Define a tooltip for the layers
     tooltip = {
@@ -53,7 +55,7 @@ def create_map_plot(highlighted_locations: list[str]):
             data=highlight_df,
             get_position=["longitude", "latitude"],
             get_color=[200, 0, 0, 200],
-            get_radius=40,
+            get_radius=100,
             radius_scale=0.1,
         ),
         "Extra locations": pdk.Layer(

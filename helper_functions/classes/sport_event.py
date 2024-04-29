@@ -445,7 +445,7 @@ class SportEvent:
                 from ..sport_event_registry import ALL_LOCATIONS
 
                 locs = [
-                    loc.display_name
+                    loc.key
                     for key, loc in ALL_LOCATIONS.items()
                     if "ping_pong" in key
                 ]
