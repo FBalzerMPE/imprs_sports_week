@@ -198,4 +198,3 @@ class Player:
                 st.write(self.info_str, unsafe_allow_html=True)
         with tabs[1]:
             st.write(self.website_schedule, unsafe_allow_html=True)
-            pass
