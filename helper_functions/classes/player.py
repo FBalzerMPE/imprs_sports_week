@@ -116,7 +116,12 @@ class Player:
                         text += match_.description + ";\\\n"
                     text = text.rstrip(";\\\n")
                 else:
-                    text += f"{matches[0].description}, and {matches[1].description}"
+                    if len(matches) == 1:
+                        text += matches[0].description
+                    else:
+                        text += (
+                            f"{matches[0].description}, and {matches[1].description}"
+                        )
                 text += "\n\n"
         return text
 
