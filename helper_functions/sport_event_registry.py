@@ -79,7 +79,7 @@ SPORTS_EVENTS = {
         num_pitches=2,
         num_players_per_subteam=1,
         num_subteams=16,
-        point_weight_factor=2,
+        point_weight_factor=2.5,
     ),
     "basketball": SportEvent(
         name="Basketball",
