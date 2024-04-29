@@ -437,7 +437,7 @@ class SportEvent:
 
             self._st_display_subteams()
         with tabs[3]:
-            locs = [self.loc.display_name]
+            locs = [self.loc.key]
             if self.sanitized_name == "ping_pong":
                 st.write(
                     f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details.\n\n⚠️Scroll down for more detailed descriptions on how to get to each table!"
