@@ -96,3 +96,4 @@ Moving 'Cool Weasel' (Team A) from '2' to '' in foosball.
 + Moving 'Loving Bichir' (Team C) from 'R' to '1' in basketball.
 Moving 'Motherly Woodpecker' (Team A) from '1' to 'R' in running_sprints.
 + Moving 'Worldly Discus' (Team A) from 'R' to '18' in ping_pong.
+Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.

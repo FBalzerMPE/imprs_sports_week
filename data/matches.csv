@@ -11,10 +11,10 @@ volleyball,C: 1,A: 2,2,Monday,19:15,,,2024-04-29 19:15:00,2700,C: 1,A: 2,volleyb
 chess,A: Cool Weasel,B: Awkward Cichlid,1,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 2,B: 1,chessA: 2B: 1
 chess,A: Trifling Tarpon,B: Ornate Cockatoo,2,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 1,B: 3,chessA: 1B: 3
 chess,A: Pleasing Mongrel,B: Trivial Uguisu,3,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 3,B: 2,chessA: 3B: 2
-chess,B: Awkward Cichlid,C: Reckless Swan,1,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 1,C: 3,chessB: 1C: 3
+chess,B: Hasty Emu,C: Reckless Swan,1,Tuesday,18:50,,,2024-04-30 18:50:00,2400,B: 4,C: 3,chessB: 1C: 3
 chess,B: Ornate Cockatoo,C: Excited Rabbit,2,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 3,C: 2,chessB: 3C: 2
 chess,B: Trivial Uguisu,C: Clever Wombat,3,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 2,C: 1,chessB: 2C: 1
-chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 3,A: 2,chessC: 3A: 2
+chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:10,,,2024-04-30 18:10:00,2400,C: 3,A: 2,chessC: 3A: 2
 chess,C: Excited Rabbit,A: Trifling Tarpon,2,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 2,A: 1,chessC: 2A: 1
 chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 1,A: 3,chessC: 1A: 3
 football,A: 1,B: 1,1,Tuesday,17:45,,,2024-04-30 17:45:00,2700,A: 1,B: 1,footballA: 1B: 1
