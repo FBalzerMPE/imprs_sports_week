@@ -26,5 +26,6 @@ __all__ = [
     "generate_sports_page_files",
     "st_set_up_header_and_sidebar",
     "turn_series_list_to_dataframe",
+    "copy_to_clipboard",
     "ALL_TEAMS",
 ]

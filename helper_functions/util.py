@@ -3,10 +3,19 @@ import inspect
 import warnings
 
 import pandas as pd
+import win32clipboard
+
+from .constants import DATAPATH
 
 _string_types = (type(b""), type(""))
 
-from .constants import DATAPATH
+
+def copy_to_clipboard(text: str):
+    """Copies the given text into the user's clipboard."""
+    win32clipboard.OpenClipboard()
+    win32clipboard.EmptyClipboard()
+    win32clipboard.SetClipboardText(text, win32clipboard.CF_UNICODETEXT)
+    win32clipboard.CloseClipboard()
 
 
 def sort_dict_by_values(d: dict, reverse=False) -> dict:

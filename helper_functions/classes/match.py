@@ -101,7 +101,8 @@ class Match:
     def description(self) -> str:
         if self.sport == "running_sprints":
             return "various events against all other players between *17:30* and *18:30*"
-        text =  f"*{self.start.strftime("%H:%M")}*: **{self.subteam_a.key_or_single} vs. {self.subteam_b.key_or_single}**"
+        loc = "" if self.sport == "ping_pong" else f" (loc: {self.location})"
+        text =  f"*{self.start.strftime("%H:%M")}*{loc}: **{self.subteam_a.key_or_single} vs. {self.subteam_b.key_or_single}**"
         if self.sport == "ping_pong":
             text = self.start.strftime("%A") + f", {text}"
             if not DATAPATH.joinpath("hidden").exists():

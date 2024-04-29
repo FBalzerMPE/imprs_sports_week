@@ -14,6 +14,9 @@ class SportsOrganizer:
     name: str
     """The name of the organizer."""
 
+    nickname: str
+    """The animal name of the organizer."""
+
     email: str
     """The email of the organizer."""
 

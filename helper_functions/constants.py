@@ -45,6 +45,12 @@ class FpathRegistry:
         return str(DATAPATH.parent.joinpath(static_path))
 
     @staticmethod
+    def get_institute_pic_path(institute: str) -> str:
+        """Retrieves the animal pic path relative to the top level path."""
+        institute = institute.lower()
+        return str(DATAPATH.joinpath(f"assets/institute_logos/{institute}.png"))
+
+    @staticmethod
     def get_sport_info_path(
         sport: str,
         info_type: Literal["introduction", "rules", "specifications", "advanced_rules"],

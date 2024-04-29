@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-from .classes.sport_event import SportEvent, RunningEvent
+from .classes.sport_event import RunningEvent, SportEvent
 from .classes.sport_location import SportLocation
 
 ALL_LOCATIONS = {
@@ -102,7 +102,7 @@ SPORTS_EVENTS = {
         loc=ALL_LOCATIONS["tum_big_field"],
         pitch_type_name="Court",
         organizer_names=["Zsofi", "William"],
-        icon="🏃‍♂️",  # ":running:",
+        icon="🏃",  # ":running:",
         min_player_val=3,
         num_players_per_subteam=4,
         num_subteams=1,

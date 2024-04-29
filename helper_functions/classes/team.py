@@ -42,9 +42,10 @@ class Team:
     _players: list = field(default_factory=list)
     """The list of players in the team."""
 
+    colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
+
     def __post_init__(self):
-        colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
-        self.color = colors[self.team_index % len(colors)]
+        self.color = Team.colors[self.team_index % len(Team.colors)]
 
     def __len__(self):
         return len(self._players)
