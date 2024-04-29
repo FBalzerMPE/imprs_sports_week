@@ -109,7 +109,7 @@ SPORTS_EVENTS = {
     ),
     "volleyball": SportEvent(
         name="Volleyball",
-        start=datetime(2024, 4, 29, 17, 00),
+        start=datetime(2024, 4, 29, 17, 30),
         end=datetime(2024, 4, 29, 21, 00),
         match_duration=timedelta(minutes=45),
         loc=ALL_LOCATIONS["tum_pitches"],
