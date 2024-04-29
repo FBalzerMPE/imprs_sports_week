@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..constants import SPORTS_LIST, FpathRegistry
+from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
 from ..data_registry import ALL_MATCHES, ALL_SUBTEAMS
 from ..streamlit_map_plot import create_map_plot
 from ..streamlit_util import st_style_df_with_team_vals
@@ -13,6 +13,61 @@ from ..util import turn_series_list_to_dataframe
 from .match import Match
 from .sport_location import SportLocation
 from .subteam import Subteam
+
+
+def display_ping_pong_loc_descs():
+    tabs = st.tabs(["MPE Table", "IPP Table 1", "IPP Table 2"])
+    impath = str(DATAPATH.joinpath("assets/location_pics")) + "/"
+    with tabs[0]:
+        st.write("Enter the MPE building, e.g. through the main entrance.\\\nAfter entering, turn right and follow the corridor to the end in front of the staircase.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t1_1.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t1_2.jpg", width=300)
+        st.write("There, turn left and then right immediately.")
+        st.image(impath + "t1_3.jpg", width=300)
+        st.write("Walk about 10 m before turning left and walk by the big scales.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t1_4.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t1_5.jpg", width=300)
+        st.write("Now just follow the corridor up to the end until you arrive at the door with the staircase leading to the room with the table.")
+        st.image(impath + "t1_6.jpg", width=300)
+    with tabs[1]:
+        st.write("The following picture shows where you're coming from.")
+        st.image(impath + "t2_1.jpg", width=300)
+        st.write("Walk past the building and turn right to enter the door.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t2_2.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t2_3.jpg", width=300)
+        st.write("There, walk through until the end, turn left and you should see the staircase on the right to go up. On the first floor, you should already see the door with the sign for table tennis. It shouldn't be locked; in the case it is, give Fabi or Zsofi a call.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t2_4.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t2_5.jpg", width=300)
+        st.write("You made it! Have a good match!.")
+        st.image(impath + "t2_6.jpg", width=300)
+    with tabs[2]:
+        st.write("If you're coming from Garching Forschungszentrum/the IPP main gate and walk straight, you should see the following sign on the right. There, turn right and enter the building.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t3_1.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t3_2.jpg", width=300)
+        st.write("Right after entering, follow the staircase downwards, and turn left.")
+        cols = st.columns(2)
+        with cols[0]:
+            st.image(impath + "t3_3.jpg", width=300)
+        with cols[1]:
+            st.image(impath + "t3_4.jpg", width=300)
+        st.write("You made it! Have a good match!.")
+        st.image(impath + "t3_5.jpg", width=300)
+        
 
 
 def _st_display_match_df(
@@ -385,7 +440,7 @@ class SportEvent:
             locs = [self.loc.display_name]
             if self.sanitized_name == "ping_pong":
                 st.write(
-                    f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details."
+                    f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details.\n\n⚠️Scroll down for more detailed descriptions on how to get to each table!"
                 )
                 from ..sport_event_registry import ALL_LOCATIONS
 
@@ -397,6 +452,8 @@ class SportEvent:
             else:
                 "The location for this event is marked in red, hover over its name to find more information."
             create_map_plot(locs)
+            if self.sanitized_name == "ping_pong":
+                display_ping_pong_loc_descs()
         with tabs[4]:
             text = r"""
 Here you can find the contact information for the organizers of this event - don't be shy to write them an email or signal message if you have any questions or need help!\
