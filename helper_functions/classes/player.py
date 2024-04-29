@@ -176,7 +176,10 @@ class Player:
                 if sport == "running_sprints":
                     text += f"You are scheduled to attend {matches[0].description}.\n"
                 else:
-                    text += f"\t{matches[0].description}, and\\\n\t{matches[1].description}\n"
+                    if len(matches) == 1:
+                        text += f"\t{matches[0].description}"
+                    else:
+                        text += f"\t{matches[0].description}, and\\\n\t{matches[1].description}\n"
             text += "\n\n"
         return text
 

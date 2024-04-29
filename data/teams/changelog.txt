@@ -92,5 +92,7 @@ Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
 Moving 'Amusing Seal' (Team A) from '4' to '' in spikeball.
 
 Moving 'Cool Weasel' (Team A) from '2' to '' in foosball.
-Moving 'Scientific Angelfish' (Team C) from '1' to 'R' in basketball.
++ Moving 'Scientific Angelfish' (Team C) from '1' to 'R' in basketball.
++ Moving 'Loving Bichir' (Team C) from 'R' to '1' in basketball.
 Moving 'Motherly Woodpecker' (Team A) from '1' to 'R' in running_sprints.
++ Moving 'Worldly Discus' (Team A) from 'R' to '18' in ping_pong.
