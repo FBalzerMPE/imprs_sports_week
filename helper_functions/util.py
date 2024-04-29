@@ -3,7 +3,6 @@ import inspect
 import warnings
 
 import pandas as pd
-import win32clipboard
 
 from .constants import DATAPATH
 
@@ -12,6 +11,8 @@ _string_types = (type(b""), type(""))
 
 def copy_to_clipboard(text: str):
     """Copies the given text into the user's clipboard."""
+    import win32clipboard
+
     win32clipboard.OpenClipboard()
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardText(text, win32clipboard.CF_UNICODETEXT)
