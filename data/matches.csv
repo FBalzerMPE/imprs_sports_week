@@ -20,12 +20,12 @@ chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,,,2024-04-30 18:50:00
 football,A: 1,B: 1,1,Tuesday,17:45,6:1,A,2024-04-30 17:45:00,2700,A: 1,B: 1,footballA: 1B: 1
 football,B: 1,C: 1,1,Tuesday,18:30,2:2,BC,2024-04-30 18:30:00,2700,B: 1,C: 1,footballB: 1C: 1
 football,C: 1,A: 1,1,Tuesday,19:15,0:3,A,2024-04-30 19:15:00,2700,C: 1,A: 1,footballC: 1A: 1
-tennis,A: Motherly Woodpecker,B: Striped Himalayan,1,Tuesday,17:45,prelim,A,2024-04-30 17:45:00,2700,A: 2,B: 1,tennisA: 2B: 1
-tennis,A: Pricey Collie,B: Faint Gorilla,2,Tuesday,17:45,prelim,B,2024-04-30 17:45:00,2700,A: 1,B: 3,tennisA: 1B: 3
+tennis,A: Motherly Woodpecker,B: Striped Himalayan,1,Tuesday,17:45,6:2,A,2024-04-30 17:45:00,2700,A: 2,B: 1,tennisA: 2B: 1
+tennis,A: Pricey Collie,B: Faint Gorilla,2,Tuesday,17:45,1:6,B,2024-04-30 17:45:00,2700,A: 1,B: 3,tennisA: 1B: 3
 tennis,A: Magnificent Barracuda,B: Radiant Booby,3,Tuesday,17:45,0:0 (agree on tie),AB,2024-04-30 17:45:00,2700,A: 3,B: 2,tennisA: 3B: 2
-tennis,B: Striped Himalayan,C: Well-documented Dodo,1,Tuesday,18:30,0:6 (prelim),C,2024-04-30 18:30:00,2700,B: 1,C: 3,tennisB: 1C: 3
-tennis,B: Faint Gorilla,C: Failing Muskrat,2,Tuesday,18:30,6:0 (prelim),B,2024-04-30 18:30:00,2700,B: 3,C: 4,tennisB: 3C: 4
-tennis,B: Radiant Booby,C: Neglected Harrier,3,Tuesday,18:30,prelim,B,2024-04-30 18:30:00,2700,B: 2,C: 2,tennisB: 2C: 2
+tennis,B: Striped Himalayan,C: Well-documented Dodo,1,Tuesday,18:30,0:6,C,2024-04-30 18:30:00,2700,B: 1,C: 3,tennisB: 1C: 3
+tennis,B: Faint Gorilla,C: Failing Muskrat,2,Tuesday,18:30,6:0,B,2024-04-30 18:30:00,2700,B: 3,C: 4,tennisB: 3C: 4
+tennis,B: Radiant Booby,C: Neglected Harrier,3,Tuesday,18:30,6:1,B,2024-04-30 18:30:00,2700,B: 2,C: 2,tennisB: 2C: 2
 tennis,C: Pushy Bulldog,A: Motherly Woodpecker,1,Tuesday,19:15,6:0,C,2024-04-30 19:15:00,2700,C: 1,A: 2,tennisC: 1A: 2
 tennis,C: Well-documented Dodo,A: Pricey Collie,2,Tuesday,19:15,3:6,A,2024-04-30 19:15:00,2700,C: 3,A: 1,tennisC: 3A: 1
 tennis,C: Neglected Harrier,A: Magnificent Barracuda,3,Tuesday,19:15,6:2,C,2024-04-30 19:15:00,2700,C: 2,A: 3,tennisC: 2A: 3
