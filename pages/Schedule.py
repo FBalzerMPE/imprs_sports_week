@@ -50,6 +50,9 @@ calendar_events += [
     for event in hf.SPORTS_EVENTS.values()
     for entry in event.match_calendar_entries
 ]
+st.write(
+    "Go to the individual sports' pages for more detailed information on the schedules and results."
+)
 my_calendar = calendar(
     events=calendar_events,
     options=calendar_options,

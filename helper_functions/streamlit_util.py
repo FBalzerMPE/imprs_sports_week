@@ -24,7 +24,7 @@ def st_set_up_header_and_sidebar():
                 Page(f"pages/events/{sport.sanitized_name}.py", sport.name, sport.icon)
                 for sport in SPORTS_EVENTS.values()
             ],
-            Page("pages/Statistics.py", "Statistics", ":bar_chart:", in_section=False),
+            Page("pages/Statistics.py", "Results and Statistics", ":bar_chart:", in_section=False),
             Page("pages/FAQ.py", "FAQ", ":question:"),
             Page("pages/Contact.py", "Contact", ":speech_balloon:", in_section=False),
         ]

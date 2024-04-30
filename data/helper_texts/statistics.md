@@ -8,8 +8,8 @@ We would calculate $f_{\rm eq}$ by simulating adding the player to each of the t
 The first approach for this involved hunting for the perfect shuffling seed, but then we figured it might just be easier to order the players by the amount of sports they did, as it would be easier to add players that did a low amount of sports later.\
 This approach worked well, although we did a random adjustment in the sorting that somehow more or less perfectly balanced the teams (the dip in basketball for team 3 is due to someone that was added later).
 
-## Some plots
+## Some more plots
 
-The following plots provide an overview of some attributes of the more than 90 participants of the sports week.
+The following plots provide an overview of some attributes of the more than ~~90~~ 105 participants of this sports week.
 
 Note that these plots contain updated values; Due to latecomers and drop-outs, the teams aren't as evenly distributed as initially (but it's still pretty alright).
