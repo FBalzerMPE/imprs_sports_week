@@ -34,15 +34,19 @@ You can find the three main teams' participants <a href="Teams" target="_self">h
 These teams are composed having an equal number of players for each sport in mind, while also mixing up the institutes quite a bit.\
 Unfortunately, this means that you might not be in a team with your best buddy, but on the bright side, that means that you might be able to face them in competition!
 
-### Scheduling process and statistics
-
-For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
-
 ### What to compete for 🏆
 
 Most importantly, we want to encourage fun competitions.
 The team with the best performance across all of the sports might receive something else, so make sure to stay tuned for the award ceremony on **Friday, 21:00** at the **MPA seminar room**!\
 More information on that might follow, most likely via the Signal group chat.
+
+### Results
+
+You can find daily-updated results <a href="Results and Statistics" target="_self">here</a>.
+
+### Scheduling process and statistics
+
+For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Results and Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
 
 ## Late sign-ups
 

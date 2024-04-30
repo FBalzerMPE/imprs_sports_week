@@ -97,11 +97,18 @@ Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.
 + Moving 'Minty Possum' (Team C) from 'R' to '3' in foosball.
 + Moving 'Excited Rabbit' (Team C) from '2' to '' in chess.
 + Moving 'Disloyal Hagfish' (Team C) from '' to '2' in chess.
++ Moving 'Excited Rabbit' (Team C) from '2' to '' in volleyball.
++ Moving 'Unimportant Beetle' (Team C) from 'R' to '2' in volleyball.
 
-Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
++ Moving 'Cool Weasel' (Team A) from '2' to '' in foosball.
++ Moving 'Worthy Aurochs' from 'Team B' to 'Team A'. This affects the subteams {'foosball': '4'}
++ Moving 'Worthy Aurochs' (Team A) from '4' to '2' in foosball.
++ Moving 'Failing Muskrat' (Team C) from '1' to '' in football.
++ Moving 'Inconsequential Bandicoot' (Team B) from 'R' to '4' in foosball.
 
-Moving 'Amusing Seal' (Team A) from '4' to '' in spikeball.
++ Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
++ Moving 'Honored Tamaskan' (Team C) from '' to '3' in spikeball.
 
-Moving 'Cool Weasel' (Team A) from '2' to '' in foosball.
++ Moving 'Amusing Seal' (Team A) from '4' to '' in spikeball.
++ Moving 'Deficient Squid' (Team A) from 'R' to '4' in spikeball.
 
-Moving 'Failing Muskrat' (Team C) from '1' to '' in football.

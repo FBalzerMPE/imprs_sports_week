@@ -306,6 +306,9 @@ class SportEvent:
         contact_link = (
             f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
+        stats_link = (
+            f'<a href="/Results and Statistics" target="_self">Results and Statistics</a>'
+        )
         loc_name = (
             self.loc.display_name
             if self.sanitized_name != "ping_pong"
@@ -320,7 +323,7 @@ class SportEvent:
 - **Location:** {loc_name} (see also location tab)
 - **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{days}**
 - **Organizers:** {contact_link} (see also contact tab)
-- **Point weight factor:** {self.point_weight_factor:.1f} (due to {self.num_players_per_subteam*self.num_subteams*3} attending players, see statistics tab for more info)"""
+- **Point weight factor:** {self.point_weight_factor:.1f} (due to {self.num_players_per_subteam*self.num_subteams*3} attending players, see {stats_link} for more info)"""
         return text
 
     @property
