@@ -17,6 +17,7 @@ For each sport, the total amount of points a main team achieved is summed up and
 We then weight each sport roughly proportional to the number of players attending - since there are more than 50 players taking part in Ping Pong, we multiply the final score for that by 2.5, while the smallest sports with only 9 attendees like Chess or Tennis only get a weight of 1. While this is of course not perfect (individual Chess games now still count a little more than individual Ping Pong games), it means that each and every game somehow matters for your team's final score.
 
 The following plot shows the current standings, both for each of the sports individually, and finally the total score, which is just the sum of the rescaled sports scores.\\
+Note that we also rescale the points by the percentage of games finished so far.\\
 Let us know if you have any questions!"""
 )
 
@@ -58,6 +59,9 @@ for i, sport in enumerate(hf.SPORTS_LIST):
     )
     if sport == "running_sprints":
         colname = f"{event.icon} (✔️) x {event.point_weight_factor:.1f}"
+    else:
+        result_perc *= num_done / num_tot
+        result_perc = round(result_perc, 1)
     df.insert(i * 2 + 1, colname, result_perc)
 score_df = df[[col for col in df.columns if " x " in col]].copy()
 score_df["Total Score"] = score_df.sum(axis=1)  # / score_df.sum(axis=0).sum() * 1000
@@ -89,7 +93,7 @@ chart = (
     alt.Chart(score_df)
     .mark_bar()
     .encode(
-        y=alt.Y("Sport:N", title=""),
+        y=alt.Y("Sport:N", title="", axis=alt.Axis(labelFontWeight="bold")),
         x=alt.X("Score:Q"),
         color=team_colors,
         order=alt.Order(
