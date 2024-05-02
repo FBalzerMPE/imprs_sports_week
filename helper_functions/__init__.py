@@ -8,6 +8,7 @@ from .sport_event_registry import *
 from .sport_organizer_registry import *
 from .streamlit_util import *
 from .util import *
+from .statistics_display import st_display_top_scorers
 
 __all__ = [
     "create_institute_plot",
@@ -28,4 +29,6 @@ __all__ = [
     "turn_series_list_to_dataframe",
     "copy_to_clipboard",
     "ALL_TEAMS",
+    "register_or_add_to_dict",
+    "st_display_top_scorers",
 ]

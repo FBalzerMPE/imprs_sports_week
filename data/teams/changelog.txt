@@ -144,7 +144,6 @@ Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.
 + Moving 'Glass Wildebeest' (Team B) from '03' to '' in ping_pong.
 + Moving 'Athletic Carp' (Team B) from 'R' to '03' in ping_pong.
 
-
 Moving 'Tan Crane' (Team B) from '1' to '' in capture_the_flag.
 Moving 'Scientific Angelfish' (Team C) from '1' to '' in capture_the_flag.
 Moving 'Exemplary Cassowary' (Team A) from '1' to '' in capture_the_flag.
@@ -154,6 +153,8 @@ Moving 'Wide Lionfish' (Team B) from '1' to '' in capture_the_flag.
 + Moving 'Shameless Pufferfish' (Team A) from '15' to '' in ping_pong.
 + Moving 'Shameless Pufferfish' (Team A) from '' to '15' in ping_pong.
 + Moving 'Limp Monkey' (Team A) from 'R' to '19' in ping_pong.
++ Moving 'Gargantuan Okapi' (Team C) from '3' to '' in beer_pong.
++ Moving 'Pushy Bulldog' (Team C) from '' to '3' in beer_pong.
 
 # They need to stay in the subteam in order for their first match to count
 # One match against Impractical Elephant, one against Trifling Tarpon
@@ -175,3 +176,5 @@ Moving 'Motherly Woodpecker' (Team A) from '' to '14' in ping_pong.
 Moving 'Reflecting Pug' (Team C) from '1' to '' in beer_pong.
 
 Moving 'Pricey Collie' (Team A) from '1' to '' in foosball.
+
+Moving 'Real Mouse' (Team B) from '2' to '' in spikeball.

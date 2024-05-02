@@ -130,3 +130,14 @@ def deprecated(reason):
 
     else:
         raise TypeError(repr(type(reason)))
+
+
+def register_or_add_to_dict(d: dict[str, float], key: str, val: float):
+    """Registers the value with the given key in the dict if not present,
+    or adds it to the existing value if already there.
+    Therefore mutates the dict!
+    """
+    if key in d:
+        d[key] += val
+    else:
+        d[key] = val

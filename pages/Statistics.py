@@ -107,6 +107,9 @@ chart = (
 st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
 
+hf.st_display_top_scorers()
+
+
 markdown_text = hf.read_event_desc("../helper_texts/statistics")
 st.markdown(markdown_text, unsafe_allow_html=True)
 c = hf.create_sport_dist_altair_chart()
