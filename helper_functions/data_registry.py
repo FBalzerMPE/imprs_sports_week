@@ -40,6 +40,8 @@ def get_subteams() -> dict[str, Subteam]:
             column = df[f"subteam_{sport}"]
             for team_key in column[column.notna()].unique():
                 players = df[column == team_key]["nickname"].tolist()
+                if sport == "ping_pong":
+                    team_key = f"{team_key:0>2}" if team_key != "R" else team_key  # Ensure we load it in as string
                 subteam = Subteam(
                     sport,
                     main_team_letter=team.team_letter,
@@ -71,6 +73,8 @@ def get_matches() -> list[Match]:
             match_list.append(Match.from_dataframe_entry(match_, subteams))
         except KeyError:
             print(f"Couldn't load {match_["full_key"]}.")
+            print(f"{match_["team_a"]} vs {match_["team_b"]}")
+
 
     return match_list
 

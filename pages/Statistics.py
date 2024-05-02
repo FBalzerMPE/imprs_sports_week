@@ -36,7 +36,6 @@ def _calc_score_for_team(match_df: pd.DataFrame, team_letter: str, sport: str) -
         sport_df["winner"].apply(lambda x: len(x) > 1 and team_letter in x)
     )
     return num_won + 0.5 * num_tied
-    pass
 
 
 sport_nums = {

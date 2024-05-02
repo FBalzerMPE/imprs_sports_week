@@ -8,7 +8,7 @@
 + Moving 'Marvelous Opossum' (Team A) from 'R' to '' in foosball.
 + Moving 'Gargantuan Okapi' (Team C) from 'R' to '' in capture_the_flag.
 + Moving 'Earnest Snail' (Team C) from '' to 'R' in basketball.
-Moving 'Rewarding Ermine' (Team C) from 'R' to '' in capture_the_flag.
++ Moving 'Rewarding Ermine' (Team C) from 'R' to '' in capture_the_flag.
 + Moving 'Magnificent Barracuda' (Team A) from '1' to 'R' in football.
 + Moving 'Magnificent Barracuda' (Team A) from 'R' to '1' in football.
 + Moving 'Hasty Emu' (Team B) from '' to 'R' in chess.
@@ -149,12 +149,29 @@ Moving 'Tan Crane' (Team B) from '1' to '' in capture_the_flag.
 Moving 'Scientific Angelfish' (Team C) from '1' to '' in capture_the_flag.
 Moving 'Exemplary Cassowary' (Team A) from '1' to '' in capture_the_flag.
 Moving 'Failing Muskrat' (Team C) from '1' to '' in capture_the_flag.
+Moving 'Wide Lionfish' (Team B) from '1' to '' in capture_the_flag.
+
++ Moving 'Shameless Pufferfish' (Team A) from '15' to '' in ping_pong.
++ Moving 'Shameless Pufferfish' (Team A) from '' to '15' in ping_pong.
++ Moving 'Limp Monkey' (Team A) from 'R' to '19' in ping_pong.
 
 # They need to stay in the subteam in order for their first match to count
-Moving 'Shameless Pufferfish' (Team A) from '15' to '' in ping_pong.
-Moving 'Shameless Pufferfish' (Team A) from '' to '15' in ping_pong.
+# One match against Impractical Elephant, one against Trifling Tarpon
 Moving 'Tan Crane' (Team B) from '09' to '' in ping_pong.
 Moving 'Tan Crane' (Team B) from '' to '09' in ping_pong.
 
-Moving 'Motherly Woodpecker' (Team A) from '14' to '' in ping_pong.
+# One match remaining agains Striped Himalayan
+Moving 'Reflecting Pug' (Team C) from '09' to '' in ping_pong.
+Moving 'Reflecting Pug' (Team C) from '' to '09' in ping_pong.
 
+# One match remaining against Frightening Avocet
+Moving 'Pricey Collie' (Team A) from '09' to '' in ping_pong.
+Moving 'Pricey Collie' (Team A) from '' to '09' in ping_pong.
+
+# Two matches remaining against Gargantuan Okapi and Gripping Penguin
+Moving 'Motherly Woodpecker' (Team A) from '14' to '' in ping_pong.
+Moving 'Motherly Woodpecker' (Team A) from '' to '14' in ping_pong.
+
+Moving 'Reflecting Pug' (Team C) from '1' to '' in beer_pong.
+
+Moving 'Pricey Collie' (Team A) from '1' to '' in foosball.
