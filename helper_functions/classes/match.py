@@ -110,6 +110,23 @@ class Match:
             name_a, name_b = [get_real_player_name(player) for player in self.involved_players]
             text = text.replace(" vs.", f" **({name_a})** vs.") + f" ({name_b})"
         return text
+
+    @property
+    def winning_players(self) -> list[str]:
+        if self.winner != "" and self.winner in ["A", "B", "C"]:
+            if self.subteam_a.main_team_letter == self.winner:
+                return self.subteam_a.players
+            elif self.subteam_b.main_team_letter == self.winner:
+                return self.subteam_b.players
+            else:
+                print(f"Unrecognized winning team for '{self.match_key}'")
+        return []
+    
+    @property
+    def tying_players(self) -> list[str]:
+        if self.winner in ["AB", "AC", "BC"]:
+            return self.involved_players
+        return []
     
     def get_desc_with_real_names(self) -> str:
         """Retrieve the description, typing out the full teams' attendances."""
