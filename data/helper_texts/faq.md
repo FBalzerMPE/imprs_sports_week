@@ -7,7 +7,7 @@ This way, you are more flexible, and you won't encounter stressful double-bookin
 
 ### Why all this hassle with the big teams and subteams? How does the scoring system work?
 
-We have opted for this way of organizing the sports week as it offers advantages for planning the events, and it builds an overarching for the whole week. You can look at <a href="Statistics" target="_self">the statistics page</a> for more information on how they were built from the survey results.\
+We have opted for this way of organizing the sports week as it offers advantages for planning the events, and it builds an overarching for the whole week. You can look at <a href="Results and Statistics" target="_self">the statistics page</a> for more information on how they were built from the survey results.\
 For each sport, every team can reach a certain score (how exactly is specified in the *Format* section on each page). These scores are mapped to a scale of 0 to 10 each, and finally summed up. This ensures that each sport will be weighted equally in the end, and every contribution counts.
 
 ### Can I reschedule one of my ping pong matches?

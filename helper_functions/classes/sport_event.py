@@ -333,6 +333,11 @@ class SportEvent:
     @property
     def match_df(self) -> pd.DataFrame:
         return turn_series_list_to_dataframe([m.as_series for m in self.matches])
+    
+    @property
+    def single_match_value_factor(self) -> float:
+        """How much winning a single match contributes to the final score of your team for the individual person."""
+        return 100/self.num_players_per_subteam/len(self.matches)*self.point_weight_factor
 
     def get_clear_name_schedule(self) -> str:
         text = f"## {self.name}\n\n### Subteams\n\n"

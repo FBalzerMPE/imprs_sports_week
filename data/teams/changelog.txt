@@ -106,9 +106,23 @@ Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.
 + Moving 'Failing Muskrat' (Team C) from '1' to '' in football.
 + Moving 'Inconsequential Bandicoot' (Team B) from 'R' to '4' in foosball.
 
+# Register the players that took part in the football matches in the end
++ Moving 'Awkward Cichlid' (Team B) from 'R' to '1' in football.
++ Moving 'Lone Rhinoceros' (Team B) from 'R' to '1' in football.
++ Moving 'Radiant Booby' (Team B) from 'R' to '1' in football.
++ Moving 'Cool Weasel' (Team A) from 'R' to '1' in football.
++ Moving 'Trifling Tarpon' (Team A) from 'R' to '1' in football.
++ Moving 'Pushy Bulldog' (Team C) from 'R' to '1' in football.
+
 + Moving 'Gargantuan Okapi' (Team C) from '3' to '' in spikeball.
 + Moving 'Honored Tamaskan' (Team C) from '' to '3' in spikeball.
 
 + Moving 'Amusing Seal' (Team A) from '4' to '' in spikeball.
 + Moving 'Deficient Squid' (Team A) from 'R' to '4' in spikeball.
+
+Moving 'Shameless Pufferfish' (Team A) from '3' to '' in spikeball.
+Moving 'Lone Rhinoceros' (Team B) from '1' to '' in spikeball.
+Moving 'Tan Crane' (Team B) from '1' to '' in capture_the_flag.
+Moving 'Nice Albatross' (Team B) from 'R' to '' in spikeball.
+Moving 'Nice Albatross' (Team B) from '1' to '' in capture_the_flag.
 

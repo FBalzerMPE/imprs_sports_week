@@ -8,15 +8,15 @@ volleyball,B: 1,C: 2,1,Monday,18:30,"1:2 (15:6, 10:15, 10:15)",C,2024-04-29 18:3
 volleyball,B: 2,C: 1,2,Monday,18:30,"1:2 (15:11, 12:15, 13:15)",C,2024-04-29 18:30:00,2700,B: 2,C: 1,volleyballB: 2C: 1
 volleyball,C: 2,A: 1,1,Monday,19:15,"2:0 (15:10, 15:10)",C,2024-04-29 19:15:00,2700,C: 2,A: 1,volleyballC: 2A: 1
 volleyball,C: 1,A: 2,2,Monday,19:15,"1:2 (16:14, 12:15, 10:15)",A,2024-04-29 19:15:00,2700,C: 1,A: 2,volleyballC: 1A: 2
-chess,A: Cool Weasel,B: Awkward Cichlid,1,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 2,B: 1,chessA: 2B: 1
-chess,A: Trifling Tarpon,B: Ornate Cockatoo,2,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 1,B: 3,chessA: 1B: 3
-chess,A: Pleasing Mongrel,B: Trivial Uguisu,3,Tuesday,17:30,,,2024-04-30 17:30:00,2400,A: 3,B: 2,chessA: 3B: 2
-chess,B: Hasty Emu,C: Reckless Swan,1,Tuesday,18:50,,,2024-04-30 18:50:00,2400,B: 4,C: 3,chessB: 1C: 3
-chess,B: Ornate Cockatoo,C: Disloyal Hagfish,2,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 3,C: 2,chessB: 3C: 2
-chess,B: Trivial Uguisu,C: Clever Wombat,3,Tuesday,18:10,,,2024-04-30 18:10:00,2400,B: 2,C: 1,chessB: 2C: 1
-chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:10,,,2024-04-30 18:10:00,2400,C: 3,A: 2,chessC: 3A: 2
-chess,C: Disloyal Hagfish,A: Trifling Tarpon,2,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 2,A: 1,chessC: 2A: 1
-chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,,,2024-04-30 18:50:00,2400,C: 1,A: 3,chessC: 1A: 3
+chess,A: Cool Weasel,B: Awkward Cichlid,1,Tuesday,17:30,0:1,B,2024-04-30 17:30:00,2400,A: 2,B: 1,chessA: 2B: 1
+chess,A: Trifling Tarpon,B: Ornate Cockatoo,2,Tuesday,17:30,1:0,A,2024-04-30 17:30:00,2400,A: 1,B: 3,chessA: 1B: 3
+chess,A: Pleasing Mongrel,B: Trivial Uguisu,3,Tuesday,17:30,1:0,A,2024-04-30 17:30:00,2400,A: 3,B: 2,chessA: 3B: 2
+chess,B: Hasty Emu,C: Reckless Swan,1,Tuesday,18:50,1:0,B,2024-04-30 18:50:00,2400,B: 4,C: 3,chessB: 1C: 3
+chess,B: Ornate Cockatoo,C: Disloyal Hagfish,2,Tuesday,18:10,0:1,C,2024-04-30 18:10:00,2400,B: 3,C: 2,chessB: 3C: 2
+chess,B: Trivial Uguisu,C: Clever Wombat,3,Tuesday,18:10,1:0,B,2024-04-30 18:10:00,2400,B: 2,C: 1,chessB: 2C: 1
+chess,C: Reckless Swan,A: Cool Weasel,1,Tuesday,18:10,0:1,A,2024-04-30 18:10:00,2400,C: 3,A: 2,chessC: 3A: 2
+chess,C: Disloyal Hagfish,A: Trifling Tarpon,2,Tuesday,18:50,0:1,A,2024-04-30 18:50:00,2400,C: 2,A: 1,chessC: 2A: 1
+chess,C: Clever Wombat,A: Pleasing Mongrel,3,Tuesday,18:50,0:1,A,2024-04-30 18:50:00,2400,C: 1,A: 3,chessC: 1A: 3
 football,A: 1,B: 1,1,Tuesday,17:45,6:1,A,2024-04-30 17:45:00,2700,A: 1,B: 1,footballA: 1B: 1
 football,B: 1,C: 1,1,Tuesday,18:30,2:2,BC,2024-04-30 18:30:00,2700,B: 1,C: 1,footballB: 1C: 1
 football,C: 1,A: 1,1,Tuesday,19:15,0:3,A,2024-04-30 19:15:00,2700,C: 1,A: 1,footballC: 1A: 1
@@ -74,7 +74,7 @@ ping_pong,B: Hasty Emu,C: Minty Possum,1,Monday,19:15,"0:2 (9:11, 7:11)",C,2024-
 ping_pong,A: Magnificent Barracuda,B: Thankful Kakapo,2,Monday,19:15,2:3,B,2024-04-29 19:15:00,1800,A: 07,B: 06,ping_pongA: 07B: 06
 ping_pong,A: Damaged Fly,B: Radiant Booby,1,Monday,19:45,1:3,B,2024-04-29 19:45:00,1800,A: 02,B: 02,ping_pongA: 02B: 02
 ping_pong,C: Reflecting Pug,A: Shameless Pufferfish,3,Monday,15:15,0:3,A,2024-04-29 15:15:00,1800,C: 09,A: 15,ping_pongC: 09A: 15
-ping_pong,A: Nutty Sheep,B: Ill-fated Meerkat,2,Monday,20:15,,,2024-04-29 20:15:00,1800,A: 16,B: 13,ping_pongA: 16B: 13
+ping_pong,A: Nutty Sheep,B: Ill-fated Meerkat,2,Monday,20:15,"3:1 (11:9, 11:4, 7:77, 14:12)",A,2024-04-29 20:15:00,1800,A: 16,B: 13,ping_pongA: 16B: 13
 ping_pong,A: Cool Weasel,B: Animated Yak,1,Monday,15:45,"0:3 (9:11, 8:11,7:11)",B,2024-04-29 15:45:00,1800,A: 06,B: 14,ping_pongA: 06B: 14
 ping_pong,C: Failing Muskrat,A: Cool Weasel,1,Monday,20:45,"1:3 (9:11, 11:8, 4:11, 7:11)",A,2024-04-29 20:45:00,1800,C: 06,A: 06,ping_pongC: 06A: 06
 ping_pong,C: Minty Possum,A: Damaged Fly,2,Monday,20:45,,,2024-04-29 20:45:00,1800,C: 07,A: 02,ping_pongC: 07A: 02

@@ -59,7 +59,7 @@ def get_match_df() -> pd.DataFrame:
         return pd.DataFrame()
     match_df = pd.read_csv(fpath)
     match_df["start"] = pd.to_datetime(match_df["start"])
-    return match_df
+    return match_df.infer_objects(copy=True).fillna("")  # type: ignore
 
 
 def get_matches() -> list[Match]:
