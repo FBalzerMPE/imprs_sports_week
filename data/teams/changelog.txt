@@ -124,18 +124,37 @@ Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.
 + Moving 'Deficient Squid' (Team A) from 'R' to '4' in spikeball.
 + Moving 'Well-documented Dodo' (Team C) from '10' to '' in ping_pong.
 + Moving 'Impractical Elephant' (Team C) from 'R' to '10' in ping_pong.
++ Moving 'Glass Wildebeest' (Team B) from '1' to '' in foosball.
++ Moving 'Gripping Penguin' (Team B) from 'R' to '1' in foosball.
++ Moving 'Minty Possum' (Team C) from '3' to '' in foosball.
++ Moving 'Unimportant Beetle' (Team C) from 'R' to '3' in foosball.
++ Moving 'Minty Possum' (Team C) from '3' to '' in beer_pong.
++ Moving 'Unimportant Beetle' (Team C) from '' to '3' in beer_pong.
++ Moving 'Nice Albatross' (Team B) from 'R' to '' in spikeball.
++ Moving 'Lone Rhinoceros' (Team B) from '1' to '' in spikeball.
++ Moving 'Athletic Carp' (Team B) from 'R' to '1' in spikeball.
++ Moving 'Shameless Pufferfish' (Team A) from '3' to '' in spikeball.
++ Moving 'Soulful Ant' (Team A) from 'R' to '3' in spikeball.
 
-Moving 'Shameless Pufferfish' (Team A) from '3' to '' in spikeball.
-Moving 'Lone Rhinoceros' (Team B) from '1' to '' in spikeball.
++ Moving 'Nice Albatross' (Team B) from '1' to '' in capture_the_flag.
++ Moving 'Athletic Carp' (Team B) from 'R' to '1' in capture_the_flag.
++ Moving 'Motherly Woodpecker' (Team A) from '1' to '' in capture_the_flag.
++ Moving 'Glorious Mule' (Team A) from 'R' to '1' in capture_the_flag.
+
++ Moving 'Glass Wildebeest' (Team B) from '03' to '' in ping_pong.
++ Moving 'Athletic Carp' (Team B) from 'R' to '03' in ping_pong.
+
+
 Moving 'Tan Crane' (Team B) from '1' to '' in capture_the_flag.
-Moving 'Nice Albatross' (Team B) from 'R' to '' in spikeball.
-Moving 'Nice Albatross' (Team B) from '1' to '' in capture_the_flag.
 Moving 'Scientific Angelfish' (Team C) from '1' to '' in capture_the_flag.
-Moving 'Motherly Woodpecker' (Team A) from '1' to '' in capture_the_flag.
+Moving 'Exemplary Cassowary' (Team A) from '1' to '' in capture_the_flag.
+Moving 'Failing Muskrat' (Team C) from '1' to '' in capture_the_flag.
 
-Moving 'Glass Wildebeest' (Team B) from '03' to '' in ping_pong.
+# They need to stay in the subteam in order for their first match to count
 Moving 'Shameless Pufferfish' (Team A) from '15' to '' in ping_pong.
+Moving 'Shameless Pufferfish' (Team A) from '' to '15' in ping_pong.
 Moving 'Tan Crane' (Team B) from '09' to '' in ping_pong.
+Moving 'Tan Crane' (Team B) from '' to '09' in ping_pong.
+
 Moving 'Motherly Woodpecker' (Team A) from '14' to '' in ping_pong.
 
-Moving 'Glass Wildebeest' (Team B) from '1' to '' in foosball.
