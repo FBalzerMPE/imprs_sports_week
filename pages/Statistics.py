@@ -12,18 +12,18 @@ tab_names = ["📊Results", "⭐Top Scorers", "📋Team Creation", "❓FAQ"]
 tabs = st.tabs(tab_names)
 # Results tab:
 with tabs[0]:
-    st.write(
-        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony, 21:00 at the MPA seminar room!"
-    )
-    if hf.DATAPATH.joinpath("hidden").exists():
-        hf.st_display_full_results()
+    # st.write(
+    #     "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony, 21:00 at the MPA seminar room!"
+    # )
+    # if hf.DATAPATH.joinpath("hidden").exists():
+    hf.st_display_full_results()
 # Scorers tab:
 with tabs[1]:
-    st.write(
-        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony, 21:00 at the MPA seminar room!"
-    )
-    if hf.DATAPATH.joinpath("hidden").exists():
-        hf.st_display_top_scorers()
+    # st.write(
+    #     "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony, 21:00 at the MPA seminar room!"
+    # )
+    # if hf.DATAPATH.joinpath("hidden").exists():
+    hf.st_display_top_scorers()
 # Team creation tab:
 with tabs[2]:
     st.write("### Player distribtions and more")
