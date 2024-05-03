@@ -106,7 +106,7 @@ chart = (
 
 st.write(_INTRO_TEXT)
 
-tab_names = ["Results", "Top Scorers", "Team Creation"]
+tab_names = ["📊Results", "⭐Top Scorers", "📋Team Creation", "❓FAQ"]
 tabs = st.tabs(tab_names)
 with tabs[0]:
     st.write("### Results")
@@ -121,3 +121,11 @@ with tabs[2]:
     st.altair_chart(c, theme="streamlit", use_container_width=True)
     markdown_text = hf.read_event_desc("../helper_texts/statistics")
     st.markdown(markdown_text, unsafe_allow_html=True)
+
+with tabs[3]:
+    markdown_text = hf.read_event_desc("../helper_texts/faq")
+    questions = markdown_text.split("\n\n")
+    header = questions.pop(0)
+    for q, a in zip(questions[::2], questions[1::2]):
+        with st.expander(q):
+            st.write(a, unsafe_allow_html=True)

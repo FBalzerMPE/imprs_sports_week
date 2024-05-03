@@ -135,6 +135,7 @@ Moving 'Hasty Emu' (Team B) from 'R' to '4' in chess.
 + Moving 'Athletic Carp' (Team B) from 'R' to '1' in spikeball.
 + Moving 'Shameless Pufferfish' (Team A) from '3' to '' in spikeball.
 + Moving 'Soulful Ant' (Team A) from 'R' to '3' in spikeball.
+Moving 'Real Mouse' (Team B) from '2' to '' in spikeball.
 
 + Moving 'Nice Albatross' (Team B) from '1' to '' in capture_the_flag.
 + Moving 'Athletic Carp' (Team B) from 'R' to '1' in capture_the_flag.
@@ -179,4 +180,4 @@ Moving 'Reflecting Pug' (Team C) from '1' to '' in beer_pong.
 
 Moving 'Pricey Collie' (Team A) from '1' to '' in foosball.
 
-Moving 'Real Mouse' (Team B) from '2' to '' in spikeball.
+Moving 'Lovely Heron' (Team A) from '3' to '' in beer_pong.

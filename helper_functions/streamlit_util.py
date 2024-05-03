@@ -26,11 +26,10 @@ def st_set_up_header_and_sidebar():
             ],
             Page(
                 "pages/Statistics.py",
-                "Results and Statistics",
+                "Results and more",
                 ":bar_chart:",
                 in_section=False,
             ),
-            Page("pages/FAQ.py", "FAQ", ":question:"),
             Page("pages/Contact.py", "Contact", ":speech_balloon:", in_section=False),
         ]
     )

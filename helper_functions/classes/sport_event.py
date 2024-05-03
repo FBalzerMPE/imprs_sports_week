@@ -307,7 +307,7 @@ class SportEvent:
             f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
         stats_link = (
-            f'<a href="/Results and Statistics" target="_self">Results and Statistics</a>'
+            f'<a href="/Results and more" target="_self">Results and more</a>'
         )
         loc_name = (
             self.loc.display_name

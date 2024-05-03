@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 import numpy as np
 import pandas as pd
+
 from ..setup.setup_util import get_real_player_name
 
 
@@ -49,9 +50,9 @@ class Subteam:
         """This subteam's full key or player name if the
         team only consists of one player."""
         return (
-            self.full_key
-            if len(self.players) > 1
-            else f"{self.main_team_letter}: {self.players[0]}"
+            f"{self.main_team_letter}: {self.players[0]}"
+            if self.sport in ["ping_pong", "tennis", "chess"]
+            else self.full_key
         )
 
     @property

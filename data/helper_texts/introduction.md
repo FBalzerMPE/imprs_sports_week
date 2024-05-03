@@ -42,11 +42,11 @@ More information on that might follow, most likely via the Signal group chat.
 
 ### Results
 
-You can find daily-updated results <a href="Results and Statistics" target="_self">here</a>.
+You can find daily-updated results <a href="Results and more" target="_self">here</a>.
 
 ### Scheduling process and statistics
 
-For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Results and Statistics" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
+For the nerds amongst you we've laid out how we generated the (sub- and main) teams and each sport's schedules <a href="Results and more" target="_self">here</a>; in short, they are chosen almost completely randomly, we've only made minor adjustments to account for cases where our algorithm failed.
 
 ## Late sign-ups
 
@@ -55,7 +55,7 @@ We'll then assign you to the team fitting these sports best, and register you as
 
 ## Questions?
 
-If there is anything left unclear or you have feedback, feel free to read our <a href="FAQ" target="_self">FAQ</a> or to contact us!
+If there is anything left unclear or you have feedback, feel free to read our <a href="Results and more" target="_self">FAQ</a> or to contact us!
 See <a href="Contact" target="_self">here</a> for an overview of the responsible people for each sport.
 
 We're anticipating loads of sore muscles and fun memories!
