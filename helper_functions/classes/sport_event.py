@@ -381,6 +381,7 @@ class SportEvent:
         if self.sanitized_name != "ping_pong":
             _st_display_match_df(df, is_single, self.pitch_type_name)
             return
+        # Since ping pong is during the whole week, we display them in a tabbed view
         df["location"] = df["location"].apply(
             {"1": "MPE table", "2": "IPP table 1", "3": "IPP table 2"}.get
         )

@@ -110,10 +110,17 @@ tab_names = ["📊Results", "⭐Top Scorers", "📋Team Creation", "❓FAQ"]
 tabs = st.tabs(tab_names)
 with tabs[0]:
     st.write("### Results")
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
-    st.write(_RESULTS_TEXT)
+    st.write(
+        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony at 21:00!"
+    )
+    # st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    # st.write(_RESULTS_TEXT)
 with tabs[1]:
-    hf.st_display_top_scorers()
+    st.write("### Top scorers")
+    st.write(
+        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony 21:00!"
+    )
+    # hf.st_display_top_scorers()
 
 with tabs[2]:
     st.write("### Player distribtion and more")
