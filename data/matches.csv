@@ -44,7 +44,7 @@ spikeball,C: 4,A: 4,2,Thursday,19:45,2:1,C,2024-05-02 19:45:00,1800,C: 4,A: 4,sp
 spikeball,C: Sneaky Quokka,A: 3,2,Thursday,19:15,0:2,A,2024-05-02 19:15:00,1800,C: 2,A: 3,spikeballC: 2A: 3
 spikeball,C: Minty Possum,A: 2,3,Thursday,19:15,2:0,C,2024-05-02 19:15:00,1800,C: 3,A: 2,spikeballC: 3A: 2
 spikeball,C: 1,A: 1,1,Thursday,19:15,2:0,C,2024-05-02 19:15:00,1800,C: 1,A: 1,spikeballC: 1A: 1
-beer_pong,A: 3,B: 2,2,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 3,B: 2,beer_pongA: 3B: 2
+beer_pong,A: 3,B: 2,2,Friday,17:30,7 left,B,2024-05-03 17:30:00,1200,A: 3,B: 2,beer_pongA: 3B: 2
 beer_pong,A: 2,B: 1,1,Friday,17:30,,,2024-05-03 17:30:00,1200,A: 2,B: 1,beer_pongA: 2B: 1
 beer_pong,A: 1,B: 3,1,Friday,17:50,,,2024-05-03 17:50:00,1200,A: 1,B: 3,beer_pongA: 1B: 3
 beer_pong,B: 2,C: 1,2,Friday,17:50,,,2024-05-03 17:50:00,1200,B: 2,C: 1,beer_pongB: 2C: 1
@@ -111,11 +111,11 @@ ping_pong,B: Noted Hippopotamus,C: Unlucky Hare,1,Friday,19:15,,,2024-05-03 19:1
 ping_pong,C: Neglected Harrier,A: Elastic Pekingese,1,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 08,A: 20,ping_pongC: 08A: 20
 ping_pong,C: Vivacious Axolotl,A: Ignorant Lemur,2,Friday,19:45,,,2024-05-03 19:45:00,1800,C: 12,A: 11,ping_pongC: 12A: 11
 ping_pong,A: Awesome Wolverine,B: Jumpy Catfish,3,Friday,19:45,,,2024-05-03 19:45:00,1800,A: 05,B: 11,ping_pongA: 05B: 11
-ping_pong,B: Frightening Avocet,C: Quixotic Zebu,2,Friday,17:00,,,2024-05-03 17:00:00,1800,B: 15,C: 05,ping_pongB: 15C: 05
+ping_pong,B: Frightening Avocet,C: Quixotic Zebu,2,Friday,17:00,0:3,C,2024-05-03 17:00:00,1800,B: 15,C: 05,ping_pongB: 15C: 05
 ping_pong,A: Ignorant Lemur,B: Glass Wildebeest,2,Friday,20:15,,,2024-05-03 20:15:00,1800,A: 11,B: 03,ping_pongA: 11B: 03
 ping_pong,C: Unlucky Hare,A: Magnificent Barracuda,3,Friday,20:15,,,2024-05-03 20:15:00,1800,C: 04,A: 07,ping_pongC: 04A: 07
-ping_pong,C: Quixotic Zebu,A: Awesome Wolverine,1,Friday,16:30,,,2024-05-03 16:30:00,1800,C: 05,A: 05,ping_pongC: 05A: 05
-ping_pong,B: Athletic Carp,C: Red Eel,3,Friday,17:00,,,2024-05-03 17:00:00,1800,B: 03,C: 15,ping_pongB: 03C: 15
+ping_pong,C: Quixotic Zebu,A: Awesome Wolverine,1,Friday,16:30,3:0,C,2024-05-03 16:30:00,1800,C: 05,A: 05,ping_pongC: 05A: 05
+ping_pong,B: Athletic Carp,C: Red Eel,3,Friday,17:00,0:3,C,2024-05-03 17:00:00,1800,B: 03,C: 15,ping_pongB: 03C: 15
 ping_pong,A: Miserable Alligator,C: Euphoric Vulture,1,Thursday,18:15,0:3,C,2024-05-02 18:15:00,1800,A: 17,C: 17,ping_pongA: 17C: 17
 ping_pong,B: Awkward Cichlid,C: Euphoric Vulture,1,Thursday,18:45,1:3,C,2024-05-02 18:45:00,1800,B: 17,C: 17,ping_pongB: 17C: 17
 ping_pong,A: Miserable Alligator,B: Awkward Cichlid,1,Thursday,19:15,1:3,B,2024-05-02 19:15:00,1800,A: 17,B: 17,ping_pongA: 17B: 17

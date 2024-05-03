@@ -6,9 +6,9 @@ from .plot_util import *
 from .plotting import *
 from .sport_event_registry import *
 from .sport_organizer_registry import *
+from .statistics_display import st_display_full_results, st_display_top_scorers
 from .streamlit_util import *
 from .util import *
-from .statistics_display import st_display_top_scorers
 
 __all__ = [
     "create_institute_plot",
@@ -31,4 +31,5 @@ __all__ = [
     "ALL_TEAMS",
     "register_or_add_to_dict",
     "st_display_top_scorers",
+    "st_display_full_results",
 ]
