@@ -53,7 +53,7 @@ _SCORER_TEXT = """The table above shows the top-scoring players!\\
 What do these scores mean and how are they calculated, you ask?\\
 Well, they roughly reflect how many points these individuals have solely achieved for their team!
 
-We calculate the score $S$ by summing the winning values, $S=\\sum_{{i}}(w_i + t_i/2)X_i$, where $w_i$ and $t_i$ are the amounts of games won and tied for each attended sport $i$, and $X_i$ is the contribution value of a single player for a sport.\\
+We calculate the score $S$ by summing the winning values, $S=\\sum_{{i}}(w_i + t_i/2)X_i$, where $w_i$ and $t_i$ are the amounts of games won and tied for each attended sport $i$, and $X_i$ is the contribution value of a single player for a single match in sport $i$.\\
 We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor that can also be seen in the plot above, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for football, $X_{{\\rm F}}=150/(3\\cdot8)=6.25$, and for chess $X_{{\\rm C}}=100/(9\\cdot1)=11.1$.
 As mentioned above, the sports value the individual players slightly differently, but that is fine; it's all in the range between $5.5$ and $11.1$.\\
 Note that we divide by the planned number of players in a subteam and not the actual one, to even things out; you get the same amount of points for winning in football in a team of just the planned 8 as in a team of 10.
