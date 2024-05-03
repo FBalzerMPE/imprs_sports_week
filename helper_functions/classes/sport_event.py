@@ -461,6 +461,8 @@ class SportEvent:
                 ]
             else:
                 "The location for this event is marked in red, hover over its name to find more information."
+            if self.sanitized_name in ["foosball", "beer_pong"]:
+                st.write("In case you have trouble finding the MPA locations, try to enter through the MPA entrance. The MPE entrance will be locked from 17:00 onwards. You can go below it to pass through to MPA, and there go to the basement - you should bump into people there.\\\nIn case you're completely stuck, let us know in the signal group.")
             create_map_plot(locs)
             if self.sanitized_name == "ping_pong":
                 display_ping_pong_loc_descs()

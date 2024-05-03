@@ -111,16 +111,18 @@ tabs = st.tabs(tab_names)
 with tabs[0]:
     st.write("### Results")
     st.write(
-        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony at 21:00!"
+        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony at 21:00 at the MPA seminar room!"
     )
-    # st.altair_chart(chart, theme="streamlit", use_container_width=True)
-    # st.write(_RESULTS_TEXT)
+    if hf.DATAPATH.joinpath("hidden").exists():
+        st.altair_chart(chart, theme="streamlit", use_container_width=True)
+        st.write(_RESULTS_TEXT)
 with tabs[1]:
     st.write("### Top scorers")
     st.write(
-        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony 21:00!"
+        "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony 21:00 at the MPA seminar room!"
     )
-    # hf.st_display_top_scorers()
+    if hf.DATAPATH.joinpath("hidden").exists():
+        hf.st_display_top_scorers()
 
 with tabs[2]:
     st.write("### Player distribtion and more")
