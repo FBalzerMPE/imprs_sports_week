@@ -1,6 +1,5 @@
-## General statistics
 
-Here, we provide some explanations as to how the teams were formed and the matches were scheduled. Also, you can find some overview plots in the end.
+The plots above provide an overview of some attributes of the more than ~~90~~ 115 participants of this sports week.
 
 ### Building the teams
 
@@ -9,9 +8,3 @@ We were thus faced with an optimization problem that I'm sure could be rigorousl
 We would calculate $f_{\rm eq}$ by simulating adding the player to each of the teams, and would then add them to the one where $f_{\rm eq}$ would be minimized. While this worked out alright, the balancing still left a few things to be desired. We then tried a few things to improve upon this; our scheme depends on the order that the participants are added, so it made sense to shuffle them in beforehand.\
 The first approach for this involved hunting for the perfect shuffling seed, but then we figured it might just be easier to order the players by the amount of sports they did, as adding players that do a low amount of sports later is usually much more convenient.\
 This approach worked well, although we did a random adjustment in the sorting that somehow more or less perfectly balanced the teams (if you see any weird dips in the distribution now that might be because of rescheduled players and matches - by the end of this week, there were more than 150 movements of players between subteams due to drop-outs and jump-ins).
-
-### Some more plots
-
-The following plots provide an overview of some attributes of the more than ~~90~~ 105 participants of this sports week.
-
-Note that these plots contain updated values; Due to latecomers and drop-outs, the teams aren't as evenly distributed as initially (but it's still pretty alright).
