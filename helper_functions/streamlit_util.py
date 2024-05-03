@@ -47,7 +47,7 @@ def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
         if f"{team.team_letter}: " in row_val or row_val == team.team_letter:
             rgb = team.rgb_colors
             return f"background-color: rgba({rgb[0]}, {rgb[1]}, {rgb[2]}, {alpha})"
-    if row_val in ["AB", "BC", "CD"]:
+    if row_val in ["AB", "BC", "AC"]:
         return f"background-color: rgba(255, 255, 50, {alpha})"
     return ""
 

@@ -63,6 +63,7 @@ Note that we divide by the planned number of players in a subteam and not the ac
 def st_display_top_scorers():
     score_df = _get_individual_score_df()
     col_config = {"avatar": st.column_config.ImageColumn("")}
+    # The formatted 'score' column is a relic before I had the progress bar.
     col_config["Score_num"] = st.column_config.ProgressColumn(
         "Score", max_value=max(score_df["Score_num"]), format=""
     )

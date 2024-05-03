@@ -155,11 +155,13 @@ Moving 'Wide Lionfish' (Team B) from '1' to '' in capture_the_flag.
 + Moving 'Limp Monkey' (Team A) from 'R' to '19' in ping_pong.
 + Moving 'Gargantuan Okapi' (Team C) from '3' to '' in beer_pong.
 + Moving 'Pushy Bulldog' (Team C) from '' to '3' in beer_pong.
++ Moving 'Grandiose Orang-utan' (Team B) from 'R' to '1' in capture_the_flag.
 
 # They need to stay in the subteam in order for their first match to count
 # One match against Impractical Elephant, one against Trifling Tarpon
-Moving 'Tan Crane' (Team B) from '09' to '' in ping_pong.
-Moving 'Tan Crane' (Team B) from '' to '09' in ping_pong.
++ Moving 'Tan Crane' (Team B) from '09' to 'R' in ping_pong.
++ Moving 'Nice Albatross' (Team B) from 'R' to '09' in ping_pong.
+
 
 # One match remaining agains Striped Himalayan
 Moving 'Reflecting Pug' (Team C) from '09' to '' in ping_pong.
