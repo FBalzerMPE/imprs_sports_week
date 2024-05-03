@@ -157,6 +157,8 @@ Moving 'Wide Lionfish' (Team B) from '1' to '' in capture_the_flag.
 + Moving 'Gargantuan Okapi' (Team C) from '3' to '' in beer_pong.
 + Moving 'Pushy Bulldog' (Team C) from '' to '3' in beer_pong.
 + Moving 'Grandiose Orang-utan' (Team B) from 'R' to '1' in capture_the_flag.
++ Moving 'Unlucky Hare' (Team C) from '1' to 'R' in beer_pong.
++ Moving 'Pushy Bulldog' (Team C) from '3' to '1' in beer_pong.
 
 # They need to stay in the subteam in order for their first match to count
 # One match against Impractical Elephant, one against Trifling Tarpon
@@ -169,8 +171,9 @@ Moving 'Reflecting Pug' (Team C) from '09' to '' in ping_pong.
 Moving 'Reflecting Pug' (Team C) from '' to '09' in ping_pong.
 
 # One match remaining against Frightening Avocet
-Moving 'Pricey Collie' (Team A) from '09' to '' in ping_pong.
-Moving 'Pricey Collie' (Team A) from '' to '09' in ping_pong.
++ Moving 'Pricey Collie' (Team A) from '09' to '' in ping_pong.
++ Moving 'Pricey Collie' (Team A) from '' to '09' in ping_pong.
++ Moving 'Elastic Pekingese' (Team A) from 'R' to '20' in ping_pong.
 
 # Two matches remaining against Gargantuan Okapi and Gripping Penguin
 Moving 'Motherly Woodpecker' (Team A) from '14' to '' in ping_pong.
@@ -181,3 +184,6 @@ Moving 'Reflecting Pug' (Team C) from '1' to '' in beer_pong.
 Moving 'Pricey Collie' (Team A) from '1' to '' in foosball.
 
 Moving 'Lovely Heron' (Team A) from '3' to '' in beer_pong.
+Moving 'Staid Hornbill' (Team A) from '2' to '' in beer_pong.
+Moving 'Miserable Alligator' (Team A) from 'R' to '2' in beer_pong.
+Moving 'Exemplary Cassowary' (Team A) from '2' to '3' in beer_pong.
