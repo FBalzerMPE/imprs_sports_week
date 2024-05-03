@@ -195,3 +195,5 @@ Moving 'Reflecting Pug' (Team C) from '1' to '' in beer_pong.
 + Moving 'Exemplary Cassowary' (Team A) from '2' to '' in beer_pong.
 Moving 'Grandiose Orang-utan' (Team B) from '' to '21' in ping_pong.
 Moving 'Radiant Booby' (Team B) from '2' to 'R' in beer_pong.
+Moving 'Minty Possum' (Team C) from '' to 'R' in beer_pong.
+Moving 'Minty Possum' (Team C) from 'R' to '' in beer_pong.
