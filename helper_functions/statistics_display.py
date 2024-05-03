@@ -8,7 +8,7 @@ from .streamlit_util import st_style_df_with_team_vals
 from .util import register_or_add_to_dict
 
 
-def _get_individual_score_df() -> pd.DataFrame:
+def _get_individual_score_df(num_to_cut_to: int = 10) -> pd.DataFrame:
     winner_dict: dict[str, float] = dict()
     for match in ALL_MATCHES:
         win_val = SPORTS_EVENTS[match.sport].single_match_win_value
@@ -39,10 +39,10 @@ def _get_individual_score_df() -> pd.DataFrame:
     top_ten = (
         players[["nickname", "Team", "Score_num", "Sports"]]
         .sort_values("Score_num", ascending=False)
-        .iloc[:10]
+        .iloc[:num_to_cut_to]
         .reset_index(drop=True)
     )
-    top_ten.insert(0, "Place", range(1, 11))
+    top_ten.insert(0, "Place", range(1, num_to_cut_to + 1))
     top_ten["avatar"] = top_ten["nickname"].apply(FpathRegistry.get_animal_pic_path)
     top_ten["Score"] = top_ten["Score_num"].apply(lambda x: f"{x:.1f}")
     # We only want to reveal the top ten
@@ -51,17 +51,17 @@ def _get_individual_score_df() -> pd.DataFrame:
 
 _SCORER_TEXT = """The table above shows the top-scoring players!\\
 What do these scores mean and how are they calculated, you ask?\\
-Well, they roughly reflect how many points these individuals have solely achieved for their team!
+They roughly reflect how many points these individuals have solely achieved for their team!
 
 We calculate the score $S$ by summing the winning values, $S=\\sum_{{i}}(w_i + t_i/2)X_i$, where $w_i$ and $t_i$ are the amounts of games won and tied for each attended sport $i$, and $X_i$ is the contribution value of a single player for a single match in sport $i$.\\
-We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor that can also be seen in the plot above, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for football, $X_{{\\rm F}}=150/(3\\cdot8)=6.25$, and for chess $X_{{\\rm C}}=100/(9\\cdot1)=11.1$.
+We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor of sport $i$ that can also be seen in the plot for the results, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for football, $X_{{\\rm F}}=150/(3\\cdot8)=6.25$, and for chess $X_{{\\rm C}}=100/(9\\cdot1)=11.1$.
 As mentioned above, the sports value the individual players slightly differently, but that is fine; it's all in the range between $5.5$ and $11.1$.\\
 Note that we divide by the planned number of players in a subteam and not the actual one, to even things out; you get the same amount of points for winning in football in a team of just the planned 8 as in a team of 10.
 """
 
 
 def st_display_top_scorers():
-    score_df = _get_individual_score_df()
+    score_df = _get_individual_score_df(25)
     col_config = {"avatar": st.column_config.ImageColumn("")}
     # The formatted 'score' column is a relic before I had the progress bar.
     col_config["Score_num"] = st.column_config.ProgressColumn(
