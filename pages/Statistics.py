@@ -7,19 +7,18 @@ import helper_functions as hf
 
 hf.st_set_up_header_and_sidebar()
 
-# TODO: Refactor the plots here!
-st.write(
-    """On this page, you can see an overview of the results of the sports week, as well as some extra stuff to read about player numbers and so on.
+_INTRO_TEXT = """On this page, you can see an overview of the results of the sports week, as well as some extra stuff to read about top-scoring players, player numbers and so on.
+"""
 
-## Results
-
-For each sport, the total amount of points a main team achieved is summed up and normalized to a scale from 0 to 100.\\
+_RESULTS_TEXT = """For each sport, the total amount of points a main team achieved is summed up and normalized to a scale from 0 to 100.\\
 We then weight each sport roughly proportional to the number of players attending - since there are more than 50 players taking part in Ping Pong, we multiply the final score for that by 2.5, while the smallest sports with only 9 attendees like Chess or Tennis only get a weight of 1. While this is of course not perfect (individual Chess games now still count a little more than individual Ping Pong games), it means that each and every game somehow matters for your team's final score.
 
 The following plot shows the current standings, both for each of the sports individually, and finally the total score, which is just the sum of the rescaled sports scores.\\
 Note that we also rescale the points by the percentage of games finished so far.\\
-Let us know if you have any questions!"""
-)
+Let us know if you have any questions!
+"""
+
+# TODO: Refactor the plots here!
 
 match_df = hf.turn_series_list_to_dataframe([m.as_series for m in hf.ALL_MATCHES])
 
@@ -104,15 +103,21 @@ chart = (
     )
     .properties(title="Score distribution")
 )
-st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
+st.write(_INTRO_TEXT)
 
-hf.st_display_top_scorers()
+tab_names = ["Results", "Top Scorers", "Team Creation"]
+tabs = st.tabs(tab_names)
+with tabs[0]:
+    st.write("### Results")
+    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.write(_RESULTS_TEXT)
+with tabs[1]:
+    hf.st_display_top_scorers()
 
-
-markdown_text = hf.read_event_desc("../helper_texts/statistics")
-st.markdown(markdown_text, unsafe_allow_html=True)
-c = hf.create_sport_dist_altair_chart()
-st.altair_chart(c, theme="streamlit", use_container_width=True)
-
-markdown_text = hf.read_event_desc("../helper_texts/results")
+with tabs[2]:
+    st.write("### Player distribtion and more")
+    c = hf.create_sport_dist_altair_chart()
+    st.altair_chart(c, theme="streamlit", use_container_width=True)
+    markdown_text = hf.read_event_desc("../helper_texts/statistics")
+    st.markdown(markdown_text, unsafe_allow_html=True)

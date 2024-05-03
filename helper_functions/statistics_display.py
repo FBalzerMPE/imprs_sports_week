@@ -49,25 +49,24 @@ def _get_individual_score_df() -> pd.DataFrame:
     return top_ten.rename(columns={"nickname": "Nickname"})
 
 
-_SCORER_TEXT = f"""### Top Scorers
-
-The following table shows the top-scoring players!\\
-How are these scores mean and how are they calculated, you ask?\\
-Well, these scores roughly reflect how many points these individuals have solely achieved for their team!
+_SCORER_TEXT = """The table above shows the top-scoring players!\\
+What do these scores mean and how are they calculated, you ask?\\
+Well, they roughly reflect how many points these individuals have solely achieved for their team!
 
 We calculate the score $S$ by summing the winning values, $S=\\sum_{{i}}(w_i + t_i/2)X_i$, where $w_i$ and $t_i$ are the amounts of games won and tied for each attended sport $i$, and $X_i$ is the contribution value of a single player for a sport.\\
 We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor that can also be seen in the plot above, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for football, $X_{{\\rm F}}=150/(3\\cdot8)=6.25$, and for chess $X_{{\\rm C}}=100/(9\\cdot1)=11.1$.
-As mentioned above, the sports value the individual players slightly differently, but that is fine; it's all in the range between $5.5$ and $11.1$.
+As mentioned above, the sports value the individual players slightly differently, but that is fine; it's all in the range between $5.5$ and $11.1$.\\
+Note that we divide by the planned number of players in a subteam and not the actual one, to even things out; you get the same amount of points for winning in football in a team of just the planned 8 as in a team of 10.
 """
 
 
 def st_display_top_scorers():
-    st.write(_SCORER_TEXT)
     score_df = _get_individual_score_df()
     col_config = {"avatar": st.column_config.ImageColumn("")}
     col_config["Score_num"] = st.column_config.ProgressColumn(
         "Score", max_value=max(score_df["Score_num"]), format=""
     )
+    st.write("### Top Scorers")
     st.dataframe(
         st_style_df_with_team_vals(score_df),
         hide_index=True,
@@ -81,3 +80,4 @@ def st_display_top_scorers():
             "Sports",
         ],
     )
+    st.write(_SCORER_TEXT)
