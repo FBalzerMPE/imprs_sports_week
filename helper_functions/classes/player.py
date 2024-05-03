@@ -174,6 +174,7 @@ class Player:
                         other_player_str = (
                             ", ".join(other_players[:-1]) + " and " + other_players[-1]
                         )
+                        pass
                     else:
                         other_player_str = other_players[-1]
                     text += f"You are part of subteam {subteam_key}, together with *{other_player_str}*.\\\nYour matches are:"
