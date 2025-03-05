@@ -10,7 +10,7 @@ This is the quick version with the most important info for the upcoming sports w
 
 On this website you can find up-to-date information for you to participate in second **Inter-Institute Sports Week on the Garching campus**.
 
-What is this week about? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines by having mixed teams consisting of PhDs and PostDocs from Munich institutes (USM, MPE, MPA, MPP, MPQ, ESO, and IPP).
+What is this week about? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines by having mixed teams consisting of PhDs, PostDocs and other interested students from Munich institutes (USM, MPE, MPA, MPP, MPQ, ESO, and IPP).
 
 Every day after work from around **5:30 - 8:30 pm** in the week from **May 5th to May 9th** you will have the chance to take part in a variety of sports.
 Doing so you can score points for your big teams (see below), of which one will ultimately be crowned winner!\

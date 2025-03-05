@@ -3,4 +3,3 @@ Fast, Fun, and Featherlight - Grace meets speed in this exhilarating game! Wheth
 
 **⚠️If you own a portable Badminton net and/or rackets, let us (ORGANIZERS) know, we're still in need for some!**
 
-Here's everything you need to know:

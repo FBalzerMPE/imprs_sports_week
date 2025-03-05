@@ -1,9 +1,7 @@
 ### General
 
-- Matches will be played on one of the three nets we provide for the IPP field.
+- Matches will be played on one of the three nets we provide for the IPP field, although we are also exploring the possibility of being able to play indoors.
 - It is not yet decided whether we are going to play doubles or singles.
-<!-- - Each main team will send out a few subteams, with **2** players on each subteam. The reserve players might be called in if a player becomes unavailable.
-- Each subteam will play two matches, one against a different main team's subteam. -->
 
 ### Point scheme
 
