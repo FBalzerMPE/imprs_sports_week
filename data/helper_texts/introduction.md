@@ -30,7 +30,7 @@ To track the results of the events publicly without exposing your names, we have
 
 ## The sports
 
-You can find a general schedule <a href="Schedule" target="_self">here</a>, while a detailed one including more information (especially locations and **rules**) on each of the sports can be found on their respective sites.
+You can find a general schedule <a href="schedule" target="_self">here</a>, while a detailed one including more information (especially locations and **rules**) on each of the sports can be found on their respective sites.
 
 In short, we offer the following sports:
 MONDAY_LINKS
@@ -45,10 +45,10 @@ PING_PONG_LINK
 
 ## The teams
 
-Soon you will be able to find the main teams' participants <a href="Teams" target="_self">here</a>.\
+Soon you will be able to find the main teams' participants <a href="teams" target="_self">here</a>.\
 These teams will be composed having an equal number of players for each sport in mind, while also mixing up the institutes quite a bit.\
 Unfortunately, this means that you might not be in a team with your best buddy, but on the bright side, that way you might be able to face them in competition!
-You can find last year's teams in their dedicated tab.
+You can find last year's teams in their dedicated tab, see <a href="previous_sports_weeks" target="_self">here</a>.
 
 ### What to compete for 🏆
 
@@ -58,11 +58,11 @@ More information on that might follow, most likely via the Signal group chat to 
 
 ### Results
 
-You will be able to find daily-updated results <a href="Results and more" target="_self">in the results tab</a> soon.
+You will be able to find daily-updated results <a href="statistics" target="_self">in the results tab</a> soon.
 
 ### Scheduling process and statistics
 
-For the nerds amongst you we've laid out how we are generating the (sub- and main) teams and each sport's schedules <a href="Results and more" target="_self">here</a>; in short, they are chosen almost completely randomly while trying to have an equal number of players for each sport. We've only made minor adjustments to account for cases where our algorithm failed.
+For the nerds amongst you we've laid out how we are generating the (sub- and main) teams and each sport's schedules <a href="statistics" target="_self">here</a>; in short, they are chosen almost completely randomly while trying to have an equal number of players for each sport. We've only made minor adjustments to account for cases where our algorithm failed.
 
 ## Late sign-ups
 
@@ -71,8 +71,8 @@ We'll then assign you to the main team fitting these sports best, and register y
 
 ## Questions?
 
-If there is anything left unclear or you have feedback, feel free to read our <a href="Results and more" target="_self">FAQ</a> or to contact us!
-See <a href="Contact" target="_self">here</a> for an overview of the responsible people for each sport.
+If there is anything left unclear or you have feedback, feel free to read our <a href="statistics" target="_self">FAQ</a> or to contact us!
+See <a href="contact" target="_self">here</a> for an overview of the responsible people for each sport.
 
 We're anticipating loads of sore muscles and fun memories!
 

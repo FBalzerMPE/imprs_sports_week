@@ -350,9 +350,9 @@ class SportEvent:
     @property
     def short_info_text(self) -> str:
         contact_link = (
-            f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
+            f'<a href="/contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
-        stats_link = f'<a href="/Results and more" target="_self">Results and more</a>'
+        stats_link = f'<a href="/statistics" target="_self">Results and more</a>'
         loc_name = (
             self.loc.display_name
             if self.sanitized_name != "ping_pong"
