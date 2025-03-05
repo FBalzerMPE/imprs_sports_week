@@ -4,7 +4,7 @@ This is the quick version with the most important info for the upcoming sports w
 
 - Make sure to sign up no later than SIGNUP_DEADLINE if you want a guaranteed spot in most sports you desire!
 - Make sure to also pay the 2 € participation fee until then (see below for why we've decided to introduce it).
-- If you haven't received a mail with access to the survey to sign up, write a mail to one of the organizers (see <a href="Contact" target="_self">here</a>).
+- If you haven't received a mail with access to the survey to sign up, write a mail to one of the organizers (see <a href="contact" target="_self">here</a>).
 
 ## Spirit of the Sports Week
 
