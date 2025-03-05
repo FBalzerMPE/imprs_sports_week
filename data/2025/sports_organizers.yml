@@ -6,11 +6,13 @@
     - capture_the_flag
     - beer_pong
   is_committee_member: true
+  institute: MPA
 - name: David
   nickname: Disloyal Hagfish
   email: kald@1...
   sport_keys:
     - chess
+  institute: MPE
 - name: Fabi
   nickname: Pushy Bulldog
   email: fbalzer@1...
@@ -19,16 +21,19 @@
     - spikeball
     - ping_pong
   is_committee_member: true
+  institute: MPE
 - name: Fernando
   nickname: ...
   email: fernando@1...
   sport_keys:
     - basketball
+  institute: MPA
 - name: Juan
   nickname: Alarmed Bird
   email: jespejo@1...
   sport_keys:
     - basketball
+  institute: MPE
 - name: Matteo G
   nickname: Dishonest Fangtooth
   email: matteani@2...
@@ -36,16 +41,19 @@
     - football
     - foosball
   is_committee_member: true
+  institute: MPA
 - name: Matteo B
   nickname: Animated Yak
   email: mbordoni@1...
   sport_keys:
     - tennis
+  institute: MPE
 - name: William
   nickname: Magnificent Barracuda
   email: wroster@1...
   sport_keys: []
   is_committee_member: true
+  institute: MPE
 - name: Zsofi
   nickname: Thankful Kakapo
   email: zigo@1...
@@ -53,12 +61,14 @@
     - capture_the_flag
     - ping_pong
   is_committee_member: true
+  institute: MPE
 - name: Mari
   nickname: Delirious Robin
   email: maria.usoltseva@3...
   sport_keys:
     - football
   is_committee_member: true
+  institute: IPP
 - name: Guillaume
   nickname: Reckless Swan
   email: guillaume.lo-cascio@3...
@@ -66,3 +76,4 @@
     - badminton
     - running_sprints
   is_committee_member: true
+  institute: IPP

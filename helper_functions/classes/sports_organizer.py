@@ -25,6 +25,9 @@ class SportsOrganizer:
     is_committee_member: bool = False
     """Whether this organizer is also part of the organizing committee."""
 
+    institute: str = ""
+    """The institute of the organizer."""
+
     year: int = CURRENT_YEAR
     """The year of the sports week this organizer helped out."""
 
@@ -64,7 +67,8 @@ class SportsOrganizer:
         if self.nick_pic_path.exists():
             cols[0].image(str(self.nick_pic_path), use_container_width=True)
         committee_str = "\\*" if self.is_committee_member else ""
-        text = f"**{self.name}{committee_str}**\\\n"
+        inst_str = f" ({self.institute})" if self.institute else ""
+        text = f"**{self.name}{committee_str}{inst_str}**\\\n"
         email = self.email.replace("@", "<span>@</span>")
         text += f"Email: *{email}*\\\n"
         if len(self.sport_keys) == 0:
