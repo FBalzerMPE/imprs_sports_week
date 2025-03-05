@@ -7,7 +7,7 @@
 ### Point scheme
 
 1 point is awarded to each winning player, and 0 for a loss.\
-At the end, all points a main team's players have achieved are summed, normalized and weighted by a factor of **2.5** to determine the contribution to the main team's score.
+At the end, all points a main team's players have achieved are summed, normalized and weighted by a factor of WEIGHT_FACTOR to determine the contribution to the main team's score.
 
 ### Refereeing
 

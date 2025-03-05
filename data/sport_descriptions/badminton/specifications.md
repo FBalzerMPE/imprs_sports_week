@@ -1,8 +1,9 @@
 ### General
 
 - Matches will be played on one of the three nets we provide for the IPP field.
-- Each main team will send out a few subteams, with NUM_PLAYERS_SUBTEAM players on each subteam. The reserve players might be called in if a player becomes unavailable.
-- Each subteam will play two matches, one against a different main team's subteam.
+- It is not yet decided whether we are going to play doubles or singles.
+<!-- - Each main team will send out a few subteams, with **2** players on each subteam. The reserve players might be called in if a player becomes unavailable.
+- Each subteam will play two matches, one against a different main team's subteam. -->
 
 ### Point scheme
 
@@ -16,5 +17,3 @@ We trust the teams to count and announce the scores by themselves, but ORGANIZER
 ### What to bring
 
 You do not need to bring any special equipment, but make sure to not forget your water bottle!
-
-Get ready to dive, spike, and rally your way to victory in Spikeball. Good luck to all participating teams!

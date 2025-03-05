@@ -5,4 +5,7 @@ Get ready to serve, volley, and smash your way to victory on the IPP's tennis co
 **Before we start, let's give a huge shoutout to [SV Plasma](https://www.svplasma.de/WWWSVP/Tennis/tennis.html); they kindly allowed us to use their fields for this event!**\
 **As a student, you can become a member with unlimited chances to play during one full season for just 95 €, and 160 € if you're not a student. You can find the [Aufnahmeantrag (application for admission) here](https://www.svplasma.de/WWWSVP/Allgemein/20140523_SVP_Aufnahmeantrag.pdf).**
 
+
+**⚠️If you own tennis rackets, let us (ORGANIZERS) know if you can bring them, we're still in need for some!**
+
 Here's everything you need to know:
