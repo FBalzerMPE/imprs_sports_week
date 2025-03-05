@@ -4,6 +4,9 @@ import helper_functions as hf
 
 st.write(f"# Welcome to the {hf.CURRENT_YEAR} Inter-Institute Sports Week in Garching!")
 
+test = "[test](statistics)"
+st.markdown(test)
+
 markdown_text = hf.read_event_desc("../helper_texts/introduction")
 markdown_text = markdown_text.replace("SIGNUP_DEADLINE", "**April 4th**")
 

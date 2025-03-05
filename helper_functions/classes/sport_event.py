@@ -391,7 +391,7 @@ class SportEvent:
     def st_display_page_link(self, use_container_width=False):
         """Write a streamlit pageLink instance."""
         st.page_link(
-            f"pages/events/{self.sanitized_name}.py",
+            f"streamlit_pages/events/{self.sanitized_name}.py",
             label=self.name,
             icon=self.icon,
             use_container_width=use_container_width,

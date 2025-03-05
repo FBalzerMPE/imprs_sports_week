@@ -11,7 +11,7 @@ def st_display_team_overview(data: DataRegistry):
         text = "🚧" * 30
         text += "\n\nThe teams for this year haven't been determined yet. Come back a few days before the sports week starts! If you want to read stuff about the team creation, head over to the FAQ page."
         st.write(text)
-        st.page_link("pages/Statistics.py", label="FAQ", icon="📊")
+        st.page_link("streamlit_pages/Statistics.py", label="FAQ", icon="📊")
         return
     tabs = st.tabs([team.name for team in data.teams])
     for tab, team in zip(tabs, data.teams):

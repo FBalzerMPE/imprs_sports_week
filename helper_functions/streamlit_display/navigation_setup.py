@@ -8,19 +8,19 @@ def st_set_up_navigation():
         {
             "": [
                 st.Page(
-                    "pages/home.py",
+                    "streamlit_pages/home.py",
                     title="Welcome",
                     url_path="home",
                     icon="🏠",
                 ),
                 st.Page(
-                    "pages/Schedule.py",
+                    "streamlit_pages/Schedule.py",
                     title="Schedule",
                     url_path="schedule",
                     icon="📆",
                 ),
                 st.Page(
-                    "pages/Teams.py",
+                    "streamlit_pages/Teams.py",
                     title="Teams",
                     url_path="teams",
                     icon="👨‍👩‍👦",
@@ -28,7 +28,7 @@ def st_set_up_navigation():
             ],
             "Sports": [
                 st.Page(
-                    f"pages/events/{sport.sanitized_name}.py",
+                    f"streamlit_pages/events/{sport.sanitized_name}.py",
                     title=sport.name,
                     icon=sport.icon,
                     url_path=sport.sanitized_name,
@@ -37,19 +37,19 @@ def st_set_up_navigation():
             ],
             "Other": [
                 st.Page(
-                    "pages/Statistics.py",
+                    "streamlit_pages/Statistics.py",
                     title="FAQ and Results",
                     icon="📊",
                     url_path="statistics",
                 ),
                 st.Page(
-                    "pages/previous_sports_weeks.py",
+                    "streamlit_pages/previous_sports_weeks.py",
                     title="Sports Week 2024 Results",
                     icon="⏪",
                     url_path="previous_sports_weeks",
                 ),
                 st.Page(
-                    "pages/Contact.py",
+                    "streamlit_pages/Contact.py",
                     title="Contact",
                     icon="💬",
                     url_path="contact",
