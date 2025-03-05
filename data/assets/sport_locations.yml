@@ -1,0 +1,35 @@
+- key: tum_pitches
+  latitude: 48.263479
+  longitude: 11.668083
+  display_name: TUM Volley- and Basketball pitches
+  description: The TUM pitches used for Volleyball and Basketball
+- key: ipp_tennis_courts
+  latitude: 48.261604
+  longitude: 11.676743
+  display_name: IPP Courts
+  description: The SV Plasma tennis courts, kindly provided to us to realize the tennis games.
+- key: tum_big_field
+  latitude: 48.263839
+  longitude: 11.665043
+  display_name: TUM football and running field
+  description: The big grass field used for Running/Sprints, Football, Capture the Flag, and Spikeball.
+- key: mpe_ping_pong
+  latitude: 48.261563
+  longitude: 11.670697
+  display_name: 'PP: MPE Table'
+  description: The main ping pong table, located in the basement of MPE. To access it, turn right after entering MPE, walk through to the back, turn left, follow the corridor for a few right and left turns, and finally enter the door on the left with a downward stair case right behind it.
+- key: ipp_ping_pong_1
+  latitude: 48.260717
+  longitude: 11.675729
+  display_name: 'PP: IPP Table 1'
+  description: The second ping pong table. To access it, enter the building, walk straight ahead, briefly turn left to access the stair case, walk up to the first floor and enter door to the corridor to the right (there should be a table tennis sign). If the door is locked, text Fabi or Zsofi on Signal.
+- key: ipp_ping_pong_2
+  latitude: 48.263171
+  longitude: 11.673439
+  display_name: 'PP: IPP Table 2'
+  description: The third ping pong table. To access it, enter through the main door and go downstairs.
+- key: mpa_common_room
+  latitude: 48.261249
+  longitude: 11.671584
+  display_name: MPA common/seminar room
+  description: At the basement heart of MPA, the common room provides us with a Foosball table, while the seminar room (006) is used for Chess and Beer Pong. To access it, enter MPA (also possible coming from the MPE), walk by the security, take the stairs downstairs, and walk around until you hear loud voices.

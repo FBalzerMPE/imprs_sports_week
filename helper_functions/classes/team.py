@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
+from ..constants import CURRENT_YEAR, SPORTS_LIST, FpathRegistry
 
 if TYPE_CHECKING:
     from .subteam import Subteam
@@ -51,8 +51,8 @@ class Team:
         return len(self._players)
 
     @classmethod
-    def from_backup(cls, team_index: int) -> Team:
-        fpath = cls.backup_path(team_index)
+    def from_backup(cls, team_index: int, year=CURRENT_YEAR) -> Team:
+        fpath = cls.backup_path(team_index, year)
         if not fpath.exists():
             raise FileNotFoundError(f"No backup found for team {team_index}.")
         players = pd.read_csv(fpath)
@@ -66,18 +66,19 @@ class Team:
                 )
                 .astype("object")
             )
-        team = cls(team_index=team_index)
+        team = cls(
+            team_index=team_index,
+            sports_fulfill_nums={
+                sport: 0 for sport in SPORTS_LIST if sport in players.columns
+            },
+        )
         team.set_players(players)
         return team
 
     @staticmethod
-    def backup_path(team_index: int) -> Path:
-        team_letter = "ABC"[team_index]
-        return Team.backup_path_from_letter(team_letter)
-
-    @staticmethod
-    def backup_path_from_letter(letter: str) -> Path:
-        return DATAPATH.joinpath(f"teams/team_{letter}.csv")
+    def backup_path(team_index: int, year=CURRENT_YEAR) -> Path:
+        team_letter = "ABCDEF"[team_index]
+        return FpathRegistry.get_path_team(team_letter, year)
 
     @property
     def player_num(self) -> int:
@@ -89,7 +90,7 @@ class Team:
 
     @property
     def team_letter(self) -> str:
-        return "ABC"[self.team_index]
+        return "ABCDEF"[self.team_index]
 
     @property
     def player_df(self) -> pd.DataFrame:
@@ -100,7 +101,7 @@ class Team:
 
     @property
     def current_sports_stats(self) -> dict[str, int]:
-        return {sport: self.sports_fulfill_nums[sport] for sport in SPORTS_LIST}
+        return {sport: self.sports_fulfill_nums.get(sport, 0) for sport in SPORTS_LIST}
 
     @property
     def rgb_colors(self) -> tuple[int, ...]:
@@ -172,11 +173,13 @@ class Team:
     def set_players(self, players: pd.DataFrame):
         self._players = players.to_dict(orient="records")
         self.sports_fulfill_nums = {
-            sport: np.sum(self.player_df[sport]) for sport in SPORTS_LIST
+            sport: np.sum(self.player_df[sport])
+            for sport in SPORTS_LIST
+            if sport in players.columns
         }
 
     def plot_sports_num(self):
-        from ..plotting import create_sports_num_plot
+        from ..streamlit_display.plotting import create_sports_num_plot
 
         label = f"{self.name} ({self.player_num} players)"
         create_sports_num_plot(
@@ -221,13 +224,13 @@ class Team:
             lambda x: x[:14] + "..." if len(x) > 14 else x
         )
 
-        from ..sport_event_registry import SPORTS_EVENTS
+        from ..data_registry import DATA_NOW
 
         column_configs = {
             f"subteam_{event.sanitized_name}": st.column_config.Column(
                 label=event.icon, help=event.name, disabled=True
             )
-            for event in SPORTS_EVENTS.values()
+            for event in DATA_NOW.sport_events.values()
         }
         column_configs["impath"] = st.column_config.ImageColumn("Avatar")
         column_configs["nickname"] = st.column_config.TextColumn("Nickname")

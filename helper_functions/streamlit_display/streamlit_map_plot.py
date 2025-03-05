@@ -1,17 +1,15 @@
-from typing import Literal
-
 import pandas as pd
 import pydeck as pdk
 import streamlit as st
 
-from .util import turn_series_list_to_dataframe
+from ..util import turn_series_list_to_dataframe
+from ..data_registry import ALL_LOCATIONS
 
 MAP_OPTIONS = ["streets", "satellite", "outdoors"]
 
 
 def create_map_plot(highlighted_locations: list[str]):
     """Create a map plot with highlighted locations."""
-    from .sport_event_registry import ALL_LOCATIONS
 
     df = turn_series_list_to_dataframe(
         [loc.as_series for loc in ALL_LOCATIONS.values()]

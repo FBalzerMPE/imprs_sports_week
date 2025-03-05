@@ -1,17 +1,19 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
+from typing import Literal
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
-from ..data_registry import ALL_MATCHES, ALL_SUBTEAMS
-from ..streamlit_map_plot import create_map_plot
-from ..streamlit_util import st_style_df_with_team_vals
+from ..constants import CURRENT_YEAR, DATAPATH, SPORTS_LIST, FpathRegistry
+from ..data_registry import DataRegistry, get_data_for_year
+from ..logger import LOGGER
+from ..streamlit_display import create_map_plot, st_style_df_with_team_vals
 from ..util import turn_series_list_to_dataframe
 from .match import Match
 from .sport_location import SportLocation
+from .sports_organizer import SportsOrganizer
 from .subteam import Subteam
 
 
@@ -19,7 +21,9 @@ def display_ping_pong_loc_descs():
     tabs = st.tabs(["MPE Table", "IPP Table 1", "IPP Table 2"])
     impath = str(DATAPATH.joinpath("assets/location_pics")) + "/"
     with tabs[0]:
-        st.write("Enter the MPE building, e.g. through the main entrance.\\\nAfter entering, turn right and follow the corridor to the end in front of the staircase.")
+        st.write(
+            "Enter the MPE building, e.g. through the main entrance.\\\nAfter entering, turn right and follow the corridor to the end in front of the staircase."
+        )
         cols = st.columns(2)
         with cols[0]:
             st.image(impath + "t1_1.jpg", width=300)
@@ -33,7 +37,9 @@ def display_ping_pong_loc_descs():
             st.image(impath + "t1_4.jpg", width=300)
         with cols[1]:
             st.image(impath + "t1_5.jpg", width=300)
-        st.write("Now just follow the corridor up to the end until you arrive at the door with the staircase leading to the room with the table.")
+        st.write(
+            "Now just follow the corridor up to the end until you arrive at the door with the staircase leading to the room with the table."
+        )
         st.image(impath + "t1_6.jpg", width=300)
     with tabs[1]:
         st.write("The following picture shows where you're coming from.")
@@ -44,7 +50,9 @@ def display_ping_pong_loc_descs():
             st.image(impath + "t2_2.jpg", width=300)
         with cols[1]:
             st.image(impath + "t2_3.jpg", width=300)
-        st.write("There, walk through until the end, turn left and you should see the staircase on the right to go up. On the first floor, you should already see the door with the sign for table tennis. It shouldn't be locked; in the case it is, give Fabi or Zsofi a call.")
+        st.write(
+            "There, walk through until the end, turn left and you should see the staircase on the right to go up. On the first floor, you should already see the door with the sign for table tennis. It shouldn't be locked; in the case it is, give Fabi or Zsofi a call."
+        )
         cols = st.columns(2)
         with cols[0]:
             st.image(impath + "t2_4.jpg", width=300)
@@ -53,7 +61,9 @@ def display_ping_pong_loc_descs():
         st.write("You made it! Have a good match!.")
         st.image(impath + "t2_6.jpg", width=300)
     with tabs[2]:
-        st.write("If you're coming from Garching Forschungszentrum/the IPP main gate and walk straight, you should see the following sign on the right. There, turn right and enter the building.")
+        st.write(
+            "If you're coming from Garching Forschungszentrum/the IPP main gate and walk straight, you should see the following sign on the right. There, turn right and enter the building."
+        )
         cols = st.columns(2)
         with cols[0]:
             st.image(impath + "t3_1.jpg", width=300)
@@ -67,11 +77,13 @@ def display_ping_pong_loc_descs():
             st.image(impath + "t3_4.jpg", width=300)
         st.write("You made it! Have a good match!.")
         st.image(impath + "t3_5.jpg", width=300)
-        
 
 
 def _st_display_match_df(
-    df: pd.DataFrame, only_one_player_per_team: bool, pitch_name: str
+    df: pd.DataFrame,
+    only_one_player_per_team: bool,
+    pitch_name: str,
+    data: DataRegistry,
 ):
     """Style the match dataframe and display it properly."""
     df = df.infer_objects(copy=False).fillna("")  # type: ignore
@@ -101,7 +113,7 @@ def _st_display_match_df(
         column_configs["team_b_av"] = st.column_config.ImageColumn("Avatar b")
     column_configs["result"] = st.column_config.Column("Result", width="small")
     column_configs["winner"] = st.column_config.Column("Winner", width="small")
-    style = st_style_df_with_team_vals(df)
+    style = st_style_df_with_team_vals(df, data)
     st.dataframe(
         style,
         hide_index=True,
@@ -120,7 +132,7 @@ def _st_display_match_df(
     )
 
 
-def _st_display_subteam_df(df: pd.DataFrame):
+def _st_display_subteam_df(df: pd.DataFrame, data: DataRegistry):
     df = df.sort_values(["is_reserve", "full_key"], ascending=[True, True])
     column_configs = {"full_key": st.column_config.Column("Subteam", width="small")}
     for i in range(max(df["players"].apply(len))):
@@ -130,7 +142,7 @@ def _st_display_subteam_df(df: pd.DataFrame):
         column_configs[f"avatar_{i}"] = st.column_config.ImageColumn("")
     column_configs["players"] = st.column_config.ListColumn("Players")
     st.dataframe(
-        st_style_df_with_team_vals(df, full_row=True),
+        st_style_df_with_team_vals(df, data, full_row=True),
         hide_index=True,
         column_config=column_configs,
         column_order=[*column_configs],
@@ -151,7 +163,7 @@ class RunningEvent:
                 "Start": self.start.strftime("%H:%M"),
             }
         )
-    
+
     @property
     def description(self) -> str:
         return f"{self.start.strftime("%H:%M")}: **{self.name}**"
@@ -214,8 +226,12 @@ class SportEvent:
     """The amount by which points achieved for this sport are weighted.
     This roughly depends on the number of players that are actually playing for this sport."""
 
+    year: int = CURRENT_YEAR
+    """The year this event is taking place in
+    (needed for associated match and subteam loading)."""
+
     conflicting_sports: list[str] = field(default_factory=list)
-    """The other sports overlapping with this one."""
+    """Any other sports overlapping with this one."""
 
     subteams: list[Subteam] = field(default_factory=list, repr=False)
     """The sub-teams for this sport."""
@@ -238,15 +254,45 @@ class SportEvent:
         self.days = [
             day.strftime("%A").lower()
             for day in pd.date_range(self.start, self.end).date
-            if day.strftime("%A").lower() != "wednesday"
+            # if day.strftime("%A").lower() != "wednesday"
         ]
         self.subteams = [
             subteam
-            for subteam in ALL_SUBTEAMS.values()
+            for subteam in get_data_for_year(self.year).subteams.values()
             if subteam.sport == self.sanitized_name
         ]
-        matches = [m for m in ALL_MATCHES if m.sport == self.sanitized_name]
+        matches = [
+            m
+            for m in get_data_for_year(self.year).matches
+            if m.sport == self.sanitized_name
+        ]
         self.matches = sorted(matches, key=lambda m: m.start)
+
+    @classmethod
+    def from_dict(
+        cls,
+        sport_dict: dict,
+        locs: dict[str, SportLocation],
+        organizers: dict[str, SportsOrganizer],
+    ) -> "SportEvent":
+        """Create a sport event from a dictionary, e.g. like the ones available in the yearly yaml data."""
+        d = sport_dict.copy()
+        d["start"] = datetime.fromisoformat(sport_dict["start"])
+        d["end"] = datetime.fromisoformat(sport_dict["end"])
+        d["match_duration"] = timedelta(minutes=d["match_duration"])
+        d["name"] = (
+            sport_dict["name"]
+            .replace("_", " ")
+            .title()
+            .replace("Sprints", "and Sprints")
+        )
+        d["loc"] = locs[sport_dict["loc"]]
+        d["organizer_names"] = [
+            org.name
+            for org in organizers.values()
+            if sport_dict["name"] in org.sport_keys
+        ]
+        return cls(**d, year=d["start"].year)
 
     @property
     def sanitized_name(self) -> str:
@@ -272,9 +318,9 @@ class SportEvent:
         if self.sanitized_name != "ping_pong":
             return [base_dict]
         entries = []
-        for day in [(4, 29), (4, 30), (5, 2), (5, 3)]:
-            start = datetime(2024, day[0], day[1], 17, 30)
-            end = datetime(2024, day[0], day[1], 21, 00)
+        for day in [(5, 5), (5, 6), (5, 7), (5, 8), (5, 9)]:
+            start = datetime(2025, day[0], day[1], 17, 30)
+            end = datetime(2025, day[0], day[1], 21, 00)
             new_entry = base_dict.copy()
             new_entry["start"] = start.isoformat()
             new_entry["end"] = end.isoformat()
@@ -306,9 +352,7 @@ class SportEvent:
         contact_link = (
             f'<a href="/Contact" target="_self">{", ".join(self.organizer_names)}</a>'
         )
-        stats_link = (
-            f'<a href="/Results and more" target="_self">Results and more</a>'
-        )
+        stats_link = f'<a href="/Results and more" target="_self">Results and more</a>'
         loc_name = (
             self.loc.display_name
             if self.sanitized_name != "ping_pong"
@@ -333,18 +377,36 @@ class SportEvent:
     @property
     def match_df(self) -> pd.DataFrame:
         return turn_series_list_to_dataframe([m.as_series for m in self.matches])
-    
+
     @property
     def single_match_win_value(self) -> float:
         """How much winning a single match contributes to the final score of your team for the individual person."""
-        return 100/self.num_players_per_subteam/len(self.matches)*self.point_weight_factor
+        return (
+            100
+            / self.num_players_per_subteam
+            / len(self.matches)
+            * self.point_weight_factor
+        )
+
+    def st_display_page_link(self, use_container_width=False):
+        """Write a streamlit pageLink instance."""
+        st.page_link(
+            f"pages/events/{self.sanitized_name}.py",
+            label=self.name,
+            icon=self.icon,
+            use_container_width=use_container_width,
+        )
 
     def get_clear_name_schedule(self) -> str:
         text = f"## {self.name}\n\n### Subteams\n\n"
         sep = "\n\n" if self.sanitized_name != "ping_pong" else ";\\\n"
         text += sep.join(
             [
-                f"**{subteam.full_key}**: " + ", ".join(subteam.real_names) + "\\\n*" + ", ".join(subteam.players) +"*"
+                f"**{subteam.full_key}**: "
+                + ", ".join(subteam.real_names)
+                + "\\\n*"
+                + ", ".join(subteam.players)
+                + "*"
                 for subteam in (sorted(self.subteams, key=lambda s: s.full_key))
             ]
         )
@@ -352,7 +414,9 @@ class SportEvent:
         if self.sanitized_name == "ping_pong":
             for loc in "123":
                 text += f"#### Location {loc}\n\n"
-                text += "\n\n".join([m.description for m in self.matches if m.location == loc])
+                text += "\n\n".join(
+                    [m.description for m in self.matches if m.location == loc]
+                )
                 text += "\n\n"
         elif self.sanitized_name != "running_sprints":
             text += "\n\n".join([m.description for m in self.matches])
@@ -367,33 +431,43 @@ class SportEvent:
 
     def _st_display_matches(self):
         if self.sanitized_name == "running_sprints":
-            st.write("### Overall results\n\nAll participants fought amazingly in various small competitions; in the end, it was very close:\n\nTeam A: 31 points\\\nTeam B: 35 points\\\nTeam C: 34 points.\n\nMore details on what they did might follow later, for now here's the preliminary schedule again:")
+            st.write(
+                "### Overall results\n\nAll participants fought amazingly in various small competitions; in the end, it was very close:\n\nTeam A: 31 points\\\nTeam B: 35 points\\\nTeam C: 34 points.\n\nMore details on what they did might follow later, for now here's the preliminary schedule again:"
+            )
             from ..sport_event_registry import RUNNING_EVENTS
 
             df = pd.DataFrame([event.as_series for event in RUNNING_EVENTS])
             st.dataframe(df, hide_index=True)
             return
         if len(self.matches) == 0:
-            print(f"No matches found for {self.sanitized_name}")
+            # LOGGER.warning(f"No matches found for {self.sanitized_name}")
+            st.write("No matches have been scheduled yet.")
             return
         is_single = self.num_players_per_subteam == 1
         df = self.match_df
         if self.sanitized_name != "ping_pong":
-            _st_display_match_df(df, is_single, self.pitch_type_name)
+            _st_display_match_df(
+                df, is_single, self.pitch_type_name, get_data_for_year(self.year)
+            )
             return
         # Since ping pong is during the whole week, we display them in a tabbed view
         df["location"] = df["location"].apply(
             {"1": "MPE table", "2": "IPP table 1", "3": "IPP table 2"}.get
         )
-        days = ["Monday", "Tuesday", "Thursday", "Friday"]
+        days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
         tabs = st.tabs(days)
         for tab, day in zip(tabs, days):
             with tab:
                 sub_df = df[df["day"] == day]
-                _st_display_match_df(sub_df, True, self.pitch_type_name)
+                _st_display_match_df(
+                    sub_df, True, self.pitch_type_name, get_data_for_year(self.year)
+                )
 
     def _st_display_subteams(self):
         df = self.sub_team_df
+        if len(df) == 0:
+            st.write(f"### Subteams\n\nNo subteams have been determined yet.")
+            return
         reserve_mask = df["is_reserve"].astype(bool)
         if self.num_players_per_subteam == 1:
             st.write(f"### Reserve players\n")
@@ -401,7 +475,7 @@ class SportEvent:
                 st.write(
                     "The following are the reserve players that may jump in if players cannot make it."
                 )
-                _st_display_subteam_df(df[reserve_mask])
+                _st_display_subteam_df(df[reserve_mask], get_data_for_year(self.year))
             else:
                 st.write(
                     "There's currently noone that signed up as a reserve player here."
@@ -409,34 +483,40 @@ class SportEvent:
         else:
             st.write(f"### Subteams\n")
             st.write("The subteams above consist of the following players:")
-            _st_display_subteam_df(df[~reserve_mask])
+            _st_display_subteam_df(df[~reserve_mask], get_data_for_year(self.year))
             st.write(
                 "#### Reserve players\nThe following players may join as substitute players:"
             )
-            _st_display_subteam_df(df[reserve_mask])
+            _st_display_subteam_df(df[reserve_mask], get_data_for_year(self.year))
+
+    def _get_desc_text(
+        self, specifier: Literal["introduction", "rules", "specifications"]
+    ) -> str:
+        rep_dict = {
+            "WEIGHT_FACTOR": f"**{self.point_weight_factor}**",
+            "ORGANIZERS": " and ".join(self.organizer_names),
+            "NUM_PLAYERS_SUBTEAM": f"**{self.num_players_per_subteam}**",
+            "NUM_SUBTEAMS": f"**{self.num_subteams}**",
+            "LOCATION": self.loc.display_name,
+        }
+        text = FpathRegistry.get_sport_info_path(
+            self.sanitized_name, specifier
+        ).read_text(encoding="utf-8")
+        for key, val in rep_dict.items():
+            text = text.replace(key, val)
+        return text
 
     def write_streamlit_rep(self):
-        from ..sport_organizer_registry import SPORTS_ORGANIZERS
-
+        st.write(f"# {self.name}")
         st.write(self.short_info_text, unsafe_allow_html=True)
-        st.write(
-            FpathRegistry.get_sport_info_path(
-                self.sanitized_name, "introduction"
-            ).read_text(encoding="utf-8")
-        )
-        rules = FpathRegistry.get_sport_info_path(
-            self.sanitized_name, "rules"
-        ).read_text(encoding="utf-8")
-        specifications = FpathRegistry.get_sport_info_path(
-            self.sanitized_name, "specifications"
-        ).read_text(encoding="utf-8")
+        st.write(self._get_desc_text("introduction"))
         loc_tab_name = "Location" if self.sanitized_name != "ping_pong" else "Locations"
         tab_names = ["Format", "Rules", "Schedule and teams", loc_tab_name, "Contact"]
         tabs = st.tabs(tab_names)
         with tabs[0]:
-            st.write(specifications)
+            st.write(self._get_desc_text("specifications"))
         with tabs[1]:
-            st.write(rules)
+            st.write(self._get_desc_text("rules"))
         with tabs[2]:
             extra_str = (
                 "" if self.num_players_per_subteam == 1 else "subteam compositions and "
@@ -452,36 +532,37 @@ class SportEvent:
                 st.write(
                     f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details.\n\n⚠️Scroll down for more detailed descriptions on how to get to each table!"
                 )
-                from ..sport_event_registry import ALL_LOCATIONS
+                from ..data_registry import ALL_LOCATIONS
 
                 locs = [
-                    loc.key
-                    for key, loc in ALL_LOCATIONS.items()
-                    if "ping_pong" in key
+                    loc.key for key, loc in ALL_LOCATIONS.items() if "ping_pong" in key
                 ]
             else:
                 "The location for this event is marked in red, hover over its name to find more information."
             if self.sanitized_name in ["foosball", "beer_pong"]:
-                st.write("In case you have trouble finding the MPA locations, try to enter through the MPA entrance. The MPE entrance will be locked from 17:00 onwards. You can go below it to pass through to MPA, and there go to the basement - you should bump into people there.\\\nIn case you're completely stuck, let us know in the signal group.")
+                st.write(
+                    "In case you have trouble finding the MPA locations, try to enter through the MPA entrance. The MPE entrance will be locked from 17:00 onwards. You can go below it to pass through to MPA, and there go to the basement - you should bump into people there.\\\nIn case you're completely stuck, let us know in the signal group."
+                )
             create_map_plot(locs)
             if self.sanitized_name == "ping_pong":
                 display_ping_pong_loc_descs()
         with tabs[4]:
             text = r"""
 Here you can find the contact information for the organizers of this event - don't be shy to write them an email or signal message if you have any questions or need help!\
-For spam prevention, the email addresses do not contain anything beyond the "@" symbol.
+For spam prevention, the email addresses do not contain the domain beyond the "@" symbol.
 The correct address endings are as follows:
 
 - @1... $\rightarrow$ mpe.mpg.de
-- @2... $\rightarrow$ mpa-garching.mpg.de"""
+- @2... $\rightarrow$ mpa-garching.mpg.de
+- @3... $\rightarrow$ ipp.mpg.de"""
             st.write(text)
             col1, col2 = st.columns(2)
 
             for i, name in enumerate(self.organizer_names):
-                sports_organizer = SPORTS_ORGANIZERS[name]
+                organizer = get_data_for_year(self.year).organizers[name]
                 if i % 2 == 0:
                     with col1:
-                        sports_organizer.write_streamlit_rep()
+                        organizer.write_streamlit_rep()
                 else:
                     with col2:
-                        sports_organizer.write_streamlit_rep()
+                        organizer.write_streamlit_rep()

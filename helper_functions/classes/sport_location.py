@@ -19,7 +19,7 @@ class SportLocation:
     display_name: str
     """How this location should be displayed on the map."""
 
-    desc: str = ""
+    description: str = ""
     """The description of this location."""
 
     @property
@@ -31,6 +31,6 @@ class SportLocation:
                 "size": 3,
                 "name": self.key,
                 "display_name": self.display_name,
-                "desc": self.desc,
+                "description": self.description,
             }
         )

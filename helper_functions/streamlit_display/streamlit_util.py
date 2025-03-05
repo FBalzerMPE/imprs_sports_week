@@ -1,48 +1,17 @@
 import pandas as pd
 import streamlit as st
 from pandas.io.formats.style import Styler
-from st_pages import Page, Section, add_indentation, add_page_title, show_pages
 
-from .constants import PAGESPATH, SPORTS_LIST
-
-
-def st_set_up_header_and_sidebar():
-    from .sport_event_registry import SPORTS_EVENTS
-
-    # Optional -- adds the title and icon to the current page
-    add_page_title()
-
-    # Specify what pages should be shown in the sidebar, and what their titles
-    # and icons should be
-    show_pages(
-        [
-            Page("streamlit_app.py", "Welcome", "🏠"),
-            Page("pages/Schedule.py", "Schedule", ":calendar:"),
-            Page("pages/Teams.py", "Teams", ":family:"),
-            Section(name="Sports", icon=":eyes:"),
-            *[
-                Page(f"pages/events/{sport.sanitized_name}.py", sport.name, sport.icon)
-                for sport in SPORTS_EVENTS.values()
-            ],
-            Page(
-                "pages/Statistics.py",
-                "Results and more",
-                ":bar_chart:",
-                in_section=False,
-            ),
-            Page("pages/Contact.py", "Contact", ":speech_balloon:", in_section=False),
-        ]
-    )
-    add_indentation()
+from ..constants import PAGESPATH, SPORTS_LIST
+from ..data_registry import DataRegistry
 
 
-def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
-    from .data_registry import ALL_TEAMS
+def _get_row_color(data: DataRegistry, row_val: str, alpha: float = 0.3) -> str:
 
     if not isinstance(row_val, str):
         return ""
 
-    for team in ALL_TEAMS:
+    for team in data.teams:
         if f"{team.team_letter}: " in row_val or row_val == team.team_letter:
             rgb = team.rgb_colors
             return f"background-color: rgba({rgb[0]}, {rgb[1]}, {rgb[2]}, {alpha})"
@@ -51,7 +20,9 @@ def _get_row_color(row_val: str, alpha: float = 0.3) -> str:
     return ""
 
 
-def st_style_df_with_team_vals(df: pd.DataFrame, full_row=False) -> Styler:
+def st_style_df_with_team_vals(
+    df: pd.DataFrame, data: DataRegistry, full_row=False
+) -> Styler:
     """Display a DataFrame with the team colors highlighted.
 
     Parameters
@@ -68,7 +39,9 @@ def st_style_df_with_team_vals(df: pd.DataFrame, full_row=False) -> Styler:
             lambda row: [_get_row_color(row["full_key"])] * len(row), axis=1  # type: ignore
         )
     else:
-        style = style.apply(lambda row: [_get_row_color(val) for val in row], axis=1)
+        style = style.apply(
+            lambda row: [_get_row_color(data, val) for val in row], axis=1
+        )
     return style
 
 

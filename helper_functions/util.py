@@ -5,6 +5,7 @@ import warnings
 import pandas as pd
 
 from .constants import DATAPATH
+from .logger import LOGGER
 
 _string_types = (type(b""), type(""))
 
@@ -38,7 +39,7 @@ def sort_dict_by_values(d: dict, reverse=False) -> dict:
 def read_event_desc(event_name: str) -> str:
     fpath = DATAPATH.joinpath(f"sport_descriptions/{event_name}.md")
     if not fpath.exists():
-        print("File not found:", fpath)
+        LOGGER.warning("File not found:", fpath)
         return "NO DESCRIPTION FOUND"
     with fpath.open("r", encoding="utf-8") as f:
         return f.read()

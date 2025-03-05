@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import random
 from functools import reduce
 from typing import TYPE_CHECKING
@@ -154,11 +155,11 @@ def generate_all_subteams(team: Team, verbose=True, seed=42) -> list[Subteam]:
 
     Try to solve conflicts for players being doubly subscribed.
     """
-    from ..sport_event_registry import SPORTS_EVENTS
+    from ..data_registry import DATA_NOW
 
     random.seed(seed)
     all_subteams: list[Subteam] = []
-    for sport in SPORTS_EVENTS.values():
+    for sport in DATA_NOW.sport_events.values():
         subteams = _generate_subteams_for_sport(team, sport)
         all_subteams += subteams
     # Shift players that are in subteams for both, and try to replace them with reservists

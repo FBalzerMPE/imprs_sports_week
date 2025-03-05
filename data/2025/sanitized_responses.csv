@@ -1,0 +1,6 @@
+nickname,institute,confirmation_status,is_postdoc,avail_monday,avail_tuesday,avail_thursday,avail_friday,wants_ping_pong,ping_pong,wants_basketball,basketball,wants_running_sprints,running_sprints,wants_volleyball,volleyball,wants_chess,chess,wants_football,football,wants_tennis,tennis,wants_capture_the_flag,capture_the_flag,wants_spikeball,spikeball,wants_beer_pong,beer_pong,wants_foosball,foosball,num_sports,num_sports_not_avail,late_entry
+Pushy Bulldog,MPE,True,False,True,True,True,True,True,True,False,False,True,True,True,True,False,False,True,True,False,False,False,False,True,True,False,False,False,False,5,0,False
+Thankful Kakapo,MPE,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,True,True,7,0,False
+Exemplary Cassowary,MPA,True,False,True,True,True,True,False,False,False,False,False,False,True,True,False,False,False,False,False,False,True,True,True,True,True,True,False,False,4,0,False
+Magnificent Barracuda,MPE,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,True,True,True,True,True,True,True,True,True,True,True,True,8,0,False
+Dishonest Fangtooth,MPA,True,False,False,True,True,True,True,True,True,False,False,False,False,False,False,False,True,True,False,False,False,False,True,True,True,True,True,True,5,1,False

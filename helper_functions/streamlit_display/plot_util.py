@@ -5,7 +5,7 @@ from matplotlib import cm
 from matplotlib.axes import Axes
 from matplotlib.container import BarContainer
 
-from .util import sort_dict_by_values
+from ..util import sort_dict_by_values
 
 
 def annotate_barh_values(

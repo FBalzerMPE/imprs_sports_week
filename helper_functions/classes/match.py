@@ -6,6 +6,7 @@ from datetime import datetime, time, timedelta
 import pandas as pd
 
 from ..constants import DATAPATH
+from ..logger import LOGGER
 from ..setup.setup_util import get_real_player_name
 from .subteam import Subteam
 
@@ -84,7 +85,7 @@ class Match:
     @property
     def end(self):
         return self.start + self.duration
-    
+
     @property
     def weekday(self) -> str:
         """The weekday this match takes part on."""
@@ -93,21 +94,23 @@ class Match:
     @property
     def match_key(self):
         """The unique match key for this match, including sport and subteam keys."""
-        return (
-            self.sport + self.subteam_a.full_key + self.subteam_b.full_key
-        )
-    
+        return self.sport + self.subteam_a.full_key + self.subteam_b.full_key
+
     @property
     def description(self) -> str:
         if self.sport == "running_sprints":
-            return "various events against all other players between *17:30* and *18:30*"
+            return (
+                "various events against all other players between *17:30* and *18:30*"
+            )
         loc = "" if self.sport == "ping_pong" else f" (loc: {self.location})"
-        text =  f"*{self.start.strftime("%H:%M")}*{loc}: **{self.subteam_a.key_or_single} vs. {self.subteam_b.key_or_single}**"
+        text = f"*{self.start.strftime("%H:%M")}*{loc}: **{self.subteam_a.key_or_single} vs. {self.subteam_b.key_or_single}**"
         if self.sport == "ping_pong":
             text = self.start.strftime("%A") + f", {text}"
             if not DATAPATH.joinpath("hidden").exists():
                 return text
-            name_a, name_b = [get_real_player_name(player) for player in self.involved_players]
+            name_a, name_b = [
+                get_real_player_name(player) for player in self.involved_players
+            ]
             text = text.replace(" vs.", f" **({name_a})** vs.") + f" ({name_b})"
         return text
 
@@ -119,22 +122,21 @@ class Match:
             elif self.subteam_b.main_team_letter == self.winner:
                 return self.subteam_b.players
             else:
-                print(f"Unrecognized winning team for '{self.match_key}'")
+                LOGGER.info(f"Unrecognized winning team for '{self.match_key}'")
         return []
-    
+
     @property
     def tying_players(self) -> list[str]:
         if self.winner in ["AB", "AC", "BC"]:
             return self.involved_players
         return []
-    
+
     def get_desc_with_real_names(self) -> str:
         """Retrieve the description, typing out the full teams' attendances."""
-        text =  f"*{self.start.strftime("%H:%M")}*: "
+        text = f"*{self.start.strftime("%H:%M")}*: "
         text += f"**{self.subteam_a.full_key} ({self.subteam_a.real_names})\\\n"
         text += f"vs. {self.subteam_b.full_key} ({self.subteam_b.real_names})**"
         return text
-
 
     def contains_player(self, player_name: str) -> bool:
         """Whether this match contains the given player (nickname expected)"""
@@ -146,7 +148,9 @@ class Match:
             index = int(self.location) - 1
         except ValueError:
             index = 0
-        title = f"{index + 1}::  {self.subteam_a.full_key} vs {self.subteam_b.full_key}".replace(": ", "")
+        title = f"{index + 1}::  {self.subteam_a.full_key} vs {self.subteam_b.full_key}".replace(
+            ": ", ""
+        )
         color = ["#8B0000", "#00008B", "#B8860B"][index]
         return {
             "title": title,
@@ -173,7 +177,7 @@ class Match:
         if verbose:
             my_start = self.start.strftime("%H:%M, %A")
             other_start = other.start.strftime("%H:%M, %A")
-            print(
+            LOGGER.warning(
                 f"{self.match_key}, {other.match_key}: {intersect} have conflicting schedules ({my_start}, {other_start})."
             )
         return True
@@ -191,7 +195,7 @@ class Match:
         self.location, other.location = other.location, self.location
         self.start, other.start = other.start, self.start
         if verbose:
-            print(f"Switched {self.match_key} with {other.match_key}")
+            LOGGER.info(f"Switched {self.match_key} with {other.match_key}")
 
     def set_time_and_loc(self, hour: int, minute: int, loc: str):
         """Set a new time and location for this event."""

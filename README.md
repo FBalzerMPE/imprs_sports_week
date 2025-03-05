@@ -1,8 +1,8 @@
 # Inter-institute Sports Week Garching 2024
 
-Presenting the web page for all information concerning the inter-institute sports week.
+Presenting the web page for all information concerning the inter-institute sports weeks held in Garching.
 
-This repo also contains a few tools to analyze the survey results, compose teams and subteams, and schedule matches.
+This repo also contains a few tools to analyze the survey results, to compose teams and subteams, and to schedule matches.
 
 Allows to create some plots and somewhat balanced teams based on a random way
 of finding them that is good enough for our purposes, albeit I admit it isn't really optimized.

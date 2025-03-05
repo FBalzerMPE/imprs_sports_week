@@ -1,39 +1,69 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Final, Literal
+
 import pandas as pd
 
 # The path to the data folder
 DATAPATH = Path(__file__).parent.parent / "data"
 PAGESPATH = Path(__file__).parent.parent / "pages"
+CURRENT_YEAR: Final[int] = 2025
 
 SPORTS_LIST = [
     "ping_pong",
     "basketball",
     "running_sprints",
     "volleyball",
-    "chess",
     "football",
     "tennis",
-    "capture_the_flag",
+    "badminton",
     "spikeball",
+    "capture_the_flag",
+    "chess",
     "beer_pong",
     "foosball",
 ]
 
 
-ALL_DAYS = ["monday", "tuesday", "thursday", "friday"]
+ALL_DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
 
 @dataclass
 class FpathRegistry:
     """Paths to some commonly used files."""
 
-    processed_responses = DATAPATH.joinpath("hidden/processed_responses.csv")
+    sport_locations = DATAPATH.joinpath("assets/sport_locations.yml")
 
-    all_responses = DATAPATH.joinpath("sanitized_responses.csv")
+    @staticmethod
+    def get_path_matches(year=CURRENT_YEAR) -> Path:
+        """The path for the match dataframe of the given year."""
+        return DATAPATH.joinpath(f"{year}/matches.csv")
 
-    all_matches = DATAPATH.joinpath("matches.csv")
+    @staticmethod
+    def get_path_sport_events(year=CURRENT_YEAR) -> Path:
+        """The path for the sport event dataframe of the given year."""
+        return DATAPATH.joinpath(f"{year}/sport_events.yml")
+
+    @staticmethod
+    def get_path_sports_organizers(year=CURRENT_YEAR) -> Path:
+        """The path for the sports organizer dataframe of the given year."""
+        return DATAPATH.joinpath(f"{year}/sports_organizers.yml")
+
+    @staticmethod
+    def get_path_responses(year=CURRENT_YEAR, sanitized=True, latest=False) -> Path:
+        if sanitized:
+            return DATAPATH.joinpath(f"{year}/sanitized_responses.csv")
+        p = DATAPATH.joinpath(f"{year}/hidden/processed_responses.csv")
+        if not latest:
+            return p
+        return sorted(
+            p.parent.glob("form_responses_*.csv"), key=lambda p: p.stat().st_birthtime
+        )[0]
+
+    @staticmethod
+    def get_path_team(letter: str, year=CURRENT_YEAR) -> Path:
+        """The Path for the given team's dataframe."""
+        return DATAPATH.joinpath(f"{year}/teams/team_{letter}.csv")
 
     @staticmethod
     def get_animal_pic_path(animal_name: str, from_static: bool = True) -> str:
@@ -58,6 +88,6 @@ class FpathRegistry:
         return DATAPATH.joinpath(f"sport_descriptions/{sport}/{info_type}.md")
 
     @staticmethod
-    def get_hidden_responses() -> pd.DataFrame:
+    def get_hidden_responses(year=CURRENT_YEAR) -> pd.DataFrame:
         """Reads the hidden responses from the file."""
-        return pd.read_csv(FpathRegistry.processed_responses)
+        return pd.read_csv(FpathRegistry.get_path_responses(year, sanitized=False))

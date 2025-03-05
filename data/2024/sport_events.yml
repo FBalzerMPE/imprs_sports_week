@@ -1,0 +1,161 @@
+- name: ping_pong
+  start: 2024-04-29 17:30
+  end: 2024-05-03 21:00
+  loc: mpe_ping_pong
+  pitch_type_name: Table
+  match_duration: 15
+  organizer_names:
+    - Fabi
+    - Zsofi
+  icon: ⚪
+  min_player_val: 4
+  num_pitches: 2
+  num_players_per_subteam: 1
+  num_subteams: 16
+  point_weight_factor: 2.5
+- name: basketball
+  start: 2024-04-29 17:30
+  end: 2024-04-29 21:00
+  match_duration: 45
+  loc: tum_pitches
+  pitch_type_name: Court
+  organizer_names:
+    - Juan
+  icon: 🏀
+  min_player_val: 8
+  num_players_per_subteam: 4
+  conflicting_sports:
+    - volleyball
+- name: running_sprints
+  start: 2024-04-29 17:30
+  end: 2024-04-29 19:00
+  match_duration: 60
+  loc: tum_big_field
+  pitch_type_name: Court
+  organizer_names:
+    - Zsofi
+    - William
+  icon: 🏃
+  min_player_val: 3
+  num_players_per_subteam: 4
+  num_subteams: 1
+- name: volleyball
+  start: 2024-04-29 17:30
+  end: 2024-04-29 21:00
+  match_duration: 45
+  loc: tum_pitches
+  pitch_type_name: Court
+  organizer_names:
+    - Benny
+    - Fabi
+  icon: 🏐
+  min_player_val: 8
+  num_players_per_subteam: 4
+  num_subteams: 2
+  num_pitches: 2
+  conflicting_sports:
+    - basketball
+  point_weight_factor: 1.5
+- name: chess
+  start: 2024-04-30 17:30
+  end: 2024-04-30 21:00
+  match_duration: 40
+  loc: mpa_common_room
+  pitch_type_name: Board
+  organizer_names:
+    - David
+  icon: ♟️
+  num_pitches: 3
+  min_player_val: 3
+  num_players_per_subteam: 1
+  num_subteams: 3
+- name: football
+  start: 2024-04-30 17:30
+  end: 2024-04-30 21:00
+  match_duration: 45
+  loc: tum_big_field
+  pitch_type_name: Pitch
+  organizer_names:
+    - Matteo G
+  icon: ⚽
+  min_player_val: 11
+  num_players_per_subteam: 8
+  conflicting_sports:
+    - tennis
+  point_weight_factor: 1.5
+- name: tennis
+  start: 2024-04-30 17:30
+  end: 2024-04-30 21:00
+  match_duration: 45
+  loc: ipp_tennis_courts
+  pitch_type_name: Court
+  organizer_names:
+    - Matteo B
+  icon: 🎾
+  min_player_val: 4
+  num_players_per_subteam: 1
+  num_subteams: 3
+  num_pitches: 3
+  conflicting_sports:
+    - football
+- name: capture_the_flag
+  start: 2024-05-02 17:30
+  end: 2024-05-02 19:30
+  match_duration: 30
+  loc: tum_big_field
+  pitch_type_name: Court
+  organizer_names:
+    - Benny
+    - Zsofi
+  icon: 🚩
+  min_player_val: 8
+  num_players_per_subteam: 8
+  num_pitches: 1
+  num_matches_per_subteam: 1
+  point_weight_factor: 1.5
+- name: spikeball
+  start: 2024-05-02 17:30
+  end: 2024-05-02 21:00
+  match_duration: 30
+  loc: tum_big_field
+  pitch_type_name: Net no.
+  organizer_names:
+    - Fabi
+  icon: 🌕
+  min_player_val: 4
+  num_players_per_subteam: 2
+  num_subteams: 4
+  num_pitches: 3
+  point_weight_factor: 1.5
+- name: beer_pong
+  start: 2024-05-03 17:30
+  end: 2024-05-03 21:00
+  match_duration: 20
+  loc: mpa_common_room
+  pitch_type_name: Table
+  organizer_names:
+    - Benny
+    - William
+  icon: 🍺
+  num_pitches: 2
+  min_player_val: 6
+  num_players_per_subteam: 3
+  num_subteams: 3
+  conflicting_sports:
+    - foosball
+  point_weight_factor: 1.5
+- name: foosball
+  start: 2024-05-03 17:30
+  end: 2024-05-03 21:00
+  loc: mpa_common_room
+  pitch_type_name: Table
+  match_duration: 15
+  organizer_names:
+    - Matteo G
+  icon: 💥
+  min_player_val: 4
+  num_players_per_subteam: 2
+  num_subteams: 4
+  conflicting_sports:
+    - beer_pong
+  point_weight_factor: 1.5

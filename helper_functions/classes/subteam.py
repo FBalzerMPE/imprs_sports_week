@@ -5,6 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
+from ..logger import LOGGER
 from ..setup.setup_util import get_real_player_name
 
 
@@ -82,6 +83,6 @@ class Subteam:
         self.move_player_to_other(player_a, other, verbose)
         other.move_player_to_other(player_b, self, verbose)
         if verbose:
-            print(
+            LOGGER.info(
                 f"{self.sport}: Switched out {player_a} with {player_b} from {self.full_key} to {other.full_key}"
             )

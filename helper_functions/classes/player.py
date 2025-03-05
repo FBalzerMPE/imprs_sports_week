@@ -41,12 +41,15 @@ class Player:
     @classmethod
     def from_series(cls, series: pd.Series, all_matches: list[Match]) -> Player:
         name = series["nickname"]
-        avail_days = [day for day in ALL_DAYS if series[f"avail_{day}"]]
+        avail_days = [
+            day for day in ALL_DAYS if day in series and series[f"avail_{day}"]
+        ]
         team = series["Team"].replace("Team ", "")
         subteams = {
             sport: f"{team}: {subteam}"
             for sport in SPORTS_LIST
-            if (subteam := series[f"subteam_{sport}"]) != ""
+            if f"subteam_{sport}" in series
+            and (subteam := series[f"subteam_{sport}"]) != ""
         }
         matches = [match_ for match_ in all_matches if match_.contains_player(name)]
         matches = sorted(matches, key=lambda match_: match_.start)
@@ -62,11 +65,13 @@ class Player:
 
     @property
     def info_str(self) -> str:
-        from ..sport_event_registry import SPORTS_EVENTS
+        from ..data_registry import DATA_NOW
 
         text = f"### Team {self.main_team_letter}: {self.nickname}\n\n"
         text += "**Sports:**\\\n"
-        text += ", ".join([SPORTS_EVENTS[sport].html_url for sport in self.subteams])
+        text += ", ".join(
+            [DATA_NOW.sport_events[sport].html_url for sport in self.subteams]
+        )
         if len(self.subteams) == 0:
             text += "Player unfortunately dropped out."
         text += "\\\n"
@@ -77,14 +82,14 @@ class Player:
     @property
     def sports_days(self) -> dict[str, list[SportEvent]]:
         """The days relevant for this player."""
-        from ..sport_event_registry import SPORTS_EVENTS
+        from ..data_registry import DATA_NOW
 
         days = {day: [] for day in ALL_DAYS}
         for match in self.matches:
             if match.sport == "ping_pong" and len(days[match.weekday]) == 0:
-                days[match.weekday].append(SPORTS_EVENTS["ping_pong"])
+                days[match.weekday].append(DATA_NOW.sport_events["ping_pong"])
         for day in ALL_DAYS:
-            for event in SPORTS_EVENTS.values():
+            for event in DATA_NOW.sport_events.values():
                 if day not in event.days or event.sanitized_name == "ping_pong":
                     continue
                 if event.sanitized_name not in self.subteams:
@@ -129,8 +134,7 @@ class Player:
         return [(match_.start, match_.end) for match_ in self.matches]
 
     def get_schedule_for_mail(self) -> str:
-        from ..data_registry import ALL_SUBTEAMS
-        from ..sport_event_registry import SPORTS_EVENTS
+        from ..data_registry import DATA_NOW
 
         text = (
             ""
@@ -139,8 +143,8 @@ class Player:
         )
 
         for sport, subteam_key in self.subteams.items():
-            event = SPORTS_EVENTS[sport]
-            subteam = ALL_SUBTEAMS[sport + "_" + subteam_key]
+            event = DATA_NOW.sport_events[sport]
+            subteam = DATA_NOW.subteams[sport + "_" + subteam_key]
             subteam_key = f"**{subteam_key}**"
             matches = [match for match in self.matches if match.sport == sport]
             vals, ind = np.unique(
@@ -197,7 +201,7 @@ class Player:
             with cols[0]:
                 st.image(
                     FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
-                    use_column_width=True,
+                    use_container_width=True,
                 )
             with cols[1]:
                 st.write(self.info_str, unsafe_allow_html=True)

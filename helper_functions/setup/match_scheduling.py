@@ -5,8 +5,9 @@ import pandas as pd
 
 from ..classes.match import Match
 from ..classes.subteam import Subteam
-from ..constants import FpathRegistry
+from ..constants import FpathRegistry, CURRENT_YEAR
 from ..util import deprecated, turn_series_list_to_dataframe
+from ..logger import LOGGER
 
 T = TypeVar("T")
 
@@ -113,16 +114,16 @@ def determine_rotated_matchups_for_sport(
     return create_combinations(*teams_subteams)
 
 
-def write_match_backup_from_df(df: pd.DataFrame, overwrite=False):
+def write_match_backup_from_df(df: pd.DataFrame, year=CURRENT_YEAR, overwrite=False):
     """Write a backup for the matches that were determined."""
-    fpath = FpathRegistry.all_matches
+    fpath = FpathRegistry.get_path_matches(year)
     if fpath.exists() and not overwrite:
-        print("Skipped overwriting matches")
+        LOGGER.info("Skipped overwriting matches")
         return
     df.to_csv(fpath, index=False)
 
 
-def write_match_backup(matches: list[Match], overwrite=False):
+def write_match_backup(matches: list[Match], year=CURRENT_YEAR, overwrite=False):
     """Write a backup for the matches that were determined."""
     df = turn_series_list_to_dataframe([m.as_series for m in matches]).set_index(
         "full_key", drop=False
@@ -131,4 +132,4 @@ def write_match_backup(matches: list[Match], overwrite=False):
         ","
     )
     df = df[cols]
-    write_match_backup_from_df(df, overwrite=overwrite)
+    write_match_backup_from_df(df, year, overwrite=overwrite)

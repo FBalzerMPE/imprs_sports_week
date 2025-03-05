@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 from ..classes.team import Team
-from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry
+from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry, CURRENT_YEAR
 from ..util import deprecated
 
 
@@ -15,13 +15,13 @@ def swap_rows(df, i, j):
     return df
 
 
-def create_teams() -> list[Team]:
+def create_teams(year=CURRENT_YEAR) -> list[Team]:
     """Create teams based on the player data.
     If a seed is given, the players are randomly shuffled before being appointed.
     If no seed is given, they are sorted by the number of sports they attend such that
     the 'easy' ones are assigned last, which seems to work out best.
     """
-    player_data = pd.read_csv(FpathRegistry.all_responses).sort_values(
+    player_data = pd.read_csv(FpathRegistry.get_path_responses(year)).sort_values(
         "num_sports",
         ascending=False,
     )
@@ -67,12 +67,14 @@ def find_best_team_to_join(teams: list[Team], player: pd.Series) -> np.intp:
 
 
 @deprecated("We have settled to not use random generation anymore")
-def create_teams_from_seed(num_teams: int = 3, seed: int | None = None) -> list[Team]:
+def create_teams_from_seed(
+    num_teams: int = 3, seed: int | None = None, year=CURRENT_YEAR
+) -> list[Team]:
     if seed is None:
         seed = randint(0, 10000)
         print(f"No seed provided, randomly choosing {seed}")
     player_data = (
-        pd.read_csv(FpathRegistry.all_responses)
+        pd.read_csv(FpathRegistry.get_path_responses(year))
         .sample(frac=1, random_state=seed)
         .reset_index(drop=True)
     )
