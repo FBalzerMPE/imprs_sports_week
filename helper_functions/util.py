@@ -1,10 +1,11 @@
 import functools
 import inspect
 import warnings
+import yaml
 
 import pandas as pd
 
-from .constants import DATAPATH
+from .constants import DATAPATH, FpathRegistry
 from .logger import LOGGER
 
 _string_types = (type(b""), type(""))
@@ -43,6 +44,13 @@ def read_event_desc(event_name: str) -> str:
         return "NO DESCRIPTION FOUND"
     with fpath.open("r", encoding="utf-8") as f:
         return f.read()
+
+
+def get_changelog_data() -> dict[str, list[str]]:
+    """Return the changelog of the package, mapping the version to the changes."""
+    yaml_data = yaml.safe_load(FpathRegistry.changelog.read_text(encoding="utf-8"))
+    log = {k: v for dict_entry in yaml_data for k, v in dict_entry.items()}
+    return {k: v if isinstance(v, list) else [v] for k, v in log.items()}
 
 
 def all_equal(lst: list) -> bool:

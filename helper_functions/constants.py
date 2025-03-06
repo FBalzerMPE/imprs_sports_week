@@ -33,6 +33,7 @@ class FpathRegistry:
     """Paths to some commonly used files."""
 
     sport_locations = DATAPATH.joinpath("assets/sport_locations.yml")
+    changelog = DATAPATH.joinpath("assets/changelog.yml")
 
     @staticmethod
     def get_path_matches(year=CURRENT_YEAR) -> Path:

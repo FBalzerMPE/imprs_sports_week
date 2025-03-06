@@ -1,0 +1,13 @@
+- 2.0.0 (2025-03-05):
+  - The second installation of the Sports Week is near!
+  - Updated the framework to account for multiple years.
+  - Aggregated events and stuff from the 2024 sports week on its own page.
+  - Added Badminton as a new sport.
+  - Updated the schedule for the new year.
+  - Updated introductory information to account for new signups.
+  - Removed st_page dependency as it's now integrated into the main streamlit toolkit.
+- 1.1.0 (2024-05-02):
+  - Updated match results page.
+  - Added statistics page for winning teams.
+  - A bunch of other stuff that I can't be bothered to remember, improving upon the website.
+- 1.0.0 (2024-04-25): Initial website launch for the first Sports Week!

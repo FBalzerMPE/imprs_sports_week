@@ -8,7 +8,7 @@ On this page, you can see an overview of the results of the sports week, as well
 """
 st.write(_INTRO_TEXT)
 
-tab_names = ["❓FAQ", "📊Results", "⭐Top Scorers", "📋Team Creation"]
+tab_names = ["❓FAQ", "📊Results", "⭐Top Scorers", "📋Team Creation", "Changelog"]
 tabs = st.tabs(tab_names)
 # Results tab:
 with tabs[1]:
@@ -39,3 +39,12 @@ with tabs[0]:
     for q, a in zip(questions[::2], questions[1::2]):
         with st.expander(q):
             st.write(a, unsafe_allow_html=True)
+# Changelog tab:
+with tabs[4]:
+    st.write(
+        "Brief changelog for this website in case you care about that kinda stuff. Might be a bit technical/boring."
+    )
+    log = hf.get_changelog_data()
+    for version, changes in log.items():
+        with st.expander(f"Version {version}", expanded=True):
+            st.write("- " + "\n- ".join(changes))

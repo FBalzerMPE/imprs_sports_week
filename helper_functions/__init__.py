@@ -25,6 +25,7 @@ __all__ = [
     "copy_to_clipboard",
     "DATA_2024",
     "DATA_NOW",
+    "get_changelog_data",
     "register_or_add_to_dict",
     "st_display_top_scorers",
     "st_display_team_overview",
