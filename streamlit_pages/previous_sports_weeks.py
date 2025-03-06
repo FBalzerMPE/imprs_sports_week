@@ -13,9 +13,10 @@ All in all, an astonishing amount of {len(hf.DATA_2024.players)} players were sp
 """
 )
 st.page_link(
-    "pages/Statistics.py",
+    "streamlit_pages/Statistics.py",
     label="Click here for further info on the current sports week",
     icon="📊",
+    use_container_width=True,
 )
 
 with st.expander("Teams"):

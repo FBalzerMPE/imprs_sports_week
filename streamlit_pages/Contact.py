@@ -20,12 +20,21 @@ The correct address endings are as follows:
 """,
 )
 
+show_pics = (
+    st.radio(
+        "Hide pictures",
+        ["No", "Yes"],
+        horizontal=True,
+        help="Whether to hide organizer pics (might be better on mobile).",
+    )
+    == "No"
+)
 col1, col2 = st.columns(2)
 
 for i, sports_organizer in enumerate(hf.DATA_NOW.organizers.values()):
     if i % 2 == 0:
         with col1:
-            sports_organizer.write_streamlit_rep()
+            sports_organizer.write_streamlit_rep(show_pics)
     else:
         with col2:
-            sports_organizer.write_streamlit_rep()
+            sports_organizer.write_streamlit_rep(show_pics)

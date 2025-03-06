@@ -56,7 +56,7 @@ def _get_individual_score_df(
     return top_ten.rename(columns={"nickname": "Nickname"})
 
 
-_SCORER_TEXT = """The table above shows the top-scoring players of the YEAR sports week!\\
+_SCORER_TEXT = """
 What do these scores mean and how are they calculated, you ask?\\
 They roughly reflect how many points these individuals have solely achieved for their team!
 
@@ -79,7 +79,9 @@ def st_display_top_scorers(data: DataRegistry):
     col_config["Score_num"] = st.column_config.ProgressColumn(
         "Score", max_value=max(score_df["Score_num"]), format=""
     )
-    st.write("### Top Scorers")
+    st.write(
+        f"The table below shows the top-scoring players of the {data.year} sports week!"
+    )
     st.dataframe(
         st_style_df_with_team_vals(score_df, data),
         hide_index=True,

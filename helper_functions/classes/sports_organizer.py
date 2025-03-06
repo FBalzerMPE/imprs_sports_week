@@ -51,7 +51,7 @@ class SportsOrganizer:
     def nick_pic_path(self) -> Path:
         return Path(FpathRegistry.get_animal_pic_path(self.nickname, False))
 
-    def write_streamlit_rep(self):
+    def write_streamlit_rep(self, show_pics: bool = True):
         """Write the organizer's information to the Streamlit app."""
         from ..data_registry import get_data_for_year
 
@@ -59,13 +59,17 @@ class SportsOrganizer:
         sports = [events[sport] for sport in self.sport_keys]
         container = st.container(border=True)
         col_list = [0.8]
-        if self.nick_pic_path.exists() or self.pic_path.exists():
+        if show_pics and (self.nick_pic_path.exists() or self.pic_path.exists()):
             col_list.insert(0, 0.2)
-        cols = container.columns(col_list)
-        if self.pic_path.exists():
+            cols = container.columns(col_list)
+            col = cols[1]
+        else:
+            col = container
+        if show_pics and self.pic_path.exists():
             cols[0].image(str(self.pic_path), use_container_width=True)
-        if self.nick_pic_path.exists():
+        if show_pics and self.nick_pic_path.exists():
             cols[0].image(str(self.nick_pic_path), use_container_width=True)
+
         committee_str = "\\*" if self.is_committee_member else ""
         inst_str = f" ({self.institute})" if self.institute else ""
         text = f"**{self.name}{committee_str}{inst_str}**\\\n"
@@ -75,7 +79,7 @@ class SportsOrganizer:
             text += "No sports organized this year."
         else:
             text += "Contact for: "
-        cols[-1].write(text, unsafe_allow_html=True)
+        col.write(text, unsafe_allow_html=True)
         for sport in sports:
-            with cols[-1]:
+            with col:
                 sport.st_display_page_link(True)
