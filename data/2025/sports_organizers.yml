@@ -34,6 +34,12 @@
   sport_keys:
     - basketball
   institute: MPE
+- name: Sérgio
+  nickname: ...
+  email: scarrolo@4...
+  sport_keys:
+    - volleyball
+  institute: MPP
 - name: Matteo G
   nickname: Dishonest Fangtooth
   email: matteani@2...
