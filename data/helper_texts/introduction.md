@@ -22,6 +22,16 @@ By now, you should have received an email with a survey for participation to be 
 If you haven't received the survey but would like to participate, drop us an email.\
 Please fill out this survey until no later than SIGNUP_DEADLINE to give us some time to plan accordingly!
 
+### Sign-up fee
+
+This year we require a (very small!) registration fee of 2 Euros (in total, regardless of amount of sports you want to participate in). Last year we received limited funding from the IMPRS Common Room, but since the event has expanded to other institutes that are not part of IMPRS, we ask for this small fee to enable us to get: 
+
+- more ice packs and first aid material
+- necessary sports equipment
+- snacks and drinks for the Sports Week Party on Friday, May 9th
+
+### What we'll do with the survey data
+
 This survey will allow us to group all participants into **three or four main teams** that are roughly equal-sized with respect to every sport - we'll decide on team sizes depending on the number of sign-ups, last year there were more than 100 participants split into 3 main teams!\
 The idea is that these teams send out their **Champions** (sometimes grouped into smaller subteams) for each of the sports, in which they can work together to achieve points for the main team.\
 At the end of the week, we are going to celebrate the winners (and all participants) in a big party.
