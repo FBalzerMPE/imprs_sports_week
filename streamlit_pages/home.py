@@ -1,3 +1,5 @@
+from typing import Sequence
+
 import streamlit as st
 
 import helper_functions as hf
@@ -6,6 +8,26 @@ st.write(f"# Welcome to the {hf.CURRENT_YEAR} Inter-Institute Sports Week in Gar
 
 markdown_text = hf.read_event_desc("../helper_texts/introduction")
 markdown_text = markdown_text.replace("SIGNUP_DEADLINE", "**April 4th**")
+
+
+def _organizer_filter_func(
+    organizers: Sequence[hf.SportsOrganizer],
+) -> list[hf.SportsOrganizer]:
+    """Filter out the organizers that are no cash contact points."""
+    orgs = [org for org in organizers if org.is_cash_contact_point]
+    return sorted(orgs, key=lambda x: x.institute)
+
+
+parts = markdown_text.split("PAYMENT_POINT_EXPANDER")
+st.write(parts[0], unsafe_allow_html=True)
+with st.expander("Where to pay the 2 € sign-up fee"):
+    st.write(
+        'You can either pay the 2 € via PayPal (see the initial email for address, and make sure we can trace it back to you), or in cash to the designated contact person at your institute (for the proper email domain translation see <a href="contact" target="_self">here</a>):',
+        unsafe_allow_html=True,
+    )
+    hf.st_display_organizers(hf.DATA_NOW, filter_func=_organizer_filter_func)
+markdown_text = parts[1]
+
 
 for day in ["monday", "tuesday", "wednesday", "thursday", "friday"]:
     md_key = day.upper() + "_LINKS"

@@ -566,7 +566,7 @@ The correct address endings are as follows:
                 organizer = get_data_for_year(self.year).organizers[name]
                 if i % 2 == 0:
                     with col1:
-                        organizer.write_streamlit_rep()
+                        organizer.st_display_info()
                 else:
                     with col2:
-                        organizer.write_streamlit_rep()
+                        organizer.st_display_info()

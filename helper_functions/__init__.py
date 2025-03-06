@@ -1,3 +1,4 @@
+from .classes.sports_organizer import SportsOrganizer
 from .classes.subteam import Subteam
 from .classes.team import Team
 from .constants import *
@@ -33,4 +34,5 @@ __all__ = [
     "st_display_full_results",
     "st_display_player_overview",
     "st_display_organizers",
+    "SportsOrganizer",
 ]

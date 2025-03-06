@@ -31,7 +31,7 @@ Last year we received limited funding (order of 40 €) from the IMPRS Common Ro
 - Necessary sports equipment (we're thinking of getting some bibs).
 - Snacks and drinks for the Sports Week Party on Friday, May 9th.
 
-You can either pay the fee via PayPal (see the initial email for address), or in cash to any of the committee members, preferably Sérgio [MPP], Mari [IPP], Benny [MPA], Fabi [MPE]. If you have trouble paying please just drop an email.
+PAYMENT_POINT_EXPANDER
 
 ### What we'll do with the survey data
 

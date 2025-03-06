@@ -6,6 +6,12 @@ import streamlit as st
 from ..constants import CURRENT_YEAR, DATAPATH, SPORTS_LIST, FpathRegistry
 
 
+def _st_display_text_without_spacing(text: str, spacing_px: int = 5):
+    """Display markdown without the extra spacing."""
+    t = f"<div style='margin-bottom: {spacing_px}px;'>{text}</div>"
+    st.markdown(t, unsafe_allow_html=True)
+
+
 @dataclass
 class SportsOrganizer:
     """A person responsible for organizing a sports event."""
@@ -28,6 +34,10 @@ class SportsOrganizer:
     institute: str = ""
     """The institute of the organizer."""
 
+    is_cash_contact_point: bool = False
+    """Whether this organizer is a person that can be contacted to deposit the
+    entry fee at."""
+
     year: int = CURRENT_YEAR
     """The year of the sports week this organizer helped out."""
 
@@ -47,40 +57,79 @@ class SportsOrganizer:
         return DATAPATH.joinpath(f"assets/organizer_pics/{sani_name}.png")
 
     @property
+    def is_current_year(self) -> bool:
+        return self.year == CURRENT_YEAR
+
+    @property
     def nick_pic_path(self) -> Path:
         return Path(FpathRegistry.get_animal_pic_path(self.nickname, False))
 
-    def write_streamlit_rep(self, show_pics: bool = True):
-        """Write the organizer's information to the Streamlit app."""
+    @property
+    def title(self) -> str:
+        """The title of the organizer."""
+        committee_str = "*" if self.is_committee_member else ""
+        inst_str = f" ({self.institute})" if self.institute else ""
+        cash_str = "💸" if self.is_cash_contact_point and self.is_current_year else ""
+        text = f"{self.name}{committee_str}{inst_str}{cash_str}"
+        return text
+
+    def get_desc_text(self, add_cash_str=True) -> str:
+        """The description text of the organizer."""
+        text = ""
+        if add_cash_str and self.is_cash_contact_point and self.is_current_year:
+            cash_str = "<br>Contact to pay 2 € sign-up fee"
+            text += cash_str
+        if self.is_current_year:
+            email = self.email.replace("@", "<span>@</span>")
+            text += f"<br>Email: <i>{email}</i>"
+        return text.lstrip("<br>")
+
+    def _st_display_pics(self):
+        """Display the organizer's pictures if available."""
+        if self.pic_path.exists():
+            st.image(str(self.pic_path), use_container_width=True)
+        if self.nick_pic_path.exists():
+            st.image(str(self.nick_pic_path), use_container_width=True)
+
+    def _st_display_sports(self):
+        """Display the sports by this organizer as link buttons."""
         from ..data_registry import get_data_for_year
 
         events = get_data_for_year(self.year).sport_events
+        if len(self.sport_keys) == 0:
+            if self.is_cash_contact_point:
+                text = "Cash contact person."
+            else:
+                text = "No sports organized this year."
+            _st_display_text_without_spacing(text)
+            return
         sports = [events[sport] for sport in self.sport_keys]
-        container = st.container(border=True)
+        if self.is_current_year:
+            _st_display_text_without_spacing("Contact for:")
+        for sport in sports:
+            sport.st_display_page_link(True)
+
+    def st_display_info(self, show_pics: bool = True, use_expander: bool = False):
+        """Write the organizer's information to the Streamlit app."""
+
+        container = (
+            st.expander(self.title) if use_expander else st.container(border=True)
+        )
         col_list = [0.8]
         if show_pics and (self.nick_pic_path.exists() or self.pic_path.exists()):
             col_list.insert(0, 0.2)
             cols = container.columns(col_list)
             col = cols[1]
+            with cols[0]:
+                self._st_display_pics()
         else:
             col = container
-        if show_pics and self.pic_path.exists():
-            cols[0].image(str(self.pic_path), use_container_width=True)
-        if show_pics and self.nick_pic_path.exists():
-            cols[0].image(str(self.nick_pic_path), use_container_width=True)
 
-        committee_str = "\\*" if self.is_committee_member else ""
-        inst_str = f" ({self.institute})" if self.institute else ""
-        text = f"**{self.name}{committee_str}{inst_str}**"
-        if self.year == CURRENT_YEAR:
-            email = self.email.replace("@", "<span>@</span>")
-            text += f"\\\nEmail: *{email}*\\\n"
-        if len(self.sport_keys) == 0:
-            text += "\\\nNo sports organized this year."
-        else:
-            if self.year == CURRENT_YEAR:
-                text += "\\\nContact for: "
-        col.write(text, unsafe_allow_html=True)
-        for sport in sports:
-            with col:
-                sport.st_display_page_link(True)
+        with col:
+            if not use_expander:
+                title = f"<h5>{self.title}</h5>"
+                _st_display_text_without_spacing(title)
+            _st_display_text_without_spacing(
+                self.get_desc_text(add_cash_str=use_expander)
+            )
+            self._st_display_sports()

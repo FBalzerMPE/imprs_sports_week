@@ -112,7 +112,9 @@ def load_organizers(year=CURRENT_YEAR) -> dict[str, SportsOrganizer]:
     orgs = yaml.safe_load(fpath.read_text(encoding="utf-8"))
     orgs = sorted(
         orgs,
-        key=lambda x: ("0" if x.get("is_committee_member", False) else "1") + x["name"],
+        key=lambda x: ("0" if x.get("is_committee_member", False) else "1")
+        + ("0" if len(x.get("sport_keys")) > 0 else "1")
+        + x["name"],
     )
     return {org["name"]: SportsOrganizer(**org, year=year) for org in orgs}
 

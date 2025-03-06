@@ -7,6 +7,7 @@
     - beer_pong
   is_committee_member: true
   institute: MPA
+  is_cash_contact_point: true
 - name: David
   nickname: Disloyal Hagfish
   email: kald@1...
@@ -21,6 +22,7 @@
     - spikeball
     - ping_pong
   is_committee_member: true
+  is_cash_contact_point: true
   institute: MPE
 - name: Fernando
   nickname: ...
@@ -34,12 +36,6 @@
   sport_keys:
     - basketball
   institute: MPE
-- name: Sérgio
-  nickname: ...
-  email: scarrolo@4...
-  sport_keys:
-    - volleyball
-  institute: MPP
 - name: Matteo G
   nickname: Dishonest Fangtooth
   email: matteani@2...
@@ -74,6 +70,7 @@
   sport_keys:
     - football
   is_committee_member: true
+  is_cash_contact_point: true
   institute: IPP
 - name: Guillaume
   nickname: Reckless Swan
@@ -83,3 +80,28 @@
     - running_sprints
   is_committee_member: true
   institute: IPP
+- name: Sérgio
+  nickname: ...
+  email: scarrolo@4...
+  sport_keys:
+    - volleyball
+  institute: MPP
+  is_cash_contact_point: true
+- name: Adrien
+  nickname: ...
+  email: adrien.bouscal@5...
+  sport_keys: []
+  institute: MPQ
+  is_cash_contact_point: true
+- name: Leon
+  nickname: Awkward Cichlid
+  email: l.ecker@6...
+  sport_keys: []
+  institute: USM
+  is_cash_contact_point: true
+- name: Tommy
+  nickname: Another Macaw
+  email: thomas.winterhalder@7...
+  sport_keys: []
+  institute: ESO
+  is_cash_contact_point: true
