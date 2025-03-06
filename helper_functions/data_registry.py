@@ -45,7 +45,7 @@ def get_players(from_teams: bool = True, year=CURRENT_YEAR) -> pd.DataFrame:
         if len(teams) > 0:
             return pd.concat([team.player_df for team in teams])
         else:
-            LOGGER.warning(
+            LOGGER.info(
                 "No teams found to get the players from. Trying to revert to the response sheet."
             )
     return pd.read_csv(FpathRegistry.get_path_responses(year))

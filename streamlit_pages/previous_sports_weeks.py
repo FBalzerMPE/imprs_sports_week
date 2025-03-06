@@ -19,11 +19,12 @@ st.page_link(
     use_container_width=True,
 )
 
-with st.expander("Teams"):
-    hf.st_display_team_overview(hf.DATA_2024)
 
 with st.expander("Player/Sports Overview"):
     hf.st_display_player_overview(hf.DATA_2024)
+
+with st.expander("Teams"):
+    hf.st_display_team_overview(hf.DATA_2024)
 
 with st.expander("Results"):
     hf.st_display_full_results(hf.DATA_2024)

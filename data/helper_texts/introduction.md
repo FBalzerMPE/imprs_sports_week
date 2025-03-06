@@ -24,11 +24,12 @@ Please fill out this survey until no later than SIGNUP_DEADLINE to give us some 
 
 ### Sign-up fee
 
-This year we require a (very small!) registration fee of 2 Euros (in total, regardless of amount of sports you want to participate in). Last year we received limited funding from the IMPRS Common Room, but since the event has expanded to other institutes that are not part of IMPRS, we ask for this small fee to enable us to get: 
+This year we require a registration fee of 2 Euros (in total, regardless of amount of sports you want to participate in).
+Last year we received limited funding (order of 40 €) from the IMPRS Common Room, but since the event has expanded to other institutes that are not part of IMPRS, we ask for this small fee to enable us to get: 
 
-- more ice packs and first aid material
-- necessary sports equipment
-- snacks and drinks for the Sports Week Party on Friday, May 9th
+- Ice packs and first aid material.
+- Necessary sports equipment (we're thinking of getting some bibs).
+- Snacks and drinks for the Sports Week Party on Friday, May 9th.
 
 ### What we'll do with the survey data
 
