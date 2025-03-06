@@ -238,10 +238,10 @@ class Team:
             lambda row: [_get_val_color(val, self.rgb_colors) for val in row],
             axis=1,
         )
-        st.write(
-            f"If you're a member of team {self.team_letter}, it'd be great <span style='background-color:darkred; color:white;'>**if you could wear *{self.cloth_color} clothing***</span> when participating in the big team events.",
-            unsafe_allow_html=True,
-        )
+        # st.write(
+        #     f"If you're a member of team {self.team_letter}, it'd be great <span style='background-color:darkred; color:white;'>**if you could wear *{self.cloth_color} clothing***</span> when participating in the big team events.",
+        #     unsafe_allow_html=True,
+        # )
         st.dataframe(
             style,
             column_config=column_configs,
