@@ -17,24 +17,9 @@ The correct address endings are as follows:
 - @1... $\rightarrow$ mpe.mpg.de
 - @2... $\rightarrow$ mpa-garching.mpg.de
 - @3... $\rightarrow$ ipp.mpg.de
+- @4... $\rightarrow$ mpp.mpg.de
 """,
 )
 
-show_pics = (
-    st.radio(
-        "Hide pictures",
-        ["No", "Yes"],
-        horizontal=True,
-        help="Whether to hide organizer pics (might be better on mobile).",
-    )
-    == "No"
-)
-col1, col2 = st.columns(2)
 
-for i, sports_organizer in enumerate(hf.DATA_NOW.organizers.values()):
-    if i % 2 == 0:
-        with col1:
-            sports_organizer.write_streamlit_rep(show_pics)
-    else:
-        with col2:
-            sports_organizer.write_streamlit_rep(show_pics)
+hf.st_display_organizers(hf.DATA_NOW, True)

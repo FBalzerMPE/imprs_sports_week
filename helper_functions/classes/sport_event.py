@@ -390,11 +390,13 @@ class SportEvent:
 
     def st_display_page_link(self, use_container_width=False):
         """Write a streamlit pageLink instance."""
+        disabled = self.year != CURRENT_YEAR
         st.page_link(
             f"streamlit_pages/events/{self.sanitized_name}.py",
             label=self.name,
             icon=self.icon,
             use_container_width=use_container_width,
+            disabled=disabled,
         )
 
     def get_clear_name_schedule(self) -> str:
@@ -554,7 +556,9 @@ The correct address endings are as follows:
 
 - @1... $\rightarrow$ mpe.mpg.de
 - @2... $\rightarrow$ mpa-garching.mpg.de
-- @3... $\rightarrow$ ipp.mpg.de"""
+- @3... $\rightarrow$ ipp.mpg.de
+- @4... $\rightarrow$ mpp.mpg.de
+"""
             st.write(text)
             col1, col2 = st.columns(2)
 

@@ -5,3 +5,4 @@ from .display_teams import st_display_team_overview
 from .display_top_scorers import st_display_top_scorers
 from .display_sports import st_display_sports_overview
 from .navigation_setup import st_set_up_navigation
+from .display_organizers import st_display_organizers

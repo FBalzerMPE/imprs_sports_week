@@ -8,7 +8,7 @@ On this page, you can see an overview of the results of the sports week, as well
 """
 st.write(_INTRO_TEXT)
 
-tab_names = ["❓FAQ", "📊Results", "⭐Top Scorers", "📋Team Creation", "Changelog"]
+tab_names = ["❓FAQ", "📊Results", "⭐Top Scorers", "📋Team Creation", "📜Changelog"]
 tabs = st.tabs(tab_names)
 # Results tab:
 with tabs[1]:

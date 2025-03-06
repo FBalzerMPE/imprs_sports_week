@@ -109,7 +109,7 @@ def load_sport_locations() -> dict[str, SportLocation]:
 
 def load_organizers(year=CURRENT_YEAR) -> dict[str, SportsOrganizer]:
     fpath = FpathRegistry.get_path_sports_organizers(year)
-    orgs = yaml.safe_load(fpath.read_text())
+    orgs = yaml.safe_load(fpath.read_text(encoding="utf-8"))
     orgs = sorted(
         orgs,
         key=lambda x: ("0" if x.get("is_committee_member", False) else "1") + x["name"],

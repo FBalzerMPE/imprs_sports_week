@@ -57,9 +57,13 @@ class FpathRegistry:
         p = DATAPATH.joinpath(f"{year}/hidden/processed_responses.csv")
         if not latest:
             return p
-        return sorted(
+        files = sorted(
             p.parent.glob("form_responses_*.csv"), key=lambda p: p.stat().st_birthtime
-        )[0]
+        )
+        assert (
+            len(files) > 0
+        ), f"Couldn't find any form response files, make sure to add them in the 'hidden' directory for {year}."
+        return files[0]
 
     @staticmethod
     def get_path_team(letter: str, year=CURRENT_YEAR) -> Path:

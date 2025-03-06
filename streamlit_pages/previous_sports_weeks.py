@@ -1,7 +1,7 @@
 import streamlit as st
+from streamlit_pdf_viewer import pdf_viewer
 
 import helper_functions as hf
-from helper_functions.classes.player import Player
 
 st.write(
     f"""
@@ -19,6 +19,8 @@ st.page_link(
     use_container_width=True,
 )
 
+with st.expander("Poster"):
+    pdf_viewer(hf.DATAPATH.joinpath(f"2024/sports_week_poster.pdf"))
 
 with st.expander("Player/Sports Overview"):
     hf.st_display_player_overview(hf.DATA_2024)
@@ -31,3 +33,9 @@ with st.expander("Results"):
 
 with st.expander("Top Scorers"):
     hf.st_display_top_scorers(hf.DATA_2024)
+
+with st.expander("Organizers"):
+    st.write(
+        f"The following people helped organize the {hf.DATA_2024.year} sports week. All members of the organizing committee are marked with a \\*."
+    )
+    hf.st_display_organizers(hf.DATA_2024, False)

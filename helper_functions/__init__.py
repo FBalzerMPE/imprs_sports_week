@@ -32,4 +32,5 @@ __all__ = [
     "st_display_sports_overview",
     "st_display_full_results",
     "st_display_player_overview",
+    "st_display_organizers",
 ]

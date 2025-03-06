@@ -43,9 +43,8 @@ class SportsOrganizer:
 
     @property
     def pic_path(self) -> Path:
-        return DATAPATH.joinpath(
-            f"assets/organizer_pics/{self.name.lower().replace(" ", "_")}.png"
-        )
+        sani_name = self.name.lower().replace(" ", "_").replace("é", "e")
+        return DATAPATH.joinpath(f"assets/organizer_pics/{sani_name}.png")
 
     @property
     def nick_pic_path(self) -> Path:
@@ -72,13 +71,15 @@ class SportsOrganizer:
 
         committee_str = "\\*" if self.is_committee_member else ""
         inst_str = f" ({self.institute})" if self.institute else ""
-        text = f"**{self.name}{committee_str}{inst_str}**\\\n"
-        email = self.email.replace("@", "<span>@</span>")
-        text += f"Email: *{email}*\\\n"
+        text = f"**{self.name}{committee_str}{inst_str}**"
+        if self.year == CURRENT_YEAR:
+            email = self.email.replace("@", "<span>@</span>")
+            text += f"\\\nEmail: *{email}*\\\n"
         if len(self.sport_keys) == 0:
-            text += "No sports organized this year."
+            text += "\\\nNo sports organized this year."
         else:
-            text += "Contact for: "
+            if self.year == CURRENT_YEAR:
+                text += "\\\nContact for: "
         col.write(text, unsafe_allow_html=True)
         for sport in sports:
             with col:
