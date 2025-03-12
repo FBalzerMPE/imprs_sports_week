@@ -23,7 +23,8 @@ st.page_link(
 
 
 with st.expander(f"{_data.year} Poster"):
-    pdf_viewer(hf.DATAPATH.joinpath(f"2024/sports_week_poster.pdf"))
+    # pdf_viewer(hf.DATAPATH.joinpath(f"2024/sports_week_poster.pdf"))
+    st.image(hf.DATAPATH.joinpath(f"2024/sports_week_poster.jpg"))
 
 with st.expander("Player/Sports Overview"):
     hf.st_display_player_overview(_data)

@@ -63,12 +63,22 @@ class FpathRegistry:
         assert (
             len(files) > 0
         ), f"Couldn't find any form response files, make sure to add them in the 'hidden' directory for {year}."
-        return files[0]
+        return files[-1]
 
     @staticmethod
     def get_path_team(letter: str, year=CURRENT_YEAR) -> Path:
         """The Path for the given team's dataframe."""
         return DATAPATH.joinpath(f"{year}/teams/team_{letter}.csv")
+
+    @staticmethod
+    def get_path_hidden(year=CURRENT_YEAR) -> Path:
+        """The Path for the hidden stuff for this year."""
+        return DATAPATH.joinpath(f"{year}/hidden")
+
+    @staticmethod
+    def get_path_running_sprints(year=CURRENT_YEAR) -> Path:
+        """The path to the results of the running/sprints event"""
+        return DATAPATH.joinpath(f"{year}/running_sprints_results.md")
 
     @staticmethod
     def get_animal_pic_path(animal_name: str, from_static: bool = True) -> str:

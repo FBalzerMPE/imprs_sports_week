@@ -1,10 +1,10 @@
-## Information concerning sign-ups
+## :warning: Information concerning sign-ups
 
 This is the quick version with the most important info for the upcoming sports week between May 5th and May 9th (scroll down for further details):
 
-- Make sure to sign up no later than SIGNUP_DEADLINE if you want a guaranteed spot in most sports you desire!
-- Make sure to also pay the 2 € participation fee until then (see below for why we've decided to introduce it).
-- If you haven't received a mail with access to the survey to sign up, write a mail to one of the organizers (see <a href="contact" target="_self">here</a>).
+- If you haven't received a mail with access to the survey to sign up, write a mail to one of the organizers (see <a href="contact" target="_self">here</a>). Sign up is only possible via this survey.
+- :warning: Make sure to sign up no later than <span style="color:red"><strong> SIGNUP_DEADLINE </strong></span> if you want a guaranteed spot in most sports you desire!
+- Make sure to also pay the 2 € participation fee until then (see below for where to pay and why we've decided to introduce it).
 
 ## Spirit of the Sports Week
 
@@ -25,10 +25,10 @@ Please fill out this survey until no later than SIGNUP_DEADLINE to give us some 
 ### Sign-up fee
 
 This year we require a registration fee of 2 Euros (in total, regardless of amount of sports you want to participate in).
-Last year we received limited funding (order of 40 €) from the IMPRS Common Room, but since the event has expanded to other institutes that are not part of IMPRS, we ask for this small fee to enable us to get: 
+Last year we received limited funding (order of 40 €, which was barely enough) from the IMPRS Common Room and paid part of the equipment ourselves. Since the event has expanded to other institutes that are not part of IMPRS, this time around we thus ask for this small fee to enable us to get: 
 
 - Ice packs and first aid material.
-- Necessary sports equipment (we're thinking of getting some bibs).
+- Necessary sports equipment (we're thinking of acquiring some bibs).
 - Snacks and drinks for the Sports Week Party on Friday, May 9th.
 
 PAYMENT_POINT_EXPANDER
@@ -90,4 +90,4 @@ See <a href="contact" target="_self">here</a> for an overview of the responsible
 We're anticipating loads of sore muscles and fun memories!
 
 The organizing committee\
-Zsofi, Benny, Fabi, Matteo, Mari and William
+Zsofi, Benny, Fabi, Matteo, William, Guillaume and Mari

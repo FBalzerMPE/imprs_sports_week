@@ -26,7 +26,7 @@
   institute: MPE
 - name: Fernando
   nickname: ...
-  email: fernando@1...
+  email: fernando@2...
   sport_keys:
     - basketball
   institute: MPA
@@ -66,7 +66,7 @@
   institute: MPE
 - name: Mari
   nickname: Delirious Robin
-  email: maria.usoltseva@3...
+  email: maru@3...
   sport_keys:
     - football
   is_committee_member: true
@@ -105,3 +105,9 @@
   sport_keys: []
   institute: ESO
   is_cash_contact_point: true
+- name: Manuel
+  nickname: Grouchy Mole
+  email: manuel.herschel@3...
+  sport_keys:
+    - ping_pong
+  institute: IPP

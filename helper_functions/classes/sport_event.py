@@ -433,9 +433,11 @@ class SportEvent:
 
     def _st_display_matches(self):
         if self.sanitized_name == "running_sprints":
-            st.write(
-                "### Overall results\n\nAll participants fought amazingly in various small competitions; in the end, it was very close:\n\nTeam A: 31 points\\\nTeam B: 35 points\\\nTeam C: 34 points.\n\nMore details on what they did might follow later, for now here's the preliminary schedule again:"
-            )
+            fpath = FpathRegistry.get_path_running_sprints(self.year)
+            if not fpath.exists():
+                st.write("No matches have been scheduled yet.")
+                return
+            st.write(fpath.read_text(encoding="utf-8"))
             from ..sport_event_registry import RUNNING_EVENTS
 
             df = pd.DataFrame([event.as_series for event in RUNNING_EVENTS])

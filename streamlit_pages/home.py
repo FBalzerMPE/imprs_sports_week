@@ -6,6 +6,9 @@ import helper_functions as hf
 
 st.write(f"# Welcome to the {hf.CURRENT_YEAR} Inter-Institute Sports Week in Garching!")
 
+with st.expander(f"This Year's Poster"):
+    st.image(hf.DATAPATH.joinpath(f"2025/sports_week_poster.png"))
+
 markdown_text = hf.read_event_desc("../helper_texts/introduction")
 markdown_text = markdown_text.replace("SIGNUP_DEADLINE", "**April 4th**")
 

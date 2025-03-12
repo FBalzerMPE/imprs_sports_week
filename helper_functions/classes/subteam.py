@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 
 from ..logger import LOGGER
-from ..setup.setup_util import get_real_player_name
 
 
 @dataclass
@@ -40,6 +39,8 @@ class Subteam:
     @property
     def real_names(self) -> list[str]:
         """The clear names for each player, if the mapping is available."""
+        from ..setup.setup_util import get_real_player_name
+
         return [get_real_player_name(player, False) for player in self.players]
 
     @property

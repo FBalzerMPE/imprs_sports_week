@@ -168,6 +168,16 @@ class DataRegistry:
     def end_date(self) -> date:
         return self.sport_events["ping_pong"].end.date()
 
+    @property
+    def nickname_to_name_df(self) -> pd.DataFrame:
+        fpath = FpathRegistry.get_path_hidden(self.year).joinpath(
+            "nickname_to_name.csv"
+        )
+        if not fpath.exists():
+            LOGGER.warning(f"Couldn't find nickname to name file at {fpath}")
+            return pd.DataFrame()
+        return pd.read_csv(fpath)
+
     def get_running_sprints_score(self, team_letter: str) -> float:
         """Return the score for the running sprints event."""
         # Maybe TODO: Read this stuff from some sort of file.

@@ -19,11 +19,11 @@ with tabs[1]:
     hf.st_display_full_results(hf.DATA_NOW)
 # Scorers tab:
 with tabs[2]:
-    # st.write(
-    #     "You're probably wondering who's currently in the lead...\\\n All will be revealed at the award ceremony, 21:00 at the MPA seminar room!"
-    # )
+    st.write(
+        "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!"
+    )
     # if hf.DATAPATH.joinpath("hidden").exists():
-    hf.st_display_top_scorers(hf.DATA_NOW)
+    # hf.st_display_top_scorers(hf.DATA_NOW)
 # Team creation tab:
 with tabs[3]:
     st.write("### Player distribtions and more")

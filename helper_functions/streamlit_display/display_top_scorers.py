@@ -70,7 +70,7 @@ Note that we divide by the planned number of players in a subteam and not the ac
 def st_display_top_scorers(data: DataRegistry):
     if not data.has_scores:
         st.write(
-            "No scores available yet. Check back here once the sports week has started!"
+            "The top scorers will only be revealed at the very end of the sports week. Just do your best and you might end up in the top 25!"
         )
         return
     score_df = _get_individual_score_df(data, 25)
