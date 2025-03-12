@@ -92,7 +92,7 @@ class FpathRegistry:
     @staticmethod
     def get_institute_pic_path(institute: str) -> str:
         """Retrieves the animal pic path relative to the top level path."""
-        institute = institute.lower()
+        institute = institute.lower().replace("/lmu", "")
         return str(DATAPATH.joinpath(f"assets/institute_logos/{institute}.png"))
 
     @staticmethod

@@ -1,3 +1,6 @@
+- 2.1.0 (2025-03-12):
+  - Added a page for participants for everyone to be able to look them up (+payment status)
+  - Started processing survey responses
 - 2.0.1 (2025-03-06):
   - Updated organizers to account for sign-up fee collectors.
   - Added last year's organizers and poster to the 2024 results page.

@@ -35,6 +35,15 @@ class Player:
     is_late_signup: bool = False
     """Whether this player is a late signup."""
 
+    has_paid_fee: bool = False
+    """Whether this player has paid the fee."""
+
+    institute: str = ""
+    """The institute this player is from."""
+
+    attended_before: bool = False
+    """Whether this player has attended previous sports weeks"""
+
     confirmation_status: bool = False
     """The confirmation status; has this player replied to the schedule email?"""
 
@@ -44,13 +53,16 @@ class Player:
         avail_days = [
             day for day in ALL_DAYS if day in series and series[f"avail_{day}"]
         ]
-        team = series["Team"].replace("Team ", "")
-        subteams = {
-            sport: f"{team}: {subteam}"
-            for sport in SPORTS_LIST
-            if f"subteam_{sport}" in series
-            and (subteam := series[f"subteam_{sport}"]) != ""
-        }
+        team = series["Team"].replace("Team ", "") if "Team" in series else "X"
+        if team == "X":
+            subteams = {sport: "X" for sport in SPORTS_LIST if series[sport]}
+        else:
+            subteams = {
+                sport: f"{team}: {subteam}"
+                for sport in SPORTS_LIST
+                if f"subteam_{sport}" in series
+                and (subteam := series[f"subteam_{sport}"]) != ""
+            }
         matches = [match_ for match_ in all_matches if match_.contains_player(name)]
         matches = sorted(matches, key=lambda match_: match_.start)
         return cls(
@@ -60,6 +72,9 @@ class Player:
             subteams=subteams,
             matches=matches,
             is_late_signup=series["late_entry"],
+            has_paid_fee=series.get("has_paid_fee", False),
+            institute=series["institute"],
+            attended_before=series.get("attended_before", False),
             confirmation_status=series["confirmation_status"],
         )
 
@@ -67,16 +82,31 @@ class Player:
     def info_str(self) -> str:
         from ..data_registry import DATA_NOW
 
-        text = f"### Team {self.main_team_letter}: {self.nickname}\n\n"
-        text += "**Sports:**\\\n"
+        is_in_team = self.main_team_letter != "X"
+
+        team_info = f"Team {self.main_team_letter}: " if is_in_team else ""
+        text = f"### {team_info}{self.nickname}\n\n"
+        if self.attended_before:
+            text += "⭐Joins the 2nd time!\\\n"
+        else:
+            text += "☆First time participant!\\\n"
+        sport_str = "participating in" if is_in_team else "signed up for"
+        text += f"**Sports {sport_str}:**\\\n"
         text += ", ".join(
             [DATA_NOW.sport_events[sport].html_url for sport in self.subteams]
         )
         if len(self.subteams) == 0:
             text += "Player unfortunately dropped out."
-        text += "\\\n"
-        confirmation_str = "Confirmed" if self.confirmation_status else "No reply yet"
-        text += f"Reply status: **{confirmation_str}**"
+        if is_in_team:
+            text += "\\\n"
+            confirmation_str = (
+                "Confirmed" if self.confirmation_status else "No reply yet"
+            )
+            text += f"Reply status: **{confirmation_str}**"
+        else:
+            text += "\\\n"
+            money_str = "💸 Has paid" if self.has_paid_fee else ":warning: Not paid yet"
+            text += f"Fee status: **{money_str}**"
         return text
 
     @property
@@ -192,18 +222,33 @@ class Player:
             text += "\n\n"
         return text
 
-    def write_streamlit_rep(self):
+    def _write_streamlit_info(self, show_pics=True):
+        """Get the streamlit representation for this player."""
+        if not show_pics:
+            st.write(self.info_str, unsafe_allow_html=True)
+            return
+        cols = st.columns([0.3, 0.7])
+        with cols[0]:
+            st.image(
+                FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
+                use_container_width=True,
+            )
+            st.image(
+                FpathRegistry.get_institute_pic_path(self.institute),
+                use_container_width=True,
+            )
+        with cols[1]:
+            st.write(self.info_str, unsafe_allow_html=True)
+
+    def write_streamlit_rep(self, info_only=False, show_pics=True):
         """Get the streamlit representation for this player."""
         container = st.container(border=True)
+        if info_only:
+            with container:
+                self._write_streamlit_info(show_pics=show_pics)
+            return
         tabs = container.tabs(["Info", "Schedule"])
         with tabs[0]:
-            cols = st.columns(2)
-            with cols[0]:
-                st.image(
-                    FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
-                    use_container_width=True,
-                )
-            with cols[1]:
-                st.write(self.info_str, unsafe_allow_html=True)
+            self._write_streamlit_info()
         with tabs[1]:
             st.write(self.website_schedule, unsafe_allow_html=True)

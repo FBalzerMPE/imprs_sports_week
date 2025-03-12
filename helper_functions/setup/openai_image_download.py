@@ -110,7 +110,9 @@ def generate_all_images(
         animal_names, list
     ), f"The animal names are expected to be a list, not {type(animal_names)}"
     newly_added = []
-    prompt_base = "Create an avatar showing a {} (the animal) with a white background."
+    prompt_base = (
+        "Create an avatar showing a '{}' (the animal) with a white background."
+    )
     for animal_name in animal_names:
         prompt = prompt_base.format(animal_name)
         img_name = animal_name.replace(" ", "_").lower() + ".png"

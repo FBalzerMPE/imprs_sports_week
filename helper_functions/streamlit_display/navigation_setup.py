@@ -20,10 +20,16 @@ def st_set_up_navigation():
                     icon="📆",
                 ),
                 st.Page(
+                    "streamlit_pages/participants.py",
+                    title="Participants",
+                    url_path="participants",
+                    icon="👨‍👩‍👦",
+                ),
+                st.Page(
                     "streamlit_pages/Teams.py",
                     title="Teams",
                     url_path="teams",
-                    icon="👨‍👩‍👦",
+                    icon="🏅",
                 ),
             ],
             "Sports": [

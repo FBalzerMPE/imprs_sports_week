@@ -1,9 +1,9 @@
 import streamlit as st
 
 import helper_functions as hf
-from helper_functions.classes.player import Player
 
 st.write("# Teams")
+
 
 if hf.DATA_NOW.has_teams:
     st.write(

@@ -2,8 +2,8 @@ At the time of writing these questions, they luckily haven't been frequently ask
 
 ### Why all this hassle with the big teams and subteams? How does the scoring system work?
 
-We have opted for this way of organizing the sports week as it offers advantages for planning the events, and it builds an overarching for the whole week. You can look at the *Team Creation* tab for more information on how they were built from the survey results.\
-For each sport, every subteam gets a point for winning a match. These scores are summed mapped to a scale of 0 to 100 each, and multiplied by a weight factor that takes the amount of participating players into account. This ensures that each sport will be weighted equally in the end, and every contribution counts.
+We have opted for this way of organizing the sports week as it offers advantages for planning the events, and it builds an overarching goal and structure for the whole week. You can look at the *Team Creation* tab for more information on how they were built from the survey results.\
+For each sport, every subteam receives points for winning a match. These scores are mapped to a scale of 0 to 100 each, and multiplied by a weight factor that takes the amount of players into account which participate in the given sport. This ensures that each player in each sport will roughly have the same impact on the overall score in the end, and every contribution counts.
 
 ### Can I reschedule one of my ping pong matches?
 

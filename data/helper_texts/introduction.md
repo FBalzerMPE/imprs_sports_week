@@ -5,6 +5,7 @@ This is the quick version with the most important info for the upcoming sports w
 - If you haven't received a mail with access to the survey to sign up, write a mail to one of the organizers (see <a href="contact" target="_self">here</a>). Sign up is only possible via this survey.
 - :warning: Make sure to sign up no later than <span style="color:red"><strong> SIGNUP_DEADLINE </strong></span> if you want a guaranteed spot in most sports you desire!
 - Make sure to also pay the 2 € participation fee until then (see below for where to pay and why we've decided to introduce it).
+  - You may check (probably after some delay after filling out the survey) on the <a href="participants" target="_self">participants page</a> whether your response has come through
 
 ## Spirit of the Sports Week
 
