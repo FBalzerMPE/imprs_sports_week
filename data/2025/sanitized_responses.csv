@@ -1,6 +1,19 @@
-nickname,institute,confirmation_status,is_postdoc,avail_monday,avail_tuesday,avail_thursday,avail_friday,wants_ping_pong,ping_pong,wants_basketball,basketball,wants_running_sprints,running_sprints,wants_volleyball,volleyball,wants_chess,chess,wants_football,football,wants_tennis,tennis,wants_capture_the_flag,capture_the_flag,wants_spikeball,spikeball,wants_beer_pong,beer_pong,wants_foosball,foosball,num_sports,num_sports_not_avail,late_entry
-Pushy Bulldog,MPE,True,False,True,True,True,True,True,True,False,False,True,True,True,True,False,False,True,True,False,False,False,False,True,True,False,False,False,False,5,0,False
-Thankful Kakapo,MPE,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,True,True,False,False,True,True,True,True,True,True,True,True,7,0,False
-Exemplary Cassowary,MPA,True,False,True,True,True,True,False,False,False,False,False,False,True,True,False,False,False,False,False,False,True,True,True,True,True,True,False,False,4,0,False
-Magnificent Barracuda,MPE,True,False,True,True,True,True,True,True,False,False,True,True,False,False,False,False,True,True,True,True,True,True,True,True,True,True,True,True,8,0,False
-Dishonest Fangtooth,MPA,True,False,False,True,True,True,True,True,True,False,False,False,False,False,False,False,True,True,False,False,False,False,True,True,True,True,True,True,5,1,False
+institute,status,assets_brought,attended_before,nickname,ping_pong,basketball,running_sprints,volleyball,football,tennis,badminton,spikeball,chess,capture_the_flag,beer_pong,foosball,ping_pong_days,num_sports,late_entry,has_paid_fee,confirmation_status
+ESO,PhD,No :/,False,Comfortable Dunker,False,False,False,True,True,False,False,False,False,True,False,False,[],3,False,False,False
+MPE,PhD,Tennis racket,True,Monstrous Jackal,True,False,False,True,False,False,True,False,False,False,False,False,"['monday', 'wednesday']",3,False,False,False
+MPE,PhD,"2 Spikeball Sets, 2 Tennis Rackets/Balls",True,Pushy Bulldog,True,False,False,True,True,True,False,True,False,True,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",7,False,True,False
+MPE,PhD,badminton rackets,True,Animated Yak,True,False,False,True,False,True,False,True,False,False,True,True,"['monday', 'tuesday', 'wednesday', 'friday']",6,False,False,False
+MPA,PhD,I could bring some badminton shuttles. ,False,Arctic Milkfish,False,False,False,False,False,True,True,False,False,True,False,False,[],3,False,False,False
+USM/LMU,PostDoc,"I have a cheap volleyball and a volleyball net for on the grass, but I'm not sure if it is the standard size.",False,Sour Sturgeon,True,False,False,True,False,False,False,False,False,False,False,False,['tuesday'],2,False,True,False
+USM/LMU,PhD,Basketball,True,Real Mouse,True,True,False,False,False,False,True,True,False,True,False,False,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",5,False,True,False
+ESO,PostDoc,No :(,True,Unwritten Saiga,False,False,False,True,False,False,False,False,False,False,False,True,[],2,False,False,False
+MPE,PhD,spikeball set,True,Thankful Kakapo,True,False,False,True,True,False,False,True,False,True,True,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",7,False,False,False
+USM/LMU,PhD,Basketball,True,Blank Tiffany,True,True,False,False,False,False,False,False,False,False,False,False,['tuesday'],2,False,False,False
+USM/LMU,PhD,no,True,Awkward Cichlid,True,False,False,False,True,False,False,True,True,False,False,False,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",4,False,False,False
+IPP,PhD,,True,Grouchy Mole,True,False,False,True,False,False,False,False,False,False,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",3,False,False,False
+IPP,PostDoc,,True,Trifling Tarpon,True,False,False,True,True,False,False,False,True,False,False,False,"['monday', 'tuesday', 'thursday']",4,False,True,False
+MPA,PhD,,True,Dishonest Fangtooth,True,True,False,False,True,False,False,True,True,True,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",7,False,False,False
+IPP,PhD,,False,Nervous Badger,False,False,False,False,True,False,False,False,False,False,False,False,[],1,False,False,False
+MPE,PhD,,True,Ignorant Lemur,True,True,False,False,False,False,False,True,False,False,False,False,"['monday', 'tuesday', 'wednesday', 'friday']",3,False,True,False
+IPP,PhD,,False,Direct Baboon,False,True,False,False,False,False,False,True,False,False,True,False,[],3,False,False,False
+IPP,PhD,,True,Sharp Gharial,True,False,True,False,False,False,False,False,True,True,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",5,False,False,False
