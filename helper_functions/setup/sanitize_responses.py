@@ -49,7 +49,9 @@ def _add_payment_info(df: pd.DataFrame) -> pd.DataFrame:
     p_info = _load_payment_info()
     df["has_paid_fee"] = df["name"].apply(lambda x: x in p_info)
     unrecognized = [
-        n.split()[0] + n.split()[1][:2] for n in p_info if n not in df["name"].tolist()
+        n.split()[0][:2] + n.split()[1][:2]
+        for n in p_info
+        if n not in df["name"].tolist()
     ]
     if len(unrecognized) > 0:
         LOGGER.warning(
@@ -70,7 +72,7 @@ def _get_single_name(
     return nick_dict[row["name"]]
 
 
-def add_nicknames_2025(df: pd.DataFrame) -> pd.DataFrame:
+def get_nicknames_2025_column(df: pd.DataFrame) -> pd.Series:
     """Add nicknames to the dataframe."""
     from ..data_registry import DATA_2024
 
@@ -78,10 +80,7 @@ def add_nicknames_2025(df: pd.DataFrame) -> pd.DataFrame:
     nick_dict = old_nicknames.set_index("name")["nickname"].to_dict()
     # The first 120 nicknames are already taken for last year
     new_nicknames = generate_anonymous_names(120 + len(df))[120:]
-    df["nickname"] = df.apply(
-        lambda row: _get_single_name(row, nick_dict, new_nicknames), axis=1
-    )
-    return df
+    return df.apply(lambda row: _get_single_name(row, nick_dict, new_nicknames), axis=1)
 
 
 def sanitize_and_anonymize_data(
@@ -140,7 +139,8 @@ def sanitize_and_anonymize_data(
         .fillna("")
         .apply(lambda x: not x.startswith("Yes I attended and I want to keep"))
     )
-    add_nicknames_2025(df)
+    df["attended_before"] = df["avatar_request"].fillna("").str.startswith("Yes")
+    df["nickname"] = get_nicknames_2025_column(df)
     df["response_timestamp"] = pd.to_datetime(
         df["response_timestamp"].str.split().apply(lambda x: x[:2]).str.join(" "),
         format="%Y/%m/%d %H:%M:%S",

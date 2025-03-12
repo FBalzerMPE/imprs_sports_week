@@ -87,15 +87,38 @@ def generate_image_with_dall_e(
     )
 
 
-def generate_all_images(animal_names: list[str], verbose=True, redo_anyways=False):
-    """Generate an image for each animal in animal names."""
-    prompt_base = "Create an avatar showing a {} with a white background."
+def generate_all_images(
+    animal_names: list[str], verbose=True, redo_anyways=False
+) -> list[Path]:
+    """Generate an image for each animal in animal names.
+
+    Parameters
+    ----------
+    animal_names : list[str]
+        List of animal names to generate images for.
+    verbose : bool, optional
+        Whether to print the prompt, by default True
+    redo_anyways : bool, optional
+        Whether to generate the image even if it already exists, by default False
+
+    Returns
+    -------
+    list[Path]
+        List of paths to the newly added images.
+    """
+    assert isinstance(
+        animal_names, list
+    ), f"The animal names are expected to be a list, not {type(animal_names)}"
+    newly_added = []
+    prompt_base = "Create an avatar showing a {} (the animal) with a white background."
     for animal_name in animal_names:
         prompt = prompt_base.format(animal_name)
         img_name = animal_name.replace(" ", "_").lower() + ".png"
         full_path = DATAPATH.joinpath(f"assets/animal_pics/full_size/{img_name}")
         if full_path.exists():
             if not redo_anyways:
+                if verbose:
+                    print(f"Image for {animal_name} already exists, skipping.")
                 continue
             for i in range(10):
                 full_path = Path(str(full_path).replace(".png", f"{i}.png"))
@@ -109,6 +132,8 @@ def generate_all_images(animal_names: list[str], verbose=True, redo_anyways=Fals
             print(prompt)
         img = generate_image_with_dall_e(prompt)
         img.save(full_path)
+        newly_added.append(full_path)
+    return newly_added
 
 
 def save_resized_animal_images(new_size: int = 150):
