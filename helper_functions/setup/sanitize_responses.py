@@ -143,7 +143,7 @@ def sanitize_and_anonymize_data(
     df["nickname"] = get_nicknames_2025_column(df)
     df["response_timestamp"] = pd.to_datetime(
         df["response_timestamp"].str.split().apply(lambda x: x[:2]).str.join(" "),
-        format="%Y/%m/%d %H:%M:%S",
+        format="%d/%m/%Y %H:%M:%S",
     )
     df = _add_event_info(df)
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2025-04-10 12:00:00")

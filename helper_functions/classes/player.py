@@ -222,30 +222,34 @@ class Player:
             text += "\n\n"
         return text
 
-    def _write_streamlit_info(self, show_pics=True):
+    def _write_streamlit_info(self, show_avatars=True, show_inst=False):
         """Get the streamlit representation for this player."""
-        if not show_pics:
+        if not show_avatars and not show_inst:
             st.write(self.info_str, unsafe_allow_html=True)
             return
         cols = st.columns([0.3, 0.7])
         with cols[0]:
-            st.image(
-                FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
-                use_container_width=True,
-            )
-            st.image(
-                FpathRegistry.get_institute_pic_path(self.institute),
-                use_container_width=True,
-            )
+            if show_avatars:
+                st.image(
+                    FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
+                    use_container_width=True,
+                )
+            if show_inst:
+                st.image(
+                    FpathRegistry.get_institute_pic_path(self.institute),
+                    use_container_width=True,
+                )
         with cols[1]:
             st.write(self.info_str, unsafe_allow_html=True)
 
-    def write_streamlit_rep(self, info_only=False, show_pics=True):
+    def write_streamlit_rep(self, info_only=False, show_avatars=True, show_inst=False):
         """Get the streamlit representation for this player."""
         container = st.container(border=True)
         if info_only:
             with container:
-                self._write_streamlit_info(show_pics=show_pics)
+                self._write_streamlit_info(
+                    show_avatars=show_avatars, show_inst=show_inst
+                )
             return
         tabs = container.tabs(["Info", "Schedule"])
         with tabs[0]:
