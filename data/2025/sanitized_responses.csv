@@ -12,7 +12,7 @@ USM/LMU,PhD,Basketball,True,Blank Tiffany,True,True,False,False,False,False,Fals
 USM/LMU,PhD,no,True,Awkward Cichlid,True,False,False,False,True,False,False,True,True,False,False,False,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",4,False,True,False
 IPP,PhD,,True,Grouchy Mole,True,False,False,True,False,False,False,False,False,False,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",3,False,True,False
 IPP,PostDoc,,True,Trifling Tarpon,True,False,False,True,True,False,False,False,True,False,False,False,"['monday', 'tuesday', 'thursday']",4,False,True,False
-MPA,PhD,,True,Dishonest Fangtooth,True,True,False,False,True,False,False,True,True,True,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",7,False,True,False
+MPA,PhD,,True,Dishonest Fangtooth,True,True,False,False,True,True,False,True,True,True,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",8,False,True,False
 IPP,PhD,,False,Nervous Badger,False,False,False,False,True,False,False,False,False,False,False,False,[],1,False,False,False
 MPE,PhD,,True,Ignorant Lemur,True,False,False,False,False,False,False,True,False,False,False,False,"['monday', 'tuesday', 'wednesday', 'friday']",2,False,True,False
 IPP,PhD,,False,Direct Baboon,False,True,False,False,False,False,False,True,False,False,True,False,[],3,False,True,False
@@ -21,7 +21,7 @@ MPA,PhD,,True,Ornate Cockatoo,False,False,False,False,False,False,False,False,Tr
 MPE,Other,,True,Probable Herring,False,False,False,True,False,False,False,False,False,False,False,False,[],1,False,True,False
 IPP,PostDoc,"Beachvolley ball, basketball ball",True,Affectionate Chihuahua,False,True,False,True,False,False,False,True,False,False,False,False,[],3,False,False,False
 IPP,PostDoc,,False,Delectable Peacock,False,False,False,False,False,False,False,False,True,False,False,True,[],2,False,True,False
-MPE,PhD,Basketball,False,Near Ladybug,False,True,True,False,True,True,False,True,False,False,True,False,[],6,False,True,False
+MPE,PhD,Basketball,False,Near Ladybug,False,True,False,False,False,True,False,True,False,False,True,False,[],4,False,True,False
 MPE,PhD,,True,Striped Himalayan,True,False,True,False,False,True,True,False,False,True,True,False,"['tuesday', 'wednesday', 'thursday', 'friday']",6,False,True,False
 MPE,PostDoc,,True,Leafy Dingo,True,False,False,True,False,False,False,True,False,False,False,False,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",3,False,True,False
 IPP,PhD,,True,Infantile Chinchilla,False,False,False,False,True,False,True,False,False,False,False,False,[],2,False,True,False
@@ -30,7 +30,7 @@ IPP,PhD,,True,Overjoyed Tapir,False,True,False,False,False,False,False,False,Fal
 USM/LMU,PhD,,True,Motherly Woodpecker,True,False,True,False,True,False,True,False,False,True,False,False,"['monday', 'tuesday', 'wednesday', 'thursday']",5,False,False,False
 USM/LMU,PostDoc,Badminton rackets + shuttles,True,Spanish Ferret,True,True,False,False,False,False,True,False,True,False,False,False,['friday'],4,False,True,False
 MPE,PhD,Ping pong rackets,False,Pink Narwhal,True,False,False,False,False,False,False,False,False,True,True,True,"['tuesday', 'wednesday', 'thursday', 'friday']",4,False,True,False
-MPP,PhD,Volleyball,False,Good Dolphin,True,False,False,True,False,False,True,True,False,True,True,False,"['tuesday', 'friday']",6,False,False,False
+MPP,PhD,Volleyball,False,Good Dolphin,True,False,False,True,False,False,True,True,False,True,True,False,"['tuesday', 'friday']",6,False,True,False
 MPA,PhD,,False,Hairy Donkey,True,False,True,False,False,False,True,False,True,False,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",5,False,True,False
 ESO,PhD,,False,Liquid Lamprey,False,False,False,True,False,False,True,False,False,False,False,True,[],3,False,False,False
 USM/LMU,PhD,,True,Trivial Uguisu,True,False,False,True,False,False,True,False,True,True,True,True,"['monday', 'tuesday', 'wednesday', 'thursday']",7,False,False,False
@@ -94,7 +94,7 @@ MPP,PhD,,False,Unwilling Starfish,False,False,False,False,False,False,False,Fals
 MPP,PhD,,False,Torn Gibbon,False,False,False,False,False,False,False,False,False,False,True,True,[],2,False,True,False
 MPE,Master's Student,No :(,False,Joint Coati,False,False,True,True,False,False,True,False,False,False,False,True,[],4,False,False,False
 MPE,Other,No😢,False,Writhing Beaver,False,False,False,True,False,True,True,False,False,False,False,False,[],3,False,True,False
-MPA,PostDoc,A volleyball,False,Snappy Crab,True,False,False,True,True,False,False,False,True,False,False,False,"['monday', 'wednesday', 'thursday', 'friday']",4,False,True,False
+MPA,PostDoc,A volleyball,False,Snappy Crab,True,False,False,True,True,True,False,False,True,False,False,False,"['monday', 'wednesday', 'thursday', 'friday']",5,False,True,False
 USM/LMU,Other,No,False,Lean Siamese,False,False,False,True,True,False,False,False,False,True,False,False,[],3,False,True,False
 MPP,Master's Student,,False,Joyful Echidna,True,False,False,False,False,False,False,False,False,False,False,True,['friday'],2,False,True,False
 MPP,PostDoc,,False,Idealistic Megalodon,False,False,False,False,False,False,False,False,False,False,True,True,[],2,False,True,False
@@ -184,3 +184,5 @@ MPE,PhD,"Badminton rackets, basketball ",True,Ill-fated Meerkat,True,True,True,F
 MPA,PhD,,True,Delayed Grouse,True,False,False,False,False,False,False,False,False,False,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",2,False,True,False
 MPE,PhD,,False,Exotic Giraffe,False,False,True,False,False,False,False,False,False,False,True,False,[],2,False,True,False
 MPQ,Master's Student,Ping pong rackets,False,Possible Anchovies,True,False,False,True,False,False,False,False,False,True,False,False,['wednesday'],3,False,True,False
+MPQ,PhD,,False,Upset Cheetah,False,False,False,False,False,False,False,False,False,True,False,False,[],1,False,False,False
+USM/LMU,PostDoc,"Extra badminton racket, set of Yonex MAVIS 300 shuttles",False,Wealthy Armadillo,False,False,False,False,False,False,True,False,False,False,False,False,[],1,False,False,False
