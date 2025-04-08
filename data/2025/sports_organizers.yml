@@ -25,7 +25,7 @@
   is_cash_contact_point: true
   institute: MPE
 - name: Fernando
-  nickname: ...
+  nickname: Appropriate Tang
   email: fernando@2...
   sport_keys:
     - basketball
@@ -81,14 +81,14 @@
   is_committee_member: true
   institute: IPP
 - name: Sérgio
-  nickname: ...
+  nickname: Good Dolphin
   email: scarrolo@4...
   sport_keys:
     - volleyball
   institute: MPP
   is_cash_contact_point: true
 - name: Adrien
-  nickname: ...
+  nickname: Mellow Chinook
   email: adrien.bouscal@5...
   sport_keys: []
   institute: MPQ
@@ -100,7 +100,7 @@
   institute: USM
   is_cash_contact_point: true
 - name: Tommy
-  nickname: Another Macaw
+  nickname: Quaint Koala
   email: thomas.winterhalder@7...
   sport_keys: []
   institute: ESO

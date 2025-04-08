@@ -18,7 +18,7 @@
   pitch_type_name: Court
   icon: 🏀
   min_player_val: 8
-  num_players_per_subteam: 4
+  num_players_per_subteam: 5
   conflicting_sports:
     - volleyball
 - name: running_sprints
@@ -39,7 +39,7 @@
   pitch_type_name: Court
   icon: 🏐
   min_player_val: 8
-  num_players_per_subteam: 4
+  num_players_per_subteam: 5
   num_subteams: 2
   num_pitches: 2
   conflicting_sports:
@@ -78,7 +78,7 @@
   pitch_type_name: Net no.
   icon: 🏸
   min_player_val: 4
-  num_players_per_subteam: 1
+  num_players_per_subteam: 2
   num_subteams: 3
   num_pitches: 3
   conflicting_sports:

@@ -10,9 +10,23 @@ from ..logger import LOGGER
 from .nickname_generation import generate_anonymous_names
 
 
+def _anonymize_name(name: str) -> str:
+    """Anonymize a name by taking the first two letters of the first and last name."""
+    if not isinstance(name, str):
+        return name
+    comp = name.split()
+    if len(comp) < 2:
+        return comp[0][:2] + "XX"
+    return comp[0][:2] + comp[1][:2]
+
+
 def _get_ping_pong_days(events: str):
-    event_list = events.split(";")
-    return [day.split()[3].lower() for day in event_list if day.startswith("Ping Pong")]
+    event_list = events.split(",")
+    return [
+        day.split()[3].lower()
+        for day in event_list
+        if day.strip().startswith("Ping Pong")
+    ]
 
 
 def _add_event_info(df: pd.DataFrame) -> pd.DataFrame:
@@ -42,25 +56,28 @@ def _add_event_info(df: pd.DataFrame) -> pd.DataFrame:
 def _load_payment_info() -> dict[str, str]:
     fpath = FpathRegistry.get_path_hidden().joinpath("money_received.yml")
     responses = yaml.safe_load(fpath.read_text(encoding="utf-8"))
+    u, c = np.unique([e["name"] for e in responses], return_counts=True)
+    if max(c) > 1:
+        dup = u[c > 1]
+        dup = [_anonymize_name(n) for n in dup]
+        LOGGER.warning(
+            f"Duplicate names ({dup}) found in payment info. Please check the file {fpath}."
+        )
     return {e["name"]: e["receiver"] for e in responses}
 
 
 def _add_payment_info(df: pd.DataFrame) -> pd.DataFrame:
     p_info = _load_payment_info()
     df["has_paid_fee"] = df["name"].apply(lambda x: x in p_info)
-    unrecognized = [
-        n.split()[0][:2] + n.split()[1][:2]
-        for n in p_info
-        if n not in df["name"].tolist()
-    ]
+    unrecognized = [_anonymize_name(n) for n in p_info if n not in df["name"].tolist()]
     if len(unrecognized) > 0:
         LOGGER.warning(
-            f"Could not find the following people that payment was received from. Please check their names: {unrecognized}"
+            f"Could not find the following people that payment was received from. Please check their names:\n\t{unrecognized}"
         )
     return df
 
 
-def _get_single_name(
+def _get_single_nickname(
     row: pd.Series, nick_dict: dict[str, str], new_nicknames: list[str]
 ) -> str:
     """Get a single name for a row. Mutates the new_nicknames list, removing nicknames taken."""
@@ -80,7 +97,9 @@ def get_nicknames_2025_column(df: pd.DataFrame) -> pd.Series:
     nick_dict = old_nicknames.set_index("name")["nickname"].to_dict()
     # The first 120 nicknames are already taken for last year
     new_nicknames = generate_anonymous_names(120 + len(df))[120:]
-    return df.apply(lambda row: _get_single_name(row, nick_dict, new_nicknames), axis=1)
+    return df.apply(
+        lambda row: _get_single_nickname(row, nick_dict, new_nicknames), axis=1
+    )
 
 
 def sanitize_and_anonymize_data(
@@ -134,6 +153,7 @@ def sanitize_and_anonymize_data(
     cols = [cols[i] if i < len(cols) else str(i) for i in range(num_cols)]
     # Load the df:
     df = pd.read_csv(response_path, names=cols, usecols=cols[:8], skiprows=1, dtype=str)
+    df["name"] = df["name"].str.strip().str.title()
     df["wants_new_avatar"] = (
         df["avatar_request"]
         .fillna("")

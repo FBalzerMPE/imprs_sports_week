@@ -5,7 +5,8 @@ import numpy as np
 import pandas as pd
 
 from ..classes.team import Team
-from ..constants import DATAPATH, SPORTS_LIST, FpathRegistry, CURRENT_YEAR
+from ..constants import CURRENT_YEAR, DATAPATH, SPORTS_LIST, FpathRegistry
+from ..logger import LOGGER
 from ..util import deprecated
 
 
@@ -15,7 +16,7 @@ def swap_rows(df, i, j):
     return df
 
 
-def create_teams(year=CURRENT_YEAR) -> list[Team]:
+def create_teams(year=CURRENT_YEAR, num_teams: int = 3) -> list[Team]:
     """Create teams based on the player data.
     If a seed is given, the players are randomly shuffled before being appointed.
     If no seed is given, they are sorted by the number of sports they attend such that
@@ -27,26 +28,26 @@ def create_teams(year=CURRENT_YEAR) -> list[Team]:
     )
     late_players = player_data[player_data["late_entry"]]
     player_data = player_data[~player_data["late_entry"]]
+    LOGGER.info(f"Creating {num_teams} teams from {len(player_data)} players.")
     # print(player_data)
     # Some RNG manipulation for better results
     player_data = swap_rows(player_data, 10, 15)
-    teams = [Team(i) for i in range(3)]
+    teams = [Team(i) for i in range(num_teams)]
     # I'm aware that this is not the most efficient way to do this, but it's the most readable
     # and luckily the speed requirements are not that high.
     for _, player in player_data.iterrows():
-        best_team_to_join = find_best_team_to_join(teams, player)
+        best_team_to_join = find_best_team_to_join(teams, player, num_teams)
         teams[best_team_to_join].add_player(player)
     # If this player is moved, we are pretty golden
-    # teams[1].transfer_player("Alarmed Bird", teams[2])
-    # teams[1].transfer_player("Earnest Snail", teams[2])
-    # teams[0].transfer_player("Lone Rhinoceros", teams[1])
     return teams
 
 
-def find_best_team_to_join(teams: list[Team], player: pd.Series) -> np.intp:
+def find_best_team_to_join(
+    teams: list[Team], player: pd.Series, num_teams: int
+) -> np.intp:
     """Find the best team to add the given player to."""
     equality_nums = []
-    for i in range(3):
+    for i in range(num_teams):
         equality_num = 0
         team_stats = [
             (
@@ -54,7 +55,7 @@ def find_best_team_to_join(teams: list[Team], player: pd.Series) -> np.intp:
                 if i == j
                 else teams[j].current_sports_stats
             )
-            for j in range(3)
+            for j in range(num_teams)
         ]
         for sport in SPORTS_LIST:
             sports_stats = [stat[sport] for stat in team_stats]
