@@ -18,9 +18,10 @@ Keep in mind that we might not update this super often, so it might take a bit u
          """
 )
 
-tabs = st.tabs(["Detailed", "Data"])
-with tabs[0]:
-    cols = st.columns(2)
+
+tabs = st.tabs(["Compact", "Detailed"])
+with tabs[1]:
+    cols = st.columns(3)
     show_avatars = (
         cols[0].checkbox(
             "Show avatar pics",
@@ -32,7 +33,7 @@ with tabs[0]:
         # == "Yes"
     )
     show_inst_pics = (
-        cols[1].checkbox(
+        cols[0].checkbox(
             "Show institutes",
             value=False,
             # ["Yes", "No"],
@@ -41,6 +42,18 @@ with tabs[0]:
         )
         # == "Yes"
     )
+    sort_by = cols[1].selectbox(
+        "Sort by",
+        ["Nickname", "Institute", "Number of sports"],
+        index=0,
+        help="How to sort the players.",
+    )
+    reverse_sort = cols[2].checkbox(
+        "Reverse sort",
+        value=False,
+        help="Whether to reverse the sort order.",
+    )
+    sort_by = "num_sports" if sort_by == "Number of sports" else sort_by.lower()
     insts = [p.stem for p in hf.DATAPATH.joinpath("assets/institute_logos").iterdir()]
     allowed_insts = st.multiselect(
         "Institute filter",
@@ -57,14 +70,51 @@ with tabs[0]:
             lambda x: x.lower().replace("/lmu", "") in allowed_insts
         )
     ]
-    filtered_players.sort_values("nickname", inplace=True)
+    filtered_players = filtered_players.sort_values(
+        sort_by.lower(), ascending=not reverse_sort
+    )
     for i, player in filtered_players.iterrows():
         with cols[i % 2]:  # type: ignore
             p = Player.from_series(player, [])
             p.write_streamlit_rep(
                 info_only=True, show_avatars=show_avatars, show_inst=show_inst_pics
             )
-with tabs[1]:
+with tabs[0]:
     # hf.st_style_df_with_team_vals(filtered_players, hf.DATA_NOW)
-    st.write(":construction: Work in progress...")
-    pass  # TODO: Implement this
+    st.info(
+        "Note that you can search this table, there should be a button in the upper right for that. Also, you can sort by any of the columns, just click on the header. :)",
+        icon="ℹ️",
+    )
+    cols = ["nickname", "has_paid_fee", "attended_before", "institute"] + [
+        e.sanitized_name for e in hf.DATA_NOW.sport_events.values()
+    ]
+    df = hf.DATA_NOW.players[cols]
+    df.insert(0, "impath", df["nickname"].apply(hf.FpathRegistry.get_animal_pic_path))
+
+    df = df.fillna("").sort_values("nickname")
+    df["nickname"] = df["nickname"].apply(
+        lambda x: x[:14] + "..." if len(x) > 14 else x
+    )
+
+    column_configs = {
+        event.sanitized_name: st.column_config.Column(
+            label=event.icon, help=event.name, disabled=True
+        )
+        for event in hf.DATA_NOW.sport_events.values()
+    }
+    column_configs["impath"] = st.column_config.ImageColumn("Avatar")
+    column_configs["nickname"] = st.column_config.TextColumn("Nickname")
+    column_configs["institute"] = st.column_config.TextColumn("Institute")
+    column_configs["has_paid_fee"] = st.column_config.CheckboxColumn(
+        "💸",
+        help="Have we received the 2 € sign-up fee?",
+    )
+    column_configs["attended_before"] = st.column_config.CheckboxColumn(
+        "⭐",
+        help="Joins the 2nd time?",
+    )
+    st.dataframe(
+        df.style,
+        column_config=column_configs,
+        hide_index=True,
+    )

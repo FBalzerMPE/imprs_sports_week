@@ -1,3 +1,6 @@
+- 2.2.0 (2025-04-08): 
+  - Added compact view for participants
+  - Added all participants that signed up before the deadline
 - 2.1.0 (2025-03-12):
   - Added a page for participants for everyone to be able to look them up (+payment status)
   - Started processing survey responses

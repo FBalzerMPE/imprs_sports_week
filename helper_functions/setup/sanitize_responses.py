@@ -180,7 +180,14 @@ def sanitize_and_anonymize_data(
         "wants_new_avatar",
         "email",
     ]
-    nick_cols = ["nickname", "name", "institute", "status", "confirmation_status"]
+    nick_cols = [
+        "nickname",
+        "name",
+        "institute",
+        "status",
+        "has_paid_fee",
+        "confirmation_status",
+    ]
     col_map = {col: f"{col.replace("_", " ").capitalize():25s}" for col in nick_cols}
     col_map["confirmation_status"] = "Has replied"
     path_base = FpathRegistry.get_path_hidden()
@@ -191,10 +198,21 @@ def sanitize_and_anonymize_data(
         .to_csv(path_base.joinpath("nickname_to_name.txt"), index=False, sep="\t")
     )
     nickname_df.to_csv(path_base.joinpath("nickname_to_name.csv"), index=False)
+    name_to_nick = nickname_df.copy().sort_values("name")[
+        [
+            "name",
+            "nickname",
+            "institute",
+            "status",
+            "has_paid_fee",
+            "confirmation_status",
+        ]
+    ]
+    name_to_nick.to_csv(path_base.joinpath("name_to_nickname.csv"), index=False)
     try:
         nickname_df.to_excel(path_base.joinpath("nickname_to_name.xlsx"), index=False)
     except ModuleNotFoundError:
-        print("Didn't write to excel as openpyxl was missing.")
+        LOGGER.warning("Didn't write to excel as openpyxl was missing.")
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
     if anonymize:
