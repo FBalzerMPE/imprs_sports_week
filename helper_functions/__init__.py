@@ -5,12 +5,12 @@ from .constants import *
 from .data_registry import DATA_2024, DATA_NOW
 from .sport_event_registry import *
 from .streamlit_display import *
-from .streamlit_display.plot_util import *
 from .streamlit_display.plotting import *
+from .streamlit_display.plotting.plot_util import *
 from .util import *
 
 __all__ = [
-    "create_institute_plot",
+    "st_display_institute_dist_plot",
     "create_sports_num_plot",
     "annotate_barh_values",
     "plot_pie_chart",

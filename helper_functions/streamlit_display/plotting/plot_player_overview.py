@@ -1,65 +1,18 @@
 import altair as alt
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import streamlit as st
 from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 from matplotlib.ticker import MaxNLocator
+from venn import venn
 
-from ..classes.team import Team
-from ..constants import SPORTS_LIST
-from ..data_registry import DataRegistry
-from ..util import sort_dict_by_values
-from .plot_util import annotate_barh_values, plot_pie_chart
-
-
-def create_institute_plot(df: pd.DataFrame):
-    ax = plt.gca()
-    plot_pie_chart(
-        df["is_postdoc"].tolist(),
-        ax,
-        radius=0.6,
-        width=0.2,
-        colors=["gold", "darkred"],
-        add_text=False,
-        pctdistance=0.8,
-    )
-
-    return plot_pie_chart(
-        df["institute"].tolist(),
-        ax,
-        "Institute\ndistribution",
-        is_institute_chart=True,
-        width=0.3,
-    )
-
-
-def create_sports_num_plot(
-    df: pd.DataFrame,
-    annotate_numbers=True,
-    sort_bars=False,
-    color: str | tuple = "gold",
-    y_offset: float = 0,
-    **kwargs,
-):
-    sport_totals: dict[str, int] = {
-        flag: df[flag].sum() for flag in SPORTS_LIST if flag in df.columns
-    }
-    if sort_bars:
-        sport_totals = sort_dict_by_values(sport_totals)
-    values = list(sport_totals.values())
-    y_positions = [i + y_offset for i in range(len(SPORTS_LIST))]
-    ax: Axes = plt.gca()
-    containers = ax.barh(
-        y_positions, values, color=color, edgecolor="black", linewidth=1, **kwargs  # type: ignore
-    )
-
-    plt.yticks(range(len(sport_totals)), list(sport_totals.keys()))
-    ax.set_xlabel("Number of people interested")
-    ax.set_title(f"Willingness to participate in sports ({len(df)} total responses)")
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    ax.grid(True, axis="x")
-    if annotate_numbers:
-        annotate_barh_values(ax, containers, x_displacement=0.5)
+from ...classes.team import Team
+from ...constants import SPORTS_LIST
+from ...data_registry import DataRegistry
+from ...util import sort_dict_by_values
+from .plot_util import annotate_barh_values
 
 
 def _prepare_institute_data(teams: list[Team]) -> pd.DataFrame:

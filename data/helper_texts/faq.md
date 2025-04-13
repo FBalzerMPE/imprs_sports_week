@@ -20,10 +20,13 @@ This way, you are more flexible, and you won't encounter stressful double-bookin
 
 Sure, just ensure you've notified us about any matches that you need to drop out of.
 
-### How did you generate the randomized names and avatars?
+### Why and how did you generate the randomized names and avatars?
 
-We simply used two publicly available lists, one of [adjectives]("https://gist.github.com/hugsy/8910dc78d208e40de42deb29e62df913") and one of [animal names](https://gist.github.com/EyeOfMidas/311e77b8b8c2f334fc8bdaf652c1f47f#file-animal-names-csv) (which we trimmed to only include single-word animals).\
-From those, we generated randomized unique combinations to get the nicknames.\
-A few days after this system was in place, Fabi had a random conversation with a friend (shoutouts to Colin) who has access to ChatGPT-4 and thus Dall-E-3, and one thing led to another. We accessed the AI via its API, downloading the pictures directly in the lowest resolution possible (1024x1024 px).\
-For this website, they were scaled down to increase loading times, but let Fabi know if you want any originals.\
-The exact prompt used was ```"Create an avatar showing a {adj + animal} with a white background."```, although we redid a few ones (see also `openai_image_download.py` in the [github repo](https://github.com/FBalzerMPE/imprs_sports_week) of this page for further details, we e.g. used the 'vivid' style of Dall-E-3).
+The nicknames (consisting of adjective + animal name each) are there such that we are able to display all information in an anonymous way.\
+To generate them, simply used two publicly available lists, one of [adjectives]("https://gist.github.com/hugsy/8910dc78d208e40de42deb29e62df913") and one of [animal names](https://gist.github.com/EyeOfMidas/311e77b8b8c2f334fc8bdaf652c1f47f#file-animal-names-csv) (which we trimmed to only include single-word animals).\
+From those, we generated randomized combinations to get the nicknames.\
+A few days after this system was in place (during the preparations for the first sports week in 2024), Fabi had a conversation with a friend (shoutouts to Colin) who has access to ChatGPT-4 and thus Dall-E-3, and one thing led to the other.\
+We access the AI's image generation via its API, downloading the pictures directly in the lowest resolution possible (1024x1024 px²).\
+For this website, we then scaled those down (200x200 px²) to improve loading times, but let Fabi know if you want any higher-resolution originals.\
+The exact prompt used was ```"Create an avatar showing a '{adj + animal}' (the animal) with a white background."```, although we redid a few ones. If you want to check out the code for yourself, see the `openai_image_download.py` script in the [github repo](https://github.com/FBalzerMPE/imprs_sports_week) of this page. There you can also find further details, f.e. we used the 'vivid' style of Dall-E-3.\
+We are aware that by now even more impressive image generation models are online, but we've decided to stick with the original one to make the generation of the new avatars consistent with the one from previous years, so people can keep their old ones without sticking out. If you however would like your avatar to be redone, let Fabi know.

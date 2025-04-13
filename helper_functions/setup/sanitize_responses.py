@@ -82,7 +82,13 @@ def _get_single_nickname(
 ) -> str:
     """Get a single name for a row. Mutates the new_nicknames list, removing nicknames taken."""
     if row["wants_new_avatar"]:
-        return new_nicknames.pop(0)
+        new = new_nicknames.pop(0)
+        # There is a special case where Plaintive Salmon wanted to keep their old
+        # nickname (Ill. cat.), but we had already sent out the rest; therefore
+        # we manually reset it here.
+        if new == "Plaintive Salmon":
+            new = "Illiterate Caterpillar"
+        return new
     if row["name"] not in nick_dict.keys():
         LOGGER.warning(f"Name {row['name']} not found in old nicknames.")
         return new_nicknames.pop(0)
@@ -175,7 +181,7 @@ def sanitize_and_anonymize_data(
         "name",
         "events_interested_in",
         "time_available",
-        "response_timestamp",
+        # "response_timestamp",
         "avatar_request",
         "wants_new_avatar",
         "email",

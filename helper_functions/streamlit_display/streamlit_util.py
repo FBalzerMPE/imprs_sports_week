@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import streamlit as st
 from pandas.io.formats.style import Styler
@@ -83,3 +84,24 @@ hf.SPORTS_EVENTS["{sport}"].write_streamlit_rep()
         fpath = PAGESPATH.joinpath(f"events/{sport}.py")
         with fpath.open("w") as f:
             f.write(ftext.format(sport=sport))
+
+
+def st_display_venn_sport_selection(data: DataRegistry) -> list[str]:
+    all_sports = {
+        (e := data.sport_events[sport]).icon + e.name: sport
+        for sport in data.avail_sports
+    }
+    options = list(all_sports) + ["None"]
+
+    cols = st.columns(5)
+    for i, default_index in enumerate([0, 3, 6, len(options) - 1, len(options) - 1]):
+        cols[i].selectbox(
+            f"Axis {i + 1}",
+            options=options,
+            index=default_index,
+            key=f"selectbox_{i}",
+        )
+
+    selected = np.unique([st.session_state[f"selectbox_{i}"] for i in range(5)])
+    selected = [sport for sport in selected if sport != "None"]
+    return [all_sports[sport] for sport in selected]

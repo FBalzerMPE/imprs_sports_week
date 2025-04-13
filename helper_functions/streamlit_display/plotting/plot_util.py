@@ -1,11 +1,13 @@
 from typing import Optional
 
 import numpy as np
+import streamlit as st
 from matplotlib import cm
 from matplotlib.axes import Axes
 from matplotlib.container import BarContainer
+from matplotlib.lines import Line2D
 
-from ..util import sort_dict_by_values
+from ...util import sort_dict_by_values
 
 
 def annotate_barh_values(
@@ -46,6 +48,7 @@ def plot_pie_chart(
     title: str = "",
     is_institute_chart=False,
     add_text=True,
+    legend_title: str | None = None,
     **kwargs,
 ):
     num_dict = {
@@ -54,8 +57,8 @@ def plot_pie_chart(
     num_dict = sort_dict_by_values(num_dict)
     colors = kwargs.get("colors", ["none"])
     if is_institute_chart:
-        inst_dict = {"MPE": 0, "MPA": 1, "USM": 2, "ESO": 3, "IPP": 4}
-        colors = [cm.tab10.colors[inst_dict[key]] for key in num_dict]  # type: ignore
+        institutes = sorted(np.unique(data))
+        colors = [cm.tab10.colors[i] for i, inst in enumerate(institutes)]  # type: ignore
 
     labels = (
         [f"{class_} ({count})" for class_, count in num_dict.items()]
@@ -67,18 +70,42 @@ def plot_pie_chart(
     radius = kwargs.get("radius", 0.9)
     width = kwargs.get("width", 0.4)
     pctdistance = kwargs.get("pctdistance", radius - 0.1)
+    lw = kwargs.get("lw", 2)
     ax.pie(
         list(num_dict.values()),
-        startangle=90,
+        startangle=0,
         radius=radius,
         labels=labels,
-        labeldistance=1.04,
-        textprops={"size": "smaller"},
+        labeldistance=1.06,
+        textprops={
+            "size": "smaller",
+            "bbox": dict(
+                boxstyle="round,pad=0.2",
+                facecolor="white",
+                edgecolor="black",
+                alpha=0.9,
+            ),
+        },
         autopct="%.0f%%",
         pctdistance=pctdistance,
-        wedgeprops=dict(width=width, ec="k"),
+        wedgeprops=dict(width=width, linewidth=lw, ec="k"),
         colors=colors,
     )
     if add_text:
         # Add title in the centre
         ax.text(0, 0, title, ha="center", va="center", fontsize="small")
+    if legend_title is not None:
+        # Pie chart doesn't add those automatically, so we add them manually:
+        handles = [
+            Line2D([0], [0], marker="o", color="k", label=label, linestyle="none", markerfacecolor=color, markersize=10)  # type: ignore
+            for label, color in zip(num_dict.keys(), colors)
+        ]
+        ax.legend(
+            loc="upper left",
+            bbox_to_anchor=(0.8, 1),
+            fontsize="small",
+            title=legend_title,
+            title_fontsize="small",
+            handles=reversed(handles),
+            labels=reversed(num_dict.keys()),
+        )
