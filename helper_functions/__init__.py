@@ -1,3 +1,4 @@
+from .classes.player import Player
 from .classes.sports_organizer import SportsOrganizer
 from .classes.subteam import Subteam
 from .classes.team import Team
@@ -17,6 +18,7 @@ __all__ = [
     "sort_dict_by_values",
     "Team",
     "Subteam",
+    "Player",
     "DATAPATH",
     "SPORTS_LIST",
     "generate_sports_page_files",

@@ -33,3 +33,8 @@
   longitude: 11.671584
   display_name: MPA common/seminar room
   description: At the basement heart of MPA, the common room provides us with a Foosball table, while the seminar room (006) is used for Chess and Beer Pong. To access it, enter MPA (also possible coming from the MPE), walk by the security, take the stairs downstairs, and walk around until you hear loud voices.
+- key: garching_gym
+  latitude: 48.244662736576714
+  longitude: 11.660565967233717
+  display_name: Garching Gym at Werner-Heisenberg Gymnasium
+  description: The Garching gym, used for playing Badminton.

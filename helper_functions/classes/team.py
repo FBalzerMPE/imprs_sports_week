@@ -2,13 +2,14 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import pandas as pd
 import streamlit as st
 
 from ..constants import CURRENT_YEAR, SPORTS_LIST, FpathRegistry
+from ..logger import LOGGER
 
 if TYPE_CHECKING:
     from .subteam import Subteam
@@ -39,7 +40,7 @@ class Team:
     )
     """Rough estimate for how well this team fulfills the requirements for each of the sports."""
 
-    _players: list = field(default_factory=list)
+    _players: list[pd.Series] = field(default_factory=list)
     """The list of players in the team."""
 
     colors = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#800080"]
@@ -114,6 +115,24 @@ class Team:
     def __str__(self):
         return f"{self.name} ({self.player_num} players): {self.sports_fulfill_nums}"
 
+    def change_player_attribute(
+        self, player_name: str, attr: str, value: Any, not_exist_okay=False
+    ):
+        """Change the attribute of a player in the team."""
+        if not self.contains_player(player_name):
+            if not_exist_okay:
+                return
+            LOGGER.warning(
+                f"Player {player_name} not in team {self.team_letter}. Cannot change attribute."
+            )
+            return
+        idx = np.where([p["nickname"] == player_name for p in self._players])[0][0]
+        player = self._players[idx]
+        if attr not in player.index:
+            raise KeyError(f"Attribute {attr} not found in player {player_name}.")
+        player[attr] = value
+        self._players[idx] = player
+
     def contains_player(self, player_name: str):
         return player_name in self.player_df["nickname"].tolist()
 
@@ -129,12 +148,19 @@ class Team:
         player = self.player_df[self.player_df["nickname"] == player_name].iloc[0]
         self.remove_player(player)
         other.add_player(player)
+        LOGGER.info(
+            f"Moved {player_name} from team {self.team_letter} to team {other.team_letter}."
+        )
 
     def get_rgb_with_alpha(self, alpha: float = 0.5) -> tuple[int | float, ...]:
         return *(val / 255 for val in self.rgb_colors), alpha
 
-    def create_backup(self):
-        self.player_df.to_csv(Team.backup_path(self.team_index), index=False)
+    def create_backup(self, overwrite: bool = False):
+        """Create a backup of the current team in the backup folder."""
+        fpath = Team.backup_path(self.team_index)
+        if fpath.exists() and not overwrite:
+            raise FileExistsError(f"Backup file {fpath} already exists.")
+        self.player_df.to_csv(fpath, index=False)
 
     def add_player(self, player: pd.Series, register_as_reserve=False):
         self._players.append(player)
@@ -171,7 +197,7 @@ class Team:
                 self.sports_fulfill_nums[sport] -= 1
 
     def set_players(self, players: pd.DataFrame):
-        self._players = players.to_dict(orient="records")
+        self._players = players.to_dict(orient="records")  # type: ignore
         self.sports_fulfill_nums = {
             sport: np.sum(self.player_df[sport])
             for sport in SPORTS_LIST

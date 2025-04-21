@@ -1,6 +1,11 @@
+from typing import TYPE_CHECKING
+
 import pandas as pd
 
 from ..constants import DATAPATH
+
+if TYPE_CHECKING:
+    from ..classes.team import Team
 
 
 def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
@@ -13,7 +18,7 @@ def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
     if not first_name_only:
         return name
     first_name = name.split()[0]
-    last_name = name.split()[1] if len(name.split()) > 1 else ""
+    last_name = name.split()[-1] if len(name.split()) > 1 else ""
     first_names = [n.split()[0] for n in clear_names["name"]]
     if (
         first_names.count(first_name) > 1 and last_name
@@ -23,3 +28,11 @@ def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
         )  # Return the first name and the first letter of the last name
     else:
         return first_name
+
+
+def update_player_signup_status(
+    teams: list["Team"], player_name: str, sport: str, status: bool
+) -> None:
+    """Update the signup status of a player."""
+    for team in teams:
+        team.change_player_attribute(player_name, sport, status, not_exist_okay=True)

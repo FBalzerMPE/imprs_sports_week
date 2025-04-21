@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 import numpy as np
 
 from ..classes.team import Team
+from ..logger import LOGGER
 
 if TYPE_CHECKING:
     from ..classes.sport_event import SportEvent
@@ -23,9 +24,7 @@ def _generate_subteams_for_sport(
     """Get a dictionary of subteams for a specific sport."""
     from ..classes.subteam import Subteam
 
-    avail_players = team.get_all_players_for_sport(
-        sport.sanitized_name, [f"avail_{day.lower()}" for day in sport.days]
-    )
+    avail_players = team.get_all_players_for_sport(sport.sanitized_name)
     if num_subteams is None:
         num_subteams = sport.num_subteams
     if num_players_per_subteam is None:
@@ -77,35 +76,37 @@ def _generate_subteams_for_sport(
     return subteams
 
 
-def _resolve_subteams_conflict(
-    all_subteams: list[Subteam], sport_a: str, sport_b: str, verbose: bool
-):
+def _get_all_players_for_sport(
+    all_subteams: list[Subteam],
+    sport: str,
+    no_reserve: bool = True,
+    reserve_only: bool = False,
+) -> list[str]:
+    """Get all players in the team that are available for a specific sport."""
+    assert (
+        not reserve_only or not no_reserve
+    ), "You cannot set both reserve_only and no_reserve to True."
+    sport_subteams = [subteam for subteam in all_subteams if subteam.sport == sport]
+    return [
+        player
+        for subteam in sport_subteams
+        for player in subteam.players
+        if (no_reserve and not subteam.is_reserve)
+        or (reserve_only and subteam.is_reserve)
+    ]
+
+
+def _resolve_subteams_conflict(all_subteams: list[Subteam], sport_a: str, sport_b: str):
     teams_a = [subteam for subteam in all_subteams if subteam.sport == sport_a]
     teams_b = [subteam for subteam in all_subteams if subteam.sport == sport_b]
-    all_players_a = [
-        player
-        for subteam in teams_a
-        for player in subteam.players
-        if not subteam.is_reserve
-    ]
-    all_players_b = [
-        player
-        for subteam in teams_b
-        for player in subteam.players
-        if not subteam.is_reserve
-    ]
-    reserve_players_a = [
-        player
-        for subteam in teams_a
-        for player in subteam.players
-        if subteam.is_reserve
-    ]
-    reserve_players_b = [
-        player
-        for subteam in teams_b
-        for player in subteam.players
-        if subteam.is_reserve
-    ]
+    all_players_a = _get_all_players_for_sport(teams_a, sport_a, no_reserve=True)
+    all_players_b = _get_all_players_for_sport(teams_b, sport_b, no_reserve=True)
+    reserve_players_a = _get_all_players_for_sport(
+        teams_a, sport_a, reserve_only=True, no_reserve=False
+    )
+    reserve_players_b = _get_all_players_for_sport(
+        teams_b, sport_b, reserve_only=True, no_reserve=False
+    )
     # As we do not want to create new doubled reserve players, we need to remove them from further considerations
     for player in all_players_a:
         if player in reserve_players_b:
@@ -114,43 +115,45 @@ def _resolve_subteams_conflict(
         if player in reserve_players_a:
             reserve_players_a.remove(player)
     player_intersect = set(all_players_a).intersection(all_players_b)
-    if verbose:
-        print("-" * 40 + "\n", sport_a, sport_b)
+    initial_reserve_intersect = set(reserve_players_a).intersection(reserve_players_b)
+    LOGGER.debug(
+        f"\n\t{sport_a}: {all_players_a}\n\t{sport_b}: {all_players_b}\n\tIntersect: {player_intersect}\n\tReserve Intersect: {initial_reserve_intersect}"
+    )
     for player in player_intersect:
         reserve_intersect = set(reserve_players_a).intersection(reserve_players_b)
-        # If there are players that are set for reserve in both, replace one of the lslots
+        # If there are players that are set for reserve in both, replace one of the slots
         subteam_a = [subteam for subteam in teams_a if player in subteam.players][0]
         subteam_b = [subteam for subteam in teams_b if player in subteam.players][0]
         reserve_a = [subteam for subteam in teams_a if subteam.is_reserve][0]
         reserve_b = [subteam for subteam in teams_b if subteam.is_reserve][0]
         if len(reserve_intersect) > 0:
             switch_player = random.choice(list(reserve_intersect))
-            subteam_a.switch_player_with_other(player, switch_player, reserve_a, True)
-            reserve_players_a.remove(switch_player)
-            if switch_player in reserve_players_b:
-                reserve_players_b.remove(switch_player)
+            subteam_b.switch_player_with_other(player, switch_player, reserve_b)
+            reserve_players_b.remove(switch_player)
+            if switch_player in reserve_players_a:
+                reserve_players_a.remove(switch_player)
         # If no double-reserve players are available, try to switch in some reserve player for team b
         elif len(reserve_players_b) > 0:
             switch_player = random.choice(reserve_players_b)
-            subteam_b.switch_player_with_other(player, switch_player, reserve_b, True)
+            subteam_b.switch_player_with_other(player, switch_player, reserve_b)
             reserve_players_b.remove(switch_player)
         # Oherwise, try the same for team a:
         elif len(reserve_players_a) > 0:
             switch_player = random.choice(reserve_players_a)
-            subteam_a.switch_player_with_other(player, switch_player, reserve_a, True)
+            subteam_a.switch_player_with_other(player, switch_player, reserve_a)
             reserve_players_a.remove(switch_player)
-        elif verbose:
-            print(
-                f"WARN: No solution found for {player}, they are currently double-booked."
+        else:
+            LOGGER.warning(
+                f"No solution found for {player}, they are currently double-booked for {sport_a} and {sport_b}."
             )
     reserve_intersect = set(reserve_players_a).intersection(reserve_players_b)
-    if verbose and len(reserve_intersect) > 0:
-        print(
-            f"WARN: The following players are still set as reserve for both sports: {reserve_intersect}"
+    if len(reserve_intersect) > 0:
+        LOGGER.warning(
+            f"The following players are still set as reserve for both {sport_a} and {sport_b}: {reserve_intersect}"
         )
 
 
-def generate_all_subteams(team: Team, verbose=True, seed=42) -> list[Subteam]:
+def generate_all_subteams(team: Team, seed=42) -> list[Subteam]:
     """Generate all necessary subteams for the given team.
 
     Try to solve conflicts for players being doubly subscribed.
@@ -165,10 +168,14 @@ def generate_all_subteams(team: Team, verbose=True, seed=42) -> list[Subteam]:
     # Shift players that are in subteams for both, and try to replace them with reservists
     for colliding_pairs in [
         ["volleyball", "basketball"],
+        ["basketball", "running_sprints"],
+        ["volleyball", "running_sprints"],
         ["football", "tennis"],
-        ["capture_the_flag", "spikeball"],
+        ["badminton", "spikeball"],
+        ["capture_the_flag", "chess"],
+        ["foosball", "beer_pong"],
     ]:
-        _resolve_subteams_conflict(all_subteams, *colliding_pairs, verbose=verbose)
+        _resolve_subteams_conflict(all_subteams, *colliding_pairs)
     return all_subteams
 
 
@@ -186,4 +193,4 @@ def try_switch_players(
         return
     subteam_1 = [subteam for subteam in subteams if name_1 in subteam.players][0]
     subteam_2 = [subteam for subteam in subteams if name_2 in subteam.players][0]
-    subteam_1.switch_player_with_other(name_1, name_2, subteam_2, verbose=True)
+    subteam_1.switch_player_with_other(name_1, name_2, subteam_2)

@@ -151,6 +151,8 @@ class Player:
                         text += match_.description + ";\\\n"
                     text = text.rstrip(";\\\n")
                 else:
+                    if len(matches) == 0:
+                        continue
                     if len(matches) == 1:
                         text += matches[0].description
                     else:

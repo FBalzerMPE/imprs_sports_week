@@ -22,11 +22,17 @@ def _anonymize_name(name: str) -> str:
 
 def _get_ping_pong_days(events: str):
     event_list = events.split(",")
-    return [
+    days = [
         day.split()[3].lower()
         for day in event_list
         if day.strip().startswith("Ping Pong")
     ]
+    # Since badminton is gonna at a completely different location,
+    # remove wednesday for those people so they don't have impossible overlap times
+    if "Badminton" in events:
+        if len(days) > 1 and "wednesday" in days:
+            days.remove("wednesday")
+    return days
 
 
 def _add_event_info(df: pd.DataFrame) -> pd.DataFrame:
@@ -93,6 +99,18 @@ def _get_single_nickname(
         LOGGER.warning(f"Name {row['name']} not found in old nicknames.")
         return new_nicknames.pop(0)
     return nick_dict[row["name"]]
+
+
+def _remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove any people that might have signed up multiple times,
+    keeping the latest entry in case they did that to change preferences.
+    """
+    dup_mask = df["email"].str.lower().duplicated(keep="last")
+    if dup_mask.sum() > 0:
+        LOGGER.warning(
+            f"Found {dup_mask.sum()} people who managed to sign up multiple times. Keeping only  their latest entries."
+        )
+    return df[~dup_mask]
 
 
 def get_nicknames_2025_column(df: pd.DataFrame) -> pd.Series:
@@ -172,8 +190,9 @@ def sanitize_and_anonymize_data(
         format="%d/%m/%Y %H:%M:%S",
     )
     df = _add_event_info(df)
-    df["late_entry"] = df.response_timestamp > pd.Timestamp("2025-04-10 12:00:00")
+    df["late_entry"] = df.response_timestamp > pd.Timestamp("2025-04-13 12:00:00")
     df = _add_payment_info(df)
+    df = _remove_duplicates(df)
     if overwrite:
         df.to_csv(FpathRegistry.get_path_responses(year, sanitized=False), index=False)
     df["confirmation_status"] = False

@@ -1,3 +1,4 @@
+import random
 from typing import TypeVar
 
 import numpy as np
@@ -5,9 +6,9 @@ import pandas as pd
 
 from ..classes.match import Match
 from ..classes.subteam import Subteam
-from ..constants import FpathRegistry, CURRENT_YEAR
-from ..util import deprecated, turn_series_list_to_dataframe
+from ..constants import CURRENT_YEAR, FpathRegistry
 from ..logger import LOGGER
+from ..util import deprecated, turn_series_list_to_dataframe
 
 T = TypeVar("T")
 
@@ -89,12 +90,12 @@ def create_combinations(
 
 
 def determine_rotated_matchups_for_sport(
-    all_subteams: dict[str, Subteam], sport: str
+    all_subteams: dict[str, Subteam], sport: str, seed: int | None = None
 ) -> list[tuple[Subteam, Subteam]]:
     """Determine matchups between the teams.
 
-    Do this in a rotating round-robin fashion, where each team plays
-    against each other team in the same subteam-pool.
+    Do this in a rotating fashion, where each team plays
+    against each other team once.
     """
     all_subteams = {
         k: team for k, team in all_subteams.items() if sport in k and "R" not in k
@@ -111,6 +112,10 @@ def determine_rotated_matchups_for_sport(
         ]
         for letter in "ABC"
     ]
+    if seed is not None:
+        random.seed(seed)
+        for subteam_list in teams_subteams:
+            random.shuffle(subteam_list)
     return create_combinations(*teams_subteams)
 
 
@@ -133,3 +138,4 @@ def write_match_backup(matches: list[Match], year=CURRENT_YEAR, overwrite=False)
     )
     df = df[cols]
     write_match_backup_from_df(df, year, overwrite=overwrite)
+    LOGGER.info(f"Wrote new backup, scheduling {len(df)} matches.")

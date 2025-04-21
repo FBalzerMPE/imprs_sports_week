@@ -37,7 +37,7 @@ def st_style_df_with_team_vals(
     style = df.style
     if full_row:
         style = style.apply(
-            lambda row: [_get_row_color(row["full_key"])] * len(row), axis=1  # type: ignore
+            lambda row: [_get_row_color(data, row["full_key"])] * len(row), axis=1  # type: ignore
         )
     else:
         style = style.apply(

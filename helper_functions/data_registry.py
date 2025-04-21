@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date
-from typing import TYPE_CHECKING
+from datetime import date, timedelta
+from pathlib import Path
+from typing import TYPE_CHECKING, Literal
 
 import pandas as pd
 import yaml
@@ -72,7 +73,7 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
                     sub_key=team_key,
                     players=players,
                 )
-                all_subteams[sport + "_" + subteam.full_key] = subteam
+                all_subteams[sport + "_" + subteam.short_key] = subteam
     return all_subteams
 
 
@@ -94,11 +95,10 @@ def get_matches(year=CURRENT_YEAR) -> list[Match]:
     for _, match_ in match_df.iterrows():
         try:
             match_list.append(Match.from_dataframe_entry(match_, subteams))
-        except KeyError:
-            LOGGER.info(
+        except KeyError as e:
+            LOGGER.warning(
                 f"Couldn't load {match_["full_key"]}.\n\t{match_["team_a"]} vs {match_["team_b"]}"
             )
-
     return match_list
 
 
@@ -143,6 +143,10 @@ class DataRegistry:
         return cls(year, teams, players, subteams, matches, match_df, organizers)
 
     @property
+    def path(self) -> Path:
+        return DATAPATH.joinpath(str(self.year))
+
+    @property
     def avail_sports(self) -> list[str]:
         return [sport.sanitized_name for sport in self.sport_events.values()]
 
@@ -162,11 +166,21 @@ class DataRegistry:
 
     @property
     def start_date(self) -> date:
+        """The start date of the sports week."""
         return self.sport_events["ping_pong"].start.date()
 
     @property
     def end_date(self) -> date:
+        """The end date of the sports week."""
         return self.sport_events["ping_pong"].end.date()
+
+    @property
+    def days(self) -> list[date]:
+        """The days the sports week of this year takes place at"""
+        return [
+            self.start_date + timedelta(days=i)
+            for i in range((self.end_date - self.start_date).days + 1)
+        ]
 
     @property
     def nickname_to_name_df(self) -> pd.DataFrame:
@@ -177,6 +191,13 @@ class DataRegistry:
             LOGGER.warning(f"Couldn't find nickname to name file at {fpath}")
             return pd.DataFrame()
         return pd.read_csv(fpath)
+
+    def get_day(
+        self, day: Literal["monday", "tuesday", "wednesday", "thursday", "friday"]
+    ) -> date:
+        """Get the date of the sports week for a specific day."""
+        day_idx = ["monday", "tuesday", "wednesday", "thursday", "friday"].index(day)
+        return self.days[day_idx]
 
     def get_running_sprints_score(self, team_letter: str) -> float:
         """Return the score for the running sprints event."""
@@ -198,6 +219,16 @@ class DataRegistry:
             ).sanitized_name: e
             for event in events
         }
+
+    def reload(self):
+        """Reloads the data from disk if it has updated."""
+        self.teams = get_teams(self.year)
+        self.players = get_players(year=self.year)
+        self.subteams = get_subteams(self.year)
+        self.matches = get_matches(self.year)
+        self.match_df = get_match_df(self.year)
+        self.organizers = load_organizers(self.year)
+        self.load_sport_events()
 
 
 ALL_LOCATIONS = load_sport_locations()

@@ -46,8 +46,8 @@ class Match:
     ) -> Match:
         sport = df_entry["sport"]
         duration = timedelta(seconds=df_entry["duration"])
-        subteam_a = all_subteams[sport + "_" + df_entry["team_a_key"]]
-        subteam_b = all_subteams[sport + "_" + df_entry["team_b_key"]]
+        subteam_a = all_subteams[sport + "_" + df_entry["team_a_key"].replace(": ", "")]
+        subteam_b = all_subteams[sport + "_" + df_entry["team_b_key"].replace(": ", "")]
         return cls(
             sport=sport,
             start=df_entry["start"],
@@ -94,7 +94,9 @@ class Match:
     @property
     def match_key(self):
         """The unique match key for this match, including sport and subteam keys."""
-        return self.sport + self.subteam_a.full_key + self.subteam_b.full_key
+        return (
+            self.sport + "_" + self.subteam_a.short_key + "_" + self.subteam_b.short_key
+        )
 
     @property
     def description(self) -> str:
@@ -177,8 +179,14 @@ class Match:
         if verbose:
             my_start = self.start.strftime("%H:%M, %A")
             other_start = other.start.strftime("%H:%M, %A")
+            p_team = [
+                team.main_team_letter
+                for player in intersect
+                for team in (self.subteam_a, self.subteam_b)
+                if player in team.players
+            ][0]
             LOGGER.warning(
-                f"{self.match_key}, {other.match_key}: {intersect} have conflicting schedules ({my_start}, {other_start})."
+                f"{self.match_key}, {other.match_key}: {intersect} ({p_team}) have conflicting schedules ({my_start}, {other_start})."
             )
         return True
 
@@ -189,13 +197,12 @@ class Match:
         delta = timedelta(minutes=buffer_in_minutes)
         return self.start - delta, self.end + delta
 
-    def switch_with_other(self, other: Match, verbose: bool = False):
+    def switch_with_other(self, other: Match):
         """Switch this match with another one."""
         assert self.sport == other.sport, "Can only switch matches of the same sport"
         self.location, other.location = other.location, self.location
         self.start, other.start = other.start, self.start
-        if verbose:
-            LOGGER.info(f"Switched {self.match_key} with {other.match_key}")
+        LOGGER.info(f"Switched {self.match_key} with {other.match_key}")
 
     def set_time_and_loc(self, hour: int, minute: int, loc: str):
         """Set a new time and location for this event."""

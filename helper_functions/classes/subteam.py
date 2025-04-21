@@ -45,7 +45,13 @@ class Subteam:
 
     @property
     def full_key(self) -> str:
+        """Full key for external representation."""
         return f"{self.main_team_letter}: {self.sub_key}"
+
+    @property
+    def short_key(self) -> str:
+        """Minimum length key for internal use."""
+        return self.main_team_letter + self.sub_key
 
     @property
     def key_or_single(self) -> str:
@@ -70,20 +76,17 @@ class Subteam:
         df.loc[np.in1d(df["nickname"].tolist(), self.players), colname] = self.sub_key
         return df
 
-    def move_player_to_other(self, player: str, other: Subteam, verbose: bool = True):
+    def move_player_to_other(self, player: str, other: Subteam):
         """Move `player_a` from `self` to `other`."""
         assert player in self.players and player not in other.players
         assert self.sport == other.sport
         self.players.remove(player)
         other.players.append(player)
 
-    def switch_player_with_other(
-        self, player_a: str, player_b: str, other: Subteam, verbose: bool = False
-    ):
+    def switch_player_with_other(self, player_a: str, player_b: str, other: Subteam):
         """Move `player_a` from `self` to `other` and replace them with `player_b`."""
-        self.move_player_to_other(player_a, other, verbose)
-        other.move_player_to_other(player_b, self, verbose)
-        if verbose:
-            LOGGER.info(
-                f"{self.sport}: Switched out {player_a} with {player_b} from {self.full_key} to {other.full_key}"
-            )
+        self.move_player_to_other(player_a, other)
+        other.move_player_to_other(player_b, self)
+        LOGGER.info(
+            f"{self.sport}: Switched out {player_a} with {player_b} from {self.short_key} to {other.short_key}"
+        )

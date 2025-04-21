@@ -308,9 +308,12 @@ class SportEvent:
     def calendar_entries(self) -> list[dict[str, str | dict]]:
         """The calendar entries with the general timeline for this sport."""
         title = f"{self.icon} {self.name} (Contact: {', '.join(self.organizer_names)})"
+        # Put a 15 minute buffer before each event to make people arrive in time
+        buf_delta = 0 if self.sanitized_name == "ping_pong" else 15
+        buffered_start_time = (self.start - timedelta(minutes=buf_delta)).isoformat()
         base_dict = {
             "title": title,
-            "start": self.start.isoformat(),
+            "start": buffered_start_time,
             "end": self.end.isoformat(),  # "2024-04-29T21:00:00",
             "resourceId": self.identity_name,
             "extendedProps": {"url": "/" + self.sanitized_name},
