@@ -1,3 +1,5 @@
+- 2.4.0 (2025-04-22): 
+  - Added teams, subteams and scheduling for the 2025 Sports Week, and updated sports specifications.
 - 2.3.0 (2025-04-13): 
   - Split 'statistics' and 'results' into separate pages.
   - One can now play around with the sports statistics.
