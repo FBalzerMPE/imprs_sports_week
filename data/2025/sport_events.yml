@@ -9,7 +9,10 @@
   num_pitches: 3
   num_players_per_subteam: 1
   num_subteams: 25
-  point_weight_factor: 2.5
+  point_weight_factor: 3.5
+  requirements:
+    - Rackets and balls are provided, but you may bring your own
+    - You may also reschedule this match, but please let us know! **If you cannot make it, send a timely mail to your opponent** (and let us know)!
 - name: basketball
   start: 2025-05-05 17:45
   end: 2025-05-05 21:00
@@ -21,6 +24,7 @@
   num_pitches: 2
   num_players_per_subteam: 5
   num_subteams: 2
+  point_weight_factor: 1.5
   conflicting_sports:
     - volleyball
 - name: running_sprints
@@ -46,7 +50,7 @@
   num_pitches: 4
   conflicting_sports:
     - basketball
-  point_weight_factor: 1.5
+  point_weight_factor: 3
 - name: football
   start: 2025-05-06 17:45
   end: 2025-05-06 21:00
@@ -60,7 +64,7 @@
   num_pitches: 1
   conflicting_sports:
     - tennis
-  point_weight_factor: 1.5
+  point_weight_factor: 2
 - name: tennis
   start: 2025-05-06 17:45
   end: 2025-05-06 21:00
@@ -74,6 +78,9 @@
   num_pitches: 3
   conflicting_sports:
     - football
+  requirements:
+    - '**Tennis shoes** (you won''t be allowed to participate without!)'
+    - Tennis racket(s) if possible, but we'll have some available
 - name: badminton
   start: 2025-05-07 17:45
   end: 2025-05-07 21:00
@@ -85,8 +92,13 @@
   num_players_per_subteam: 2
   num_subteams: 6
   num_pitches: 6
+  point_weight_factor: 2
   conflicting_sports:
     - spikeball
+  requirements:
+    - '**Indoor shoes** (light soles; you won''t be allowed to participate without!)'
+    - Badminton racket(s) and shuttles if possible, but we'll have some available
+    - Note that after 19:15, free 1v1 matches can be played, so be sure to stick around!
 - name: spikeball
   start: 2025-05-07 17:45
   end: 2025-05-07 21:00
@@ -114,6 +126,8 @@
   num_subteams: 6
   conflicting_sports:
     - capture_the_flag
+  requirements:
+    - Chess clock on your phone (see event desc.)
 - name: capture_the_flag
   start: 2025-05-08 17:45
   end: 2025-05-08 21:00
@@ -125,7 +139,7 @@
   num_players_per_subteam: 7
   num_subteams: 2
   num_pitches: 1
-  point_weight_factor: 1.5
+  point_weight_factor: 2
   conflicting_sports:
     - chess
 - name: beer_pong
@@ -141,7 +155,7 @@
   num_subteams: 6
   conflicting_sports:
     - foosball
-  point_weight_factor: 1.5
+  point_weight_factor: 2.5
 - name: foosball
   start: 2025-05-09 17:30
   end: 2025-05-09 21:00
@@ -155,5 +169,5 @@
   num_subteams: 6
   conflicting_sports:
     - beer_pong
-  point_weight_factor: 1.5
+  point_weight_factor: 2
   

@@ -14,7 +14,7 @@ At the end, all points a main team's players have achieved are summed, normalize
 
 ### Refereeing
 
-Zsofi and William are going to be around to structure everything.
+ORGANIZERS will be around to structure everything.
 
 ### What to bring
 

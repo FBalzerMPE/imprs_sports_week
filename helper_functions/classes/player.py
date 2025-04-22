@@ -58,10 +58,14 @@ class Player:
             subteams = {sport: "X" for sport in SPORTS_LIST if series[sport]}
         else:
             subteams = {
-                sport: f"{team}: {subteam}"
+                sport: (
+                    f"{team}: {subteam}"
+                    if sport != "ping_pong" or subteam == "R"
+                    else f"{team}: {subteam:0>2}"
+                )
                 for sport in SPORTS_LIST
                 if f"subteam_{sport}" in series
-                and (subteam := series[f"subteam_{sport}"]) != ""
+                and (subteam := series.fillna("")[f"subteam_{sport}"]) != ""
             }
         matches = [match_ for match_ in all_matches if match_.contains_player(name)]
         matches = sorted(matches, key=lambda match_: match_.start)
@@ -143,8 +147,10 @@ class Player:
                 subteam_key = self.subteams[event.sanitized_name]
                 text += f"{event.html_url}: Part of subteam **{subteam_key}**.\\\n"
                 if subteam_key.endswith("R"):
-                    text += "Scheduled as a reserve player.\n\n"
+                    text += "Scheduled as a reserve player. You might be called upon to jump in.\n\n"
                     continue
+                if len(event.requirements) > 0:
+                    text += f"**Requirements:** {'; '.join(event.requirements)}.\n\n"
                 text += "**Matches**:\\\n"
                 if event.sanitized_name == "ping_pong":
                     for match_ in [match for match in matches if match.weekday == day]:
@@ -175,9 +181,10 @@ class Player:
         )
 
         for sport, subteam_key in self.subteams.items():
+            subteam_key = sport + "_" + subteam_key.replace(": ", "")
             event = DATA_NOW.sport_events[sport]
-            subteam = DATA_NOW.subteams[sport + "_" + subteam_key]
-            subteam_key = f"**{subteam_key}**"
+            subteam = DATA_NOW.subteams[subteam_key]
+            subteam_key_disp = f"**{subteam_key}**"
             matches = [match for match in self.matches if match.sport == sport]
             vals, ind = np.unique(
                 [match_.start.strftime("%A") for match_ in matches], return_index=True
@@ -188,6 +195,8 @@ class Player:
                 days = event.days
             days = ", ".join([day.capitalize() for day in days])
             text += f"**{event.icon} {event.name} ({days}):**\\\n"
+            if len(event.requirements) > 0:
+                text += f"**Requirements:** {'; '.join(event.requirements)}.\n\n"
             if subteam.is_reserve:
                 text += "You are scheduled to be a reserve player. "
                 if sport in ["spikeball", "tennis", "table_tennis", "foosball"]:
@@ -212,7 +221,7 @@ class Player:
                         )
                     else:
                         other_player_str = other_players[-1]
-                    text += f"You are part of subteam {subteam_key}, together with *{other_player_str}*.\\\nYour matches are:"
+                    text += f"You are part of subteam {subteam_key_disp}, together with *{other_player_str}*.\\\nYour matches are:"
                 text += "\\\n"
                 if sport == "running_sprints":
                     text += f"You are scheduled to attend {matches[0].description}.\n"
@@ -244,7 +253,9 @@ class Player:
         with cols[1]:
             st.write(self.info_str, unsafe_allow_html=True)
 
-    def write_streamlit_rep(self, info_only=False, show_avatars=True, show_inst=False):
+    def write_streamlit_rep(
+        self, info_only=False, schedule_only=False, show_avatars=True, show_inst=False
+    ):
         """Get the streamlit representation for this player."""
         container = st.container(border=True)
         if info_only:
@@ -252,6 +263,16 @@ class Player:
                 self._write_streamlit_info(
                     show_avatars=show_avatars, show_inst=show_inst
                 )
+            return
+        elif schedule_only:
+            with container:
+                cols = st.columns([0.2, 0.8])
+
+                cols[0].image(
+                    FpathRegistry.get_animal_pic_path(self.nickname, from_static=False),
+                    use_container_width=True,
+                )
+                cols[1].write(self.website_schedule, unsafe_allow_html=True)
             return
         tabs = container.tabs(["Info", "Schedule"])
         with tabs[0]:

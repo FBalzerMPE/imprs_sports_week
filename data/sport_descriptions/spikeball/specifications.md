@@ -1,7 +1,7 @@
 ### General
 
-- Matches will be played on one of the three nets we provide for the IPP field.
-- Each main team will send out a few subteams, with NUM_PLAYERS_SUBTEAM players on each subteam. The reserve players might be called in if a player becomes unavailable.
+- Matches will be played on one of the four nets we provide at LOCATION. If you own a net yourself, feel free to bring it in order to pass the spare time :)
+- Each main team will send out a NUM_SUBTEAMS, with NUM_PLAYERS_SUBTEAM players on each subteam. The reserve players might be called in if a player becomes unavailable.
 - Each subteam will play two matches, one against a different main team's subteam.
 
 ### Point scheme

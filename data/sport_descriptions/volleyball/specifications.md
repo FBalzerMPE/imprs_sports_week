@@ -1,7 +1,9 @@
 ### General
 
-- We'll try to use the two TUM beachvolleyball courts for simultaneous matches. If the TUM courts are not available, we'll set up our own court on the grass close by, and may vary the match length.
-- Each main team will send out NUM_SUBTEAMS subteams, with NUM_PLAYERS_SUBTEAM players on each subteam. The reserve players may support any of the subteams, and can be switched in at the rotations.
+- We'll try to use the two TUM beachvolleyball courts (courts 1 and 2) for simultaneous matches, plus two extra courts set up at the TUM football and running field (courts 3 and 4).
+- This means that you might play Volleyball on the grass, so please bring shoes that are suitable.
+- Each main team will send out NUM_SUBTEAMS subteams, with NUM_PLAYERS_SUBTEAM players on each subteam.
+- The reserve players may support any of the subteams, and can be switched in at the rotations.
 - Each subteam will play two matches, one against a different main team's subteam.
 
 ### Point scheme
@@ -15,6 +17,6 @@ At the end, all points a main team's subteams have achieved are summed, normaliz
 
 ### What to bring
 
-- You do not need to bring any special equipment, but make sure to not forget your water bottle!
+- You do not need to bring any special equipment (apart from shoes to play on the grass), but make sure to not forget your water bottle!
 
 Get ready to showcase your skills and teamwork on the volleyball court. Good luck to all participating teams!

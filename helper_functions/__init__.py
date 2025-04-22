@@ -12,6 +12,7 @@ from .util import *
 
 __all__ = [
     "st_display_institute_dist_plot",
+    "st_display_player_schedules",
     "create_sports_num_plot",
     "annotate_barh_values",
     "plot_pie_chart",

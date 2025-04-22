@@ -105,4 +105,7 @@ class FpathRegistry:
     @staticmethod
     def get_hidden_responses(year=CURRENT_YEAR) -> pd.DataFrame:
         """Reads the hidden responses from the file."""
-        return pd.read_csv(FpathRegistry.get_path_responses(year, sanitized=False))
+        fpath = FpathRegistry.get_path_responses(year, sanitized=False)
+        if not fpath.exists():
+            raise FileNotFoundError(f"File {fpath} does not exist.")
+        return pd.read_csv(fpath)

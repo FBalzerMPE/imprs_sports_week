@@ -2,6 +2,7 @@
 
 - As stated above, we'll aim for two tables at the LOCATION.
 - Each subteam consists of NUM_PLAYERS_PER_SUBTEAM players, there are NUM_SUBTEAMS subteams per main team.
+- Each subteam will play two matches.
 
 ### Point scheme
 

@@ -1,6 +1,8 @@
 ### General
 
-The games will take place at the Foosball table in the LOCATION
+- We are aiming to play at two foosball tables set up close to LOCATION.
+- Each main team provides NUM_SUBTEAMS consisting of NUM_PLAYERS_SUBTEAM players.
+- Each subteam will have two matches in total.
 
 ### Point scheme
 

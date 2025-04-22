@@ -233,6 +233,9 @@ class SportEvent:
     conflicting_sports: list[str] = field(default_factory=list)
     """Any other sports overlapping with this one."""
 
+    requirements: list[str] = field(default_factory=list)
+    """Any tools that are neccessary to participate."""
+
     subteams: list[Subteam] = field(default_factory=list, repr=False)
     """The sub-teams for this sport."""
 
@@ -370,7 +373,7 @@ class SportEvent:
 - **Location:** {loc_name} (see also location tab)
 - **Time:** {self.start.strftime('%H:%M')} to {self.end.strftime('%H:%M')} on **{days}**
 - **Organizers:** {contact_link} (see also contact tab)
-- **Point weight factor:** {self.point_weight_factor:.1f} (due to {self.num_players_per_subteam*self.num_subteams*3} attending players, see {stats_link} for more info)"""
+- **Point weight factor:** {self.point_weight_factor:.1f} (due to {self.num_players_per_subteam*self.num_subteams*3} attending players)"""
         return text
 
     @property
@@ -453,6 +456,10 @@ class SportEvent:
         is_single = self.num_players_per_subteam == 1
         df = self.match_df
         if self.sanitized_name != "ping_pong":
+            if self.sanitized_name == "volleyball":
+                df["location"] = df["location"].apply(
+                    {"1": "Beach 1", "2": "Beach 2", "3": "Grass 1", "4": "Grass 2"}.get
+                )
             _st_display_match_df(
                 df, is_single, self.pitch_type_name, get_data_for_year(self.year)
             )
@@ -499,11 +506,14 @@ class SportEvent:
     def _get_desc_text(
         self, specifier: Literal["introduction", "rules", "specifications"]
     ) -> str:
+        subteam_suffix = "subteam" + ("" if self.num_subteams == 1 else "s")
+        if self.num_players_per_subteam == 1:
+            subteam_suffix = "players"
         rep_dict = {
             "WEIGHT_FACTOR": f"**{self.point_weight_factor}**",
             "ORGANIZERS": " and ".join(self.organizer_names),
             "NUM_PLAYERS_SUBTEAM": f"**{self.num_players_per_subteam}**",
-            "NUM_SUBTEAMS": f"**{self.num_subteams}**",
+            "NUM_SUBTEAMS": f"**{self.num_subteams} {subteam_suffix}**",
             "LOCATION": self.loc.display_name,
         }
         text = FpathRegistry.get_sport_info_path(
@@ -536,7 +546,7 @@ class SportEvent:
         with tabs[3]:
             locs = [self.loc.key]
             if self.sanitized_name == "ping_pong":
-                st.write(
+                st.info(
                     f"The matches will take place at various tables scattered around the campus, their locations are marked in red. Hover over them for details.\n\n⚠️Scroll down for more detailed descriptions on how to get to each table!"
                 )
                 from ..data_registry import ALL_LOCATIONS
@@ -544,13 +554,18 @@ class SportEvent:
                 locs = [
                     loc.key for key, loc in ALL_LOCATIONS.items() if "ping_pong" in key
                 ]
+            if self.sanitized_name == "volleyball":
+                st.info(
+                    f"The grass courts are going to be set up on the TUM big field, the beach courts should be visible from GFZ."
+                )
+                locs.append("tum_big_field")
             else:
                 "The location for this event is marked in red, hover over its name to find more information."
             if self.sanitized_name in ["foosball", "beer_pong"]:
                 st.write(
                     "In case you have trouble finding the MPA locations, try to enter through the MPA entrance. The MPE entrance will be locked from 17:00 onwards. You can go below it to pass through to MPA, and there go to the basement - you should bump into people there.\\\nIn case you're completely stuck, let us know in the signal group."
                 )
-            create_map_plot(locs)
+            create_map_plot(locs, start_zoomed_out=self.sanitized_name == "badminton")
             if self.sanitized_name == "ping_pong":
                 display_ping_pong_loc_descs()
         with tabs[4]:

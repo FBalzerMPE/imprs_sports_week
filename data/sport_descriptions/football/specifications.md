@@ -1,15 +1,15 @@
 ### General
 
 - We are aiming to play at LOCATION.
-- Each main team provides one subteam consisting of NUM_PLAYERS_SUBTEAM players (might be subject to change), along with some reserve players.
-- Thus, each subteam will have two matches in total.
+- Each main team provides NUM_SUBTEAMS consisting of NUM_PLAYERS_SUBTEAM players (might be subject to change), along with some reserve players.
+- Each subteam will have two matches in total.
 
 ### Duration
 
 Each match slot is structured as follows:
 
-- 5 minutes of warm up
-- 2x15 minutes with a 5 minute break in between
+- Be there early for 5 minutes of warm up
+- 2x10 minutes with a 5 minute break in between
 - 5 minutes of break between successive games
 
 ### Point scheme

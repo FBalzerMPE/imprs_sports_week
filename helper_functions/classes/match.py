@@ -153,7 +153,11 @@ class Match:
         title = f"{index + 1}::  {self.subteam_a.full_key} vs {self.subteam_b.full_key}".replace(
             ": ", ""
         )
-        color = ["#8B0000", "#00008B", "#B8860B"][index]
+        colors = ["#8B0000", "#00008B", "#B8860B", "#C10210", "#008B00", "#008B8B"]
+        if index >= len(colors):
+            LOGGER.warning("Not enough colors to display courts in schedule")
+            index = len(colors) - 1
+        color = colors[index]
         return {
             "title": title,
             "start": self.start.isoformat(),

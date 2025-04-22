@@ -1,9 +1,9 @@
 ### General
 
-- The matches are taking place on the LOCATION, one match at a time.
+- The matches are taking place on the LOCATION, two matches at a time (one on each side of the field).
 - Each main team provides NUM_SUBTEAMS subteam consisting of NUM_PLAYERS_SUBTEAM players, along with some reserve players.
-- Thus, each subteam will have two matches in total.
-- During play, 4 players per main team are allowed to be on the court.
+- Each subteam will have two matches in total.
+- During play, 4 players per subteam are allowed to be on the court.
 
 ### Point scheme
 

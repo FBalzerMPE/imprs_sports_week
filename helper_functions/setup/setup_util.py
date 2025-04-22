@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 import pandas as pd
 
-from ..constants import DATAPATH
+from ..constants import DATAPATH, FpathRegistry
 
 if TYPE_CHECKING:
     from ..classes.team import Team
@@ -10,13 +10,16 @@ if TYPE_CHECKING:
 
 def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
     """Try to retrieve this player's real name from the hidden data."""
-    fpath = DATAPATH.joinpath("hidden/nickname_to_name.csv")
-    if not fpath.exists():
+    try:
+        clear_names = FpathRegistry.get_hidden_responses().set_index(
+            "nickname", drop=False
+        )
+    except FileNotFoundError:
         return nickname
-    clear_names = pd.read_csv(fpath)
-    name = clear_names.set_index("nickname")["name"].to_dict().get(nickname, "")
+    name = clear_names["name"].to_dict().get(nickname, "")
+    email_suffix = ", " + clear_names["email"].to_dict().get(nickname, "")
     if not first_name_only:
-        return name
+        return name + email_suffix
     first_name = name.split()[0]
     last_name = name.split()[-1] if len(name.split()) > 1 else ""
     first_names = [n.split()[0] for n in clear_names["name"]]
@@ -24,10 +27,10 @@ def get_real_player_name(nickname: str, first_name_only: bool = True) -> str:
         first_names.count(first_name) > 1 and last_name
     ):  # If the first name is not unique and there is a last name
         return (
-            first_name + " " + last_name[0]
+            first_name + " " + last_name[0] + email_suffix
         )  # Return the first name and the first letter of the last name
     else:
-        return first_name
+        return first_name + email_suffix
 
 
 def update_player_signup_status(

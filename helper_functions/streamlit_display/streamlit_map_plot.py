@@ -2,13 +2,13 @@ import pandas as pd
 import pydeck as pdk
 import streamlit as st
 
-from ..util import turn_series_list_to_dataframe
 from ..data_registry import ALL_LOCATIONS
+from ..util import turn_series_list_to_dataframe
 
 MAP_OPTIONS = ["streets", "satellite", "outdoors"]
 
 
-def create_map_plot(highlighted_locations: list[str]):
+def create_map_plot(highlighted_locations: list[str], start_zoomed_out: bool = False):
     """Create a map plot with highlighted locations."""
 
     df = turn_series_list_to_dataframe(
@@ -93,13 +93,20 @@ def create_map_plot(highlighted_locations: list[str]):
     style = st.radio("Map style", MAP_OPTIONS, horizontal=True)
     if style is None:
         style = "streets"
+    initial_lat = 48.261925
+    initial_long = 11.670458
+    initial_zoom = 15
+    if start_zoomed_out:
+        initial_lat = 48.255925
+        initial_long = 11.673458
+        initial_zoom = 13
     st.pydeck_chart(
         pdk.Deck(
             map_style=f"mapbox://styles/mapbox/{style}-v9",
             initial_view_state=pdk.ViewState(
-                latitude=48.261925,
-                longitude=11.673458,
-                zoom=15,
+                latitude=initial_lat,
+                longitude=initial_long,
+                zoom=initial_zoom,
                 min_zoom=10,
                 max_zoom=20,
             ),

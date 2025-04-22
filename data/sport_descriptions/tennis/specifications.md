@@ -7,9 +7,9 @@
 
 ### What to bring
 
-- ⚠️Please make sure you come wearing tennis shoes! If you don't have any, contact us and we'll try to find a solution.
-- If you have your own racket, please bring it, and let us know if you don't have a racket so we know how many we need to provide.
-- Bring some water, the matches are going to be long!
+- ⚠️You **ARE REQUIRED TO BRING TENNIS SHOES**.
+- If you have them, please bring your tennis rackets; we'll also have a few to borrow otherwise.
+- Also make sure to not forget your water bottle!
 
 ### Point scheme
 

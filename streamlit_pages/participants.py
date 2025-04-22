@@ -19,7 +19,7 @@ Keep in mind that we might not update this super often, so it might take a bit u
 )
 
 
-tabs = st.tabs(["Compact", "Detailed"])
+tabs = st.tabs(["Compact", "Detailed", "Schedules"])
 with tabs[1]:
     cols = st.columns(3)
     show_avatars = (
@@ -117,4 +117,12 @@ with tabs[0]:
         df.style,
         column_config=column_configs,
         hide_index=True,
+    )
+
+with tabs[2]:
+    st.info(
+        "Select the player you want to see the schedule for. Typing a name in is supported."
+    )
+    hf.st_display_player_schedules(
+        hf.DATA_NOW.players, "full", hf.DATA_NOW.matches, schedule_only=True
     )

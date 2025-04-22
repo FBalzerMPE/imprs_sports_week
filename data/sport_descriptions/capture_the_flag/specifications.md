@@ -3,7 +3,7 @@
 
 - The field will be divided into two territories, one for each team, with a neutral zone behind each team's territory in which the flag is initially placed.
 - Players entering the opponent's neutral zone cannot be tagged by opponents.
-- There will be NUM_SUBTEAMS subteam per main team, consisting of NUM_PLAYERS_SUBTEAM players.
+- There will be NUM_SUBTEAMS per main team, consisting of NUM_PLAYERS_SUBTEAM players.
 - Each subteam will play two matches in total, one against a different main team's subteam.
 
 ### Point scheme
