@@ -29,3 +29,9 @@ with st.expander("Sign-Up Times", expanded=False):
         "Oh, don't we all love to procrastinate the simple things such as filling out a 2 minute survey? Well, the following plot seems to support that hypothesis (although we of course don't judge :D)"
     )
     hf.st_display_signup_times(hf.DATA_NOW)
+
+with st.expander("Building the teams", expanded=False):
+    st.write("Here we'll soon display how the teams were built.")
+
+with st.expander("Scheduling the matches", expanded=False):
+    st.write("Here we'll soon display how we scheduled the matches.")
