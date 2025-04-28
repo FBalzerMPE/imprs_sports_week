@@ -208,6 +208,14 @@ class DataRegistry:
         }
         return year_dict[self.year].get(team_letter, 0)
 
+    def get_team(self, team_letter: str) -> Team:
+        """Get a team by its letter."""
+        team_letter = team_letter.replace("Team ", "").upper()
+        for team in self.teams:
+            if team.team_letter == team_letter:
+                return team
+        raise KeyError(f"Team {team_letter} not found.")
+
     def load_sport_events(self):
         from .classes.sport_event import SportEvent
 

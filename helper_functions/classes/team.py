@@ -165,6 +165,48 @@ class Team:
             raise FileExistsError(f"Backup file {fpath} already exists.")
         self.player_df.to_csv(fpath, index=False)
 
+    def change_player_subteam(
+        self,
+        player_name: str,
+        sport: str,
+        subteam_key: str | None = None,
+        player_to_replace_name: str | None = None,
+        replacement_key="D",
+    ):
+        """Change the subteam of a player in the team."""
+        if not self.contains_player(player_name):
+            LOGGER.warning(
+                f"Player {player_name} not in team {self.team_letter}. Cannot change subteam."
+            )
+            return
+        if subteam_key is None and player_to_replace_name is None:
+            msg = "Please provide either a subteam key or a player to replace."
+            LOGGER.warning(msg)
+            raise ValueError(msg)
+        if player_to_replace_name is not None and subteam_key is not None:
+            msg = (
+                "Please provide either a subteam key or a player to replace, not both."
+            )
+            LOGGER.warning(msg)
+            raise ValueError(msg)
+        sport_key = f"subteam_{sport}"
+        if player_to_replace_name is not None:
+            if not self.contains_player(player_to_replace_name):
+                msg = f"Player {player_to_replace_name} not in team {self.team_letter}. Cannot change subteam."
+                LOGGER.warning(msg)
+                raise ValueError(msg)
+            subteam_key = self.player_df.set_index("nickname").loc[
+                player_to_replace_name
+            ][sport_key]
+        idx = np.where([p["nickname"] == player_name for p in self._players])[0][0]
+        player = self._players[idx]
+        if sport_key not in player:
+            raise KeyError(f"Subteam {sport_key} not found in player {player_name}.")
+        player[sport_key] = subteam_key
+        if player_to_replace_name is not None:
+            self.change_player_subteam(player_to_replace_name, sport, replacement_key)
+        self.create_backup(overwrite=True)
+
     def add_player(self, player: pd.Series, register_as_reserve=False):
         self._players.append(player)
         for sport in SPORTS_LIST:
@@ -188,7 +230,7 @@ class Team:
             for subteam in subset:
                 subteam.players.append(player["nickname"])
         self.add_subteam_keys(list(current_subteams.values()))
-        self.create_backup()
+        self.create_backup(overwrite=True)
 
     def remove_player(self, player: pd.Series):
         player_index = [player["nickname"] for player in self._players].index(
