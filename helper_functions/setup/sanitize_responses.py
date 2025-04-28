@@ -59,22 +59,40 @@ def _add_event_info(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _load_payment_info() -> dict[str, str]:
-    fpath = FpathRegistry.get_path_hidden().joinpath("money_received.yml")
-    responses = yaml.safe_load(fpath.read_text(encoding="utf-8"))
-    u, c = np.unique([e["name"] for e in responses], return_counts=True)
+def _load_payment_info(responses: dict[str, dict]) -> dict[str, str]:
+    u, c = np.unique(list(responses.keys()), return_counts=True)
     if max(c) > 1:
         dup = u[c > 1]
         dup = [_anonymize_name(n) for n in dup]
         LOGGER.warning(
-            f"Duplicate names ({dup}) found in payment info. Please check the file {fpath}."
+            f"Duplicate names ({dup}) found in payment info. Please check the feedback file."
         )
-    return {e["name"]: e["receiver"] for e in responses}
+    return {
+        k: v["receiver"]
+        for k, v in responses.items()
+        if v.get("receiver", "DROPOUT") not in ["NOT RECEIVED YET", "DROPOUT"]
+    }
 
 
-def _add_payment_info(df: pd.DataFrame) -> pd.DataFrame:
-    p_info = _load_payment_info()
+def _add_feedback_info(df: pd.DataFrame, year: int) -> pd.DataFrame:
+    """
+    Add info about feedback by player - have they paid? Have they confirmed their participation? Do they request to drop out?
+    """
+    from ..data_registry import get_data_for_year
+
+    data = get_data_for_year(year)
+    responses = data.get_hidden_feedback_info()
+    p_info = _load_payment_info(responses)
     df["has_paid_fee"] = df["name"].apply(lambda x: x in p_info)
+    df["dropout_sports"] = df["name"].apply(
+        lambda x: responses.get(x, {}).get("dropouts", [])
+    )
+    df["num_dropout_sports"] = df["dropout_sports"].apply(len)
+    df["confirm_date"] = df["name"].apply(
+        lambda x: responses.get(x, {}).get("confirmed", "")
+    )
+    df["is_full_dropout"] = df["confirm_date"].apply(lambda x: x == "DROPOUT")
+    df["has_confirmed"] = df["confirm_date"].apply(lambda x: x != "" and x != "DROPOUT")
     unrecognized = [_anonymize_name(n) for n in p_info if n not in df["name"].tolist()]
     if len(unrecognized) > 0:
         LOGGER.warning(
@@ -111,6 +129,34 @@ def _remove_duplicates(df: pd.DataFrame) -> pd.DataFrame:
             f"Found {dup_mask.sum()} people who managed to sign up multiple times. Keeping only  their latest entries."
         )
     return df[~dup_mask]
+
+
+def _rewrite_teams(new_player_df: pd.DataFrame):
+    """Sanitize data once again to rewrite the teams with new information"""
+    from ..data_registry import DATA_NOW, FpathRegistry
+
+    if not DATA_NOW.has_teams:
+        return
+
+    DATA_NOW.reload()
+    old_df = DATA_NOW.players
+    novel_cols = [
+        "has_paid_fee",
+        "dropout_sports",
+        "num_dropout_sports",
+        "confirm_date",
+        "is_full_dropout",
+        "has_confirmed",
+    ]
+    cols = [col for col in old_df.columns if col not in novel_cols]
+    old_df = pd.merge(
+        old_df[cols], new_player_df[novel_cols + ["nickname"]], on="nickname"
+    )
+    for team_letter in "ABC":
+        fpath = FpathRegistry.get_path_team(team_letter)
+        old_df[old_df["Team"] == f"Team {team_letter}"].to_csv(fpath, index=False)
+    DATA_NOW.reload()
+    LOGGER.info("Added new information to teams.")
 
 
 def get_nicknames_2025_column(df: pd.DataFrame) -> pd.Series:
@@ -191,7 +237,7 @@ def sanitize_and_anonymize_data(
     )
     df = _add_event_info(df)
     df["late_entry"] = df.response_timestamp > pd.Timestamp("2025-04-13 12:00:00")
-    df = _add_payment_info(df)
+    df = _add_feedback_info(df, year)
     df = _remove_duplicates(df)
     if overwrite:
         df.to_csv(FpathRegistry.get_path_responses(year, sanitized=False), index=False)
@@ -240,6 +286,7 @@ def sanitize_and_anonymize_data(
         LOGGER.warning("Didn't write to excel as openpyxl was missing.")
     anon_df = df[[col for col in df.columns if col not in deletable_cols]]
     anon_df.to_csv(backup_fpath, index=False)
+    _rewrite_teams(anon_df)
     if anonymize:
         return anon_df
     return df

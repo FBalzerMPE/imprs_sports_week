@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from pathlib import Path
-from typing import TYPE_CHECKING, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 import pandas as pd
 import yaml
@@ -229,6 +229,14 @@ class DataRegistry:
         self.match_df = get_match_df(self.year)
         self.organizers = load_organizers(self.year)
         self.load_sport_events()
+
+    def get_hidden_feedback_info(self) -> dict[str, dict[str, Any]]:
+        fpath = FpathRegistry.get_path_hidden(self.year).joinpath("feedback_info.yml")
+        if not fpath.exists():
+            LOGGER.warning(f"No feedback file found for {self.year}")
+            return {}
+        ftext = fpath.read_text(encoding="utf-8")
+        return {v["name"]: v for v in yaml.safe_load(ftext)}
 
 
 ALL_LOCATIONS = load_sport_locations()

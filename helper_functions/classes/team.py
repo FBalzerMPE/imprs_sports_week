@@ -67,6 +67,9 @@ class Team:
                 )
                 .astype("object")
             )
+        for col in ["dropout_sports"]:
+            players[col] = players[col].apply(eval)
+
         team = cls(
             team_index=team_index,
             sports_fulfill_nums={
