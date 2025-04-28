@@ -133,6 +133,8 @@ def _st_display_match_df(
 
 
 def _st_display_subteam_df(df: pd.DataFrame, data: DataRegistry):
+    if len(df) == 0:
+        return
     df = df.sort_values(["is_reserve", "full_key"], ascending=[True, True])
     column_configs = {"full_key": st.column_config.Column("Subteam", width="small")}
     for i in range(max(df["players"].apply(len))):
@@ -526,7 +528,9 @@ class SportEvent:
     def write_streamlit_rep(self):
         st.write(f"# {self.name}")
         st.write(self.short_info_text, unsafe_allow_html=True)
-        st.write(self._get_desc_text("introduction"))
+        cols = st.columns([0.7, 0.3])
+        cols[0].write(self._get_desc_text("introduction"))
+        cols[1].image(FpathRegistry.get_sport_pic_path(self.sanitized_name))
         loc_tab_name = "Location" if self.sanitized_name != "ping_pong" else "Locations"
         tab_names = ["Format", "Rules", "Schedule and teams", loc_tab_name, "Contact"]
         tabs = st.tabs(tab_names)

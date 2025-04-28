@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal
 
 import numpy as np
 import pandas as pd
@@ -10,6 +10,7 @@ import streamlit as st
 
 from ..constants import CURRENT_YEAR, SPORTS_LIST, FpathRegistry
 from ..logger import LOGGER
+from ..util import write_changelog_entry
 
 if TYPE_CHECKING:
     from .subteam import Subteam
@@ -68,7 +69,8 @@ class Team:
                 .astype("object")
             )
         for col in ["dropout_sports"]:
-            players[col] = players[col].apply(eval)
+            if col in players.columns:
+                players[col] = players[col].apply(eval)
 
         team = cls(
             team_index=team_index,
@@ -131,10 +133,23 @@ class Team:
             return
         idx = np.where([p["nickname"] == player_name for p in self._players])[0][0]
         player = self._players[idx]
-        if attr not in player.index:
+        if attr not in player:
             raise KeyError(f"Attribute {attr} not found in player {player_name}.")
         player[attr] = value
         self._players[idx] = player
+
+    def get_player_attribute(self, player_name: str, attr: str) -> Any:
+        """Get the attribute of a player in the team."""
+        if not self.contains_player(player_name):
+            LOGGER.warning(
+                f"Player {player_name} not in team {self.team_letter}. Cannot get attribute."
+            )
+            return None
+        idx = np.where([p["nickname"] == player_name for p in self._players])[0][0]
+        player = self._players[idx]
+        if attr not in player:
+            raise KeyError(f"Attribute {attr} not found in player {player_name}.")
+        return player[attr]
 
     def contains_player(self, player_name: str):
         return player_name in self.player_df["nickname"].tolist()
@@ -146,7 +161,7 @@ class Team:
                 stats[sport] += 1
         return stats
 
-    def transfer_player(self, player_name: str, other: Team):
+    def transfer_player_to_other_team(self, player_name: str, other: Team):
         """Move a player from this team to another team."""
         player = self.player_df[self.player_df["nickname"] == player_name].iloc[0]
         self.remove_player(player)
@@ -169,42 +184,53 @@ class Team:
         self,
         player_name: str,
         sport: str,
-        subteam_key: str | None = None,
-        player_to_replace_name: str | None = None,
-        replacement_key="D",
+        player_to_replace_name: str,
+        replacement_key: Literal["D", "R"] | None = "D",
+        check_reserve: bool = True,
     ):
-        """Change the subteam of a player in the team."""
-        if not self.contains_player(player_name):
+        """Change the subteam of a player in the team.
+        Writes a changelog entry for this change, for which you should check the box after you
+        have notified the affected player about the change."""
+        if player_name != "" and not self.contains_player(player_name):
             LOGGER.warning(
                 f"Player {player_name} not in team {self.team_letter}. Cannot change subteam."
             )
             return
-        if subteam_key is None and player_to_replace_name is None:
-            msg = "Please provide either a subteam key or a player to replace."
-            LOGGER.warning(msg)
-            raise ValueError(msg)
-        if player_to_replace_name is not None and subteam_key is not None:
-            msg = (
-                "Please provide either a subteam key or a player to replace, not both."
-            )
-            LOGGER.warning(msg)
-            raise ValueError(msg)
         sport_key = f"subteam_{sport}"
-        if player_to_replace_name is not None:
-            if not self.contains_player(player_to_replace_name):
-                msg = f"Player {player_to_replace_name} not in team {self.team_letter}. Cannot change subteam."
-                LOGGER.warning(msg)
-                raise ValueError(msg)
-            subteam_key = self.player_df.set_index("nickname").loc[
-                player_to_replace_name
-            ][sport_key]
-        idx = np.where([p["nickname"] == player_name for p in self._players])[0][0]
-        player = self._players[idx]
-        if sport_key not in player:
-            raise KeyError(f"Subteam {sport_key} not found in player {player_name}.")
-        player[sport_key] = subteam_key
-        if player_to_replace_name is not None:
-            self.change_player_subteam(player_to_replace_name, sport, replacement_key)
+        if not self.contains_player(player_to_replace_name):
+            msg = f"Player {player_to_replace_name} not in {self.name}. Cannot change subteam."
+            LOGGER.warning(msg)
+            raise ValueError(msg)
+        subteam_key = self.get_player_attribute(player_to_replace_name, sport_key)
+        if subteam_key == replacement_key:
+            LOGGER.warning(
+                f"Player {player_to_replace_name} already in {replacement_key} (where you're trying to replace to). Skipping the change."
+            )
+            return
+        if (
+            player_name != ""
+            and check_reserve
+            and self.get_player_attribute(player_name, sport_key) != "R"
+        ):
+            LOGGER.warning(
+                f"Player {player_name} is not a reserve player. Skipping subteam change."
+            )
+            return
+        if replacement_key is None:  # In that case, just switch subteams
+            replacement_key = self.get_player_attribute(player_name, sport_key)
+        msg = f"Subteam change in {self.name} for {sport}: {player_name} (-> {subteam_key}) <--> {player_to_replace_name} (-> {replacement_key})"
+        if player_name == "":
+            old_key = self.get_player_attribute(player_to_replace_name, sport_key)
+            msg = f"Subteam change in {self.name} for {sport}: {player_to_replace_name} ({old_key}-> {replacement_key}) "
+            if old_key != "R":
+                msg += "WITHOUT REPLACEMENT"
+            else:
+                msg += "[removal from reserve]"
+        else:
+            self.change_player_attribute(player_name, sport_key, subteam_key)
+        self.change_player_attribute(player_to_replace_name, sport_key, replacement_key)
+        LOGGER.info(msg)
+        write_changelog_entry(msg, CURRENT_YEAR, add_checkbox=True)
         self.create_backup(overwrite=True)
 
     def add_player(self, player: pd.Series, register_as_reserve=False):

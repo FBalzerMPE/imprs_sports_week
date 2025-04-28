@@ -3,12 +3,12 @@
 
 ## Spirit of the Sports Week
 
-What is this week about? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines by having mixed teams consisting of PhDs, PostDocs and other interested students from Munich institutes (USM, MPE, MPA, MPP, MPQ, ESO, and IPP).
+What is this week about? Mostly, we aim to have loads of fun by competing in a bunch of different disciplines. For this, we mix three big teams consisting of PhDs, PostDocs and other interested students from Munich/Garching institutes (USM, MPE, MPA, MPP, MPQ, ESO, and IPP).
 
-Currently, there are an astounding **NUM_SIGNUPS** people that have signed up, competing in NUM_MATCHES scheduled matches within the NUM_EVENTS different sports, organized by ~NUM_ORGANIZERS people across the institutes - if you missed the sign-up deadline, scroll down for more information concerning late signups.
+Currently, there are an astounding **NUM_SIGNUPS** people that have signed up, competing in NUM_MATCHES scheduled matches within the NUM_EVENTS different sports, organized by ~NUM_ORGANIZERS people across the institutes - if you missed the sign-up deadline, scroll all the way down for more information concerning late signups.
 
 Every day after work from around **5:30 - 8:30 pm** in the week from **May 5th to May 9th** you will have the chance to take part in a variety of sports.
-Doing so you can score points for your big teams (see below), of which one will ultimately be crowned winner!\
+Doing so you can score points for your big teams, of which one will ultimately be crowned winner!\
 However, the main goal is to get some movement into our lives (not just sitting at the desk all day!), try some new sports, have fun as a team and meet new people!
 
 ## How does it work?

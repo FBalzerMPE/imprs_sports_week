@@ -1,9 +1,10 @@
 import functools
 import inspect
 import warnings
-import yaml
+from datetime import datetime
 
 import pandas as pd
+import yaml
 
 from .constants import DATAPATH, FpathRegistry
 from .logger import LOGGER
@@ -19,6 +20,34 @@ def copy_to_clipboard(text: str):
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardText(text, win32clipboard.CF_UNICODETEXT)
     win32clipboard.CloseClipboard()
+
+
+def write_changelog_entry(
+    entry: str, year: int, annotate_time: bool = True, add_checkbox: bool = False
+) -> None:
+    """Write a changelog entry to the changelog file.
+
+    Parameters
+    ----------
+    entry : str
+        The changelog entry to write.
+    year : int
+        The year of the changelog.
+
+    Returns
+    -------
+    None
+    """
+    if annotate_time:
+        entry = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {entry}"
+    if add_checkbox:
+        entry = f"- [ ] {entry}"
+    changelog_path = FpathRegistry.get_path_changelog(year=year)
+    if not changelog_path.exists():
+        changelog_path.parent.mkdir(parents=True, exist_ok=True)
+        changelog_path.touch()
+    with changelog_path.open("a", encoding="utf-8") as f:
+        f.write(entry + "\n")
 
 
 def sort_dict_by_values(d: dict, reverse=False) -> dict:
@@ -48,7 +77,9 @@ def read_event_desc(event_name: str) -> str:
 
 def get_changelog_data() -> dict[str, list[str]]:
     """Return the changelog of the package, mapping the version to the changes."""
-    yaml_data = yaml.safe_load(FpathRegistry.changelog.read_text(encoding="utf-8"))
+    yaml_data = yaml.safe_load(
+        FpathRegistry.project_changelog.read_text(encoding="utf-8")
+    )
     log = {k: v for dict_entry in yaml_data for k, v in dict_entry.items()}
     return {k: v if isinstance(v, list) else [v] for k, v in log.items()}
 

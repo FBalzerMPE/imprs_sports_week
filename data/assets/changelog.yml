@@ -1,3 +1,7 @@
+- 2.5.0 (2025-04-28): 
+  - Refactored dropout/late entry handling.
+  - Handled the first dropouts.
+  - Added images for each sport.
 - 2.4.0 (2025-04-22): 
   - Added teams, subteams and scheduling for the 2025 Sports Week, and updated sports specifications.
 - 2.3.0 (2025-04-13): 

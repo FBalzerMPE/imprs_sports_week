@@ -32,7 +32,7 @@ def get_teams(year=CURRENT_YEAR) -> list[Team]:
     for i in range(num_teams):
         try:
             teams.append(Team.from_backup(i, year))
-        except (FileNotFoundError, KeyError):
+        except FileNotFoundError:
             LOGGER.info("Couldn't load team", i)
             pass
     return teams
@@ -88,7 +88,7 @@ def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
 
 
 # @st.cache_data
-def get_matches(year=CURRENT_YEAR) -> list[Match]:
+def get_matches(year=CURRENT_YEAR, warn: bool = True) -> list[Match]:
     match_df = get_match_df(year)
     subteams = get_subteams(year)
     match_list = []
@@ -96,6 +96,8 @@ def get_matches(year=CURRENT_YEAR) -> list[Match]:
         try:
             match_list.append(Match.from_dataframe_entry(match_, subteams))
         except KeyError as e:
+            if not warn:
+                continue
             LOGGER.warning(
                 f"Couldn't load {match_["full_key"]}.\n\t{match_["team_a"]} vs {match_["team_b"]}"
             )
@@ -233,7 +235,7 @@ class DataRegistry:
         self.teams = get_teams(self.year)
         self.players = get_players(year=self.year)
         self.subteams = get_subteams(self.year)
-        self.matches = get_matches(self.year)
+        self.matches = get_matches(self.year, warn=False)
         self.match_df = get_match_df(self.year)
         self.organizers = load_organizers(self.year)
         self.load_sport_events()

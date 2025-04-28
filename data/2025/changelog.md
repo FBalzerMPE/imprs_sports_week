@@ -1,0 +1,27 @@
+- [ ] 2025-04-28 16:29:20 - Subteam change in Team A for beer_pong: Well-to-do Moth (-> 5) <--> Unwilling Starfish (-> D)
+- [ ] 2025-04-28 16:55:05 - Subteam change in Team A for badminton: Thorny Warthog (-> 4) <--> Wealthy Armadillo (-> D)
+- [ ] 2025-04-28 17:02:39 - Subteam change in Team B for football: Velvety Seahorse (-> 2) <--> Neglected Harrier (-> D)
+- [ ] 2025-04-28 17:02:39 - Subteam change in Team B for capture_the_flag: Possible Anchovies (-> 1) <--> Neglected Harrier (-> D)
+- [ ] 2025-04-28 17:10:49 - Subteam change in Team B for volleyball: Affectionate Chihuahua (-> 2) <--> Animated Yak (-> D)
+- [ ] 2025-04-28 17:11:30 - Subteam change in Team B for spikeball: Tired Numbat (-> 3) <--> Animated Yak (-> D)
+- [ ] 2025-04-28 17:11:41 - Subteam change in Team B for beer_pong: Favorable Neanderthal (-> 5) <--> Animated Yak (-> D)
+- [ ] 2025-04-28 17:13:12 - Subteam change in Team B for basketball: Bogus Wasp (-> 2) <--> Affectionate Chihuahua (-> D)
+- [ ] 2025-04-28 17:15:05 - Subteam change in Team B for spikeball: Real Mouse (-> 4) <--> Ignorant Lemur (-> D)
+- [x] 2025-04-28 17:21:15 - Subteam change in Team C for tennis: Pushy Bulldog (-> 4) <--> Arctic Milkfish (-> D)
+- [ ] 2025-04-28 17:32:03 - Subteam change in Team B for ping_pong: Favorable Neanderthal (-> 14) <--> Animated Yak (-> D)
+- [x] 2025-04-28 17:49:47 - Subteam change in Team B for football: Edible Bloodhound (-> 1) <--> Authentic Dalmatian (-> 2)
+- [x] 2025-04-28 18:11:38 - Subteam change in Team A for badminton: Soulful Ant (R-> D) [removal from reserve]
+- [x] 2025-04-28 18:11:38 - Subteam change in Team A for foosball: Unwilling Starfish (R-> D) [removal from reserve]
+- [x] 2025-04-28 18:11:38 - Subteam change in Team B for tennis: Neglected Harrier (R-> D) [removal from reserve]
+- [x] 2025-04-28 18:11:38 - Subteam change in Team B for foosball: Neglected Harrier (R-> D) [removal from reserve]
+- [x] 2025-04-28 18:11:38 - Subteam change in Team C for volleyball: Liquid Lamprey (R-> D) [removal from reserve]
+- [x] 2025-04-28 18:13:15 - Subteam change in Team C for capture_the_flag: Sandy Budgerigar (R-> D) [removal from reserve]
+- [x] 2025-04-28 21:19:52 - Subteam change in Team B for foosball: Animated Yak (R-> D) [removal from reserve]
+- [ ] 2025-04-28 18:13:15 - Subteam change in Team C for badminton: Appropriate Tang (-> 5) <--> Prize Jerboa (-> D)
+- [ ] 2025-04-28 16:59:09 - Subteam change in Team B for running_sprints: Neglected Harrier (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 17:02:39 - Subteam change in Team B for beer_pong: Neglected Harrier (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 17:04:45 - Subteam change in Team B for tennis: Unsteady Aardvark (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 17:10:49 - Subteam change in Team B for tennis: Animated Yak (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 17:19:54 - Subteam change in Team C for capture_the_flag: Enormous Uakari (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 17:19:54 - Subteam change in Team C for beer_pong: Enormous Uakari (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-28 18:45:23 - Subteam change in Team B for tennis: Open Iguana (1-> D) WITHOUT REPLACEMENT

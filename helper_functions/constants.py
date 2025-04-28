@@ -33,12 +33,17 @@ class FpathRegistry:
     """Paths to some commonly used files."""
 
     sport_locations = DATAPATH.joinpath("assets/sport_locations.yml")
-    changelog = DATAPATH.joinpath("assets/changelog.yml")
+    project_changelog = DATAPATH.joinpath("assets/changelog.yml")
 
     @staticmethod
     def get_path_matches(year=CURRENT_YEAR) -> Path:
         """The path for the match dataframe of the given year."""
         return DATAPATH.joinpath(f"{year}/matches.csv")
+
+    @staticmethod
+    def get_path_changelog(year=CURRENT_YEAR) -> Path:
+        """The path for the changelog text file of the given year."""
+        return DATAPATH.joinpath(f"{year}/changelog.md")
 
     @staticmethod
     def get_path_sport_events(year=CURRENT_YEAR) -> Path:
@@ -101,6 +106,12 @@ class FpathRegistry:
         info_type: Literal["introduction", "rules", "specifications", "advanced_rules"],
     ) -> Path:
         return DATAPATH.joinpath(f"sport_descriptions/{sport}/{info_type}.md")
+
+    @staticmethod
+    def get_sport_pic_path(sport: str) -> str:
+        """Retrieves the animal pic path relative to the top level path."""
+        sport = sport.lower().replace(" ", "_")
+        return str(DATAPATH.joinpath(f"assets/sports_pics/{sport}.png"))
 
     @staticmethod
     def get_hidden_responses(year=CURRENT_YEAR) -> pd.DataFrame:

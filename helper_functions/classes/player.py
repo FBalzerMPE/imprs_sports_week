@@ -177,7 +177,7 @@ class Player:
         text = (
             ""
             if not self.is_late_signup
-            else "Since you signed up late, you are for now only scheduled as reserve for the events you signed up for.\n\n"
+            else "Since you signed up late, you might only be scheduled as reserve some of your preferred events.\n\n"
         )
 
         for sport, subteam_key in self.subteams.items():
@@ -199,7 +199,7 @@ class Player:
                 text += f"**Requirements:** {'; '.join(event.requirements)}.\n\n"
             if subteam.is_reserve:
                 text += "You are scheduled to be a reserve player. "
-                if sport in ["spikeball", "tennis", "table_tennis", "foosball"]:
+                if sport in ["spikeball", "tennis", "ping_pong", "foosball", "chess"]:
                     text += "This means that you might receive a late call to join if one of your teammates cannot make it."
                 else:
                     if event.num_subteams > 1:
