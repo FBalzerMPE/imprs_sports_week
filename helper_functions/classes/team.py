@@ -171,6 +171,8 @@ class Team:
         msg = f"Moved {player_name} from team {self.team_letter} to team {other.team_letter}."
         LOGGER.info(msg)
         write_changelog_entry(msg, add_checkbox=True)
+        self.create_backup(overwrite=True)
+        other.create_backup(overwrite=True)
 
     def get_rgb_with_alpha(self, alpha: float = 0.5) -> tuple[int | float, ...]:
         return *(val / 255 for val in self.rgb_colors), alpha
@@ -187,7 +189,7 @@ class Team:
         player_name: str,
         sport: str,
         player_to_replace_name: str,
-        replacement_key: Literal["D", "R"] | None = "D",
+        replacement_key: Literal["D", "R"] | str | None = "D",
         check_reserve: bool = True,
     ):
         """Change the subteam of a player in the team.
@@ -261,13 +263,19 @@ class Team:
         self.create_backup(overwrite=True)
 
     def remove_player(self, player: pd.Series):
-        player_index = [player["nickname"] for player in self._players].index(
-            player["nickname"]
-        )
+        player = player.fillna("")
+        nickname = player["nickname"]
+        player_index = [p["nickname"] for p in self._players].index(nickname)
         self._players.pop(player_index)
         for sport in SPORTS_LIST:
             if player[sport]:
                 self.sports_fulfill_nums[sport] -= 1
+            sub_key = f"subteam_{sport}"
+            if sub_key in player and (sub_key := player[sub_key]) != "":
+                msg = f"When removing {nickname} from {self.name}, they are removed from subteam {self.team_letter}{sub_key} for {sport}."
+                LOGGER.info(msg)
+                write_changelog_entry(msg, add_checkbox=True)
+                player[sub_key] = "R"
 
     def set_players(self, players: pd.DataFrame):
         self._players = players.to_dict(orient="records")  # type: ignore

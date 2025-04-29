@@ -175,6 +175,8 @@ class Player:
     def get_schedule_for_mail(self) -> str:
         from ..data_registry import DATA_NOW
 
+        DATA_NOW.reload()
+
         text = (
             ""
             if not self.is_late_signup
