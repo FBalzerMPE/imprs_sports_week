@@ -241,7 +241,6 @@ def sanitize_and_anonymize_data(
     df = _remove_duplicates(df)
     if overwrite:
         df.to_csv(FpathRegistry.get_path_responses(year, sanitized=False), index=False)
-    df["confirmation_status"] = False
     deletable_cols = [
         "name",
         "events_interested_in",
@@ -276,7 +275,7 @@ def sanitize_and_anonymize_data(
             "institute",
             "status",
             "has_paid_fee",
-            "confirmation_status",
+            "has_confirmed",
         ]
     ]
     name_to_nick.to_csv(path_base.joinpath("name_to_nickname.csv"), index=False)
