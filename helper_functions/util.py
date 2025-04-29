@@ -6,7 +6,7 @@ from datetime import datetime
 import pandas as pd
 import yaml
 
-from .constants import DATAPATH, FpathRegistry
+from .constants import CURRENT_YEAR, DATAPATH, FpathRegistry
 from .logger import LOGGER
 
 _string_types = (type(b""), type(""))
@@ -23,7 +23,10 @@ def copy_to_clipboard(text: str):
 
 
 def write_changelog_entry(
-    entry: str, year: int, annotate_time: bool = True, add_checkbox: bool = False
+    entry: str,
+    year: int = CURRENT_YEAR,
+    annotate_time: bool = True,
+    add_checkbox: bool = False,
 ) -> None:
     """Write a changelog entry to the changelog file.
 

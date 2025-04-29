@@ -484,7 +484,9 @@ class SportEvent:
         if len(df) == 0:
             st.write(f"### Subteams\n\nNo subteams have been determined yet.")
             return
+        print(df.columns)
         reserve_mask = df["is_reserve"].astype(bool)
+        dropout_mask = df["sub_key"] == "D"
         if self.num_players_per_subteam == 1:
             st.write(f"### Reserve players\n")
             if np.sum(reserve_mask) > 0:
@@ -499,7 +501,9 @@ class SportEvent:
         else:
             st.write(f"### Subteams\n")
             st.write("The subteams above consist of the following players:")
-            _st_display_subteam_df(df[~reserve_mask], get_data_for_year(self.year))
+            _st_display_subteam_df(
+                df[~reserve_mask & ~dropout_mask], get_data_for_year(self.year)
+            )
             st.write(
                 "#### Reserve players\nThe following players may join as substitute players:"
             )

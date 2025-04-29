@@ -5,7 +5,7 @@
 - Table: Suitable tables will be available in the MPA common room.
 - Cup Formation: Per team, arrange ten cups in pyramid shape (4,3,2,1) and align them with the pyramid tip towards the center of the table pointing away from you. Each cup should be filled to $\sim 1/4$ with water.  
 - Balls: 2 ping pong balls are required.
-- Beer: Every player requires a full 0.5 l bottle of beer (or an alternative, you aren't required to consume alcohol to attend!).
+- Beer? We'll provide one beer per team per match, which you can share sips from (also of course in your own glasses if preferred). You may also buy additional beers or other drinks for 1 € each from the common room fridge. Nobody will be forced to drink alcohol of course.
 
 #### 2: BASICS (SHORT VERSION)
 

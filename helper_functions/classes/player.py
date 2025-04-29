@@ -145,6 +145,9 @@ class Player:
                     if match.sport == event.sanitized_name
                 ]
                 subteam_key = self.subteams[event.sanitized_name]
+                if subteam_key.endswith("D"):
+                    text += f"{event.html_url}: Dropped out.\n"
+                    continue
                 text += f"{event.html_url}: Part of subteam **{subteam_key}**.\\\n"
                 if subteam_key.endswith("R"):
                     text += "Scheduled as a reserve player. You might be called upon to jump in.\n\n"
@@ -184,6 +187,8 @@ class Player:
             subteam_key = sport + "_" + subteam_key.replace(": ", "")
             event = DATA_NOW.sport_events[sport]
             subteam = DATA_NOW.subteams[subteam_key]
+            if subteam.sub_key == "D":  # No need for dropouts
+                continue
             subteam_key_disp = f"**{subteam_key}**"
             matches = [match for match in self.matches if match.sport == sport]
             vals, ind = np.unique(
