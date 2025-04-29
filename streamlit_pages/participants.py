@@ -85,9 +85,13 @@ with tabs[0]:
         "Note that you can search this table, there should be a button in the upper right for that. Also, you can sort by any of the columns, just click on the header. :)",
         icon="ℹ️",
     )
-    cols = ["nickname", "has_paid_fee", "attended_before", "institute"] + [
-        e.sanitized_name for e in hf.DATA_NOW.sport_events.values()
-    ]
+    cols = [
+        "nickname",
+        "has_paid_fee",
+        "has_confirmed",
+        "attended_before",
+        "institute",
+    ] + [e.sanitized_name for e in hf.DATA_NOW.sport_events.values()]
     df = hf.DATA_NOW.players[cols]
     df.insert(0, "impath", df["nickname"].apply(hf.FpathRegistry.get_animal_pic_path))
 
@@ -112,6 +116,10 @@ with tabs[0]:
     column_configs["attended_before"] = st.column_config.CheckboxColumn(
         "⭐",
         help="Joins the 2nd time?",
+    )
+    column_configs["has_confirmed"] = st.column_config.CheckboxColumn(
+        "✨",
+        help="Has confirmed participation?",
     )
     st.dataframe(
         df.style,

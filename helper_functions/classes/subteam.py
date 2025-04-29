@@ -57,11 +57,12 @@ class Subteam:
     def key_or_single(self) -> str:
         """This subteam's full key or player name if the
         team only consists of one player."""
-        return (
-            f"{self.main_team_letter}: {self.players[0]}"
-            if self.sport in ["ping_pong", "tennis", "chess"]
-            else self.full_key
-        )
+        if self.sport in ["ping_pong", "tennis", "chess"]:
+            player = (
+                self.players[0] if len(self.players) == 1 else "DROPOUT (t.b.replaced)"
+            )
+            return f"{self.main_team_letter}: {player}"
+        return self.full_key
 
     @property
     def is_reserve(self) -> bool:

@@ -12,6 +12,9 @@ def _get_row_color(data: DataRegistry, row_val: str, alpha: float = 0.3) -> str:
     if not isinstance(row_val, str):
         return ""
 
+    if "DROPOUT" in row_val:
+        return f"background-color: rgba(0, 0, 0, {alpha})"
+
     for team in data.teams:
         if f"{team.team_letter}: " in row_val or row_val == team.team_letter:
             rgb = team.rgb_colors

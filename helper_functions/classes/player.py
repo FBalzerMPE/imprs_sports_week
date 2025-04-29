@@ -44,7 +44,7 @@ class Player:
     attended_before: bool = False
     """Whether this player has attended previous sports weeks"""
 
-    confirmation_status: bool = False
+    has_confirmed: bool = False
     """The confirmation status; has this player replied to the schedule email?"""
 
     @classmethod
@@ -60,7 +60,7 @@ class Player:
             subteams = {
                 sport: (
                     f"{team}: {subteam}"
-                    if sport != "ping_pong" or subteam == "R"
+                    if sport != "ping_pong" or subteam in ["R", "D"]
                     else f"{team}: {subteam:0>2}"
                 )
                 for sport in SPORTS_LIST
@@ -79,7 +79,7 @@ class Player:
             has_paid_fee=series.get("has_paid_fee", False),
             institute=series["institute"],
             attended_before=series.get("attended_before", False),
-            confirmation_status=series["confirmation_status"],
+            has_confirmed=series["has_confirmed"],
         )
 
     @property
@@ -103,9 +103,7 @@ class Player:
             text += "Player unfortunately dropped out."
         if is_in_team:
             text += "\\\n"
-            confirmation_str = (
-                "Confirmed" if self.confirmation_status else "No reply yet"
-            )
+            confirmation_str = "Confirmed" if self.has_confirmed else "No reply yet"
             text += f"Reply status: **{confirmation_str}**"
         else:
             text += "\\\n"
@@ -185,10 +183,10 @@ class Player:
 
         for sport, subteam_key in self.subteams.items():
             subteam_key = sport + "_" + subteam_key.replace(": ", "")
+            if subteam_key.endswith("D"):  # No need for dropouts
+                continue
             event = DATA_NOW.sport_events[sport]
             subteam = DATA_NOW.subteams[subteam_key]
-            if subteam.sub_key == "D":  # No need for dropouts
-                continue
             subteam_key_disp = f"**{subteam_key}**"
             matches = [match for match in self.matches if match.sport == sport]
             vals, ind = np.unique(

@@ -369,7 +369,7 @@ class SportEvent:
         days = (
             self.start.strftime("%A, %B %d")
             if self.sanitized_name != "ping_pong"
-            else "Monday, Tuesday, Thursday, Friday"
+            else "All week"
         )
         text = f"""
 - **Location:** {loc_name} (see also location tab)
@@ -484,7 +484,6 @@ class SportEvent:
         if len(df) == 0:
             st.write(f"### Subteams\n\nNo subteams have been determined yet.")
             return
-        print(df.columns)
         reserve_mask = df["is_reserve"].astype(bool)
         dropout_mask = df["sub_key"] == "D"
         if self.num_players_per_subteam == 1:

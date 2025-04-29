@@ -85,7 +85,7 @@ def _add_feedback_info(df: pd.DataFrame, year: int) -> pd.DataFrame:
     p_info = _load_payment_info(responses)
     df["has_paid_fee"] = df["name"].apply(lambda x: x in p_info)
     df["dropout_sports"] = df["name"].apply(
-        lambda x: responses.get(x, {}).get("dropouts", [])
+        lambda x: list(responses.get(x, {}).get("dropouts", []))
     )
     df["num_dropout_sports"] = df["dropout_sports"].apply(len)
     df["confirm_date"] = df["name"].apply(
@@ -257,10 +257,10 @@ def sanitize_and_anonymize_data(
         "institute",
         "status",
         "has_paid_fee",
-        "confirmation_status",
+        "has_confirmed",
     ]
     col_map = {col: f"{col.replace("_", " ").capitalize():25s}" for col in nick_cols}
-    col_map["confirmation_status"] = "Has replied"
+    col_map["has_confirmed"] = "has_confirmed"
     path_base = FpathRegistry.get_path_hidden()
     nickname_df: pd.DataFrame = df[nick_cols].sort_values("nickname")
     (

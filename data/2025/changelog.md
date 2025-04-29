@@ -25,6 +25,7 @@
 2025-04-29 11:32:46 - Sent schedule update to Real Mouse.
 - [x] 2025-04-29 10:34:51 - Subteam change in Team A for volleyball: Sneaky Quokka (-> 3) <--> Tender Chimaera (-> 5)
 2025-04-29 12:04:28 - Sent schedule update to Sneaky Quokka.
+- [x] 2025-04-29 15:31:44 - Subteam change in Team B for badminton: Spanish Ferret (R-> D) [removal from reserve]
 2025-04-29 12:04:53 - Sent schedule update to Tender Chimaera.
 - [x] 2025-04-28 18:13:15 - Subteam change in Team C for badminton: Appropriate Tang (-> 5) <--> Prize Jerboa (-> D)
 2025-04-29 12:06:11 - Sent schedule update to Appropriate Tang.
@@ -33,6 +34,7 @@
 ## Basketball
 *This one would be okay as there are still 4 players.*
 - [ ] 2025-04-29 11:20:08 - Subteam change in Team B for basketball: Blank Tiffany (1-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-29 16:26:57 - Subteam change in Team B for basketball: Spanish Ferret (2-> D) WITHOUT REPLACEMENT
 ## Running/Sprints
 *These wouldn't be optimal, but running/sprints doesn't need full force to work.*
 - [ ] 2025-04-28 16:59:09 - Subteam change in Team B for running_sprints: Neglected Harrier (-> D) WITHOUT REPLACEMENT
@@ -47,10 +49,21 @@
 - [ ] 2025-04-28 17:10:49 - Subteam change in Team B for tennis: Animated Yak (-> D) WITHOUT REPLACEMENT
 - [ ] 2025-04-28 18:45:23 - Subteam change in Team B for tennis: Open Iguana (1-> D) WITHOUT REPLACEMENT
 ## Ping Pong
-*These are a bit nasty, as they come with obligations for playing at a certain time. Let's see...*
+*These are a bit nasty, as they come with obligations for playing at a certain time. Let's see...*\
+My current idea for the three matches amongst the three teams: Just reschedule some of the stuff in a way so these three matches simply cease to exist.
 - [ ] 2025-04-29 11:19:22 - Subteam change in Team B for ping_pong: Neglected Harrier (07-> D) WITHOUT REPLACEMENT
-- [ ] 2025-04-29 11:20:08 - Subteam change in Team B for ping_pong: Blank Tiffany (04-> D) WITHOUT REPLACEMENT
-- [ ] 2025-04-29 11:21:22 - Subteam change in Team C for ping_pong: Prize Jerboa (03-> D) WITHOUT REPLACEMENT
+- [-] 2025-04-29 11:20:08 - Subteam change in Team B for ping_pong: Blank Tiffany (04-> D) WITHOUT REPLACEMENT
+- [-] 2025-04-29 16:26:57 - Subteam change in Team B for ping_pong: Spanish Ferret (13-> D) WITHOUT REPLACEMENT
+2025-04-29 16:42:14 - Sent schedule update to Spanish Ferret.
+- [-] 2025-04-29 11:21:22 - Subteam change in Team C for ping_pong: Prize Jerboa (03-> D) WITHOUT REPLACEMENT
+- [-] 2025-04-29 16:33:43 - Subteam change in Team A for ping_pong: Deserted Chimpanzee (24-> D) WITHOUT REPLACEMENT
+
+- Removed ping_pong,C: Prize Jerboa,A: Kooky Snake,1,Friday,19:50,,,2025-05-09 19:50:00,1500,C: 03,A: 06,ping_pong_C03_A06 [Moved Kooky Snake in for Deserted Chimpanzee]
+- Removed ping_pong,B: Spanish Ferret,C: Prize Jerboa,1,Friday,18:10,,,2025-05-09 18:10:00,1500,B: 13,C: 03,ping_pong_B13_C03 [Both players dropped out]
+- Removed ping_pong,A: Kooky Snake,B: Blank Tiffany,1,Tuesday,19:25,,,2025-05-06 19:25:00,1500,A: 06,B: 04,ping_pong_A06_B04 [Moved Kooky Snake in for Deserted Chimpanzee]
 ## CdF
 *Worst case we can make someone from the other subteam play twice.*
 - [ ] 2025-04-28 17:19:54 - Subteam change in Team C for capture_the_flag: Enormous Uakari (-> D) WITHOUT REPLACEMENT
+
+### New stuff (pls sort, will be appended automatically)
+2025-04-29 16:43:12 - Sent schedule update to Deserted Chimpanzee.

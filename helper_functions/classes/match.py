@@ -45,9 +45,23 @@ class Match:
         cls, df_entry: pd.Series, all_subteams: dict[str, Subteam]
     ) -> Match:
         sport = df_entry["sport"]
+        key_a = df_entry["team_a_key"].replace(": ", "")
+        key_b = df_entry["team_b_key"].replace(": ", "")
+        full_subkey_a = sport + "_" + key_a
+        full_subkey_b = sport + "_" + key_b
         duration = timedelta(seconds=df_entry["duration"])
-        subteam_a = all_subteams[sport + "_" + df_entry["team_a_key"].replace(": ", "")]
-        subteam_b = all_subteams[sport + "_" + df_entry["team_b_key"].replace(": ", "")]
+        if sport in ["ping_pong", "tennis", "chess"]:
+            default_a = Subteam(sport, key_a[0], key_a[1:], [])
+            default_b = Subteam(sport, key_b[0], key_b[1:], [])
+            subteam_a = all_subteams.get(full_subkey_a, default_a)
+            subteam_b = all_subteams.get(full_subkey_b, default_b)
+        else:
+            subteam_a = all_subteams[full_subkey_a]
+            subteam_b = all_subteams[full_subkey_b]
+        if len(subteam_a.players) == 0:
+            LOGGER.debug(f"For match {sport}: {key_a}: No players found")
+        if len(subteam_b.players) == 0:
+            LOGGER.debug(f"For match {sport}: {key_b}: No players found")
         return cls(
             sport=sport,
             start=df_entry["start"],
@@ -110,9 +124,16 @@ class Match:
             text = self.start.strftime("%A") + f", {text}"
             if not DATAPATH.joinpath("hidden").exists():
                 return text
-            name_a, name_b = [
-                get_real_player_name(player) for player in self.involved_players
-            ]
+            name_a = (
+                get_real_player_name(self.subteam_a.players[0])
+                if len(self.subteam_a.players) > 0
+                else "DROPOUT (t.b.replaced)"
+            )
+            name_b = (
+                get_real_player_name(self.subteam_b.players[0])
+                if len(self.subteam_b.players) > 0
+                else "DROPOUT (t.b.replaced)"
+            )
             text = text.replace(" vs.", f" **({name_a})** vs.") + f" ({name_b})"
         return text
 

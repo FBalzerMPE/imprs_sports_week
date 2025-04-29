@@ -161,14 +161,16 @@ class Team:
                 stats[sport] += 1
         return stats
 
-    def transfer_player_to_other_team(self, player_name: str, other: Team):
+    def transfer_player_to_other_team(
+        self, player_name: str, other: Team, register_as_reserve: bool = False
+    ):
         """Move a player from this team to another team."""
         player = self.player_df[self.player_df["nickname"] == player_name].iloc[0]
         self.remove_player(player)
-        other.add_player(player)
-        LOGGER.info(
-            f"Moved {player_name} from team {self.team_letter} to team {other.team_letter}."
-        )
+        other.add_player(player, register_as_reserve)
+        msg = f"Moved {player_name} from team {self.team_letter} to team {other.team_letter}."
+        LOGGER.info(msg)
+        write_changelog_entry(msg, add_checkbox=True)
 
     def get_rgb_with_alpha(self, alpha: float = 0.5) -> tuple[int | float, ...]:
         return *(val / 255 for val in self.rgb_colors), alpha
