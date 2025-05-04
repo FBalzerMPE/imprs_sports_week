@@ -32,6 +32,8 @@
 - [x] 2025-04-28 17:02:39 - Subteam change in Team B for capture_the_flag: Possible Anchovies (-> 1) <--> Neglected Harrier (-> D)
 2025-04-29 12:11:53 - Sent schedule update to Possible Anchovies.
 - [x] 2025-04-29 20:52:12 - Moved Fearless Wrasse from team A to team B.
+- [x] 2025-04-30 10:07:59 - Subteam change in Team B for badminton: Flamboyant Lungfish (R-> D) [removal from reserve]
+- [x] 2025-04-30 23:38:44 - Subteam change in Team C for badminton: Downright Lynx (R-> D) [removal from reserve]
 ## Basketball
 *This one would be okay as there are still 4 players.*
 - [ ] 2025-04-29 11:20:08 - Subteam change in Team B for basketball: Blank Tiffany (1-> D) WITHOUT REPLACEMENT
@@ -40,21 +42,30 @@
 *These wouldn't be optimal, but running/sprints doesn't need full force to work.*
 - [ ] 2025-04-28 16:59:09 - Subteam change in Team B for running_sprints: Neglected Harrier (-> D) WITHOUT REPLACEMENT
 - [ ] 2025-04-29 11:09:06 - Subteam change in Team B for running_sprints: Ill-fated Meerkat (1-> D) WITHOUT REPLACEMENT
+- [x] 2025-04-30 11:29:27 - Subteam change in Team C for running_sprints: Wee Indri (R-> 1) [removal from reserve]
+
 ## Beer Pong
 *Beer Pong could also work in a team just consisting of 2.*
 - [ ] 2025-04-28 17:02:39 - Subteam change in Team B for beer_pong: Neglected Harrier (-> D) WITHOUT REPLACEMENT
 - [ ] 2025-04-28 17:19:54 - Subteam change in Team C for beer_pong: Enormous Uakari (-> D) WITHOUT REPLACEMENT
+- [ ] 2025-04-30 09:46:58 - Subteam change in Team C for beer_pong: Diligent Octopus (2-> D) WITHOUT REPLACEMENT
 ## Foosball
-- [ ] 2025-04-29 20:52:12 - When removing Fearless Wrasse from Team A, they are removed from subteam A1 for foosball.
-- [ ] 2025-04-29 20:55:54 - Subteam change in Team B for foosball: Fearless Wrasse (-> 6) <--> Trivial Uguisu (-> R)
-
+- [x] 2025-04-29 20:52:12 - When removing Fearless Wrasse from Team A, they are removed from subteam A1 for foosball.
+- [x] 2025-04-29 20:55:54 - Subteam change in Team B for foosball: Fearless Wrasse (-> 6) <--> Trivial Uguisu (-> R)
+- [x] 2025-05-02 10:16:38 - Subteam change in Team B for foosball: Tired Numbat (-> 2) <--> Delayed Grouse (-> D)
+## Football
+*These are mostly fine, we should be able to fill up the teams anyways.*
+- [x] 2025-05-02 10:13:25 - Subteam change in Team A for football: Courageous Bullfrog (-> 1) <--> Nervous Badger (-> D)
 ## Tennis
-*Here, I might be able to move a player from Team A to Team B to help out, but still...*
-- [ ] 2025-04-28 17:04:45 - Subteam change in Team B for tennis: Unsteady Aardvark (-> D) WITHOUT REPLACEMENT
-- [ ] 2025-04-28 17:10:49 - Subteam change in Team B for tennis: Animated Yak (-> D) WITHOUT REPLACEMENT
-- [ ] 2025-04-28 18:45:23 - Subteam change in Team B for tennis: Fearless Wrasse (-> 1) <--> Open Iguana (1-> D) WITHOUT REPLACEMENT
-- [ ] 2025-04-29 21:00:01 - Subteam change in Team A for tennis: Dishonest Fangtooth (R-> 6) [removal from reserve]
-- [ ] 2025-04-29 20:52:12 - When removing Fearless Wrasse from Team A, they are removed from subteam A3 for tennis.
+*Here, I might be able to move a player from Team A to Team B to help out, but still... For now handled by deleting three matches*
+- [x] 2025-04-28 18:45:23 - Subteam change in Team B for tennis: Fearless Wrasse (-> 1) <--> Open Iguana (1-> D) WITHOUT REPLACEMENT
+- [x] 2025-04-29 21:00:01 - Subteam change in Team A for tennis: Dishonest Fangtooth (R-> 3) [removal from reserve]
+- [x] 2025-04-29 20:52:12 - When removing Fearless Wrasse from Team A, they are removed from subteam A3 for tennis.
+- [x] 2025-04-28 17:04:45 - Subteam change in Team B for tennis: Unsteady Aardvark (-> D) WITHOUT REPLACEMENT
+- [x] 2025-05-04 20:52:49 - Subteam change in Team B for tennis: Noisy Quail (nan-> 2) WITHOUT REPLACEMENT
+- [x] 2025-04-28 17:10:49 - Subteam change in Team B for tennis: Animated Yak (-> D) WITHOUT REPLACEMENT
+- [x] 2025-04-30 09:48:42 - Subteam change in Team C for tennis: False Grasshopper (3-> D) WITHOUT REPLACEMENT
+- [x] 2025-05-04 22:17:40 - Subteam change in Team A for tennis: Dishonest Fangtooth (3-> D) WITHOUT REPLACEMENT
 ## Ping Pong
 *These are a bit nasty, as they come with obligations for playing at a certain time. Let's see...*\
 My current idea for the three matches amongst the three teams: Just reschedule some of the stuff in a way so these three matches simply cease to exist.
@@ -72,8 +83,26 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 ## CdF
 *Worst case we can make someone from the other subteam play twice.*
 - [ ] 2025-04-28 17:19:54 - Subteam change in Team C for capture_the_flag: Enormous Uakari (-> D) WITHOUT REPLACEMENT
+- [ ] 
+## Spikeball
+*Might be a bit annoying, but we maybe can have it covered up by people on standby.
+- [x] 2025-04-30 09:45:45 - Subteam change in Team B for spikeball: Impish Shrimp (1-> D) WITHOUT REPLACEMENT
+- [x] 2025-05-02 17:46:00 - Subteam change in Team B for spikeball: Ill-informed Toucan (nan-> 1)
+
+## Volleyball
+- [x] 2025-04-30 10:07:59 - Subteam change in Team A for volleyball: Leafy Dingo (R-> D) [removal from reserve]
+- [ ] 2025-05-02 10:17:14 - Subteam change in Team C for volleyball: Insistent Sponge (2-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-02 10:17:14 - Subteam change in Team C for volleyball: Grimy Newfoundland (4-> D) WITHOUT REPLACEMENT
 
 ### New stuff (pls sort, will be appended automatically)
-2025-04-29 23:07:41 - Sent schedule update to Dishonest Fangtooth.
-2025-04-29 23:09:12 - Sent schedule update to Fearless Wrasse.
-2025-04-29 23:09:42 - Sent schedule update to Trivial Uguisu.
+- [ ] 2025-05-02 15:27:39 - Subteam change in Team C for basketball: Agonizing Kudu (-> 1) <--> Appropriate Tang (-> 2)
+2025-05-02 15:29:01 - Sent schedule update to Agonizing Kudu.
+2025-05-02 15:29:42 - Sent schedule update to Appropriate Tang.
+- [ ] 2025-05-02 17:41:53 - Subteam change in Team B for ping_pong: Neglected Harrier (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-02 17:41:53 - Subteam change in Team B for ping_pong: Blank Tiffany (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-02 17:41:53 - Subteam change in Team B for ping_pong: Spanish Ferret (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-02 17:41:53 - Subteam change in Team C for basketball: Agonizing Kudu (-> 2) <--> Appropriate Tang (-> 1)
+- [ ] 2025-05-04 20:38:49 - Subteam change in Team C for spikeball: Electric Rat (1-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-04 20:56:07 - Subteam change in Team B for ping_pong: Noisy Quail (nan-> 4) WITHOUT REPLACEMENT
+2025-05-04 22:33:17 - Sent schedule update to Decent Gopher.
+- [ ] 2025-05-04 22:41:59 - Subteam change in Team C for basketball: Poor Hamster (2-> D) WITHOUT REPLACEMENT

@@ -30,19 +30,16 @@ tennis,A: Stark Otter,B: Animated Yak,1,Tuesday,17:45,,,2025-05-06 17:45:00,1500
 tennis,C: Eager Affenpinscher,A: Monstrous Jackal,2,Tuesday,17:45,,,2025-05-06 17:45:00,1500,C: 1,A: 5,tennis_C1_A5
 tennis,B: Snappy Crab,C: Well-documented Dodo,3,Tuesday,17:45,,,2025-05-06 17:45:00,1500,B: 5,C: 5,tennis_B5_C5
 tennis,A: Outrageous Gar,B: Fearless Wrasse,1,Tuesday,19:25,,,2025-05-06 19:25:00,1500,A: 1,B: 1,tennis_A1_B1
-tennis,C: Pushy Bulldog,A: Dishonest Fangtooth,1,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 4,A: 3,tennis_C4_A3
-tennis,B: Decent Gopher,C: False Grasshopper,3,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 4,C: 3,tennis_B4_C3
 tennis,A: Near Ladybug,B: Frosty Millipede,2,Tuesday,18:10,,,2025-05-06 18:10:00,1500,A: 4,B: 3,tennis_A4_B3
+tennis,B: Fearless Wrasse,C: Pushy Bulldog,1,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 1,C: 4,tennis_B1_C4
 tennis,C: Enormous Uakari,A: Striped Himalayan,2,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 2,A: 6,tennis_C2_A6
-tennis,B: Unsteady Aardvark,C: Writhing Beaver,3,Tuesday,18:35,,,2025-05-06 18:35:00,1500,B: 6,C: 6,tennis_B6_C6
+tennis,B: Decent Gopher,C: Writhing Beaver,3,Tuesday,18:35,,,2025-05-06 18:35:00,1500,B: 4,C: 6,tennis_B4_C6
 tennis,B: Animated Yak,C: Eager Affenpinscher,1,Tuesday,19:00,,,2025-05-06 19:00:00,1500,B: 2,C: 1,tennis_B2_C1
 tennis,A: Striped Himalayan,B: Snappy Crab,2,Tuesday,19:00,,,2025-05-06 19:00:00,1500,A: 6,B: 5,tennis_A6_B5
 tennis,C: Well-documented Dodo,A: Near Ladybug,3,Tuesday,19:00,,,2025-05-06 19:00:00,1500,C: 5,A: 4,tennis_C5_A4
-tennis,B: Fearless Wrasse,C: Pushy Bulldog,1,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 1,C: 4,tennis_B1_C4
+tennis,C: Pushy Bulldog,A: Stark Otter,3,Tuesday,19:25,,,2025-05-06 18:35:00,1500,C: 4,A: 2,tennis_C4_A2
 tennis,A: Monstrous Jackal,B: Decent Gopher,2,Tuesday,19:25,,,2025-05-06 19:25:00,1500,A: 5,B: 4,tennis_A5_B4
-tennis,C: False Grasshopper,A: Stark Otter,3,Tuesday,19:25,,,2025-05-06 19:25:00,1500,C: 3,A: 2,tennis_C3_A2
 tennis,B: Frosty Millipede,C: Enormous Uakari,1,Tuesday,19:50,,,2025-05-06 19:50:00,1500,B: 3,C: 2,tennis_B3_C2
-tennis,A: Dishonest Fangtooth,B: Unsteady Aardvark,2,Tuesday,19:50,,,2025-05-06 19:50:00,1500,A: 3,B: 6,tennis_A3_B6
 tennis,C: Writhing Beaver,A: Outrageous Gar,3,Tuesday,19:50,,,2025-05-06 19:50:00,1500,C: 6,A: 1,tennis_C6_A1
 badminton,A: 6,B: 2,1,Wednesday,17:45,,,2025-05-07 17:45:00,1800,A: 6,B: 2,badminton_A6_B2
 badminton,A: 2,B: 3,2,Wednesday,17:45,,,2025-05-07 17:45:00,1800,A: 2,B: 3,badminton_A2_B3
@@ -177,7 +174,7 @@ ping_pong,B: Flamboyant Lungfish,C: Sour Sturgeon,1,Tuesday,18:10,,,2025-05-06 1
 ping_pong,A: Trifling Tarpon,B: Real Mouse,2,Tuesday,18:10,,,2025-05-06 18:10:00,1500,A: 13,B: 21,ping_pong_A13_B21
 ping_pong,C: Hairy Donkey,A: Far-flung Sloth,2,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 24,A: 14,ping_pong_C24_A14
 ping_pong,B: Real Mouse,C: Exemplary Cassowary,2,Tuesday,19:25,,,2025-05-06 19:25:00,1500,B: 21,C: 01,ping_pong_B21_C01
-ping_pong,C: Steep Parrot,A: Nonstop Cuscus,3,Tuesday,17:45,,,2025-05-06 17:45:00,1500,C: 22,A: 03,ping_pong_C22_A03
+ping_pong,C: Steep Parrot,A: Nonstop Cuscus,3,Wednesday,18:00,,,2025-05-07 18:00:00,1500,C: 22,A: 03,ping_pong_C22_A03
 ping_pong,C: Sour Sturgeon,A: Dishonest Fangtooth,3,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 12,A: 16,ping_pong_C12_A16
 ping_pong,C: Insistent Sponge,A: Far Chamois,3,Tuesday,18:10,,,2025-05-06 18:10:00,1500,C: 05,A: 17,ping_pong_C05_A17
 ping_pong,B: Elliptical Hedgehog,C: Good Dolphin,3,Tuesday,19:00,,,2025-05-06 19:00:00,1500,B: 15,C: 02,ping_pong_B15_C02
