@@ -1,6 +1,6 @@
 Dear {first_name} ({nickname}),
 
-your schedule for the sports week has been updated (see end of this mail) either due to your own request or due to another player dropping out, and you being bumped from reserve to full subteam participant.
+your schedule for the sports week has been updated (see end of this mail) either due to your own request, due to a timing change, or due to another player dropping out with you being bumped from reserve to full subteam participant.
 
 Please reply to this mail if you cannot make it for any of the new events, otherwise you don't need to do anything.
 

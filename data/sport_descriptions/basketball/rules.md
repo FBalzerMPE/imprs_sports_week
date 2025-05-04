@@ -1,6 +1,6 @@
 1. A match is won by the team who scores the most points.
 2. Each match will last 30 minutes: Two halves of 15 minutes with 5 minute half-time break.
-3. The games will be played in one half of the court, aiming for the same basket (as the second rim is unfortunately broken).
+3. The games will be played in one half of the court, aiming for the same basket, with two matches taking place at the same time (one on either basket)
 4. **Change of possession**: Upon scoring, the team that is offence can continue playing offence. They must go beyond the 3-point line and "check the ball", i.e. they must give the ball to the defending team and then receive the ball again so they can start playing again. When the ball goes out of bounds or one commits a foul while the player is not shooting, the opposing team gains possession and they must also "check" the ball.
 5. **Scoring**: Points are scored by shooting the basketball through the hoop. A field goal counts as two points unless shot from beyond the 3-point line, which counts as three points. Free throws count as one point each.
 6. **Starting play**: The game begins with a free-throw shootout between two players that represent their team. Each player can shoot a free throw and whoever scores first (and if the other one misses) gets the ball at the start.

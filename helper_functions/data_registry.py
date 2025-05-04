@@ -88,12 +88,12 @@ def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
 
 
 # @st.cache_data
-def get_matches(year=CURRENT_YEAR) -> list[Match]:
+def get_matches(year=CURRENT_YEAR, silent: bool = False) -> list[Match]:
     match_df = get_match_df(year)
     subteams = get_subteams(year)
     match_list = []
     for _, match_ in match_df.iterrows():
-        match_list.append(Match.from_dataframe_entry(match_, subteams))
+        match_list.append(Match.from_dataframe_entry(match_, subteams, silent))
         # except KeyError as e:
         #     if not warn:
         #         continue
@@ -234,7 +234,7 @@ class DataRegistry:
         self.teams = get_teams(self.year)
         self.players = get_players(year=self.year)
         self.subteams = get_subteams(self.year)
-        self.matches = get_matches(self.year)
+        self.matches = get_matches(self.year, silent=True)
         self.match_df = get_match_df(self.year)
         self.organizers = load_organizers(self.year)
         self.load_sport_events()

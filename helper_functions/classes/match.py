@@ -42,7 +42,7 @@ class Match:
 
     @classmethod
     def from_dataframe_entry(
-        cls, df_entry: pd.Series, all_subteams: dict[str, Subteam]
+        cls, df_entry: pd.Series, all_subteams: dict[str, Subteam], silent: bool = False
     ) -> Match:
         sport = df_entry["sport"]
         key_a = df_entry["team_a_key"].replace(": ", "")
@@ -58,10 +58,11 @@ class Match:
         else:
             subteam_a = all_subteams[full_subkey_a]
             subteam_b = all_subteams[full_subkey_b]
-        if len(subteam_a.players) == 0:
-            LOGGER.debug(f"For match {sport}: {key_a}: No players found")
-        if len(subteam_b.players) == 0:
-            LOGGER.debug(f"For match {sport}: {key_b}: No players found")
+        if not silent:
+            if len(subteam_a.players) == 0:
+                LOGGER.debug(f"For match {sport}: {key_a}: No player found")
+            if len(subteam_b.players) == 0:
+                LOGGER.debug(f"For match {sport}: {key_b}: No player found")
         return cls(
             sport=sport,
             start=df_entry["start"],

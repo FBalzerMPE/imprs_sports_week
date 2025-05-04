@@ -12,8 +12,8 @@ You may also **join** our **[Signal group, linked here]({signal_link})** for tim
 Apologies if you had already confirmed your attendance, a few might have slipped through.
 
 See you in a week!\
-The organizing committee
-Zsofi, Benny, Matteo, William, Fabi
+The organizing committee\
+Zsofi, Benny, Matteo, William, Mari, Guillaume and Fabi
 
 -------------------
 

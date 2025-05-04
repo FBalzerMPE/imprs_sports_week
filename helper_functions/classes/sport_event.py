@@ -362,14 +362,22 @@ class SportEvent:
         )
         stats_link = f'<a href="/statistics" target="_self">Results and more</a>'
         loc_name = (
-            self.loc.display_name
-            if self.sanitized_name != "ping_pong"
-            else "Various tables"
+            "Garching Gym; or TUM running fields"
+            if self.sanitized_name == "badminton"
+            else (
+                self.loc.display_name
+                if self.sanitized_name != "ping_pong"
+                else "Various tables"
+            )
         )
         days = (
-            self.start.strftime("%A, %B %d")
-            if self.sanitized_name != "ping_pong"
-            else "All week"
+            "Between 15:45 and 17:45; or between 17:45 and 20:00"
+            if self.sanitized_name == "badminton"
+            else (
+                self.start.strftime("%A, %B %d")
+                if self.sanitized_name != "ping_pong"
+                else "All week"
+            )
         )
         text = f"""
 - **Location:** {loc_name} (see also location tab)
@@ -462,6 +470,17 @@ class SportEvent:
                 df["location"] = df["location"].apply(
                     {"1": "Beach 1", "2": "Beach 2", "3": "Grass 1", "4": "Grass 2"}.get
                 )
+            if self.sanitized_name == "badminton":
+                df["location"] = df["location"].apply(
+                    {
+                        "1": "Indoor 1",
+                        "2": "Indoor 2",
+                        "3": "Indoor 3",
+                        "4": "Outdoor 1",
+                        "5": "Outdoor 2",
+                        "6": "Outdoor 3",
+                    }.get
+                )
             _st_display_match_df(
                 df, is_single, self.pitch_type_name, get_data_for_year(self.year)
             )
@@ -534,7 +553,11 @@ class SportEvent:
         cols = st.columns([0.7, 0.3])
         cols[0].write(self._get_desc_text("introduction"))
         cols[1].image(FpathRegistry.get_sport_pic_path(self.sanitized_name))
-        loc_tab_name = "Location" if self.sanitized_name != "ping_pong" else "Locations"
+        loc_tab_name = (
+            "Location"
+            if self.sanitized_name not in ["ping_pong", "badminton"]
+            else "Locations"
+        )
         tab_names = ["Format", "Rules", "Schedule and teams", loc_tab_name, "Contact"]
         tabs = st.tabs(tab_names)
         with tabs[0]:

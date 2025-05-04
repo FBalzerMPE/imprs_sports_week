@@ -1,5 +1,11 @@
 
+## Rain announcement
 
+Due to incoming rain and the cold temperatures, we might be forced to cancel Basketball and Volleyball on Monday - check your emails for further updates!
+
+Running and sprints will take place even in face of light rain.
+
+For the coming days we advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C. We are hoping for less rain there.
 
 ## Spirit of the Sports Week
 
