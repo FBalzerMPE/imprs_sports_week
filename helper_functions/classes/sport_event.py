@@ -448,6 +448,11 @@ class SportEvent:
         return df[df[self.sanitized_name]]
 
     def _st_display_matches(self):
+        if self.sanitized_name in ["basketball", "volleyball"]:
+            st.write(
+                "⚠️Due to the rain, the matches have been cancelled. Information for possible matches on Friday will follow via email and in the Signal group."
+            )
+            return
         if self.sanitized_name == "running_sprints":
             fpath = FpathRegistry.get_path_running_sprints(self.year)
             if not fpath.exists():
