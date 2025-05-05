@@ -16,10 +16,9 @@ def create_map_plot(highlighted_locations: list[str], start_zoomed_out: bool = F
     )
 
     highlight_df = df[df["name"].isin(highlighted_locations)]
-
     # Define a tooltip for the layers
     tooltip = {
-        "html": "<b>{desc}</b>",  # Display the description of the location in the tooltip
+        "html": "<b>{description}</b>",
         "style": {
             "backgroundColor": "black",
             "color": "white",
