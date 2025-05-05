@@ -225,7 +225,9 @@ class Player:
                             ", ".join(other_players[:-1]) + " and " + other_players[-1]
                         )
                     else:
-                        other_player_str = other_players[-1]
+                        other_player_str = (
+                            other_players[-1] if len(other_players) > 0 else "TBA"
+                        )
                     text += f"You are part of subteam {subteam_key_disp}, together with *{other_player_str}*.\\\nYour matches are:"
                 text += "\\\n"
                 if sport == "running_sprints":
