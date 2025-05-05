@@ -1,11 +1,9 @@
 
 ## Rain announcement⚠️⚠️⚠️
 
-Due to incoming rain and the cold temperatures, we were forced to cancel Basketball and Volleyball on Monday - check your emails for further updates!
+As the forecast only predicts light rain, we plan to have the Football and Tennis events take place as initially scheduled. Please try to arrive at least 10 minutes prior to your matches.
 
-Running and sprints will take place even in face of light rain.
-
-For the coming days we advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C.
+We advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C.
 
 ## Spirit of the Sports Week
 

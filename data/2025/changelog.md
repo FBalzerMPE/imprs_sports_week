@@ -106,3 +106,5 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-04 20:56:07 - Subteam change in Team B for ping_pong: Noisy Quail (nan-> 4) WITHOUT REPLACEMENT
 2025-05-04 22:33:17 - Sent schedule update to Decent Gopher.
 - [ ] 2025-05-04 22:41:59 - Subteam change in Team C for basketball: Poor Hamster (2-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-05 23:38:03 - Moved Thorny Warthog from team A to team B.
+- [ ] 2025-05-06 00:27:21 - Moved Tight Tarsier from team B to team C.

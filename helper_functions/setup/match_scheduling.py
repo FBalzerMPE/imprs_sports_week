@@ -5,8 +5,10 @@ import numpy as np
 import pandas as pd
 
 from ..classes.match import Match
+from ..classes.sport_event import SportEvent
 from ..classes.subteam import Subteam
 from ..constants import CURRENT_YEAR, FpathRegistry
+from ..data_registry import DataRegistry
 from ..logger import LOGGER
 from ..util import deprecated, turn_series_list_to_dataframe
 
@@ -139,3 +141,61 @@ def write_match_backup(matches: list[Match], year=CURRENT_YEAR, overwrite=False)
     df = df[cols]
     write_match_backup_from_df(df, year, overwrite=overwrite)
     LOGGER.info(f"Wrote new backup, scheduling {len(df)} matches.")
+
+
+def reshuffle_list(list_to_shuffle: list, interval=2) -> list:
+    """
+    Reshuffles a list by taking elements at regular intervals and concatenating them.
+
+    Parameters
+    ----------
+    list_to_shuffle (list): The list to be reshuffled.
+    interval (int, optional): The interval at which elements are taken from the list. Default is 2.
+
+    Returns
+    -------
+    list: The reshuffled list.
+
+    Example
+    -------
+    >>> my_list = [1, 2, 3, 4, 5]
+    >>> reshuffle_list(my_list, interval=3)
+        --> [1, 4, 2, 5, 3]
+    This is equivalent to --> my_list[::3] + my_list[1::3] + my_list[2::3]
+    """
+    slices = [slice(i, None, interval) for i in range(interval)]
+    return [entry for my_slice in slices for entry in list_to_shuffle[my_slice]]
+
+
+def schedule_matches(
+    data: DataRegistry, sport_event: "SportEvent", shuffle_interval=2
+) -> list[Match]:
+    subteams = data.subteams
+    matchups = determine_rotated_matchups_for_sport(
+        subteams, sport_event.sanitized_name
+    )
+    # Shuffle them around a bit such that the same subteam doesn't have matches at the same time
+    matchups = reshuffle_list(matchups, shuffle_interval)
+    courts = [
+        str(i + 1)
+        for _ in range(len(matchups) // sport_event.num_pitches + 1)
+        for i in range(sport_event.num_pitches)
+    ]
+    date_range = pd.date_range(
+        start=sport_event.start,
+        periods=len(matchups),
+        freq=sport_event.match_duration,
+    )
+    dates = [date for date in date_range for _ in range(sport_event.num_pitches)]
+    matches = [
+        Match(
+            sport_event.sanitized_name,
+            start,
+            sport_event.match_duration,
+            matchup[0],
+            matchup[1],
+            location,
+        )
+        for start, matchup, location in zip(dates, matchups, courts)
+    ]
+    return matches
