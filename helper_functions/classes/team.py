@@ -191,6 +191,7 @@ class Team:
         player_to_replace_name: str,
         replacement_key: Literal["D", "R"] | str | None = "D",
         check_reserve: bool = True,
+        log: bool = True,
     ):
         """Change the subteam of a player in the team.
         Writes a changelog entry for this change, for which you should check the box after you
@@ -234,7 +235,8 @@ class Team:
             self.change_player_attribute(player_name, sport_key, subteam_key)
         self.change_player_attribute(player_to_replace_name, sport_key, replacement_key)
         LOGGER.info(msg)
-        write_changelog_entry(msg, CURRENT_YEAR, add_checkbox=True)
+        if log:
+            write_changelog_entry(msg, CURRENT_YEAR, add_checkbox=True)
         self.create_backup(overwrite=True)
 
     def add_player(self, player: pd.Series, register_as_reserve=False):

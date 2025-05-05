@@ -191,3 +191,16 @@ ping_pong,A: Outrageous Gar,B: Elliptical Hedgehog,2,Wednesday,18:35,,,2025-05-0
 ping_pong,B: Illiterate Caterpillar,C: Insistent Sponge,2,Wednesday,19:00,,,2025-05-07 19:00:00,1500,B: 23,C: 05,ping_pong_B23_C05
 ping_pong,B: Unsteady Aardvark,C: Eager Affenpinscher,2,Wednesday,19:25,,,2025-05-07 19:25:00,1500,B: 06,C: 23,ping_pong_B06_C23
 ping_pong,C: Well-documented Dodo,A: Grouchy Mole,2,Wednesday,19:50,,,2025-05-07 19:50:00,1500,C: 10,A: 25,ping_pong_C10_A25
+badminton,A: 1,B: 2,1,Wednesday,15:45,,,2025-05-07 15:45:00,1800,A: 1,B: 2,badminton_A1_B2
+badminton,B: 1,C: 1,2,Wednesday,15:45,,,2025-05-07 15:45:00,1800,B: 1,C: 1,badminton_B1_C1
+badminton,C: 2,A: 2,3,Wednesday,15:45,,,2025-05-07 15:45:00,1800,C: 2,A: 2,badminton_C2_A2
+badminton,A: 2,B: 2,1,Wednesday,16:15,,,2025-05-07 16:15:00,1800,A: 2,B: 2,badminton_A2_B2
+badminton,B: 1,C: 2,2,Wednesday,16:15,,,2025-05-07 16:15:00,1800,B: 1,C: 2,badminton_B1_C2
+badminton,C: 1,A: 1,3,Wednesday,16:15,,,2025-05-07 16:15:00,1800,C: 1,A: 1,badminton_C1_A1
+
+badminton,A: 3,B: 3,4,Wednesday,18:00,,,2025-05-07 18:00:00,1800,A: 3,B: 3,badminton_A3_B3
+badminton,B: 4,C: 3,5,Wednesday,18:00,,,2025-05-07 18:00:00,1800,B: 4,C: 3,badminton_B4_C3
+badminton,C: 4,A: 4,6,Wednesday,18:00,,,2025-05-07 18:00:00,1800,C: 4,A: 4,badminton_C4_A4
+badminton,A: 5,B: 4,4,Wednesday,18:30,,,2025-05-07 18:30:00,1800,A: 5,B: 4,badminton_A5_B4
+badminton,B: 3,C: 4,5,Wednesday,18:30,,,2025-05-07 18:30:00,1800,B: 3,C: 4,badminton_B3_C4
+badminton,C: 3,A: 3,6,Wednesday,18:30,,,2025-05-07 18:30:00,1800,C: 3,A: 3,badminton_C3_A3

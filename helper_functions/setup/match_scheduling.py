@@ -1,4 +1,5 @@
 import random
+from pathlib import Path
 from typing import TypeVar
 
 import numpy as np
@@ -121,16 +122,23 @@ def determine_rotated_matchups_for_sport(
     return create_combinations(*teams_subteams)
 
 
-def write_match_backup_from_df(df: pd.DataFrame, year=CURRENT_YEAR, overwrite=False):
+def write_match_backup_from_df(
+    df: pd.DataFrame, year=CURRENT_YEAR, overwrite=False, alt_path: Path | None = None
+):
     """Write a backup for the matches that were determined."""
-    fpath = FpathRegistry.get_path_matches(year)
+    fpath = FpathRegistry.get_path_matches(year) if alt_path is None else alt_path
     if fpath.exists() and not overwrite:
         LOGGER.info("Skipped overwriting matches")
         return
     df.to_csv(fpath, index=False)
 
 
-def write_match_backup(matches: list[Match], year=CURRENT_YEAR, overwrite=False):
+def write_match_backup(
+    matches: list[Match],
+    year=CURRENT_YEAR,
+    overwrite=False,
+    alt_path: Path | None = None,
+):
     """Write a backup for the matches that were determined."""
     df = turn_series_list_to_dataframe([m.as_series for m in matches]).set_index(
         "full_key", drop=False
@@ -139,7 +147,7 @@ def write_match_backup(matches: list[Match], year=CURRENT_YEAR, overwrite=False)
         ","
     )
     df = df[cols]
-    write_match_backup_from_df(df, year, overwrite=overwrite)
+    write_match_backup_from_df(df, year, overwrite, alt_path)
     LOGGER.info(f"Wrote new backup, scheduling {len(df)} matches.")
 
 
