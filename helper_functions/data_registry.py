@@ -139,7 +139,6 @@ class DataRegistry:
     @classmethod
     def from_year(cls, year=CURRENT_YEAR) -> "DataRegistry":
         teams = get_teams(year)
-
         mod_time = str(FpathRegistry.get_path_responses(year).stat().st_mtime)
         players = get_players(year=year, modification_time=mod_time)
         subteams = get_subteams(year)
