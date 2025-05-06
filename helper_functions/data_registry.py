@@ -39,7 +39,7 @@ def get_teams(year=CURRENT_YEAR) -> list[Team]:
     return teams
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=60)
 def get_players(from_teams: bool = True, year=CURRENT_YEAR) -> pd.DataFrame:
     """Loads a dataframe of all players."""
     teams = get_teams(year)
@@ -77,7 +77,7 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
     return all_subteams
 
 
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=60)
 def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
     fpath = FpathRegistry.get_path_matches(year)
     if not fpath.exists():
