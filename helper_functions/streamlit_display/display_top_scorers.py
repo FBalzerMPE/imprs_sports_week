@@ -26,7 +26,7 @@ def _get_individual_score_df(
             data.get_running_sprints_score(team_letter)
             / data.sport_events["running_sprints"].num_players_per_subteam
         )
-        for player in data.subteams[f"running_sprints_{team_letter}: 1"].players:
+        for player in data.subteams[f"running_sprints_{team_letter}1"].players:
             register_or_add_to_dict(winner_dict, player, win_val)
 
     players: pd.DataFrame = data.players.infer_objects(True).fillna("")  # type: ignore

@@ -1,3 +1,6 @@
+- 2.6.0 (2025-05-06): 
+  - Added information for rain cancellations, and updated Badminton schedule.
+  - Fixed bugs (e.g. the tooltip on the maps, the display of last year's results, and more).
 - 2.5.0 (2025-04-28): 
   - Refactored dropout/late entry handling.
   - Handled the first dropouts.
