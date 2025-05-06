@@ -459,10 +459,10 @@ class SportEvent:
                 st.write("No matches have been scheduled yet.")
                 return
             st.write(fpath.read_text(encoding="utf-8"))
-            from ..sport_event_registry import RUNNING_EVENTS
+            # from ..sport_event_registry import RUNNING_EVENTS
 
-            df = pd.DataFrame([event.as_series for event in RUNNING_EVENTS])
-            st.dataframe(df, hide_index=True)
+            # df = pd.DataFrame([event.as_series for event in RUNNING_EVENTS])
+            # st.dataframe(df, hide_index=True)
             return
         if len(self.matches) == 0:
             # LOGGER.warning(f"No matches found for {self.sanitized_name}")

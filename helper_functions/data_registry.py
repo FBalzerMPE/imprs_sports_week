@@ -139,6 +139,7 @@ class DataRegistry:
     @classmethod
     def from_year(cls, year=CURRENT_YEAR) -> "DataRegistry":
         teams = get_teams(year)
+
         mod_time = str(FpathRegistry.get_path_responses(year).stat().st_mtime)
         players = get_players(year=year, modification_time=mod_time)
         subteams = get_subteams(year)
@@ -210,7 +211,7 @@ class DataRegistry:
         # Maybe TODO: Read this stuff from some sort of file.
         year_dict: dict[int, dict[str, int]] = {
             2024: {"B": 35, "C": 34, "A": 31},
-            2025: {},
+            2025: {"A": 18, "B": 46, "C": 36},
         }
         return year_dict[self.year].get(team_letter, 0)
 
