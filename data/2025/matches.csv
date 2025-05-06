@@ -128,7 +128,7 @@ ping_pong,C: Clumsy Lizard,A: Kooky Snake,1,Tuesday,19:00,,,2025-05-06 19:00:00,
 ping_pong,A: Monstrous Jackal,B: Silent Wolffish,1,Monday,18:35,3:0,A,2025-05-05 18:35:00,1500,A: 01,B: 05,ping_pong_A01_B05
 ping_pong,C: Dirty Flounder,A: Trifling Tarpon,1,Monday,19:50,,,2025-05-05 19:50:00,1500,C: 04,A: 13,ping_pong_C04_A13
 ping_pong,B: Snappy Crab,C: Dirty Flounder,3,Monday,20:15,,,2025-05-05 20:15:00,1500,B: 19,C: 04,ping_pong_B19_C04
-ping_pong,B: TBD,C: Clumsy Lizard,2,Monday,19:50,,,2025-05-05 19:50:00,1500,B: 04,C: 25,ping_pong_B04_C25
+ping_pong,B: TBD,C: Clumsy Lizard,2,Monday,19:50,-,C,2025-05-05 19:50:00,1500,B: 04,C: 25,ping_pong_B04_C25
 ping_pong,C: Good Dolphin,A: Shallow Anteater,1,Friday,17:45,,,2025-05-09 17:45:00,1500,C: 02,A: 09,ping_pong_C02_A09
 ping_pong,C: Numb Goat,A: Worthy Aurochs,2,Friday,19:50,,,2025-05-09 19:50:00,1500,C: 15,A: 10,ping_pong_C15_A10
 ping_pong,A: Worthy Aurochs,B: Joyful Echidna,2,Friday,20:15,,,2025-05-09 20:15:00,1500,A: 10,B: 18,ping_pong_A10_B18
