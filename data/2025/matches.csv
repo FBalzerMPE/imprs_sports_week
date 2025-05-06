@@ -134,7 +134,7 @@ ping_pong,C: Numb Goat,A: Worthy Aurochs,2,Friday,19:50,,,2025-05-09 19:50:00,15
 ping_pong,A: Worthy Aurochs,B: Joyful Echidna,2,Friday,20:15,,,2025-05-09 20:15:00,1500,A: 10,B: 18,ping_pong_A10_B18
 ping_pong,B: Ill-fated Meerkat,C: Numb Goat,3,Friday,20:15,,,2025-05-09 20:15:00,1500,B: 01,C: 15,ping_pong_B01_C15
 ping_pong,A: Kooky Snake,B: Overlooked Bobcat,3,Friday,19:50,,,2025-05-09 19:50:00,1500,A: 06,B: 25,ping_pong_A06_B25
-ping_pong,C: Eager Affenpinscher,A: Stark Otter,1,Tuesday,20:15,,,2025-05-06 20:15:00,1500,C: 23,A: 07,ping_pong_C23_A07
+ping_pong,C: Eager Affenpinscher,A: Stark Otter,1,Friday,13:00,,,2025-05-09 13:00:00,1500,C: 23,A: 07,ping_pong_C23_A07
 ping_pong,B: Joyful Echidna,C: Appropriate Tang,1,Friday,19:25,,,2025-05-09 19:25:00,1500,B: 18,C: 08,ping_pong_B18_C08
 ping_pong,B: Delayed Grouse,C: Vengeful Ibis,1,Tuesday,17:45,,,2025-05-06 17:45:00,1500,B: 12,C: 14,ping_pong_B12_C14
 ping_pong,C: Vengeful Ibis,A: Tender Chimaera,2,Tuesday,20:15,,,2025-05-06 20:15:00,1500,C: 14,A: 15,ping_pong_C14_A15
@@ -144,7 +144,7 @@ ping_pong,A: Far Chamois,B: Favorable Neanderthal,2,Tuesday,19:50,,,2025-05-06 1
 ping_pong,B: Favorable Neanderthal,C: Hairy Donkey,2,Friday,19:25,,,2025-05-09 19:25:00,1500,B: 14,C: 24,ping_pong_B14_C24
 ping_pong,A: Striped Himalayan,B: Unsteady Aardvark,2,Friday,17:45,,,2025-05-09 17:45:00,1500,A: 02,B: 06,ping_pong_A02_B06
 ping_pong,B: Trivial Uguisu,C: Awkward Cichlid,1,Thursday,20:15,,,2025-05-08 20:15:00,1500,B: 16,C: 17,ping_pong_B16_C17
-ping_pong,A: Stark Otter,B: Trivial Uguisu,1,Tuesday,18:35,,,2025-05-06 18:35:00,1500,A: 07,B: 16,ping_pong_A07_B16
+ping_pong,A: Stark Otter,B: Trivial Uguisu,1,Thursday,17:00,,,2025-05-08 17:00:00,1500,A: 07,B: 16,ping_pong_A07_B16
 ping_pong,A: Defiant Tortoise,B: Dear Impala,1,Thursday,17:45,,,2025-05-08 17:45:00,1500,A: 21,B: 03,ping_pong_A21_B03
 ping_pong,C: Electric Rat,A: Defiant Tortoise,2,Thursday,20:15,,,2025-05-08 20:15:00,1500,C: 16,A: 21,ping_pong_C16_A21
 ping_pong,C: Sandy Budgerigar,A: Quirky Centipede,2,Thursday,17:45,,,2025-05-08 17:45:00,1500,C: 06,A: 23,ping_pong_C06_A23
@@ -155,7 +155,7 @@ ping_pong,B: Cute Frog,C: Experienced Liger,1,Monday,19:00,3:0,B,2025-05-05 19:0
 ping_pong,B: Flamboyant Lungfish,C: Sour Sturgeon,1,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 08,C: 12,ping_pong_B08_C12
 ping_pong,A: Trifling Tarpon,B: Real Mouse,2,Tuesday,18:10,,,2025-05-06 18:10:00,1500,A: 13,B: 21,ping_pong_A13_B21
 ping_pong,C: Hairy Donkey,A: Far-flung Sloth,2,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 24,A: 14,ping_pong_C24_A14
-ping_pong,B: Real Mouse,C: Exemplary Cassowary,2,Tuesday,19:25,,,2025-05-06 19:25:00,1500,B: 21,C: 01,ping_pong_B21_C01
+ping_pong,B: Real Mouse,C: Exemplary Cassowary,2,Tuesday,17:10,,,2025-05-06 17:10:00,1500,B: 21,C: 01,ping_pong_B21_C01
 ping_pong,C: Steep Parrot,A: Nonstop Cuscus,3,Wednesday,18:00,,,2025-05-07 18:00:00,1500,C: 22,A: 03,ping_pong_C22_A03
 ping_pong,C: Sour Sturgeon,A: Dishonest Fangtooth,3,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 12,A: 16,ping_pong_C12_A16
 ping_pong,C: Insistent Sponge,A: Far Chamois,3,Tuesday,18:10,,,2025-05-06 18:10:00,1500,C: 05,A: 17,ping_pong_C05_A17

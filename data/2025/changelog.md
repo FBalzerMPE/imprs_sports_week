@@ -116,3 +116,5 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-06 10:20:29 - Subteam change in Team B for capture_the_flag: Fumbling Crocodile (1-> D) WITHOUT REPLACEMENT
 - [ ] 2025-05-06 11:25:42 - Subteam change in Team A for foosball: Quirky Centipede (R-> 1) [removal from reserve]
 2025-05-06 11:28:58 - Sent schedule update to Quirky Centipede.
+- [ ] 2025-05-06 16:09:59 - Subteam change in Team A for ping_pong: Deserted Chimpanzee (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-06 16:10:00 - Subteam change in Team A for badminton: Well-off Whippet (R-> 2) [removal from reserve]

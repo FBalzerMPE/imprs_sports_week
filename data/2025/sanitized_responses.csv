@@ -26,7 +26,7 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-03-13 11:15:41,IPP,PhD,,True,Infantile Chinchilla,False,False,False,False,True,False,True,False,False,False,False,False,[],2,False,True,[],0,2025-04-28,False,True
 2025-03-14 09:44:08,IPP,PostDoc,,True,Noted Hippopotamus,True,False,False,False,False,False,False,True,False,False,False,False,"['wednesday', 'friday']",2,False,True,[],0,2025-04-24,False,True
 2025-03-14 14:14:36,IPP,PhD,,True,Overjoyed Tapir,False,True,False,False,False,False,False,False,False,False,False,False,[],1,False,True,[],0,2025-04-23,False,True
-2025-03-14 17:22:17,USM/LMU,PhD,,True,Motherly Woodpecker,True,False,True,False,True,False,True,False,False,True,False,False,"['monday', 'tuesday', 'thursday']",5,False,True,[],0,,False,False
+2025-03-14 17:22:17,USM/LMU,PhD,,True,Motherly Woodpecker,True,False,True,False,True,False,True,False,False,True,False,False,"['monday', 'tuesday', 'thursday']",5,False,True,[],0,2025-05-06,False,True
 2025-03-14 17:44:07,USM/LMU,PostDoc,Badminton rackets + shuttles,True,Spanish Ferret,True,True,False,False,False,False,True,False,True,False,False,False,['friday'],4,False,True,"['ping_pong', 'basketball', 'badminton']",3,2025-04-23,False,True
 2025-03-15 11:53:11,MPE,PhD,Ping pong rackets,False,Pink Narwhal,True,False,False,False,False,False,False,False,False,True,True,True,"['tuesday', 'wednesday', 'thursday', 'friday']",4,False,True,[],0,2025-04-25,False,True
 2025-03-15 18:36:09,MPP,PhD,Volleyball,False,Good Dolphin,True,False,False,True,False,False,True,True,False,True,True,False,"['tuesday', 'friday']",6,False,True,[],0,2025-04-28,False,True
@@ -84,7 +84,7 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-03-31 09:50:57,MPA,PhD,,False,Eager Affenpinscher,True,False,False,True,False,True,False,False,False,False,False,False,"['tuesday', 'wednesday', 'friday']",3,False,True,[],0,2025-04-30,False,True
 2025-03-31 10:41:54,MPE,PhD,,True,Gripping Penguin,False,False,True,True,False,False,False,False,False,False,False,False,[],2,False,True,[],0,2025-04-30,False,True
 2025-04-01 09:21:09,IPP,PostDoc,I have a tennis racket.,False,Squeaky Fish,False,False,False,False,False,False,False,True,False,False,False,False,[],1,False,True,[],0,2025-04-25,False,True
-2025-04-01 11:52:51,USM/LMU,Master's Student,,False,Crooked Leopard,True,False,False,False,False,False,True,False,False,False,False,False,"['monday', 'tuesday', 'thursday', 'friday']",2,False,True,[],0,2025-04-28,False,True
+2025-04-01 11:52:51,USM/LMU,Master's Student,,False,Crooked Leopard,True,False,False,False,False,False,True,False,False,False,False,False,"['monday', 'tuesday', 'thursday', 'friday']",2,False,True,['badminton'],1,2025-04-28,False,True
 2025-04-01 13:01:03,MPE,PhD,,False,Beautiful Olm,False,False,True,False,False,False,True,False,False,False,True,False,[],3,False,True,[],0,2025-04-25,False,True
 2025-04-01 13:52:41,MPQ,PhD,,False,Brilliant Fox,False,False,False,True,True,False,False,False,False,False,False,False,[],2,False,True,[],0,2025-04-30,False,True
 2025-04-01 14:47:58,MPP,PhD,,False,Live Reindeer,False,False,False,False,False,False,False,False,False,False,True,True,[],2,False,True,[],0,2025-04-23,False,True
@@ -191,8 +191,8 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-04-25 13:40:27,MPE,PostDoc,,False,Our Pheasant,False,False,False,False,False,False,False,False,True,False,False,False,[],1,True,True,[],0,2025-04-29,False,True
 2025-04-25 13:54:03,USM/LMU,Master's Student,,True,Thorny Warthog,False,False,False,False,False,False,True,False,False,False,False,False,[],1,True,True,[],0,2025-04-28,False,True
 2025-04-26 20:32:51,Other,Other,,False,Well-to-do Moth,False,False,False,False,False,False,False,False,False,False,True,True,[],2,True,True,[],0,2025-05-01,False,True
-2025-04-28 17:27:46,MPE,Master's Student,,False,Favorable Neanderthal,True,False,False,False,False,False,False,False,False,False,True,False,"['tuesday', 'friday']",2,True,False,[],0,2025-05-03,False,True
+2025-04-28 17:27:46,MPE,Master's Student,,False,Favorable Neanderthal,True,False,False,False,False,False,False,False,False,False,True,False,"['tuesday', 'friday']",2,True,True,[],0,2025-05-03,False,True
 2025-05-02 17:18:25,USM/LMU,Master's Student,No,False,Ill-informed Toucan,False,False,False,False,False,False,False,True,False,False,False,False,[],1,True,True,[],0,2025-05-05,False,True
 2025-05-02 23:38:31,MPE,PostDoc,"My tennis racket + other 2, one set of tennis balls",False,Noisy Quail,True,False,False,False,False,True,False,False,False,False,False,False,"['wednesday', 'thursday']",2,True,True,[],0,2025-05-04,False,True
 2025-05-05 19:13:32,MPE,Master's Student,No,False,Slim Woodlouse,True,False,False,False,False,False,False,False,False,False,True,False,['friday'],2,True,False,[],0,,False,False
-2025-05-05 23:15:13,MPQ,Master's Student,I have 1 badminton Raquet,False,Well-off Whippet,False,False,False,False,False,False,True,False,False,False,False,False,[],1,True,True,[],0,,False,False
+2025-05-05 23:15:13,MPQ,Master's Student,I have 1 badminton Raquet,False,Well-off Whippet,False,False,False,False,False,False,True,False,False,False,False,False,[],1,True,True,[],0,2025-05-06,False,True
