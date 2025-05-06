@@ -31,7 +31,7 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-04-04 10:50:03,IPP,PhD,,False,Anguished Dragonfly,False,False,False,False,False,False,False,True,False,False,True,False,[],2,False,False,Team A,,,,,,,,3,,,2,,2,1.0,False,[],0,2025-04-30,False,True
 2025-04-04 14:03:03,MPE,PhD,,True,Soulful Ant,False,False,False,False,False,False,True,True,False,False,False,False,[],2,False,False,Team A,,,,,,,D,4,,,,,1,0.5,True,['badminton'],1,2025-04-24,False,True
 2025-04-03 20:15:12,USM/LMU,Master's Student,,False,Each Moose,False,False,False,True,True,False,False,False,False,False,False,False,[],2,False,False,Team A,,,,1,1,,,,,,,,2,1.0,True,[],0,2025-04-23,False,True
-2025-04-04 15:12:36,IPP,PostDoc,,True,Reckless Swan,False,False,True,False,False,False,True,False,False,False,False,False,[],2,False,False,Team A,,,1,,,,2,,,,,,2,1.0,True,['badminton'],1,2025-04-30,False,True
+2025-04-04 15:12:36,IPP,PostDoc,,True,Reckless Swan,False,False,True,False,False,False,True,False,False,False,False,False,[],2,False,False,Team A,,,1,,,,2,,,,,,2,1.0,True,[],0,2025-04-30,False,True
 2025-04-04 16:05:40,USM/LMU,PhD,,False,Courageous Bullfrog,True,False,False,False,True,False,False,False,False,False,False,False,['tuesday'],2,False,False,Team A,5,,,,1,,,,,,,,1,0.5,True,[],0,2025-04-30,False,True
 2025-03-10 18:32:18,IPP,PhD,,False,Nervous Badger,False,False,False,False,True,False,False,False,False,False,False,False,[],1,False,False,Team A,,,,,D,,,,,,,,1,1.0,False,['football'],1,DROPOUT,True,False
 2025-04-06 21:16:11,MPE,PhD,,False,Exotic Giraffe,False,False,True,False,False,False,False,False,False,False,True,False,[],2,False,False,Team A,,,1,,,,,,,,4,,2,1.0,True,[],0,2025-04-24,False,True

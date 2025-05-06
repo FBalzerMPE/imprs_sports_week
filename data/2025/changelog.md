@@ -108,3 +108,9 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-04 22:41:59 - Subteam change in Team C for basketball: Poor Hamster (2-> D) WITHOUT REPLACEMENT
 - [ ] 2025-05-05 23:38:03 - Moved Thorny Warthog from team A to team B.
 - [ ] 2025-05-06 00:27:21 - Moved Tight Tarsier from team B to team C.
+- [ ] 2025-05-06 09:56:51 - Subteam change in Team B for ping_pong: Neglected Harrier (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-06 09:56:52 - Subteam change in Team B for ping_pong: Blank Tiffany (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-06 09:56:52 - Subteam change in Team B for ping_pong: Spanish Ferret (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-06 09:57:27 - Subteam change in Team B for beer_pong: Slim Woodlouse (-> 6) <--> Impish Shrimp (-> D)
+- [ ] 2025-05-06 09:57:52 - Subteam change in Team B for ping_pong: Slim Woodlouse (nan-> 13) WITHOUT REPLACEMENT
+- [ ] 2025-05-06 10:20:29 - Subteam change in Team B for capture_the_flag: Fumbling Crocodile (1-> D) WITHOUT REPLACEMENT
