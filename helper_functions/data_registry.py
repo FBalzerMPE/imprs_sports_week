@@ -40,7 +40,9 @@ def get_teams(year=CURRENT_YEAR) -> list[Team]:
 
 
 @st.cache_data(ttl=60)
-def get_players(from_teams: bool = True, year=CURRENT_YEAR) -> pd.DataFrame:
+def get_players(
+    from_teams: bool = True, year=CURRENT_YEAR, modification_time: str = ""
+) -> pd.DataFrame:
     """Loads a dataframe of all players."""
     teams = get_teams(year)
     if from_teams:
@@ -78,7 +80,8 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
 
 
 @st.cache_data(ttl=60)
-def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
+def get_match_df(year=CURRENT_YEAR, modification_time: str = "") -> pd.DataFrame:
+    # Use the modification time to check if the file has changed
     fpath = FpathRegistry.get_path_matches(year)
     if not fpath.exists():
         return pd.DataFrame()
@@ -88,7 +91,8 @@ def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
 
 
 def get_matches(year=CURRENT_YEAR, silent: bool = False) -> list[Match]:
-    match_df = get_match_df(year)
+    mod_time = str(FpathRegistry.get_path_matches(year).stat().st_mtime)
+    match_df = get_match_df(year, modification_time=mod_time)
     subteams = get_subteams(year)
     match_list = []
     for _, match_ in match_df.iterrows():
@@ -135,10 +139,13 @@ class DataRegistry:
     @classmethod
     def from_year(cls, year=CURRENT_YEAR) -> "DataRegistry":
         teams = get_teams(year)
-        players = get_players(year=year)
+
+        mod_time = str(FpathRegistry.get_path_responses(year).stat().st_mtime)
+        players = get_players(year=year, modification_time=mod_time)
         subteams = get_subteams(year)
         matches = get_matches(year)
-        match_df = get_match_df(year)
+        mod_time = str(FpathRegistry.get_path_matches(year).stat().st_mtime)
+        match_df = get_match_df(year, modification_time=mod_time)
         organizers = load_organizers(year)
         return cls(year, teams, players, subteams, matches, match_df, organizers)
 
