@@ -26,7 +26,7 @@ football,B: 2,C: 2,1,Tuesday,19:45,,,2025-05-06 19:45:00,1800,B: 2,C: 2,football
 football,B: 1,C: 1,1,Tuesday,18:45,,,2025-05-06 18:45:00,1800,B: 1,C: 1,football_B1_C1
 football,A: 2,B: 2,1,Tuesday,20:15,,,2025-05-06 20:15:00,1800,A: 2,B: 2,football_A2_B2
 football,C: 2,A: 1,1,Tuesday,18:15,,,2025-05-06 18:15:00,1800,C: 2,A: 1,football_C2_A1
-tennis,A: Stark Otter,B: Animated Yak,1,Tuesday,17:45,,,2025-05-06 17:45:00,1500,A: 2,B: 2,tennis_A2_B2
+tennis,A: Stark Otter,B: Noisy Quail,1,Tuesday,17:45,,,2025-05-06 17:45:00,1500,A: 2,B: 2,tennis_A2_B2
 tennis,C: Eager Affenpinscher,A: Monstrous Jackal,2,Tuesday,17:45,,,2025-05-06 17:45:00,1500,C: 1,A: 5,tennis_C1_A5
 tennis,B: Snappy Crab,C: Well-documented Dodo,3,Tuesday,17:45,,,2025-05-06 17:45:00,1500,B: 5,C: 5,tennis_B5_C5
 tennis,A: Outrageous Gar,B: Fearless Wrasse,1,Tuesday,19:25,,,2025-05-06 19:25:00,1500,A: 1,B: 1,tennis_A1_B1
@@ -34,7 +34,7 @@ tennis,A: Near Ladybug,B: Frosty Millipede,2,Tuesday,18:10,,,2025-05-06 18:10:00
 tennis,B: Fearless Wrasse,C: Pushy Bulldog,1,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 1,C: 4,tennis_B1_C4
 tennis,C: Enormous Uakari,A: Striped Himalayan,2,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 2,A: 6,tennis_C2_A6
 tennis,B: Decent Gopher,C: Writhing Beaver,3,Tuesday,18:35,,,2025-05-06 18:35:00,1500,B: 4,C: 6,tennis_B4_C6
-tennis,B: Animated Yak,C: Eager Affenpinscher,1,Tuesday,19:00,,,2025-05-06 19:00:00,1500,B: 2,C: 1,tennis_B2_C1
+tennis,B: Noisy Quail,C: Eager Affenpinscher,1,Tuesday,19:00,,,2025-05-06 19:00:00,1500,B: 2,C: 1,tennis_B2_C1
 tennis,A: Striped Himalayan,B: Snappy Crab,2,Tuesday,19:00,,,2025-05-06 19:00:00,1500,A: 6,B: 5,tennis_A6_B5
 tennis,C: Well-documented Dodo,A: Near Ladybug,3,Tuesday,19:00,,,2025-05-06 19:00:00,1500,C: 5,A: 4,tennis_C5_A4
 tennis,C: Pushy Bulldog,A: Stark Otter,3,Tuesday,19:25,,,2025-05-06 18:35:00,1500,C: 4,A: 2,tennis_C4_A2
@@ -66,13 +66,13 @@ chess,B: Snappy Crab,C: Yawning Nightingale,1,Thursday,18:25,,,2025-05-08 18:25:
 chess,B: Oblong Snowshoe,C: Awkward Cichlid,2,Thursday,17:45,,,2025-05-08 17:45:00,2400,B: 1,C: 5,chess_B1_C5
 chess,B: Spanish Ferret,C: Milky Bongo,3,Thursday,18:25,,,2025-05-08 18:25:00,2400,B: 5,C: 4,chess_B5_C4
 chess,B: Overlooked Bobcat,C: Ornate Cockatoo,4,Thursday,18:25,,,2025-05-08 18:25:00,2400,B: 4,C: 3,chess_B4_C3
-chess,B: Frosty Millipede,C: Sandy Budgerigar,5,Thursday,18:25,,,2025-05-08 18:25:00,2400,B: 3,C: 6,chess_B3_C6
+chess,B: Frosty Millipede,C: Our Pheasant,5,Thursday,18:25,,,2025-05-08 18:25:00,2400,B: 3,C: 6,chess_B3_C6
 chess,B: Trivial Uguisu,C: Hairy Donkey,6,Thursday,18:25,,,2025-05-08 18:25:00,2400,B: 6,C: 2,chess_B6_C2
 chess,C: Yawning Nightingale,A: Trifling Tarpon,1,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 1,A: 5,chess_C1_A5
 chess,C: Awkward Cichlid,A: Rigid Pelican,2,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 5,A: 4,chess_C5_A4
 chess,C: Milky Bongo,A: Delectable Peacock,3,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 4,A: 3,chess_C4_A3
 chess,C: Ornate Cockatoo,A: Stark Otter,4,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 3,A: 2,chess_C3_A2
-chess,C: Sandy Budgerigar,A: Defiant Tortoise,5,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 6,A: 6,chess_C6_A6
+chess,C: Our Pheasant,A: Defiant Tortoise,5,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 6,A: 6,chess_C6_A6
 chess,C: Hairy Donkey,A: Virtuous Pika,6,Thursday,19:05,,,2025-05-08 19:05:00,2400,C: 2,A: 1,chess_C2_A1
 capture_the_flag,A: 2,B: 2,1,Thursday,19:50,,,2025-05-08 19:50:00,1500,A: 2,B: 2,capture_the_flag_A2_B2
 capture_the_flag,C: 1,A: 1,1,Thursday,18:10,,,2025-05-08 18:10:00,1500,C: 1,A: 1,capture_the_flag_C1_A1
