@@ -35,9 +35,3 @@ with st.expander("Building the teams", expanded=False):
 
 with st.expander("Scheduling the matches", expanded=False):
     st.write("Here we'll soon display how we scheduled the matches.")
-
-response = st.text_input("Internal stuff")
-if response == "Try Reload":
-    if st.button("Reload data"):
-        st.cache_data.clear()
-        st.rerun()
