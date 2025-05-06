@@ -148,7 +148,7 @@ ping_pong,A: Stark Otter,B: Trivial Uguisu,1,Tuesday,18:35,,,2025-05-06 18:35:00
 ping_pong,A: Defiant Tortoise,B: Dear Impala,1,Thursday,17:45,,,2025-05-08 17:45:00,1500,A: 21,B: 03,ping_pong_A21_B03
 ping_pong,C: Electric Rat,A: Defiant Tortoise,2,Thursday,20:15,,,2025-05-08 20:15:00,1500,C: 16,A: 21,ping_pong_C16_A21
 ping_pong,C: Sandy Budgerigar,A: Quirky Centipede,2,Thursday,17:45,,,2025-05-08 17:45:00,1500,C: 06,A: 23,ping_pong_C06_A23
-ping_pong,B: Dear Impala,C: Motherly Woodpecker,1,Tuesday,17:00,,,2025-05-06 19:00:00,1500,B: 03,C: 19,ping_pong_B03_C19
+ping_pong,B: Dear Impala,C: Motherly Woodpecker,1,Tuesday,17:00,,,2025-05-06 17:00:00,1500,B: 03,C: 19,ping_pong_B03_C19
 ping_pong,C: Motherly Woodpecker,A: Leafy Dingo,1,Monday,16:00,0:3,A,2025-05-05 16:00:00,1500,C: 19,A: 20,ping_pong_C19_A20
 ping_pong,A: Judicious Bonobo,B: Thankful Kakapo,1,Tuesday,14:00,0:3,B,2025-05-06 16:00:00,1500,A: 04,B: 02,ping_pong_A04_B02
 ping_pong,B: Cute Frog,C: Experienced Liger,1,Monday,19:00,3:0,B,2025-05-05 19:00:00,1500,B: 09,C: 21,ping_pong_B09_C21
