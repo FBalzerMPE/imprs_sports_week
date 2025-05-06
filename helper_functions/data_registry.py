@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
 import pandas as pd
+import streamlit as st
 import yaml
 
 from .classes.match import Match
@@ -38,7 +39,7 @@ def get_teams(year=CURRENT_YEAR) -> list[Team]:
     return teams
 
 
-# @st.cache_data
+@st.cache_data(ttl=3600)
 def get_players(from_teams: bool = True, year=CURRENT_YEAR) -> pd.DataFrame:
     """Loads a dataframe of all players."""
     teams = get_teams(year)
@@ -52,7 +53,6 @@ def get_players(from_teams: bool = True, year=CURRENT_YEAR) -> pd.DataFrame:
     return pd.read_csv(FpathRegistry.get_path_responses(year))
 
 
-# @st.cache_data
 def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
     all_subteams = {}
     for team in get_teams(year):
@@ -77,7 +77,7 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
     return all_subteams
 
 
-# @st.cache_data
+@st.cache_data(ttl=3600)
 def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
     fpath = FpathRegistry.get_path_matches(year)
     if not fpath.exists():
@@ -87,7 +87,6 @@ def get_match_df(year=CURRENT_YEAR) -> pd.DataFrame:
     return match_df.infer_objects(copy=True).fillna("")  # type: ignore
 
 
-# @st.cache_data
 def get_matches(year=CURRENT_YEAR, silent: bool = False) -> list[Match]:
     match_df = get_match_df(year)
     subteams = get_subteams(year)
