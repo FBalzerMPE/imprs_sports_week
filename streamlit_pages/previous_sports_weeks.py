@@ -15,7 +15,7 @@ All in all, an astonishing amount of {len(_data.players)} players signed up and 
 """
 )
 st.page_link(
-    "streamlit_pages/Statistics.py",
+    "streamlit_pages/statistics.py",
     label="Click here for further info on the current sports week",
     icon="📊",
     use_container_width=True,
