@@ -39,7 +39,7 @@ def get_teams(year=CURRENT_YEAR) -> list[Team]:
     return teams
 
 
-# @st.cache_data(ttl=60)
+@st.cache_data(ttl=60)
 def get_players(
     from_teams: bool = True, year=CURRENT_YEAR, modification_time: str = ""
 ) -> pd.DataFrame:
@@ -87,7 +87,7 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
     return all_subteams
 
 
-# @st.cache_data(ttl=60)
+@st.cache_data(ttl=60)
 def get_match_df(year=CURRENT_YEAR, modification_time: str = "") -> pd.DataFrame:
     # Use the modification time to check if the file has changed
     fpath = FpathRegistry.get_path_matches(year)
