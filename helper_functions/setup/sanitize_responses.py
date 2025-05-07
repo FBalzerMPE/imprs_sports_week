@@ -222,8 +222,9 @@ def sanitize_and_anonymize_data(
     num_cols = len(pd.read_csv(response_path, dtype=str).columns)
     cols = [cols[i] if i < len(cols) else str(i) for i in range(num_cols)]
     # Load the df:
-    df = pd.read_csv(response_path, names=cols, usecols=cols[:8], skiprows=1, dtype=str)
+    df = pd.read_csv(response_path, names=cols, usecols=cols[:9], skiprows=1, dtype=str)
     df["name"] = df["name"].str.strip().str.title()
+    df["picture_consent"] = df["picture_consent"].str.strip().str.lower() == "yes"
     df["wants_new_avatar"] = (
         df["avatar_request"]
         .fillna("")

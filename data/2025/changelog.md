@@ -118,3 +118,11 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 2025-05-06 11:28:58 - Sent schedule update to Quirky Centipede.
 - [ ] 2025-05-06 16:09:59 - Subteam change in Team A for ping_pong: Deserted Chimpanzee (0D-> D) WITHOUT REPLACEMENT
 - [ ] 2025-05-06 16:10:00 - Subteam change in Team A for badminton: Well-off Whippet (R-> 2) [removal from reserve]
+- [ ] 2025-05-07 10:49:56 - Subteam change in Team B for running_sprints: Memorable Squirrel (R-> D) [removal from reserve]
+- [ ] 2025-05-07 10:53:50 - Subteam change in Team A for badminton: Well-off Whippet (D-> 2) WITHOUT REPLACEMENT
+- [ ] 2025-05-07 10:53:50 - Subteam change in Team B for capture_the_flag: Rare Dugong (2-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-07 10:53:50 - Subteam change in Team B for foosball: Illiterate Caterpillar (-> 2) <--> Rare Dugong (-> D)
+- [ ] 2025-05-07 10:53:50 - Subteam change in Team B for basketball: Rare Dugong (1-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-07 11:02:57 - Subteam change in Team A for spikeball: Deserted Chimpanzee (-> 5) <--> Stark Otter (-> D)
+2025-05-07 11:03:41 - Sent schedule update to Deserted Chimpanzee.
+2025-05-07 11:04:58 - Sent schedule update to Illiterate Caterpillar.
