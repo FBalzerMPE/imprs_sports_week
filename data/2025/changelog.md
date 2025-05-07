@@ -126,3 +126,8 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-07 11:02:57 - Subteam change in Team A for spikeball: Deserted Chimpanzee (-> 5) <--> Stark Otter (-> D)
 2025-05-07 11:03:41 - Sent schedule update to Deserted Chimpanzee.
 2025-05-07 11:04:58 - Sent schedule update to Illiterate Caterpillar.
+- [ ] 2025-05-07 12:21:20 - Subteam change in Team B for spikeball: Noisy Quail (nan-> 2) WITHOUT REPLACEMENT
+- [ ] 2025-05-07 12:22:54 - Subteam change in Team A for badminton: Well-off Whippet (D-> 2) WITHOUT REPLACEMENT
+- [ ] 2025-05-07 12:22:54 - Subteam change in Team A for spikeball: Deserted Chimpanzee (-> 5) <--> Stark Otter (-> D)
+- [ ] 2025-05-07 12:22:54 - Subteam change in Team C for spikeball: Pink Narwhal (nan-> 3) WITHOUT REPLACEMENT
+2025-05-07 13:35:49 - Sent schedule update to Noisy Quail.

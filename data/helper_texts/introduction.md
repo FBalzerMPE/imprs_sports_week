@@ -1,7 +1,7 @@
 
 ## Rain announcement⚠️⚠️⚠️
 
-As the forecast only predicts light rain, we plan to have the Football and Tennis events take place as initially scheduled. Please try to arrive at least 10 minutes prior to your matches.
+As the forecast does not predict any rain for today, the Spikeball and outdoor Badminton matches are going to take place as planned. Please try to arrive at least 10 minutes prior to your matches, the location can be found in the location tab (TUM pitches, where also the football took place).
 
 We advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C.
 
