@@ -607,7 +607,13 @@ class SportEvent:
                 st.write(
                     "In case you have trouble finding the MPA locations, try to enter through the MPA entrance. The MPE entrance will be locked from 17:00 onwards. You can go below it to pass through to MPA, and there go to the basement - you should bump into people there.\\\nIn case you're completely stuck, let us know in the signal group."
                 )
-            create_map_plot(locs, start_zoomed_out=self.sanitized_name == "badminton")
+            is_badminton = self.sanitized_name == "badminton"
+            if is_badminton:
+                st.info(
+                    f"The outdoor courts are going to be set up on the TUM big field."
+                )
+                locs.append("tum_big_field")
+            create_map_plot(locs, start_zoomed_out=is_badminton)
             if self.sanitized_name == "ping_pong":
                 display_ping_pong_loc_descs()
         with tabs[4]:
