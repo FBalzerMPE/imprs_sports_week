@@ -1,9 +1,11 @@
 
-## Rain announcement⚠️⚠️⚠️
+## Daily announcement⚠️⚠️⚠️
 
-As the forecast does not predict any rain for today, the Spikeball and outdoor Badminton matches are going to take place as planned. Please try to arrive at least 10 minutes prior to your matches, the location can be found in the location tab (TUM pitches, where also the football took place).
+The Capture the Flag match is going to take place even if there's some light rain throughout the day. Fingers crossed there won't be rain during the event. Please try to arrive at least 10 minutes prior to your matches, the location can be found in the location tab (TUM pitches, where also the football and spikeball took place).
 
 We advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C.
+
+For Chess, there's not much to say - maybe familiarize yourself with the location in beforehand, and also plan to come at least 10 minutes prior to your matches. Also feel free to bring Chess boards for leisure matches during waiting times :)
 
 ## Spirit of the Sports Week
 

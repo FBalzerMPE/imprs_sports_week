@@ -27,8 +27,8 @@ with tabs[1]:
     st.write(
         "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!"
     )
-    # if hf.DATAPATH.joinpath("hidden").exists():
-    # hf.st_display_top_scorers(hf.DATA_NOW)
+    if hf.DATAPATH.joinpath("hidden").exists():
+        hf.st_display_top_scorers(hf.DATA_NOW)
 # FAQ tab:
 with tabs[2]:
     markdown_text = hf.read_event_desc("../helper_texts/faq")

@@ -75,6 +75,7 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
                     sub_key=team_key,
                     players=players,
                 )
+
                 all_subteams[sport + "_" + subteam.short_key] = subteam
     if year != 2025:
         return all_subteams

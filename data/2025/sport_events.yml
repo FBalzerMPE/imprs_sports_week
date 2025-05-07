@@ -90,9 +90,9 @@
   icon: 🏸
   min_player_val: 4
   num_players_per_subteam: 2
-  num_subteams: 6
+  num_subteams: 4
   num_pitches: 6
-  point_weight_factor: 2
+  point_weight_factor: 1.5
   conflicting_sports:
     - spikeball
   requirements:
