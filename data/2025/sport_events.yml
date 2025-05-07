@@ -14,14 +14,14 @@
     - Rackets and balls are provided, but you may bring your own
     - You may also reschedule this match, but please let us know! **If you cannot make it, send a timely mail to your opponent** (and let us know)!
 - name: basketball
-  start: 2025-05-05 17:45
-  end: 2025-05-05 21:00
+  start: 2025-05-09 17:30
+  end: 2025-05-09 21:00
   match_duration: 30
   loc: tum_pitches
   pitch_type_name: Court
   icon: 🏀
   min_player_val: 8
-  num_pitches: 2
+  num_pitches: 1
   num_players_per_subteam: 5
   num_subteams: 2
   point_weight_factor: 1.5
@@ -38,8 +38,8 @@
   num_players_per_subteam: 6
   num_subteams: 1
 - name: volleyball
-  start: 2025-05-05 17:45
-  end: 2025-05-05 21:00
+  start: 2025-05-09 17:30
+  end: 2025-05-09 21:00
   match_duration: 30
   loc: tum_pitches
   pitch_type_name: Court
@@ -47,7 +47,7 @@
   min_player_val: 8
   num_players_per_subteam: 4
   num_subteams: 5
-  num_pitches: 4
+  num_pitches: 3
   conflicting_sports:
     - basketball
   point_weight_factor: 3

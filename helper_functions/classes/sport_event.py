@@ -450,9 +450,8 @@ class SportEvent:
     def _st_display_matches(self):
         if self.sanitized_name in ["basketball", "volleyball"]:
             st.write(
-                "⚠️Due to the rain, the matches have been cancelled. Information for possible matches on Friday will follow via email and in the Signal group."
+                "⚠️Due to the rain, the Monday matches have been cancelled. Instead, there will be free-to-join matches on Friday, starting at 17:30. If you want to join, just stop by! You won't need to be part of any subteam."
             )
-            return
         if self.sanitized_name == "running_sprints":
             fpath = FpathRegistry.get_path_running_sprints(self.year)
             if not fpath.exists():
@@ -473,7 +472,7 @@ class SportEvent:
         if self.sanitized_name != "ping_pong":
             if self.sanitized_name == "volleyball":
                 df["location"] = df["location"].apply(
-                    {"1": "Beach 1", "2": "Beach 2", "3": "Grass 1", "4": "Grass 2"}.get
+                    {"1": "Beach 1", "2": "Grass 1", "3": "Grass 2", "4": "Grass 2"}.get
                 )
             if self.sanitized_name == "badminton":
                 df["location"] = df["location"].apply(
@@ -523,13 +522,21 @@ class SportEvent:
                 )
         else:
             st.write(f"### Subteams\n")
-            st.write("The subteams above consist of the following players:")
-            _st_display_subteam_df(
-                df[~reserve_mask & ~dropout_mask], get_data_for_year(self.year)
-            )
-            st.write(
-                "#### Reserve players\nThe following players may join as substitute players:"
-            )
+            if self.year == 2025 and self.sanitized_name in [
+                "basketball",
+                "volleyball",
+            ]:
+                st.write(
+                    "The subteams are not set in beforehand for this event as it's a spontaneous replacement - you may join any of the matches, just come to the courts and tell us your nickname! However, after having played a match, you might need to make room for other players that want to play.\n\n#### Signed up players\n\nThe following players initially signed up:"
+                )
+            else:
+                st.write("The subteams above consist of the following players:")
+                _st_display_subteam_df(
+                    df[~reserve_mask & ~dropout_mask], get_data_for_year(self.year)
+                )
+                st.write(
+                    "#### Reserve players\nThe following players may join as substitute players:"
+                )
             _st_display_subteam_df(df[reserve_mask], get_data_for_year(self.year))
 
     def _get_desc_text(

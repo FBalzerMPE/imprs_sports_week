@@ -1,3 +1,3 @@
-**⚠️⚠️⚠️ Due to the rain and the low temperatures forecasted, the Volleyball event is unfortunately cancelled for Monday. Stay tuned, we might try to organize something for Friday as compensation.**
+**⚠️⚠️⚠️ Due to the rain and the low temperatures forecasted, the Basketball event unfortunately needed to be cancelled on Monday. We therefore opted to have replacement matches on Friday - feel free to just come by and support your team for one of those, you don't even need to be registered. All information can be found below.**
 
 Welcome to the heart-pounding, high-flying world of basketball in our Sports Week extravaganza! Prepare to dribble, shoot, and slam dunk your way to victory on the glorious one-half of the TUM courts (as one of the rims is broken). Whether you're a seasoned baller or just getting started, basketball promises excitement, teamwork, and unforgettable moments. Let the games begin!
