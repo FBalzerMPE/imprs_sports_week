@@ -28,7 +28,7 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-03-10 16:55:49,IPP,PhD,,True,Grouchy Mole,True,False,False,True,False,False,False,False,False,False,False,True,"['monday', 'tuesday', 'wednesday', 'thursday', 'friday']",3,False,False,Team A,25,,,R,,,,,,,,2,2,0.6666666666666666,,True,[],0,2025-04-29,False,True
 2025-03-28 13:35:59,MPQ,Other,,False,Good-natured Falcon,False,True,False,True,False,False,False,False,False,False,True,False,[],3,False,False,Team A,,R,,R,,,,,,,4,,1,0.3333333333333333,,True,[],0,2025-04-24,False,True
 2025-03-28 15:02:25,MPA,PostDoc,,True,Worthy Aurochs,True,False,False,True,False,False,False,False,False,False,False,True,['friday'],3,False,False,Team A,10,,,R,,,,,,,,5,2,0.6666666666666666,,True,[],0,2025-04-30,False,True
-2025-04-04 10:50:03,IPP,PhD,,False,Anguished Dragonfly,False,False,False,False,False,False,False,True,False,False,True,False,[],2,False,False,Team A,,,,,,,,3,,,2,,2,1.0,,False,[],0,2025-04-30,False,True
+2025-04-04 10:50:03,IPP,PhD,,False,Anguished Dragonfly,False,False,False,False,False,False,False,True,False,False,True,False,[],2,False,False,Team A,,,,,,,,3,,,2,,2,1.0,,True,[],0,2025-04-30,False,True
 2025-04-04 14:03:03,MPE,PhD,,True,Soulful Ant,False,False,False,False,False,False,True,True,False,False,False,False,[],2,False,False,Team A,,,,,,,D,4,,,,,2,1.0,,True,['badminton'],1,2025-04-24,False,True
 2025-04-03 20:15:12,USM/LMU,Master's Student,,False,Each Moose,False,False,False,True,True,False,False,False,False,False,False,False,[],2,False,False,Team A,,,,R,1,,,,,,,,1,0.5,,True,[],0,2025-04-23,False,True
 2025-04-04 15:12:36,IPP,PostDoc,,True,Reckless Swan,False,False,True,False,False,False,True,False,False,False,False,False,[],2,False,False,Team A,,,1,,,,2,,,,,,2,1.0,,True,[],0,2025-04-30,False,True
@@ -62,4 +62,4 @@ response_timestamp,institute,status,assets_brought,attended_before,nickname,ping
 2025-03-27 10:42:11,MPQ,PhD,,False,Sane Wallaby,False,False,False,False,False,False,False,False,False,False,True,False,[],1,False,False,Team A,,,,,,,,,,,1,,1,1.0,,True,[],0,2025-05-01,False,True
 2025-04-26 20:32:51,Other,Other,,False,Well-to-do Moth,False,False,False,False,False,False,False,False,False,False,True,True,[],2,True,False,Team A,,,,,,,,,,,5,R,1,0.5,,True,[],0,2025-05-01,False,True
 2025-05-05 23:15:13,MPQ,Master's Student,I have 1 badminton Raquet,False,Well-off Whippet,False,False,False,False,False,False,True,False,False,False,False,False,[],1,True,,Team A,,,,,,,2,,,,,,1,1.0,,True,[],0,2025-05-06,False,True
-2025-05-06 23:41:30,Other,PostDoc,Just me.,False,Full Jellyfish,False,False,False,True,False,False,False,False,False,False,False,False,[],1,True,,Team A,,,,R,,,,,,,,,0,0.0,True,False,[],0,,False,False
+2025-05-06 23:41:30,Other,PostDoc,Just me.,False,Full Jellyfish,False,False,False,True,False,False,False,False,False,False,False,False,[],1,True,,Team A,,,,R,,,,,,,,,0,0.0,True,True,[],0,2025-05-07,False,True

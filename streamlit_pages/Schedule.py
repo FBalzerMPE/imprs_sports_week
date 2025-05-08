@@ -45,9 +45,9 @@ calendar_events = [
 ]
 
 award_event = {
-    "title": "🏆 Award Ceremony (more info will follow)",
-    "start": datetime.combine(hf.DATA_NOW.end_date, time(21)).isoformat(),
-    "end": datetime.combine(hf.DATA_NOW.end_date, time(21, 30)).isoformat(),
+    "title": "🏆 Award Ceremony at MPA Common Room",
+    "start": datetime.combine(hf.DATA_NOW.end_date, time(21, 45)).isoformat(),
+    "end": datetime.combine(hf.DATA_NOW.end_date, time(22, 00)).isoformat(),
     "resourceId": "awards",
     "color": "green",
 }

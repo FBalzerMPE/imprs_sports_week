@@ -98,7 +98,7 @@ foosball,C: 2,A: 6,2,Friday,19:30,,,2025-05-09 19:30:00,900,C: 2,A: 6,foosball_C
 running_sprints,A: 1,B: 1,Main pitch,Monday,17:45,,,2025-05-05 17:45:00,5400,A: 1,B: 1,running_sprints_A1_B1
 running_sprints,A: 1,C: 1,Main pitch,Monday,17:45,,,2025-05-05 17:45:00,5400,A: 1,C: 1,running_sprints_A1_C1
 running_sprints,B: 1,C: 1,Main pitch,Monday,17:45,,,2025-05-05 17:45:00,5400,B: 1,C: 1,running_sprints_B1_C1
-ping_pong,B: Possible Anchovies,C: Pushy Bulldog,1,Thursday,13:30,,,2025-05-08 13:30:00,1500,B: 17,C: 07,ping_pong_B17_C07
+ping_pong,B: Possible Anchovies,C: Pushy Bulldog,1,Thursday,13:30,0:3,C,2025-05-08 13:30:00,1500,B: 17,C: 07,ping_pong_B17_C07
 ping_pong,C: Appropriate Tang,A: Mushy Sparrow,1,Friday,20:15,,,2025-05-09 20:15:00,1500,C: 08,A: 19,ping_pong_C08_A19
 ping_pong,A: Mushy Sparrow,B: Slim Woodlouse,1,Friday,18:55,,,2025-05-09 18:50:00,1500,A: 19,B: 13,ping_pong_A19_B13
 ping_pong,C: Poor Hamster,A: Monstrous Jackal,1,Monday,20:15,0:3,A,2025-05-05 20:15:00,1500,C: 11,A: 01,ping_pong_C11_A01
@@ -131,7 +131,7 @@ ping_pong,B: Dear Impala,C: Motherly Woodpecker,1,Tuesday,17:00,3:0,B,2025-05-06
 ping_pong,C: Motherly Woodpecker,A: Leafy Dingo,1,Monday,16:00,0:3,A,2025-05-05 16:00:00,1500,C: 19,A: 20,ping_pong_C19_A20
 ping_pong,A: Judicious Bonobo,B: Thankful Kakapo,1,Tuesday,14:00,0:3,B,2025-05-06 16:00:00,1500,A: 04,B: 02,ping_pong_A04_B02
 ping_pong,B: Cute Frog,C: Experienced Liger,1,Monday,19:00,3:0,B,2025-05-05 19:00:00,1500,B: 09,C: 21,ping_pong_B09_C21
-ping_pong,B: Flamboyant Lungfish,C: Sour Sturgeon,1,Tuesday,18:10,,,2025-05-06 18:10:00,1500,B: 08,C: 12,ping_pong_B08_C12
+ping_pong,B: Flamboyant Lungfish,C: Sour Sturgeon,1,Friday,15:00,,,2025-05-09 15:00:00,1500,B: 08,C: 12,ping_pong_B08_C12
 ping_pong,A: Trifling Tarpon,B: Real Mouse,2,Tuesday,18:10,2:1,A,2025-05-06 18:10:00,1500,A: 13,B: 21,ping_pong_A13_B21
 ping_pong,C: Hairy Donkey,A: Far-flung Sloth,2,Tuesday,18:35,,,2025-05-06 18:35:00,1500,C: 24,A: 14,ping_pong_C24_A14
 ping_pong,B: Real Mouse,C: Exemplary Cassowary,2,Tuesday,17:10,3:0,B,2025-05-06 17:10:00,1500,B: 21,C: 01,ping_pong_B21_C01
@@ -158,13 +158,13 @@ ping_pong,A: Nonstop Cuscus,B: Delayed Grouse,2,Thursday,18:10,,,2025-05-08 18:1
 ping_pong,A: Kindly Clownfish,B: Ignorant Lemur,2,Monday,17:45,,,2025-05-05 17:45:00,1500,A: 22,B: 11,ping_pong_A22_B11
 ping_pong,A: Slow Beagle,B: Flamboyant Lungfish,2,Thursday,18:35,,,2025-05-08 18:35:00,1500,A: 11,B: 08,ping_pong_A11_B08
 ping_pong,C: Downright Lynx,A: Slow Beagle,2,Thursday,19:00,,,2025-05-08 19:00:00,1500,C: 09,A: 11,ping_pong_C09_A11
-ping_pong,A: Valid Quoll,B: Possible Anchovies,1,Wednesday,18:10,,,2025-05-07 18:10:00,1500,A: 12,B: 17,ping_pong_A12_B17
-ping_pong,C: Miserable Alligator,A: Valid Quoll,1,Wednesday,18:35,,,2025-05-07 18:35:00,1500,C: 20,A: 12,ping_pong_C20_A12
-ping_pong,A: Tender Chimaera,B: Fumbling Crocodile,1,Wednesday,19:00,,,2025-05-07 19:00:00,1500,A: 15,B: 20,ping_pong_A15_B20
+ping_pong,A: Valid Quoll,B: Possible Anchovies,1,Wednesday,18:10,0:3,B,2025-05-07 18:10:00,1500,A: 12,B: 17,ping_pong_A12_B17
+ping_pong,C: Miserable Alligator,A: Valid Quoll,1,Wednesday,18:35,3:0,C,2025-05-07 18:35:00,1500,C: 20,A: 12,ping_pong_C20_A12
+ping_pong,A: Tender Chimaera,B: Fumbling Crocodile,1,Wednesday,19:00,3:1,A,2025-05-07 19:00:00,1500,A: 15,B: 20,ping_pong_A15_B20
 ping_pong,B: Fumbling Crocodile,C: Well-documented Dodo,1,Wednesday,19:25,0:3,C,2025-05-07 19:25:00,1500,B: 20,C: 11,ping_pong_B20_C10
 ping_pong,B: Noisy Quail,C: Pink Narwhal,2,Wednesday,19:50,,,2025-05-07 19:50:00,1500,B: 07,C: 13,ping_pong_B07_C13
 ping_pong,A: Far-flung Sloth,B: Snappy Crab,2,Wednesday,17:45,,,2025-05-07 17:45:00,1500,A: 14,B: 19,ping_pong_A14_B19
-ping_pong,C: Exemplary Cassowary,A: Outrageous Gar,2,Wednesday,18:10,,,2025-05-07 18:10:00,1500,C: 01,A: 08,ping_pong_C01_A08
+ping_pong,C: Exemplary Cassowary,A: Outrageous Gar,2,Wednesday,12:30,1:3,A,2025-05-07 18:10:00,1500,C: 01,A: 08,ping_pong_C01_A08
 ping_pong,A: Outrageous Gar,B: Elliptical Hedgehog,2,Wednesday,18:35,,,2025-05-07 18:35:00,1500,A: 08,B: 15,ping_pong_A08_B15
 ping_pong,B: Illiterate Caterpillar,C: Insistent Sponge,1,Tuesday,15:30,2:3,C,2025-05-06 15:30:00,1500,B: 23,C: 05,ping_pong_B23_C05
 ping_pong,B: Unsteady Aardvark,C: Eager Affenpinscher,2,Wednesday,19:25,,,2025-05-07 19:25:00,1500,B: 06,C: 23,ping_pong_B06_C23

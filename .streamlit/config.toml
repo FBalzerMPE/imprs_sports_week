@@ -4,3 +4,6 @@ enableStaticServing = true
 
 [browser]
 gatherUsageStats = false
+
+[logger]
+level = "error"
