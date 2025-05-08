@@ -18,7 +18,7 @@ tabs = st.tabs(tab_names)
 # Results tab:
 with tabs[0]:
     st.write(
-        "You're probably wondering who's currently in the lead, but to keep the suspense, we've decided to hide the results for now...\\\nLast time we looked, Team C was slightly, but then Team A and B had strong performances in Spikeball... All will be revealed at the award ceremony on Friday 21:45 at the MPA seminar room!"
+        "You're probably wondering who's currently in the lead, but to keep the suspense, we've decided to hide the results for now...\\\nLast time we looked, Team C was slightly ahead, but then Team A and B had strong performances in Spikeball, and there were still Chess, CtF, Basketball, Volleyball, Foosball, Beer Pong and many Ping Pong matches to be played...\\\nAll will be revealed at the award ceremony on Friday 21:45 at the MPA seminar room!"
     )
     if hf.DATAPATH.joinpath("hidden").exists():
         hf.st_display_full_results(hf.DATA_NOW)
