@@ -70,10 +70,10 @@ Note that we divide by the planned number of players in a subteam and not the ac
 def st_display_top_scorers(data: DataRegistry):
     if not data.has_scores:
         st.write(
-            "The top scorers will only be revealed at the very end of the sports week. Just do your best and you might end up in the top 25!"
+            "The top scorers will only be revealed at the very end of the sports week. Just do your best and you might end up in the top 50!"
         )
         return
-    score_df = _get_individual_score_df(data, 25)
+    score_df = _get_individual_score_df(data, 50)
     col_config = {"avatar": st.column_config.ImageColumn("")}
     # The formatted 'score' column is a relic before I had the progress bar.
     col_config["Score_num"] = st.column_config.ProgressColumn(
