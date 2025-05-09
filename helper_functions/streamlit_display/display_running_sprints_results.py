@@ -159,7 +159,6 @@ def display_running_sprints_points_plot(data: DataRegistry):
         )
         .properties(title="Score distribution for Running/Sprints")
     )
-    chart.show()
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
 
