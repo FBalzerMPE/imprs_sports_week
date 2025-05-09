@@ -15,7 +15,6 @@ def _add_weighted_points_column(df: pd.DataFrame) -> pd.DataFrame:
     """Add a column with the weighted points for each row."""
     avg_pts = df["points"].sum()
     team_weights = df["Team"].value_counts(normalize=True).to_dict()
-    print(team_weights)
     df["weighted_points"] = df.apply(
         lambda row: row["points"] / team_weights[row["Team"]] / avg_pts * len(df),
         axis=1,
@@ -166,7 +165,7 @@ def display_relay_results():
     """Display the relay results."""
     with st.expander("Relay Results", expanded=False):
         st.write(
-            "In the relay event, we had a 1.15 km relay with all players participating. The first place received 20 points and the second 10 points."
+            "In the relay event, we had a 1.15 km relay with all players participating. The first place received 20 points and the second 10 points (and these are not rescaled)."
         )
         st.write("Here, Team B was the fastest, followed by Team C.")
 

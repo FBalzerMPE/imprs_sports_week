@@ -25,7 +25,7 @@ with tabs[0]:
 # Scorers tab:
 with tabs[1]:
     st.write(
-        "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!"
+        "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!\n\nHow does it work? For every match you win (even in a team), you are awarded approximately 5 points, and your points are summed up across all sports."
     )
     if hf.DATAPATH.joinpath("hidden").exists():
         hf.st_display_top_scorers(hf.DATA_NOW)
