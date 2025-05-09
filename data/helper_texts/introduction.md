@@ -1,15 +1,7 @@
 
-## ⚠️⚠️⚠️Friday announcement: Party, Volleyball, Basketball and more!
+## ⚠️⚠️⚠️Results are out! Team A won by a super slim margin!
 
-Today is going to be a chaotic blast! Here's what you need to know:
-
-- We have scheduled **🏀Basketball** and **🏐Volleyball** matches for anyone to join (no signup required) as a replacement for Monday (check their pages for more info).
-- However, please **prioritize** your **💥Foosball**, **🍺Beer Pong** and **⚪Ping Pong** matches! Your teammates and opponents are counting on that, don't let them down and be at the venues at least 5 minutes before the start of your matches.
-- We have bought snacks (free) and will provide drinks and beers (just 1 € each) at the party around the common room starting around 19:00🎉🎉🎉
-- 🏆Stay around until 21:45, at which point there is going to be the big award ceremony - will your main team bring home the fabled trophy? And: Which individual player might have scored the most points for their main team?
-
-Some further details:
-- 🏐Volleyball is planned to only happen at the grass courts we set up as we can't guarantee that the Beach courts will be available in advance.
+Thank you all for joining :heart:
 
 ## Spirit of the Sports Week
 
