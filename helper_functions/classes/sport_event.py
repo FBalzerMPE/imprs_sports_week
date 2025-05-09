@@ -448,6 +448,7 @@ class SportEvent:
         return df[df[self.sanitized_name]]
 
     def _st_display_matches(self):
+
         if self.sanitized_name in ["basketball", "volleyball"]:
             st.write(
                 "⚠️Due to the rain, the Monday matches have been cancelled. Instead, there will be free-to-join matches on Friday, starting at 17:30. If you want to join, just stop by! You won't need to be part of any subteam."
@@ -457,6 +458,12 @@ class SportEvent:
             if not fpath.exists():
                 st.write("No matches have been scheduled yet.")
                 return
+            from ..data_registry import DATA_NOW
+            from ..streamlit_display.display_running_sprints_results import (
+                display_running_sprints_results,
+            )
+
+            display_running_sprints_results(DATA_NOW)
             st.write(fpath.read_text(encoding="utf-8"))
             # from ..sport_event_registry import RUNNING_EVENTS
 
@@ -472,7 +479,7 @@ class SportEvent:
         if self.sanitized_name != "ping_pong":
             if self.sanitized_name == "volleyball":
                 df["location"] = df["location"].apply(
-                    {"1": "Beach 1", "2": "Grass 1", "3": "Grass 2", "4": "Grass 2"}.get
+                    {"1": "Grass 1", "2": "Grass 2", "3": "Grass 3", "4": "Grass 2"}.get
                 )
             if self.sanitized_name == "badminton":
                 df["location"] = df["location"].apply(
@@ -598,9 +605,9 @@ class SportEvent:
                 ]
             if self.sanitized_name == "volleyball":
                 st.info(
-                    f"The grass courts are going to be set up on the TUM big field, the beach courts should be visible from GFZ."
+                    f"The grass courts are going to be set up on the TUM big field.⚠️⚠️⚠️We are NOT playing at the Beach courts as we cannot rely on their availability!"
                 )
-                locs.append("tum_big_field")
+                # locs.append("tum_big_field")
             else:
                 "The location for this event is marked in red, hover over its name to find more information."
             if self.sanitized_name in ["foosball", "beer_pong"]:

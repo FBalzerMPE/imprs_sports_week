@@ -131,3 +131,22 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-07 12:22:54 - Subteam change in Team A for spikeball: Deserted Chimpanzee (-> 5) <--> Stark Otter (-> D)
 - [ ] 2025-05-07 12:22:54 - Subteam change in Team C for spikeball: Pink Narwhal (nan-> 3) WITHOUT REPLACEMENT
 2025-05-07 13:35:49 - Sent schedule update to Noisy Quail.
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team A for volleyball: Grimy Newfoundland (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for volleyball: Animated Yak (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for basketball: Rare Dugong (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for basketball: Ill-fated Meerkat (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for basketball: Spanish Ferret (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for basketball: Affectionate Chihuahua (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for volleyball: Memorable Squirrel (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team B for basketball: Blank Tiffany (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team C for basketball: Loud Pademelon (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team C for volleyball: Liquid Lamprey (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team C for volleyball: Insistent Sponge (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:34:18 - Subteam change in Team C for basketball: Poor Hamster (R-> D) [removal from reserve]
+- [ ] 2025-05-08 15:35:34 - Subteam change in Team B for ping_pong: Neglected Harrier (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-08 15:35:34 - Subteam change in Team B for ping_pong: Blank Tiffany (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-08 15:35:34 - Subteam change in Team C for ping_pong: Prize Jerboa (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-08 15:35:34 - Subteam change in Team B for ping_pong: Spanish Ferret (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-08 15:35:34 - Subteam change in Team A for ping_pong: Deserted Chimpanzee (0D-> D) WITHOUT REPLACEMENT
+- [ ] 2025-05-08 16:09:59 - Subteam change in Team A for foosball: Kooky Snake (-> 5) <--> Unwritten Saiga (-> D)
+- [ ] 2025-05-08 16:11:01 - Subteam change in Team A for foosball: Kooky Snake (-> 2) <--> Grouchy Mole (-> 5)

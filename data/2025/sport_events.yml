@@ -41,7 +41,7 @@
   start: 2025-05-09 17:30
   end: 2025-05-09 21:00
   match_duration: 30
-  loc: tum_pitches
+  loc: tum_big_field
   pitch_type_name: Court
   icon: 🏐
   min_player_val: 8

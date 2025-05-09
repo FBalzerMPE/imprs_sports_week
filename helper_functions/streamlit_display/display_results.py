@@ -86,6 +86,7 @@ def st_display_full_results(data: DataRegistry):
         )
         return
     score_df = _get_full_score_df(data)
+
     team_colors = alt.Color(
         "Team:N", scale=alt.Scale(range=[team.color for team in data.teams])
     )

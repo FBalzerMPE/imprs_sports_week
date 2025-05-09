@@ -219,7 +219,7 @@ class DataRegistry:
         # Maybe TODO: Read this stuff from some sort of file.
         year_dict: dict[int, dict[str, int]] = {
             2024: {"B": 35, "C": 34, "A": 31},
-            2025: {"A": 18, "B": 46, "C": 36},
+            2025: {"A": 20, "B": 47, "C": 33},
         }
         return year_dict[self.year].get(team_letter, 0)
 

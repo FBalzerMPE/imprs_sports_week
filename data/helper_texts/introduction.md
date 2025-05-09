@@ -1,11 +1,15 @@
 
-## Daily announcement⚠️⚠️⚠️
+## ⚠️⚠️⚠️Friday announcement: Party, Volleyball, Basketball and more!
 
-The Capture the Flag match is going to take place even if there's some light rain throughout the day. Fingers crossed there won't be rain during the event. Please try to arrive at least 10 minutes prior to your matches, the location can be found in the location tab (TUM pitches, where also the football and spikeball took place).
+Today is going to be a chaotic blast! Here's what you need to know:
 
-We advise you to bring long-sleeved clothing as the temperatures are expected to be around 10°C.
+- We have scheduled **🏀Basketball** and **🏐Volleyball** matches for anyone to join (no signup required) as a replacement for Monday (check their pages for more info).
+- However, please **prioritize** your **💥Foosball**, **🍺Beer Pong** and **⚪Ping Pong** matches! Your teammates and opponents are counting on that, don't let them down and be at the venues at least 5 minutes before the start of your matches.
+- We have bought snacks (free) and will provide drinks and beers (just 1 € each) at the party around the common room starting around 19:00🎉🎉🎉
+- 🏆Stay around until 21:45, at which point there is going to be the big award ceremony - will your main team bring home the fabled trophy? And: Which individual player might have scored the most points for their main team?
 
-For Chess, there's not much to say - maybe familiarize yourself with the location in beforehand, and also plan to come at least 10 minutes prior to your matches. Also feel free to bring Chess boards for leisure matches during waiting times :)
+Some further details:
+- 🏐Volleyball is planned to only happen at the grass courts we set up as we can't guarantee that the Beach courts will be available in advance.
 
 ## Spirit of the Sports Week
 

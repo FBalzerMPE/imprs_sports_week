@@ -7,4 +7,3 @@ from .display_top_scorers import st_display_top_scorers
 from .navigation_setup import st_set_up_navigation
 from .streamlit_map_plot import *
 from .streamlit_util import *
-from .display_running_sprints_results import display_points_plot
