@@ -4,6 +4,12 @@ import streamlit as st
 
 import helper_functions as hf
 
+# from helper_functions.streamlit_display.display_running_sprints_results import (
+#     display_running_sprints_results,
+# )
+
+# display_running_sprints_results(hf.DATA_NOW)
+
 st.write(f"# Welcome to the {hf.CURRENT_YEAR} INTER-INSTITUTE SPORTS WEEK in Garching!")
 
 with st.expander(f"This Year's Poster", expanded=False):

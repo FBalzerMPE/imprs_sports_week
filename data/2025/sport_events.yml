@@ -24,7 +24,7 @@
   num_pitches: 1
   num_players_per_subteam: 5
   num_subteams: 2
-  point_weight_factor: 1.5
+  point_weight_factor: 1
   conflicting_sports:
     - volleyball
 - name: running_sprints
@@ -46,11 +46,11 @@
   icon: 🏐
   min_player_val: 8
   num_players_per_subteam: 4
-  num_subteams: 5
+  num_subteams: 2
   num_pitches: 3
   conflicting_sports:
     - basketball
-  point_weight_factor: 3
+  point_weight_factor: 1.5
 - name: football
   start: 2025-05-06 17:45
   end: 2025-05-06 21:00

@@ -150,3 +150,5 @@ My current idea for the three matches amongst the three teams: Just reschedule s
 - [ ] 2025-05-08 15:35:34 - Subteam change in Team A for ping_pong: Deserted Chimpanzee (0D-> D) WITHOUT REPLACEMENT
 - [ ] 2025-05-08 16:09:59 - Subteam change in Team A for foosball: Kooky Snake (-> 5) <--> Unwritten Saiga (-> D)
 - [ ] 2025-05-08 16:11:01 - Subteam change in Team A for foosball: Kooky Snake (-> 2) <--> Grouchy Mole (-> 5)
+2025-05-09 14:15:59 - Sent schedule update to Kooky Snake.
+2025-05-09 14:16:09 - Sent schedule update to Grouchy Mole.
