@@ -17,16 +17,17 @@ tab_names = [
 tabs = st.tabs(tab_names)
 # Results tab:
 with tabs[0]:
-    st.write(
-        "You're probably wondering who's currently in the lead, but to keep the suspense, we've decided to hide the results for now...\\\nLast time we looked, Team C was slightly ahead, but then Team A and B had strong performances in Spikeball, and there were still Chess, CtF, Basketball, Volleyball, Foosball, Beer Pong and many Ping Pong matches to be played...\\\nAll will be revealed at the award ceremony on Friday 21:45 at the MPA seminar room!"
-    )
+    # st.write(
+    #     "You're probably wondering who's currently in the lead, but to keep the suspense, we've decided to hide the results for now...\\\nLast time we looked, Team C was slightly ahead, but then Team A and B had strong performances in Spikeball, and there were still Chess, CtF, Basketball, Volleyball, Foosball, Beer Pong and many Ping Pong matches to be played...\\\nAll will be revealed at the award ceremony on Friday 21:45 at the MPA seminar room!"
+    # )
+    st.write("The results of the sports week are now available!")
     # if hf.DATAPATH.joinpath("hidden").exists():
     hf.st_display_full_results(hf.DATA_NOW)
 # Scorers tab:
 with tabs[1]:
-    st.write(
-        "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!\n\nHow does it work? For every match you win (even in a team), you are awarded approximately 5 points, and your points are summed up across all sports."
-    )
+    # st.write(
+    #     "The top scorers of each team will be revealed at the end of each week in order for the mystery to build up - just do your best and you might end up in the top 25!\n\nHow does it work? For every match you win (even in a team), you are awarded approximately 5 points, and your points are summed up across all sports."
+    # )
     # if hf.DATAPATH.joinpath("hidden").exists():
     hf.st_display_top_scorers(hf.DATA_NOW)
 # FAQ tab:

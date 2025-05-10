@@ -58,12 +58,13 @@ def _get_individual_score_df(
 
 _SCORER_TEXT = """
 What do these scores mean and how are they calculated, you ask?\\
-They roughly reflect how many points these individuals have solely achieved for their team!
+They roughly reflect how many points these individuals have solely achieved for their team - roughly speaking, by winning a single match, you'd score your team between 4 and 6.5 points!
 
 We calculate the score $S$ by summing the winning values, $S=\\sum_{{i}}(w_i + t_i/2)X_i$, where $w_i$ and $t_i$ are the amounts of games won and tied for each attended sport $i$, and $X_i$ is the contribution value of a single player for a single match in sport $i$.\\
-We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor of sport $i$ that can also be seen in the plot for the results, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for football, $X_{{\\rm F}}=150/(3\\cdot8)=6.25$, and for chess $X_{{\\rm C}}=100/(9\\cdot1)=11.1$.
-As mentioned above, the sports value the individual players slightly differently, but that is fine; it's all in the range between $5.5$ and $11.1$.\\
-Note that we divide by the planned number of players in a subteam and not the actual one, to even things out; you get the same amount of points for winning in football in a team of just the planned 8 as in a team of 10.
+We determine $X_i=\\frac{{100f_i}}{{N_{{{{\\rm match}},i}}N_{{{{\\rm pps}}, i}}}}$, where $f_i$ is the point-weight factor of sport $i$ that can also be seen in the plot for the results, $N_{{{{\\rm match}},i}}$ the number of matches scheduled for sport $i$, and $N_{{{{\\rm pps}},i}}$ is the number of players per subteam, so e.g. for Football, $X_{{\\rm F}}=2\\cdot100/(3\\cdot7\\cdot2)\\approx4.8$, and for chess $X_{{\\rm C}}=100/(18\\cdot1)=5.55$.\\
+Note that we divide by the planned number of players in a subteam and not the actual one, to even things out; you get the same amount of points for winning in football in a team of just the planned 7 as in a team of 10.
+
+Also note that these values differ for each Sports Week, as the number of matches, players per subteam, and point weight factors can change - e.g., in the first Sports Week, Chess and Tennis were worth 11.1 points as there were very little matches.\\
 """
 
 
