@@ -2,7 +2,6 @@
 
 - We'll try to use the three courts set up at the TUM football and running field, so we will NOT play at the Beachvolleyball fields as we don't want to rely on them.
 - This means that you will play Volleyball on the grass, so please bring shoes that are suitable.
-<!-- - Each main team will send out NUM_SUBTEAMS subteams, with NUM_PLAYERS_SUBTEAM players on each subteam. -->
 - Any player may join any of their main teams' subteams.
 - The reserve players may support any of the subteams, and can be switched in at the rotations.
 - Each subteam will only play one match, but feel free to join multiple subteams!

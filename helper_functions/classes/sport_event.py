@@ -451,7 +451,7 @@ class SportEvent:
 
         if self.sanitized_name in ["basketball", "volleyball"]:
             st.write(
-                "⚠️Due to the rain, the Monday matches have been cancelled. Instead, there will be free-to-join matches on Friday, starting at 17:30. If you want to join, just stop by! You won't need to be part of any subteam."
+                "⚠️Due to the rain, the Monday matches have been cancelled. Instead, there were free-to-join matches on Friday, starting at 17:30. If you want to join, just stop by! You won't need to be part of any subteam."
             )
         if self.sanitized_name == "running_sprints":
             fpath = FpathRegistry.get_path_running_sprints(self.year)
@@ -534,7 +534,13 @@ class SportEvent:
                 "volleyball",
             ]:
                 st.write(
-                    "The subteams are not set in beforehand for this event as it's a spontaneous replacement - you may join any of the matches, just come to the courts and tell us your nickname! However, after having played a match, you might need to make room for other players that want to play.\n\n#### Signed up players\n\nThe following players initially signed up:"
+                    "The subteams were not set in beforehand for this event as it was a spontaneous replacement - anyone was allowed to join any of the matches for their main team.\n\nSince it was pretty chaotic, we cannot guarantee that the subteams are correct. Let us know if you were forgotten. Also, the subteams changed slightly in between matches, and players jumped in pretty flexibly to help out (which is not properly reflected here).\n\nThe people that joined any subteams were the following:"
+                )
+                _st_display_subteam_df(
+                    df[~reserve_mask & ~dropout_mask], get_data_for_year(self.year)
+                )
+                st.write(
+                    "#### Other players\nThe following players also initially signed up:"
                 )
             else:
                 st.write("The subteams above consist of the following players:")

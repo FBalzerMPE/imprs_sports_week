@@ -2,7 +2,7 @@ import streamlit as st
 
 import helper_functions as hf
 
-_INTRO_TEXT = """# FAQ, results and more
+_INTRO_TEXT = """# Results, FAQ and more
 
 On this page, you can find an overview of the results of the sports week plus some info on the top scorers, an FAQ and a changelog of this website.
 """

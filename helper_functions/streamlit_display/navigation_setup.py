@@ -44,7 +44,7 @@ def st_set_up_navigation():
             "Other": [
                 st.Page(
                     "streamlit_pages/results.py",
-                    title="FAQ and Results",
+                    title="Results and FAQ",
                     icon="📈",
                     url_path="results",
                 ),

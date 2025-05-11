@@ -57,6 +57,13 @@ def get_players(
 
 def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
     all_subteams = {}
+
+    if year == 2025:
+        for num, sport in zip((2, 1), ("volleyball", "basketball")):
+            for i in range(num):
+                for team in "ABC":
+                    subteam = Subteam(sport, team, str(i + 1), [])
+                    all_subteams[sport + "_" + subteam.short_key] = subteam
     for team in get_teams(year):
         df = team.player_df
         for sport in SPORTS_LIST:
@@ -77,14 +84,14 @@ def get_subteams(year=CURRENT_YEAR) -> dict[str, Subteam]:
                 )
 
                 all_subteams[sport + "_" + subteam.short_key] = subteam
-    if year != 2025:
-        return all_subteams
-    for num, sport in zip((12, 5), ("volleyball", "basketball")):
-        for i in range(num):
-            for team in "ABC":
-                subteam = Subteam(sport, team, str(i + 1), [])
-                all_subteams[sport + "_" + subteam.short_key] = subteam
     return all_subteams
+    # if year != 2025:
+    # for num, sport in zip((12, 5), ("volleyball", "basketball")):
+    #     for i in range(num):
+    #         for team in "ABC":
+    #             subteam = Subteam(sport, team, str(i + 1), [])
+    #             all_subteams[sport + "_" + subteam.short_key] = subteam
+    # return all_subteams
 
 
 # @st.cache_data(ttl=60)

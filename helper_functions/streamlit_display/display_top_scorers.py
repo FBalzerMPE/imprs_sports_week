@@ -81,7 +81,7 @@ def st_display_top_scorers(data: DataRegistry):
         "Score", max_value=max(score_df["Score_num"]), format=""
     )
     st.write(
-        f"The table below shows the top-scoring players of the {data.year} sports week!"
+        f"The table below shows the top-scoring players of the {data.year} sports week! Note that the values you can achieve for each sport change from year to year, so they might not be directly comparable."
     )
     st.dataframe(
         st_style_df_with_team_vals(score_df, data),
